@@ -21,7 +21,7 @@ target="_blank">Developer</a> provee a los desarrolladores de software libre (ta
 <li> Repositorio CVS como sistema de versiones para el código
 <li> Espacio FTP para la publicación de software
 <li> Gestión de usuario para restringir el acceso al repositorio CVS del proyecto
-<li> Publicación en el índice de aplicaciones de BerliOS: <a href="http://sourcewell.berlios.de">SourceWell<a>
+<li> Publicación en el índice de aplicaciones de BerliOS: <a href="http://sourcewell.berlios.de">SourceWell</a>
 </ul>
 
 <p>BerliOS también tiene como finalidad proporcionar soporte económico a los desarrolladores mediante el patricinio de proyectos. Un desarrollador tiene la posiblidad de recibir una contraprestación económica por su poryecto o de formar parte en proyectos financiados por empresas. En ambos casos, el software resultaten debe de ser software libre (también conocido como Open Source). El tipo de licencia se deja a cada proyecto, aunque en cualquier caso debe de tratars de una licencia homologada por la Open Source Iniciative (OSI).

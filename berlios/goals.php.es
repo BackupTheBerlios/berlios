@@ -2,7 +2,7 @@
 require("include/site_header.html.es");
 ?>
 
-<!-- $Id: goals.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: goals.php.es,v 1.4 2002/05/14 00:49:36 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Objetivos de BerliOS</h2>
@@ -14,7 +14,7 @@ require("include/site_header.html.es");
 <ul>
 <li><b>Mediación de software libre (Open Source)</b> mediante el uso de servicios abiertos y libres para atraer a patrocinadores y desarrolladores y expandir tanto el uso como el espectro de soluciones de software libre (Open Source).
 
-<li>Implementación de <b>soluciones de software libre (Open Source)<b> para &aacute;reas industriales y de negocio en las que sólo existen soluciones propietarias.
+<li>Implementación de <b>soluciones de software libre (Open Source)</b> para &aacute;reas industriales y de negocio en las que sólo existen soluciones propietarias.
 
 <li>Proporcionar una <b>plataforma</b> para desarrollo, difusión y distribución de software libre (Open Source).
 </ul>
