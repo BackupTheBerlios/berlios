@@ -1,5 +1,5 @@
 <?php
-require("include/site_header.html.es");
+require("include/site_header.html.en");
 ?>
 
 <h2>Users</h2>
