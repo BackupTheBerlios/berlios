@@ -1,14 +1,14 @@
-<!-- $Id: site_header.html.es,v 1.9 2002/05/14 00:10:07 grex Exp $ -->
-<!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
-<link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: site_header.html.es,v 1.9 2002/05/14 00:10:07 grex Exp $ -->
-<!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
+   <link rel="stylesheet" href="berlios.css" type="text/css">
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="BerliOS">
+   <meta name="Description" content="El objetivo de BerliOS es proporcionar apoyo a los diferentes grupos de inter&eacute;s en el &aacute;rea del software libre (también conocido como Open Source).">
+   <meta name="KeyWords" content="Open Source, software libre, desarrollo, GPL, licencias libres, aplicaciones, proyectos">
+   <link rel="shortcut icon" href="berlios.ico">
 </head>
 <body bgcolor="#FFFFFF">
 
@@ -68,3 +68,18 @@
   </tr>
 </table>
 <!-- end top title -->
+
+<!-- content -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr valign="top">
+
+<?php
+require("include/site_menubar.html.es");
+?>
+
+    <!-- content -->
+    <td width="99%">
+      <p>&nbsp;
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr valign="top">
+          <td width="65%">

@@ -2,6 +2,9 @@
 require("include/site_header.html.es");
 ?>
 
+<!-- $Id: index.php.es,v 1.13 2002/05/14 00:16:22 grex Exp $ -->
+<!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
+
 <!-- content -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top">
