@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/04/02 12:14:03 helix Exp $
+// $Id: index.php,v 1.4 2004/06/09 12:23:07 helix Exp $
 
 require ('pre.php');    
 
@@ -61,6 +61,13 @@ to view your developer/consultant profiles and ratings.
 <TD>Email Addr: </TD>
 <TD><B><?php print $row_user['email']; ?></B>
 <BR><A href="change_email.php">[Change Email Addr]</A>
+</TD>
+</TR>
+
+<TR valign=top>
+<TD>Login Shell: </TD>
+<TD><B><?php print $row_user['shell']; ?></B>
+<BR><A href="change_shell.php">[Change Login Shell]</A>
 </TD>
 </TR>
 
