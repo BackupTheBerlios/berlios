@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2003/11/26 14:44:14 helix Exp $
+// $Id: index.php,v 1.4 2003/11/27 15:13:48 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -73,7 +73,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			echo '
 			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/bugs/?func=detailbug&group_id='.
 				db_result($result,$i,'group_id').'&bug_id='.db_result($result,$i,'bug_id').
-				'">'.db_result($result,$i,'bug_id').'</A></TD>'.
+				'">'.sprintf("%06d",db_result($result,$i,'bug_id')).'</A></TD>'.
 				'<TD>'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
 
 			$last_group=db_result($result,$i,'group_id');
@@ -109,7 +109,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			echo '
 			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/support/?func=detailsupport&group_id='.
 				db_result($result,$i,'group_id').'&support_id='.db_result($result,$i,'support_id').
-				'">'.db_result($result,$i,'support_id').'</A></TD>'.
+				'">'.sprintf("%06d",db_result($result,$i,'support_id')).'</A></TD>'.
 				'<TD>'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
 
 			$last_group=db_result($result,$i,'group_id');
@@ -257,7 +257,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			db_result($result, $i, 'project_task_id').
 			'&group_id='.db_result($result, $i, 'group_id').
 			'&group_project_id='.db_result($result, $i, 'group_project_id').'">'.
-			db_result($result, $i, 'project_task_id').'</TD>
+			sprintf("%06d",db_result($result, $i, 'project_task_id')).'</A></TD>
 			<TD>'.$style_begin.stripslashes(db_result($result, $i, 'summary')).$style_end.'</TD></TR>';
 
 			$last_group = db_result($result,$i,'group_project_id');
