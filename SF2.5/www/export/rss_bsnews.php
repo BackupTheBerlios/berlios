@@ -11,8 +11,16 @@ print '<?xml version="1.0"?>
 if (!$limit) $limit = 10;
 if ($limit > 100) $limit = 100;
 
-$res = db_query('SELECT forum_id,summary,date,details,group_id FROM news_bytes '
-	.'WHERE is_approved=1 ORDER BY date DESC',$limit);
+if ($group_id) {
+	$where = "group_id=$group_id";
+} else {
+	$where = "is_approved=1";
+}
+
+$query = "SELECT forum_id,summary,date,details,group_id FROM news_bytes "
+	."WHERE $where ORDER BY date DESC";
+
+$res = db_query($query,$limit);
 
 // ## one time output
 print " <channel>\n";

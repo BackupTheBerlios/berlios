@@ -11,6 +11,12 @@ print '<?xml version="1.0"?>
 if (!$limit) $limit = 10;
 if ($limit > 100) $limit = 100;
 
+if ($group_id) {
+	$where = "frs_package.group_id=$group_id AND ";
+} else {
+	$where = "";
+}
+
 $res = db_query("SELECT groups.group_name AS group_name,"
 	. "frs_package.group_id AS group_id,"
 	. "groups.unix_group_name AS unix_group_name,"
@@ -27,6 +33,7 @@ $res = db_query("SELECT groups.group_name AS group_name,"
 	. "frs_release.released_by=users.user_id AND "
 	. "frs_release.package_id=frs_package.package_id AND "
 	. "frs_package.group_id=groups.group_id AND "
+	. $where
 	. "frs_file.release_id=frs_release.release_id "
 	. "ORDER BY frs_file.release_time DESC",($limit * 3));
 
