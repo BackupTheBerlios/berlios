@@ -35,7 +35,7 @@
 <!-- top title -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top" bgcolor="#FFCC33">
-    <td>
+    <td bgcolor="#FFFFFF">
       <a href="index.php.en"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" border="0" height="61" width="238" alt="BerliOS" hspace="5" vspace="5"></a>
     </td>
     <td width="10" bgcolor="#FFCC33">
