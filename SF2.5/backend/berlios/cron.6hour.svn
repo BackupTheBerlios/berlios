@@ -22,10 +22,37 @@ cd /usr/local/httpd/SF2.5/backend/berlios
 #
 #./create_cvs_project_quota.pl
 
+#
+# Tasks for new SVN project/group:
+#   Create group/project groupid in /etc/group
+#   based on infos available in /home/dummy/dumps25/group_dump
+#       <projectname>::gid:list_of_users:wwwrun (gid=uid >=1000)
+#
+# Only 32 groups/user => using ACLs instead!!!
+# 
+#cd /usr/local/httpd/SF2.5/backend/berlios
+#./create_project_group_svn.pl
+
 #   Create SVN Archive at /svnroot/repos/<projectname>
 #   based on infos available in /home/dummy/dumps25/group_dump
 #
 ./create_svn_archive.pl
+
+#   Restart Apache server
+#   because of possible hanging processes which locks svn repositories
+#
+# Apache is broken and won't restart
+/etc/init.d/apache stop
+sleep 5
+/etc/init.d/apache stop
+apache_pid=`cat /var/run/httpd.pid`
+apache_procs=`pgrep -g $apache_pid httpd`
+if [ ."$apache_procs" != . ]; then
+         pkill -9 -g $apache_pid
+fi
+# tcp_close_wait_interval is 20 seconds...
+sleep 25
+/etc/init.d/apache start
 
 echo ""
 echo "Done."
