@@ -16,8 +16,8 @@
 
 <!--  <a href="<?php echo $top_level; ?>/index.php.en" class="menus">Home</a> -->
 
-<p><a href="users.php.en" class="menus">User</a>
-<br><a href="developers.php.en" class="menus">Developer</a>
+<p><a href="users.php.en" class="menus">Users</a>
+<br><a href="developers.php.en" class="menus">Developers</a>
 <br><a href="manufacturer.php.en" class="menus">Manufacturer &amp;<br>Support</a>
 
 </td>
@@ -28,7 +28,7 @@
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
 <td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">BerliOS</font></span></td>
+<span class="titlebar"><font color="#FFFFFF">Platform</font></span></td>
 </tr>
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">

@@ -1,0 +1,9 @@
+These are the PHP pages for the www.berlios.de web portal.
+
+Before being able install these pages, make sure that your web server has 
+been configured to interpret '*.php.*' pages as PHP pages. Second, ensure 
+that the re_create_links.sh shell-script has been called in the top-level
+directory. This script recreates all symbolic links that are required to 
+view the pages correctly.
+
+

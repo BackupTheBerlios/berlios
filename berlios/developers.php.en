@@ -1,4 +1,4 @@
-<!-- $Id: developers.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+<!-- $Id: developers.php.en,v 1.3 2002/01/07 06:39:40 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -31,12 +31,13 @@ require("include/site_menubar.html.en");
 
 <h2>Developers</h2>
 
-<p>A server-based infrastructure (<a href="http://developer.berlios.de" 
-target="_blank">BerliOS Developer</a>) provides developers of Open Source 
+<p>A server-based infrastructure, the <a href="http://developer.berlios.de" 
+target="_blank">Developer</a> portal provides developers of Open Source 
 Software with various services for enabling joint coordinated software 
-development between people who live and work at different geographical places.
+development between people who living and work in different geographical 
+areas.
 
-These services include:
+<p>These services include:
 <ul>
 <li> Web space for projects specific websites
 <li> Discussion forums for developers and users of project code
@@ -50,24 +51,41 @@ These services include:
 </ul>
 
 <p>The goal is also to provide financial support for developers through
-paid projects. A developer has the possibility of being paid for their
-existing project or taking part in a paid project financed by a company. In
-both cases the resulting software will be Open Source Software (OSS). Project 
-offers
-and ideas can be presented and viewed at BerliOS' 
-<a href="http://sourceagency.berlios.de" target="_blank">SourceAgency</a> site.
+sponsored projects. A developer has the possibility of being paid for their
+existing project or taking part in paid projects financed by companies. In
+both cases the resulting software will be Open Source Software (OSS). Specific
+licensing of software is left up to the individual projects, however an
+Open Source License must be used.
 
-<p>Developers are also able to present their project latest releases at
-BerliOS' <a href="http://sorcewell.berlios.de" target="_blank">SourceWell</a>
-site. SourceWell is similar to <a href="http://freshmeat.net" 
+<p>Project offers and ideas can be presented and viewed at the 
+<a href="http://sourceagency.berlios.de" target="_blank">SourceAgency</a>
+portal, which offers both online negotiation and discussion making support.
+
+<p>Developers are also able to announce their project latest releases at
+the <a href="http://sorcewell.berlios.de" target="_blank">SourceWell</a>
+portal. SourceWell is similar to <a href="http://freshmeat.net" 
 target="_blank">FreshMeat</a> and provides an announcement services for latest
-releases of OSS.
+releases of OSS. It is not limited to software developed using the BerliOS
+platform.
 
 <p>BerliOS' <a href="http://devcounter.berlios.de" target="_blank"
 >DevCounter</a> provides a service where OSS Developers can register
-themselves and provide a description of their skills.
+themselves and provide a description of their skills. This repository is then
+viewable for sponsors how many use it to contact developers directly.
 
-</td>
+<p>BerliOS Portals:
+<ul>
+<li> Developer <a
+href="http://developer.berlios.de">http://developer.berlios.de</a>
+<li> SourceAgency <a
+href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
+<li> DevCounter <a
+href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
+<li> SourceWell <a
+href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+</ul>
+
+<p></td>
 
 <td WIDTH="35%">
 

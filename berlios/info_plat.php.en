@@ -1,4 +1,4 @@
-<!-- $Id: info_plat.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
+<!-- $Id: info_plat.php.en,v 1.4 2002/01/07 06:39:40 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -33,18 +33,20 @@ require("include/site_menubar.html.en");
 
 <p>Part of the BerliOS project is to provide documentation and general
 information about the Open Source community and its going ons. A very
-important of all Open Source projects is providing documentation allowing
+important part of all Open Source projects is providing documentation allowing
 users to easily install, use and upgrade their Open Source Software.
 
 <p><a href="http://docswell.berlios.de">DocsWell</a> provides one central
 location for the announcement and retrieval of general documentation
 related to Open Source. Here you will find lists of HOWTOs, manuals, 
 guides, FAQs and books. Each entry may be downloaded directly from the site.
-Register users may add new entries and update existing ones.
+Users may add new entries and update existing ones.
 
 <p><a href="http://news.berlios.de">News</a> presents news about happenings
 within, about and around the Open Source community. News allows registered
-users to add and update news items. 
+users to add and update news items. News is similar to <a
+href="http://slashdot.org">SlashDot</a> portal however is aimed mainly for the
+German speaking Open Source community.
 
 <p><a href="http://wiki.berlios.de">Wiki</a> provides an open communication
 portal based on the <a href="http://www.c2.com/cgi/wiki?WikiWikiWeb">Wiki
@@ -53,17 +55,18 @@ and email forms of communication.
 
 <p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
 service where messages may be commented and replied to. Forum is intended to
-allow discussion related to Open Source.
+allow discussion related to Open Source. Visitors are allowed to add messages 
+and reply to existing messages.
 
 <p>BerliOS Portals:
 <ul>
-<li> DocsWell (<a href="http://docswell.berlios.de">http://docswell.berlios.de</a>)
-<li> News (<a href="http://news.berlios.de">http://news.berlios.de</a>)
-<li> Wiki (<a href="http://wiki.berlios.de">http://wiki.berlios.de</a>)
-<li> Forum (<a href="http://forum.berlios.de">http://forum.berlios.de</a>)
+<li> DocsWell <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
+<li> News <a href="http://news.berlios.de">http://news.berlios.de</a>
+<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
+<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
 </ul>
 
-</td>
+<p></td>
 
 <td WIDTH="35%">
 
