@@ -4,10 +4,11 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:22 helix Exp $
+// $Id: index.php,v 1.3 2003/11/24 10:27:48 helix Exp $
 
 require ('pre.php');    
 
+if ($group_id) {
 //only projects can use the bug tracker, and only if they have it turned on
 $project=project_get_object($group_id);
 
@@ -100,6 +101,10 @@ file in the repository.
 print $HTML->box1_bottom();
 
 print '</TD></TR></TABLE>';
+
+} else {
+	exit_no_group();
+}
 
 site_project_footer(array());
 
