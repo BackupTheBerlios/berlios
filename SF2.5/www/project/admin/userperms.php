@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userperms.php,v 1.5 2004/04/21 13:57:16 helix Exp $
+// $Id: userperms.php,v 1.6 2004/10/11 15:02:22 helix Exp $
 
 require "pre.php";    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -92,7 +92,7 @@ project_admin_header(array('title'=>'Project Developer Permissions','group'=>$gr
 <dd>can access this page and other project administration pages</dd>
 
 <dt><B>Release Technicians</B></dt>
-<dd>can make the file releases (any project admin also a release technician)</dd>
+<dd>can make the file releases (any project admin is also a release technician)</dd>
 
 <?php /*
 <dt><B>CVS Admins</B></dt>
