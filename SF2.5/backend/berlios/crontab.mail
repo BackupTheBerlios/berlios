@@ -6,3 +6,8 @@
 # four times a day every 6 hours
 #
 05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.mail >/dev/null 2>&1
+#
+# at the end of every week (before Mon 00:00:00)
+#
+30 23 * * 0 /usr/local/httpd/SF2.5/backend/berlios/cron.weekly.mail
+

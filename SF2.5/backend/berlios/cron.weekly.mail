@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed at the end of every week
+# (before Monday 00:00:00) on Mail server: mail.berlios.de
+#
+
+echo "BerliOS tasks to be executed at the end of every week on Mail server"
+
+#
+# Remove file older than 14 days from /var/log/httpd
+#
+find /var/log/httpd -ctime +14 -exec rm {} \;
+
+echo ""
+echo "Done."

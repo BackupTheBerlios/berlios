@@ -19,12 +19,12 @@ while ($ln = shift(@group_dump)) {
   ($groupname, $status, $groupid, $userlist) = split(":", $ln);
   $homdir = $config{'project_home'}."/".$groupname;
   if ($status eq "A") {
-	print("mkdir -m 0755 -p $homdir\n");
-	system("mkdir -m 0755 -p $homdir");
+	print("mkdir -m 0555 -p $homdir\n");
+	system("mkdir -m 0555 -p $homdir");
 #	print("chmod g+s $homdir\n");
 #	system("find $homdir -type d | xargs chmod g+s");
-	print("chown -h wwwrun:$groupname $homdir\n");
-	system("chown -h wwwrun:$groupname $homdir");
+	print("chown -h $groupname:$groupname $homdir\n");
+	system("chown -h $groupname:$groupname $homdir");
   } elsif ($status eq "D") {
 	print("rm -rf $homdir\n");
 	system("rm -rf $homdir");
