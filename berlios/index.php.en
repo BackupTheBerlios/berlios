@@ -26,52 +26,45 @@ require("include/site_menubar.html.en");
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
 <tr VALIGN=TOP>
 <td WIDTH="65%">
-<h2>The BerliOS Project</h2>
-
-<p>The goal of BerliOS is to provide support for different interest groups 
-in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
-mediator function. The target groups of BerliOS are on one hand the 
-developers and users of Open Source Software and on the other hand commercial 
-manufacturers of OSS operating systems and applications as well as support 
-companies.
+<!--  <center><h2>The BerliOS Project</h2></center> -->
 
 <map name="BerliOSPie">
 <!-- central circle -->
-<area shape="circle" coords="225,225,45" href="http://www.berlios.de/" 
+<area shape="circle" coords="225,225,45" href="goals.php.en" 
       alt="BerliOS">
 
 <!-- Informations platform Wedge -->
 <area shape="poly" coords="70,226,74,185,87,153,109,120,146,90,201,184,187,201,179,223" 
-      href="http://docswell.berlios.de" alt="DocWell">
+      href="info_plat.php.en" alt="Information Platform">
 <!-- Vermittlung von Ideen Wedge -->
 <area shape="poly" coords="147,89,181,75,217,69,256,71,286,80,304,89,248,182,229,179,215,179,201,184" 
-      href="http://sourceagency.berlios.de" alt="SourceAgency">
+      href="proj_spon.php.en" alt="Project Sponsoring">
 <!-- Entwicklungs plattform Wedge -->
 <area shape="poly" coords="249,182,257,189,264,197,273,216,272,221,311,225,322,216,339,226,380,224,377,188,367,160,351,133,333,113,307,92,303,90" 
-      href="http://developer.berlios.de" alt="Developer">
+      href="supp_deve.php.en" alt="Supporting OS Development">
 <!-- Vermittlung von Known-how OS-Software Wedge -->
 <area shape="poly" coords="275,222,380,225,378,265,364,299,344,327,317,355,304,361,249,268,266,253,273,239,278,223" 
-      href="http://sourcelines.berlios.de" alt="SourceLines">
+      href="exis_solu.php.en" alt="Existing Solutions">
 <!-- Presentation platform wedge -->
 <area shape="poly" coords="201,267,221,272,234,271,248,268,303,361,271,375,223,382,183,376,145,363" 
-      href="http://sourcewell.berlios.de" alt="SourceWell">
+      href="pres_plat.php.en" alt="Presentation Platform">
 <!-- Vermittlung von Know-how Dienstleistungen wedge -->
 <area shape="poly" coords="179,225,183,242,185,252,190,258,200,267,146,362,124,347,99,321,82,291,73,264,68,225" 
-      href="http://news.berlios.de" alt="News">
+      href="know_hows.php.en" alt="Know How">
 
 <!-- Anwender outer wedge -->
 <area shape="poly" coords="146,363,173,374,215,382,238,382,274,376,300,365,303,361,337,420,293,439,256,449,203,449,154,438,114,421" 
-      href="http://sourcebiz.berlios.de" 
-      alt="Service Providers">
+      href="manufacturer.php.en" 
+      alt="Service Providers and Manufacturers">
 <!-- Entwickler outer wedge -->
 <area shape="poly" 
       coords="0,225,5,177,23,126,42,94,64,68,86,51,105,36,113,30,147,90,118,113,96,140,84,162,75,186,70,219,69,226" 
-      href="http://user.berlios.de/index.php.en" 
-      alt="Small and Medium sized companies">
+      href="users.php.en" 
+      alt="Users">
 <!-- Dienstleister and hersteller outer wedge -->
 <area shape="poly" 
       coords="380,226,450,226,447,188,437,151,422,113,401,82,380,63,361,46,339,32,303,90,327,105,343,121,355,137,366,157,373,179" 
-      href="http://devcounter.berlios.de" alt="Developrs">
+      href="developers.php.en" alt="Developrs">
 </map>
 
 <center>
@@ -79,34 +72,12 @@ companies.
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
 
-<p><b>Users</b>
-
-<p>Besides private users of Open Source Software small or midsize enterprises (SMEs) as well as the public administration are important target groups BerliOS will address. It will be pointed out in which application areas entire OSS solutions are already available today and are applicable in production fields.
-
-<p>In dialogue with the users of particular trades missing components will be identified, which still averts OSS solutions to come into operation today. The development of these missing components shall then be initiated by contacting software houses or free developer groups to realize corresponding components.
-
-<p>Another main focus will be the provision of general information about the OSS community. Among other thinks this includes web-based documentation, databases for software (<a href="http://sourcewell.berlios.de/" target="_blank">SourceWell</a>), hardware and products, news and events (<a href="http://news.berlios.de/" target="_blank">BerliOS News</a>) as well as search engines.
-Furthermore existing solutions into operation in particular trades are presented and documented. Discussion forums (<a href="http://forum.berlios.de/" target="_blank">BerliOS Forum</a>) support the exchange of experiences between the users of OSS solutions. Finally the most important Web and FTP servers are mirrored to offer the world-wide developed Open Source software and documentation in the national (Germany) domain extensive and fast.
-
-<p align=right><a href="http://user.berlios.de/index.php.en"><b>more...</b></a>
-
-<p><b>Developers</b>
-
-<p>A server-based infrastructure (<a href="http://developer.berlios.de" target="_blank">BerliOS Developer</a>) will be provided for the developers of Open Source software. The administrative tools supports the joint coordinated software development between people who live and work at different geographical places.
-
-<p>For free developer groups incentives shall be provided by an Open Source Software Exchange. In the market particular enterprises, interest groups or the government will offer an amount of money for a needed solution. The developers which supplies the components will gain the money.
-
-<p>The motivation for software houses to develop commercial products results from demand analyses in particular trades which shows a market gap. 
-
-<p align=right><a href="http://developer.berlios.de/"><b>more...</b></a>
-
-<p><b>Manufacturer &amp; Support</b>
-
-<p>The application of Open Source software in business environment creates a need for high quality consultancy, technical support and training leading to job creation in a new dynamic industry sector. Business opportunities arise for information technology professionals and start-up companies offering Open Source expertise and technical support services. BerliOS will support this process by acting as information switchboard (<a href="http://sourcebiz.berlios.de/?lang=English" target="_blank">SourceBiz</a>) and clearing house between demand and supply side of Open Source support services.
-
-<p align=right><a href="http://sourcebiz.berlios.de/?lang=English"><b>more...</b></a>
-<br>&nbsp;
-</td>
+<p>The goal of BerliOS is to provide support for different interest groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. The target groups of BerliOS are on one hand the 
+developers and users of Open Source Software and on the other hand commercial 
+manufacturers of OSS operating systems and applications as well as support 
+companies.
 
 <td>
 &nbsp;
@@ -135,3 +106,4 @@ require("include/site_footer.html");
 
 </body>
 </html>
+

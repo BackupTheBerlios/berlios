@@ -1,4 +1,4 @@
-<!-- $Id: info_plat.php.en,v 1.1 2001/12/06 15:09:39 riessen Exp $ -->
+<!-- $Id: info_plat.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -30,6 +30,23 @@ require("include/site_menubar.html.en");
 <td WIDTH="65%">
 
 <h2>Information Platform</h2>
+<?php
+/**
+  Portals:
+   --> docswell
+   --> news
+   --> wiki
+   --> forum
+**/
+?>
+BerliOS Portals:
+<ul>
+<li> <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
+<li> <a href="http://news.berlios.de">http://news.berlios.de</a>
+<li> <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
+<li> <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+</ul>
+
 
 </td>
 

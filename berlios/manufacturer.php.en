@@ -1,3 +1,6 @@
+
+<!-- $Id: manufacturer.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
@@ -35,18 +38,6 @@ Developers and Software. BerliOS allows company to advertise as Open Source
 companies using the <a href="http://sourcebiz.berlios.de/?lang=English"
 target="_blank">SourceBiz</a> portal. SourceBiz allows companies to describe
 their services and technical offerings.
-
-<!--  <p>The application of Open Source software in business environment -->
-<!--  creates a need for high quality consultancy, technical support and -->
-<!--  training leading to job creation in a new dynamic industry -->
-<!--  sector. Business opportunities arise for information technology -->
-<!--  professionals and start-up companies offering Open Source expertise and -->
-<!--  technical support services. BerliOS will support this process by acting as -->
-<!--  information switchboard (<a -->
-<!--  href="http://sourcebiz.berlios.de/?lang=English" -->
-<!--  target="_blank">SourceBiz</a>) and clearing house between demand and -->
-<!--  supply side of Open Source support services. -->
-
 
 </td>
 <td WIDTH="35%">

@@ -8,33 +8,71 @@
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
 <td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Audience</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<!--  <a href="<?php echo $top_level; ?>/index.php.en" class="menus">Home</a> -->
+
+<p><a href="users.php.en" class="menus">User</a>
+<br><a href="developers.php.en" class="menus">Developer</a>
+<br><a href="manufacturer.php.en" class="menus">Manufacturer &amp;<br>Support</a>
+
+</td>
+</tr>
+</table>
+<p>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
 <span class="titlebar"><font color="#FFFFFF">BerliOS</font></span></td>
 </tr>
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td><a href="<?php echo $top_level; ?>/index.php.en" class="menus">Home</a>
+<td>
 
-<p><a href="http://user.berlios.de/index.php.en" class="menus">User</a>
-<br><a href="http://developer.berlios.de/index.php" class="menus">Developer</a>
-<br><a href="http://sourcebiz.berlios.de/index.php3?lang=English" class="menus">Manufacturer &amp;<br>Support</a>
+<p><a href="goals.php.en" class="menus">Goals</a>
+<br><a href="info_plat.php.en" class="menus">Information Platform</a>
+<br><a href="proj_spon.php.en" class="menus">Project Sponsoring</a>
+<br><a href="supp_deve.php.en" class="menus">Supports Development</a>
+<br><a href="exis_solu.php.en" class="menus">Existing Solutions</a>
+<br><a href="pres_plat.php.en" class="menus">Presentation Platform</a>
+<br><a href="know_hows.php.en" class="menus">OS Know How</a>
+</td>
+</tr>
+</table>
+<p>
+<!-- BerliOS menu -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" 
+height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Portals</font></span></td>
+</tr>
 
-<p><a href="http://news.berlios.de/" class="menus">News</a>
-<br><a href="http://forum.berlios.de/" class="menus">Forum</a>
-<br><a href="http://sourcebiz.berlios.de/" class="menus">SourceBiz</a>
-<br><a href="http://sourcelines.berlios.de/" class="menus">SourceLines</a>
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<p><a href="http://news.berlios.de/"          class="menus">News</a>
+<br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
+<br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
+<br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
+<br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
 <br><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
-<br><a href="http://sourcewell.berlios.de/" class="menus">SourceWell</a>
-<br><a href="http://devcounter.berlios.de/" class="menus">DevCounter</a>
-<br><a href="http://developer.berlios.de/" class="menus">Developer</a>
-<br><a href="http://users.berlios.de/" class="menus">Users</a>
-<br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
+<br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
+<br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
+<br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
+<br><a href="http://user.berlios.de/"         class="menus">User</a>
+<br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
 <p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a></td>
 </td>
 </tr>
 </table>
-<!-- end BerliOS menu -->
-<!-- Search menu -->
+
 <!--
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
