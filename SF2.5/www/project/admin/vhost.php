@@ -7,7 +7,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: vhost.php,v 1.3 2004/01/13 13:15:25 helix Exp $
+  * @version   $Id: vhost.php,v 1.4 2004/05/25 15:18:33 helix Exp $
   *
   */
 
@@ -29,28 +29,43 @@ if (!$group || !is_object($group)) {
 if ($createvhost) {
 
 	$homedir = account_group_homedir($group->getUnixName());
-	$docdir = $homedir.'/htdocs/';
-	$cgidir = $homedir.'/cgi-bin/';
-	$logdir = $homedir.'/log/';
+
+	switch ($vhost_type) {
+	case '1':
+		$docdir = $homedir.'/htdocs/';
+		$cgidir = $homedir.'/cgi-bin/';
+		$logdir = $homedir.'/log/';
+		break;
+	case '2':
+		$docdir = $homedir.'/vhost/'.$vhost_name.'/htdocs/';
+		$cgidir = $homedir.'/vhost/'.$vhost_name.'/cgi-bin/';
+                $logdir = $homedir.'/vhost/'.$vhost_name.'/log/';
+	}
 
 	if (valid_hostname($vhost_name)) {
 
 		$res = db_query("
-			INSERT INTO prweb_vhost(vhost_name, docdir, cgidir, logdir, group_id) 
-			values ('$vhost_name','$docdir','$cgidir','$logdir','$group_id')
-		"); 
+			SELECT vhost_name FROM prweb_vhost WHERE vhost_name='$vhost_name'
+		");
 
-		if (!$res || db_affected_rows($res) < 1) {
-			$feedback .= "Cannot insert VHOST entry: ".db_error();
+		if ($res && db_numrows($res) < 1) {
+
+			$res = db_query("
+				INSERT INTO prweb_vhost(vhost_name, docdir, cgidir, logdir, group_id, state) 
+				values ('$vhost_name','$docdir','$cgidir','$logdir','$group_id','1')
+			"); 
+
+			if (!$res || db_affected_rows($res) < 1) {
+				$feedback .= "Cannot insert Virtual Host entry: ".db_error();
+			} else {
+				$feedback .= "Virtual Host scheduled for creation.";
+				$group->addHistory('Added vhost '.$vhost_name.' ','');
+			}
 		} else {
-			$feedback .= "Virtual Host scheduled for creation.";
-			$group->addHistory('Added vhost '.$vhost_name.' ','');
+			$feedback .= "Virtual Hostname already in use - $vhost_name";
 		}
-
 	} else {
-
 		$feedback .= "Not a valid hostname - $vhost_name"; 
-
 	}
 }
 
@@ -68,15 +83,16 @@ if ($deletevhost) {
 	$row_vh = db_fetch_array($res);
 
 	$res = db_query("
-		DELETE FROM prweb_vhost 
+		UPDATE prweb_vhost 
+		SET state='2'
 		WHERE vhostid='$vhostid' 
 		AND group_id='$group_id'
 	");
 
 	if (!$res || db_affected_rows($res) < 1) {
-		$feedback .= "Could not delete VHOST entry:".db_error();
+		$feedback .= "Could not delete Virtual Host entry:".db_error();
 	} else {
-		$feedback .= "VHOST deleted";	
+		$feedback .= "Virtual Host deleted";	
 		$group->addHistory('Virtual Host '.$row_vh['vhost_name'].' Removed','');
 
 	}
@@ -104,8 +120,19 @@ material at <i><?php echo $group->getUnixName(); ?>.berlios.de</i>.
 <form name="new_vhost" action="<?php echo $PHP_SELF.'?group_id='.$group_id.'&createvhost=1'; ?>" method="post"> 
 <table border = 0>
 <tr>
-	<td> New Virtual Host <i>(e.g. vhost.org)</i> </td>
+	<td> New Virtual Host </td>
 	<td> <input type="text" size="15" maxlength="255" name="vhost_name"> </td>
+	<td> (e.g. <tt><?php echo $group->getUnixName(); ?>.org)</tt> </td>
+</tr>
+<tr>
+	<td> Virtual Host Type </td>
+	<td><select name="vhost_type">
+		<option value="1" selected>Default Root</option>
+		<option value="2">Additional VHOST Root</option>
+	</select></td>
+</tr>
+<tr>
+        <td> &nbsp; </td>
 	<td> <input type="submit" value="Create"> </td>
 </tr>
 </table>
@@ -127,6 +154,10 @@ if (db_numrows($res_db) > 0) {
 
        	$title=array();
        	$title[]='Virtual Host';
+	$title[]='Htdocs Directory';
+        $title[]='Cgi Directory';
+        $title[]='Log Directory';
+	$title[]='State';
        	$title[]='Operations';
 	echo html_build_list_table_top($title);
 
@@ -134,6 +165,21 @@ if (db_numrows($res_db) > 0) {
 
 		print '	<tr>
 			<td>'.$row_db['vhost_name'].'</td>
+                        <td>'.$row_db['docdir'].'</td>
+                        <td>'.$row_db['cgidir'].'</td>
+                        <td>'.$row_db['logdir'].'</td>
+		';
+		if ($row_db['state'] == '1') {
+			print '
+                        <td>Active</td>';
+		} elseif ($row_db['state'] == '2') {
+			print '
+                        <td>Deleted</td>';
+		} else {
+			print '
+                        <td>Unknown</td>';
+		}
+		print '
 			<td>[ <b><a href="'.$PHP_SELF.'?group_id='.$group_id.'&vhostid='.$row_db['vhostid'].'&deletevhost=1">Delete</a> </b>]
 			</tr>	
 		';
@@ -144,7 +190,7 @@ if (db_numrows($res_db) > 0) {
         print '</td></tr></table>';
 
 } else {
-	echo '<p>No VHOSTs defined</p>';
+	echo '<p>No Virtual Hosts defined</p>';
 }
 
 project_admin_footer(array());
