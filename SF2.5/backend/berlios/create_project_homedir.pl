@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #
 # BerliOS: The Open Source Mediator
-# Copyright 2000 (c) The BerliOS Crew
+# Copyright 2000-2004 (c) The BerliOS Crew
 # http://www.berlios.de/
 #
 # Create group/project home directory (/home/groups/<projectname>)
@@ -19,15 +19,19 @@ while ($ln = shift(@group_dump)) {
   ($groupname, $status, $groupid, $userlist) = split(":", $ln);
   $homdir = $config{'project_home'}."/".$groupname;
   if ($status eq "A") {
-	print("mkdir -m 0555 -p $homdir\n");
-	system("mkdir -m 0555 -p $homdir");
+	if ( ! -d $homdir ) {
+		print("mkdir -m 0555 -p $homdir\n");
+		system("mkdir -m 0555 -p $homdir");
+	}
 #	print("chmod g+s $homdir\n");
 #	system("find $homdir -type d | xargs chmod g+s");
 	print("chown -h $groupname:$groupname $homdir\n");
 	system("chown -h $groupname:$groupname $homdir");
   } elsif ($status eq "D") {
-	print("rm -rf $homdir\n");
-	system("rm -rf $homdir");
+	if ( -d $homdir ) {
+		print("rm -rf $homdir\n");
+		system("rm -rf $homdir");
+	}
   }
 }
 
