@@ -1,4 +1,5 @@
 #!/bin/bash
+#ident @(#)cron.6hour.www	1.2 04/05/03 
 #
 # BerliOS tasks to be executed every 6 hours a day on
 # Web server: www.berlios.de
@@ -25,6 +26,7 @@ echo "BerliOS tasks to be executed every 6 hours a day on Web server"
 #   Create group/project home directories
 #   (/home/groups/<projectname>)
 #   based on infos available in /home/dummy/dumps25/group_dump
+#   !!! This is executed on NFS server !!!
 #
 cd /usr/local/httpd/SF2.5/backend/berlios
 ./create_project_homedir.pl
@@ -39,9 +41,15 @@ cp /home/dummy/dumps25/vhost.conf /etc/httpd
 #
 # Apache is broken and won't restart
 /etc/init.d/apache stop
-sleep 10
+sleep 5 
 /etc/init.d/apache stop
-sleep 60
+apache_pid=`cat /var/run/httpd.pid`
+apache_procs=`pgrep -g $apache_pid httpd`
+if [ ."$apache_procs" != . ]; then
+	 pkill -9 -g $apache_pid
+fi
+# tcp_close_wait_interval is 20 seconds...
+sleep 25
 /etc/init.d/apache start
 echo "Done"
 
@@ -52,6 +60,14 @@ echo "Done"
 #
 cd /usr/local/httpd/SF2.5/backend/berlios
 ./create_user_authdb.pl
+
+#
+# Create authorized keys2 in user ssh directory
+# (/home/users/<user>/.ssh/autherized_keys2)
+# !!! Previously done on SHELL server !!!
+#
+cd /usr/local/httpd/SF2.5/utils
+./ssh2_create.pl
 
 date				>> /tmp/6hour.ready
 echo ""
