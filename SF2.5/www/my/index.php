@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.7 2004/04/21 10:13:03 helix Exp $
+// $Id: index.php,v 1.8 2005/02/24 17:47:39 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -357,17 +357,17 @@ if (user_isloggedin() || $sf_user_hash) {
 	*/
 
 	echo $HTML->box1_middle('My Projects',false,false);
-	// Include both groups and foundries; developers should be similarly
-	// aware of membership in either.
 	$result = db_query("SELECT groups.group_name,"
 		. "groups.group_id,"
 		. "groups.unix_group_name,"
 		. "groups.status,"
+		. "groups.type,"
 		. "user_group.admin_flags "
 		. "FROM groups,user_group "
 		. "WHERE groups.group_id=user_group.group_id "
 		. "AND user_group.user_id='". user_getid() ."' "
-		. "AND groups.status='A' AND groups.is_public=1");
+        . "AND groups.status='A' AND groups.type=1");
+//		. "AND groups.status='A' AND groups.is_public=1");
 	$rows=db_numrows($result);
 	if (!$result || $rows < 1) {
 		echo "<TR><TD COLSPAN=\"2\"><B>You're not a member of any public projects</B></TD></TR>";
@@ -378,6 +378,38 @@ if (user_isloggedin() || $sf_user_hash) {
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE">
 			<A href="rmproject.php?group_id='. db_result($result,$i,'group_id') .'"><IMG SRC="/images/ic/trash.png" ALT="DELETE" HEIGHT="16" WIDTH="16" BORDER="0"></A></TD>
 			<TD WIDTH="99%"><A href="/projects/'. db_result($result,$i,'unix_group_name') .'/">'. db_result($result,$i,'group_name') .'</A></TD></TR>';
+
+		}
+	}
+
+	/*
+		FOUNDRY LIST
+	*/
+
+	echo $HTML->box1_middle('My Foundries',false,false);
+	// Include both groups and foundries; developers should be similarly
+	// aware of membership in either.
+	$result = db_query("SELECT groups.group_name,"
+		. "groups.group_id,"
+		. "groups.unix_group_name,"
+		. "groups.status,"
+		. "groups.type,"
+		. "user_group.admin_flags "
+		. "FROM groups,user_group "
+		. "WHERE groups.group_id=user_group.group_id "
+		. "AND user_group.user_id='". user_getid() ."' "
+        . "AND groups.status='A' AND groups.type=2");
+//		. "AND groups.status='A' AND groups.is_public=1");
+	$rows=db_numrows($result);
+	if (!$result || $rows < 1) {
+		echo "<TR><TD COLSPAN=\"2\"><B>You're not a member of any public foundries</B></TD></TR>";
+		echo db_error();
+	} else {
+		for ($i=0; $i<$rows; $i++) {
+			echo '
+			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE">
+			<A href="rmproject.php?group_id='. db_result($result,$i,'group_id') .'"><IMG SRC="/images/ic/trash.png" ALT="DELETE" HEIGHT="16" WIDTH="16" BORDER="0"></A></TD>
+			<TD WIDTH="99%"><A href="/foundry/'. db_result($result,$i,'unix_group_name') .'/">'. db_result($result,$i,'group_name') .'</A></TD></TR>';
 		}
 	}
 	echo $HTML->box1_bottom();
