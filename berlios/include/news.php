@@ -28,7 +28,7 @@ function newsbox ($title, $content) {
             </tr>
             <tr>
               <td bgcolor=\"#FFFFFF\">
-                 <font size=\"2\">$content</font></font>
+                 <font size=\"2\">$content</font>
               </td>
             </tr>
           </table>
