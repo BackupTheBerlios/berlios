@@ -4,22 +4,22 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: grouplist.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: grouplist.php,v 1.3 2005/02/11 11:01:38 helix Exp $
 
 require "pre.php";    
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
 
 session_require(array('group'=>'1','admin_flags'=>'A'));
 
-site_admin_header(array('title'=>"Alexandria: Group List"));
+site_admin_header(array('title'=>"Group List"));
 
 // start from root if root not passed in
 if (!$form_catroot) {
 	$form_catroot = 1;
 }
 
-print "<br><a href=\"groupedit-add.php\">[Add Group]</a>";
-print "<p>Alexandria Group List for Category: ";
+// print "<p><a href=\"groupedit-add.php\">[Add Group]</a>";
+print "<p>Group List for Category: ";
 
 if ($form_catroot == 1) {
 
@@ -48,21 +48,30 @@ if ($form_catroot == 1) {
 //		. "WHERE groups.group_id=group_category.group_id AND "
 //		. "group_category.category_id=$GLOBALS[form_catroot] ORDER BY groups.group_name");
 }
+
+print "<br>Status: <b>";
+if ( $status == "") {
+  print "All";
+} else {
+  print $status;
+}
+print "</b><p>\n";
+
 ?>
 
 <P>
-<TABLE width=100% border=1>
-<TR>
-<TD><b>Group Name (click to edit)</b></TD>
-<TD><b>UNIX Name</b></TD>
-<TD><b>Status</b></TD>
-<TD><b>Public?</b></TD>
-<TD><b>License</b></TD>
+<table width="100%" cellspacing="0" cellpadding="1" border="1">
+<tr>
+<th>Group Name</th>
+<th>Unix Name</th>
+<th>Status</th>
+<th>Public</th>
+<th>License</th>
 <!-- 2003-02-03 helix
-<TD><b>Categories</b></TD>
+<th>Categories</th>
 -->
-<TD><B>Members</B></TD>
-</TR>
+<th>Members</th>
+</tr>
 
 <?php
 while ($grp = db_fetch_array($res)) {
@@ -81,13 +90,13 @@ while ($grp = db_fetch_array($res)) {
 
 	// members
 	$res_count = db_query("SELECT user_id FROM user_group WHERE group_id=$grp[group_id]");
-	print "<TD>" . db_numrows($res_count) . "</TD>";
+	print "<td>" . db_numrows($res_count) . "</td>";
 
 	print "</tr>\n";
 }
 ?>
 
-</TABLE>
+</table>
 
 <?php
 site_admin_footer(array());
