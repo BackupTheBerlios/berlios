@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/04/02 10:40:21 helix Exp $
+// $Id: index.php,v 1.4 2005/02/11 10:57:19 helix Exp $
 
 require "pre.php";
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -17,13 +17,13 @@ $abc_array = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','
 
 ?>
  
-<p>Administrative Functions
+<p><b>Administrative Functions</b>
 <p><i><b>Warning!</b> These functions currently have minimal error checking,
 if any. They are fine to play with but may not act as expected if you leave
 fields blank, etc... Also, navigating the admin functions with the 
 <b>back</b> button is highly unadvised.</i>
 
-<p><B>User/Group/Category Maintenance</B>
+<p><b>User Maintenance</b>
 <ul>
 <li><a href="userlist.php">Display Full User List/Edit Users</a>&nbsp;&nbsp;
 <li>Display Users Beginning with : 
@@ -43,7 +43,11 @@ Search <i>(email,username,realname,userid)</i>:
 <li>Users in <a href="userlist.php?status=P"><B>P</B> (pending) Status</A>
 <li>Users in <a href="userlist.php?status=S"><B>S</B> (suspended) Status</A>
 <li>Users in <a href="userlist.php?status=D"><B>D</B> (deleted) Status</A>
-<BR>&nbsp;
+</ul>
+
+<p><b>Group Maintenance</b>
+
+<ul>
 <li><a href="grouplist.php">Display Full Group List/Edit Groups</a>
 
 <li>Display Groups Beginning with : 
@@ -66,10 +70,11 @@ Search <i>(groupid,groupunixname,groupname)</i>:
 
 <LI>Groups in <a href="grouplist.php?status=I"><B>I</B> (incomplete) Status</A>
 <LI>Groups in <a href="approve-pending.php"><B>P</B> (pending) Status</A> <i>(New Project Approval)</i>
+<LI>Groups in <a href="grouplist.php?status=H"><B>H</B> (holding) Status</A>
 <LI>Groups in <a href="grouplist.php?status=D"><B>D</B> (deleted) Status</A>
 </ul>
 
-<p><b>Donations</b>
+<p><b>Donation Maintenance</b>
 <ul>
 <li>Group Donations in <a href="group_donations.php"><b>Every</b> Status</a>
 <li>Group Donations in <a href="group_donations.php?status=P"><b>P</b> (pending) Status</a>
@@ -84,7 +89,7 @@ Search <i>(groupid,groupunixname,groupname)</i>:
 <li>User Donations in <a href="user_donations.php?status=D"><b>D</b> (deleted) Status</a>
 </ul>
 
-<p><b>Trove</b>
+<p><b>Trove Maintenance</b>
 <ul>
 <li><a href="trove/trove_cat_list.php">Display Trove Map</a>
 <li><a href="trove/trove_cat_add.php">Add to the Trove Map</a>
