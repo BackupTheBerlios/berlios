@@ -31,13 +31,22 @@ require("../include/site_menubar.html.en");
 <h2>About us</h2>
 
 <p><b>Mission Statement</b>
-<br>The main goal of BerliOS is to support the different interest groups in the area of Open Source Software (OSS) and thereby to offer a neutral mediator function. The target groups of BerliOS are on one hand the developers and users of Open Source Software and on the other hand commercial manufacturers of OSS operating systems and applications as well as support companies.
+<br>The goal of BerliOS is to provide support for different interest groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. The target groups of BerliOS are on one hand the 
+developers and users of Open Source Software and on the other hand commercial 
+manufacturers of OSS operating systems and applications as well as support 
+companies.
 
 <p><b>The Team</b>
-<br>Currently the BerliOS team consists of very few employees of <a href="http://www.fokus.gmd.de/">GMD FOKUS</a>.
+<br>Currently the BerliOS team consists of very few employees of 
+<a href="http://www.fokus.gmd.de/">GMD FOKUS</a>. We are employing our 
+<a href="http://developer.berlios.de">Developer</a> portal and are in the 
+process of checking all website code into CVS repositories. In this way,
+we aim to practice what we preach!
 
 <p><b>Thanks</b>
-<br>We owe a lot of thanks to the BerliOS team members that helps during the planing phase as well as our <a href="../partners/index.php.en">partners</a> for generous sponsorship.
+<br>We owe a lot of thanks to the BerliOS team members that helps during the planing phase as well as our <a href="../partners/index.php.en">partners</a> for their generous sponsorship.
 <br>&nbsp;
 
 </td>

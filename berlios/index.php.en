@@ -28,7 +28,12 @@ require("include/site_menubar.html.en");
 <td WIDTH="65%">
 <h2>The BerliOS Project</h2>
 
-<p>The main goal of BerliOS is to support the different interest groups in the area of Open Source Software (OSS) and thereby to offer a neutral mediator function. The target groups of BerliOS are on one hand the developers and users of Open Source Software and on the other hand commercial manufacturers of OSS operating systems and applications as well as support companies.
+<p>The goal of BerliOS is to provide support for different interest groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. The target groups of BerliOS are on one hand the 
+developers and users of Open Source Software and on the other hand commercial 
+manufacturers of OSS operating systems and applications as well as support 
+companies.
 
 <map name="BerliOSPie">
 <!-- central circle -->
