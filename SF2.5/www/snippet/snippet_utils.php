@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: snippet_utils.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: snippet_utils.php,v 1.3 2004/10/11 15:11:49 helix Exp $
 
 /*
 	Code Snippet System
@@ -49,6 +49,7 @@ $SCRIPT_LICENSE[10] = 'Python License';
 $SCRIPT_LICENSE[11] = 'zlib/libpng License';
 $SCRIPT_LICENSE[12] = 'WebSite Only';
 $SCRIPT_LICENSE[13] = 'Other';
+$SCRIPT_LICENSE[14] = 'Open Software License';
 
 $SCRIPT_LANGUAGE = array();
 $SCRIPT_LANGUAGE[0] = 'Choose One';
@@ -67,6 +68,41 @@ $SCRIPT_LANGUAGE[12] = 'Lisp';
 $SCRIPT_LANGUAGE[13] = 'Mixed';
 $SCRIPT_LANGUAGE[14] = 'JavaScript';
 $SCRIPT_LANGUAGE[15] = 'SQL';
+$SCRIPT_LANGUAGE[16] = 'C#';
+$SCRIPT_LANGUAGE[17] = 'Ada';
+$SCRIPT_LANGUAGE[18] = 'APL';
+$SCRIPT_LANGUAGE[19] = 'ASP';
+$SCRIPT_LANGUAGE[20] = 'Assembly';
+$SCRIPT_LANGUAGE[21] = 'Eiffel';
+$SCRIPT_LANGUAGE[22] = 'Euler';
+$SCRIPT_LANGUAGE[23] = 'Forth';
+$SCRIPT_LANGUAGE[24] = 'Fortran';
+$SCRIPT_LANGUAGE[25] = 'Logo';
+$SCRIPT_LANGUAGE[26] = 'ML';
+$SCRIPT_LANGUAGE[27] = 'Modula';
+$SCRIPT_LANGUAGE[28] = 'Object Pascal';
+$SCRIPT_LANGUAGE[29] = 'Objective C';
+$SCRIPT_LANGUAGE[30] = 'Pascal';
+$SCRIPT_LANGUAGE[31] = 'PROGRESS';
+$SCRIPT_LANGUAGE[32] = 'Prolog';
+$SCRIPT_LANGUAGE[33] = 'Rexx';
+$SCRIPT_LANGUAGE[34] = 'Scheme';
+$SCRIPT_LANGUAGE[35] = 'Simula';
+$SCRIPT_LANGUAGE[36] = 'Smalltalk';
+$SCRIPT_LANGUAGE[37] = 'Make (POSIX)';
+$SCRIPT_LANGUAGE[38] = 'Make (other)';
+$SCRIPT_LANGUAGE[39] = 'Ruby';
+$SCRIPT_LANGUAGE[40] = 'SGML';
+$SCRIPT_LANGUAGE[41] = 'XML';
+$SCRIPT_LANGUAGE[42] = 'HTML';
+$SCRIPT_LANGUAGE[43] = 'Cold Fusion';
+$SCRIPT_LANGUAGE[44] = 'Delphi/Kylix';
+$SCRIPT_LANGUAGE[45] = 'Erlang';
+$SCRIPT_LANGUAGE[46] = 'Euphoria';
+$SCRIPT_LANGUAGE[47] = 'Pike';
+$SCRIPT_LANGUAGE[48] = 'REBOL';
+$SCRIPT_LANGUAGE[49] = 'XBasic';
+$SCRIPT_LANGUAGE[50] = 'Zope';
 
 function snippet_header($params) {
 	global $DOCUMENT_ROOT,$HTML;
