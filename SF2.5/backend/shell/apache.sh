@@ -9,25 +9,25 @@ uname=`uname`
 echo ""
 echo "Checking Project Web Directories: "
 
-for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v '^ftp'` ; do
+for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v 'ftp$'` ; do
 	echo "Project: $i"
 	if [ ! -d /home/groups/$i/log ] ; then
 		mkdir			/home/groups/$i/log
-		chown -h $i:$i		/home/groups/$i/log
-		chmod    2575		/home/groups/$i/log
 	fi
+	chown -h $i:$i		/home/groups/$i/log
+	chmod    2755		/home/groups/$i/log
 
 	if [ ! -d /home/groups/$i/cgi-bin ] ; then
 		mkdir			/home/groups/$i/cgi-bin
-		chown -h $i:$i		/home/groups/$i/cgi-bin
-		chmod    2575		/home/groups/$i/cgi-bin
 	fi
+	chown -h $i:$i		/home/groups/$i/cgi-bin
+	chmod    2575		/home/groups/$i/cgi-bin
 
 	if [ ! -d /home/groups/$i/htdocs ] ; then
 		mkdir			/home/groups/$i/htdocs
-		chown -h $i:$i		/home/groups/$i/htdocs
-		chmod    2575		/home/groups/$i/htdocs
 	fi
+	chown -h $i:$i		/home/groups/$i/htdocs
+	chmod    2575		/home/groups/$i/htdocs
 
 	if [ "`ls /home/groups/$i/htdocs/`" = "" ] ; then
 		cp /usr/local/httpd/SF2.5/backend/berlios/default_page.php /home/groups/$i/htdocs/index.php
@@ -47,14 +47,14 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 
 	# For any other OS assume a POSIX find
 
-	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -exec chgrp -h $i {} +
-	find /home/groups/$i/htdocs/. -type f ! -perm -0060 -exec chmod g+rw {} +
-	find /home/groups/$i/htdocs/. -type d ! -perm -2070 -exec chmod g+rwxs {} +
+	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -exec chgrp -h $i {} \;
+	find /home/groups/$i/htdocs/. -type f ! -perm -0060 -exec chmod g+rw {} \;
+	find /home/groups/$i/htdocs/. -type d ! -perm -2070 -exec chmod g+rwxs {} \;
 
 	fi
 
 	chown -h $i:$i			/home/groups/$i/log/*
-	chmod    0664			/home/groups/$i/log/*
+	chmod    0644			/home/groups/$i/log/*
 	
 done
 
