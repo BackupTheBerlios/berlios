@@ -4,10 +4,11 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: index.php,v 1.3 2004/04/02 12:14:03 helix Exp $
 
 require "pre.php";    
 require "vote_function.php";
+require "donate.php";    
 $HTML->header(array("title"=>"New File Releases"));
 
 if ( !$offset || $offset < 0 ) {
@@ -55,7 +56,7 @@ if (!$res_new || db_numrows($res_new) < 1) {
 		$rows = db_numrows($res_new);
 	}
 
-	print "\t<TABLE width=100% cellpadding=0 cellspacing=0 border=0>";
+	print "\t<p><TABLE width=100% cellpadding=0 cellspacing=0 border=0>";
 	for ($i=0; $i<$rows; $i++) {
 		$row_new = db_fetch_array($res_new);
 		// avoid duplicates of different file types
@@ -63,9 +64,9 @@ if (!$res_new || db_numrows($res_new) < 1) {
 		if (!($G_RELEASE["$row_new[release_id]"])) {
 			print "<TR valign=top>";
 			print "<TD colspan=2>";
-			print "<A href=\"/projects/$row_new[unix_group_name]/\"><B>$row_new[group_name]</B></A>"
+			print "<A href=\"/projects/$row_new[unix_group_name]/\"><B>$row_new[group_name]</B></A>".req_project_donate($row_new[group_id])
 				. "\n</TD><TD nowrap><I>Released by: <A href=\"/users/$row_new[user_name]/\">"
-				. "$row_new[user_name]</A></I></TD></TR>\n";	
+				. "$row_new[user_name]</A></I>".is_project_donor($row_new[user_id]).is_user_donor($row_new[user_id]).req_user_donate($row_new[user_id])."</TD></TR>\n";	
 
 			print "<TR><TD>Module: $row_new[module_name]</TD>\n";
 			print "<TD>Version: $row_new[release_version]</TD>\n";

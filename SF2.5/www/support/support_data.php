@@ -473,7 +473,7 @@ function mail_followup($support_id,$more_addresses=false) {
 			"\nSummary: ".util_unconvert_htmlspecialchars(db_result($result,0,'summary'));
 			
 			
-		$subject="[ ".db_result($result,0,"support_id")." ] ".
+		$subject="[Support #".db_result($result,0,"support_id")."] ".
 			util_unconvert_htmlspecialchars(db_result($result,0,"summary"));
 			
 		/*      

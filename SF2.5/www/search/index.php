@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: index.php,v 1.3 2004/04/02 12:14:03 helix Exp $
 
 /*
    SourceForge Search Engine
@@ -20,6 +20,7 @@
 
 
 require ('pre.php');
+require ('donate.php');
 
 function highlight_target_words($word_array,$text) {
         if (!$text) return '&nbsp;';
@@ -163,7 +164,7 @@ if ($type_of_search == "soft") {
 			print	"<TR BGCOLOR=\"". html_get_alt_row_color($i)."\"><TD><A HREF=\"/projects/"
                                 .db_result($result, $i, 'unix_group_name')."/\">"
 				. html_image("images/msg.gif","10","12",array("BORDER"=>"0")) 
-				. highlight_target_words($array,db_result($result, $i, 'group_name'))."</A></TD>"
+				. highlight_target_words($array,db_result($result, $i, 'group_name'))."</A>".req_project_donate(db_result($result,$i,'group_id'))."</TD>"
 				. "<TD>".highlight_target_words($array,db_result($result,$i,'short_description'))."</TD></TR>\n";
 		}
 		echo "</TABLE>\n";
@@ -208,7 +209,7 @@ if ($type_of_search == "soft") {
 
 		for ( $i = 0; $i < $rows; $i++ ) {
 			print	"<TR BGCOLOR=\"". html_get_alt_row_color($i) ."\"><TD><A HREF=\"/users/".db_result($result, $i, 'user_name')."/\">"
-				. html_image("images/msg.gif","10","12",array("BORDER"=>"0")) . db_result($result, $i, 'user_name')."</A></TD>"
+				. html_image("images/msg.gif","10","12",array("BORDER"=>"0")) . db_result($result, $i, 'user_name')."</A>".is_project_donor(db_result($result,$i,'user_id')).is_user_donor(db_result($result,$i,'user_id')).req_user_donate(db_result($result,$i,'user_id'))."</TD>"
 				. "<TD>".db_result($result,$i,'realname')."</TD></TR>\n";
 		}
 		echo "</TABLE>\n";

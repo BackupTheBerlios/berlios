@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: index.php,v 1.3 2004/04/02 12:14:03 helix Exp $
 
 require ('pre.php');    
 
@@ -83,6 +83,9 @@ $HTML->box1_top("Preferences"); ?>
 <P><INPUT type="checkbox"  name="form_mail_va" value="1"<?php
 	if ($row_user['mail_va']) print " checked"; ?>> Receive additional community mailings. 
 <I>(Low traffic.)</I>
+
+<P><INPUT type="checkbox" name="form_donor_display" value="1"<?php
+	if ($row_user['donor_display']) print " checked"; ?>> Display your donations on supporters page of projects and users. 
 
 <P><INPUT type="checkbox"  name="form_remember_user" value="1"<?php
 	if ($sf_user_hash) print " checked"; ?>> "Remember me".

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: register.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: register.php,v 1.3 2004/04/02 12:14:03 helix Exp $
 
 require ('pre.php');    
 require ('account.php');
@@ -17,7 +17,7 @@ if ($submit) {
 		logic that used to be coded in this page
 
 	*/
-	$register=account_register_new(strtolower($unix_name),$realname,$password1,$password2,$email,$language,$timezone,$mail_site,$mail_va,$language_id,$timezone);
+	$register=account_register_new(strtolower($unix_name),$realname,$password1,$password2,$email,$language,$timezone,$mail_site,$mail_va,$donor_display,$language_id,$timezone);
 	if ($register) {
 		echo $HTML->header(array('title'=>'Register Confirmation'));
 		?>
@@ -87,12 +87,15 @@ account at loginname@<?php echo $GLOBALS['sys_users_host']; ?> that will forward
 this address.</I>
 <BR><INPUT size=30 type="text" name="email" value="<?php print($email); ?>">
 <P>
-<INPUT type="checkbox" name="form_mail_site" value="1" checked>
+<INPUT type="checkbox" name="mail_site" value="1" checked>
 Receive Email about Site Updates <I>(Very low traffic and includes
 security notices. Highly Recommended.)</I>
 <P>
-<INPUT type="checkbox" name="form_mail_va" value="1">
+<INPUT type="checkbox" name="mail_va" value="1">
 Receive additional community mailings. <I>(Low traffic.)</I>
+<P>
+<INPUT type="checkbox" name="donor_display" value="1" checked>
+Display your donations on the <a href="/supporters.php">supporters page</a>.
 <p>
 <input type="submit" name="submit" value="Register">
 </form>

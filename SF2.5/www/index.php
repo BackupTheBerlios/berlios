@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:20 helix Exp $
+// $Id: index.php,v 1.3 2004/04/02 12:14:02 helix Exp $
 
 //echo "<!-- 0 //-->";
 require ('pre.php');    // Initial db and session library, opens session
@@ -22,7 +22,7 @@ $HTML->header(array('title'=>'Welcome'));
 <!-- whole page table -->
 <TABLE width=100% cellpadding=5 cellspacing=0 border=0>
 <TR><TD width="65%" VALIGN="TOP">
-
+<p>
 	<hr width="100%" size="1" noshade>
 	<span class="slogan">
 	<div align="center">
@@ -30,19 +30,16 @@ $HTML->header(array('title'=>'Welcome'));
 	</div>
 	</span>
         <hr width="100%" size="1" noshade>
-	&nbsp;<br>
 <P>
 <?php
 
 /*
-
 	Temp way of getting
-
 	blurb before the content mgr is ready
-
 */
 
 echo $Language->HOME_PAGE_ABOUT_BLURB;
+
 echo '<P>';
 // echo $HTML->box1_top($Language->GROUP_LONG_FOUNDRIES);
 ?>

@@ -4,11 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: trove_list.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: trove_list.php,v 1.3 2004/04/02 12:14:04 helix Exp $
 
 require "pre.php";    
 require "vars.php";
 require "trove.php";
+require "donate.php";
 
 $HTML->header(array('title'=>'Software Map'));
 echo'
@@ -318,9 +319,9 @@ for ($i_proj=1;$i_proj<=$querytotalcount;$i_proj++) {
 	if ($row_grp && $viewthisrow) {
 		print '<TABLE border="0" cellpadding="0" width="100%"><TR valign="top"><TD colspan="2">';
 		print "$i_proj. <a href=\"/projects/". strtolower($row_grp['unix_group_name']) ."/\"><B>"
-			.htmlspecialchars($row_grp['group_name'])."</B></a> ";
+			.htmlspecialchars($row_grp['group_name'])."</B></a>".req_project_donate($row_grp['group_id']);
 		if ($row_grp['short_description']) {
-			print "- " . htmlspecialchars($row_grp['short_description']);
+			print " - " . htmlspecialchars($row_grp['short_description']);
 		}
 
 		print '<BR>&nbsp;';
