@@ -510,7 +510,7 @@ function mail_followup($support_id,$more_addresses=false) {
 				"\n\n----------------------------------------------------------------------";
 			}       
 			$body .= "\nYou can respond by visiting: ".
-			"\nhttp://$GLOBALS[sys_default_domain]/support/?func=detailsupport&support_id=".
+			"\nhttp://$GLOBALS[sys_default_host]/support/?func=detailsupport&support_id=".
 				db_result($result,0,'support_id')."&group_id=".db_result($result,0,'group_id');
 		}	       
 		
