@@ -42,9 +42,9 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 	touch /home/groups/$i/log/error.log
 	chown wwwrun /home/groups/$i/log/error.log
 #
-# Remove file older than 14 days from projects log directories
+# Remove files older than 14 days from projects log directories
 #
-	find /home/groups/$i/log -ctime +14 -exec rm {} \;
+	find /home/groups/$i/log -atime +14 -and type f -exec rm {} \;
 done
 
 echo ""
