@@ -23,8 +23,6 @@ while ($ln = shift(@group_dump)) {
 		print("mkdir -m 0555 -p $homdir\n");
 		system("mkdir -m 0555 -p $homdir");
 	}
-#	print("chmod g+s $homdir\n");
-#	system("find $homdir -type d | xargs chmod g+s");
 	print("chown -h $groupname:$groupname $homdir\n");
 	system("chown -h $groupname:$groupname $homdir");
   } elsif ($status eq "D") {
