@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_admin_utils.php,v 1.3 2004/04/02 11:28:01 helix Exp $
+// $Id: project_admin_utils.php,v 1.4 2004/04/21 15:02:46 helix Exp $
 
 /*
 
@@ -15,7 +15,7 @@
 function project_admin_header($params) {
 	global $DOCUMENT_ROOT,$group_id,$feedback;
 
-	$params['toptab']='home';
+	$params['toptab']='admin';
 	$params['group']=$group_id;
 	site_project_header($params);
 	$project=&group_get_object($group_id);

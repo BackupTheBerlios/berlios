@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: people_utils.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: people_utils.php,v 1.3 2004/04/21 15:01:17 helix Exp $
 
 /*
 	Job/People finder 
@@ -14,7 +14,7 @@ function people_header($params) {
 	global $group_id,$job_id,$DOCUMENT_ROOT,$HTML;
 
 	if ($group_id) {
-		$params['toptab']='people';
+		$params['toptab']='admin';
 		$params['group']=$group_id;
 		echo site_project_header($params);
 	} else {
