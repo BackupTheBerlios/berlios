@@ -44,7 +44,7 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 #
 # Remove files older than 14 days from projects log directories
 #
-	find /home/groups/$i/log -atime +14 -and type f -exec rm {} \;
+	find /home/groups/$i/log -atime +14 -a -type f -exec rm {} \;
 done
 
 echo ""
