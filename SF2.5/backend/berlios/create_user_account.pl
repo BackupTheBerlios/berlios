@@ -28,7 +28,7 @@ while ($ln = shift(@user_dump)) {
 	    $pwdent = "/usr/sbin/useradd -c \"".$realname . " at BerliOS\" -d ".$config{'user_home'}."/".$username." -g ".$username." -m -k ".$config{'shell_user_skel'}." -p '".$pwd."' -s ".$shell." -u ".$uid." ".$username;
 	    print("$pwdent\n");
 	    system($pwdent);
-            $pwdent = "/usr/sbin/usermod -g ".$username." -u ".$uid." -p '".$pwd."' -s ".$shell." ".$username;
+            $pwdent = "/usr/sbin/usermod -c \"".$realname . " at BerliOS\" -g ".$username." -u ".$uid." -p '".$pwd."' -s ".$shell." ".$username;
             print("$pwdent\n");
             system($pwdent);
 	    $cmd = "/bin/chown -R $uid:$username $config{'user_home'}/$username";
