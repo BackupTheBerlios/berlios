@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: vote_function.php,v 1.3 2003/11/26 14:42:29 helix Exp $
+// $Id: vote_function.php,v 1.4 2004/04/07 15:45:32 helix Exp $
 
 function vote_number_to_stars($raw) {
 	$raw=intval($raw*2);
@@ -264,7 +264,7 @@ function vote_show_a_question ($question,$element_name) {
 	<INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="-3">
 	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="-2">
 	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="-1">
-	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="0.1">
+	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="0">
 	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="1">
 	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="2">
 	&nbsp; <INPUT TYPE="RADIO" NAME="Q_'. $element_name .'" VALUE="3">
@@ -334,7 +334,7 @@ $USER_RATING_POPUP5[]='6 - Muad\'Dib';
 $USER_RATING_VALUES[]='-3';
 $USER_RATING_VALUES[]='-2';
 $USER_RATING_VALUES[]='-1';
-$USER_RATING_VALUES[]='0.1';
+$USER_RATING_VALUES[]='0';
 $USER_RATING_VALUES[]='1';
 $USER_RATING_VALUES[]='2';
 $USER_RATING_VALUES[]='3';
