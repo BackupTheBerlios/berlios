@@ -19,13 +19,8 @@
 </head>
 <body bgcolor="#FFFFFF">
 
-<?php
- if ( !isset( $top_level ) ) {
-   $top_level = ".";
- }
-?>
 <!-- top strip -->
-<table border=0 cellspacing="0" cellpadding="2" width="100%" BGCOLOR="#7B7B7B">
+<table border=0 cellspacing="0" cellpadding="2" width="100%" bgcolor="#7B7B7B">
   <tr>
     <td>
       <span class="maintitlebar">&nbsp; 
@@ -42,7 +37,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top" bgcolor="#FFCC33">
     <td>
-      <a href="index.php.de"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" border="0" height="61" width="238" alt="BerliOS"></a>
+      <a href="index.php.de"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" border="0" height="61" width="238" alt="BerliOS" hspace="5" vspace="5" ></a>
     </td>
     <td width="10" bgcolor="#FFCC33">
       <img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
@@ -52,13 +47,13 @@
       <br>Der Open-Source-Mediator
     </td>
     <td valign="middle">
-      <a href="http://www.fokus.gmd.de/" target="_blank"><img src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" HSPACE="10" border="0" height="60" width="60" align="right"></a>
+      <a href="http://www.fokus.gmd.de/" target="_blank"><img src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" hspace="10" border="0" height="60" width="60" align="right"></a>
     </td>
   </tr>
 <!-- end logo at right -->
 
   <tr>
-    <td colspan="5" bgcolor="#7B7B7B">
+    <td colspan="4" bgcolor="#7B7B7B">
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="2" width="2" alt="">
     </td>
   </tr>

@@ -44,7 +44,7 @@ require("include/site_header.html.de");
 </map>
 
 <center>
-<img src="images/berlios_small_pie.jpg" width="451" height="451" 
+<img src="images/berlios_small_pie.jpg" width="400" height="400" 
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
 

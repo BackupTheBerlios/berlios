@@ -45,7 +45,7 @@
       <b><font size="+1">BerliOS</font></b>
       <br>The Open Source Mediator
     </td>
-    <td>
+    <td valign="middle">
       <a href="http://www.fokus.gmd.de/" target="_blank">
       <img src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" 
        hspace="10" border="0" height="60" width="60" align="right"></a>
