@@ -8,13 +8,13 @@ echo "Create home usage directory for Webalizer: "
 logdir=/var/log/httpd
 htdir=/usr/local/httpd/htdocs
 
-for i in berlios devel forum news wiki ; do
+for i in berlios devel news ; do
 	if [ ! -d $htdir.$i/usage ] ; then
 		echo ""
 		echo "Create usage directory of $i"
 		mkdir $htdir.$i/usage
-		chown wwwrun:root $htdir.$i/usage
-		chmod 0770 $htdir.$i/usage
+		chown berlios:berlios $htdir.$i/usage
+		chmod 0775 $htdir.$i/usage
 	fi
 
 	for l in `cd $logdir/$i; ls 2*_log` ; do
@@ -23,8 +23,10 @@ for i in berlios devel forum news wiki ; do
 	done
 
 	echo "Set owner and permissions for usage directory of $i"
-	chown wwwrun:root $htdir.$i/usage/*
-	chmod 0660 $htdir.$i/usage/*
+	chown berlios:berlios $htdir.$i/usage/*
+	chmod 0664 $htdir.$i/usage/*
+
+	find $htdir.$i/usage -mtime +366 -a -type f -exec rm {} \;
 
 done
 
