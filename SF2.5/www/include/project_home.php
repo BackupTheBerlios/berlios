@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_home.php,v 1.4 2004/03/16 15:02:40 helix Exp $
+// $Id: project_home.php,v 1.5 2004/03/17 16:40:38 helix Exp $
 
 require ('vote_function.php');
 require ('vars.php');
@@ -397,7 +397,7 @@ if ($project->usesCVS()) {
 
 if ($project->usesSVN()) {
         print '<HR SIZE="1" NoShade><A href="/svn/?group_id='.$group_id.'">';
-        print html_image("images/ic/cvs16b.png",'20','20',array('alt'=>$Language->GROUP_SHORT_SVN));
+        print html_image("images/ic/svn16b.png",'20','20',array('alt'=>$Language->GROUP_SHORT_SVN));
         print " ".$Language->GROUP_LONG_SVN."</A>";
 //        $sql = "SELECT SUM(cvs_commits) AS commits,SUM(cvs_adds) AS adds from stats_project where group_id='$group_id'";
 //        $result = db_query($sql);
