@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: package.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: package.php,v 1.3 2004/01/13 14:51:54 helix Exp $
 
 require ('pre.php');
 require ('../snippet/snippet_utils.php');
@@ -100,7 +100,7 @@ then add them using the new window link shown above.
 	snippet_header(array('title'=>'Submit A New Snippet Package'));
 
 	?>
-	<H1>Create a New Code Package</H2>
+	<H2>Create a New Code Package</H2>
 	<P>
 	You can group together existing snippets into a package using this interface. Before 
 	creating your package, make sure all your snippets are in place and you have made a note 

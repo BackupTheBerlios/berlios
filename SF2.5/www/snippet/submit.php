@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: submit.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: submit.php,v 1.3 2004/01/13 14:51:54 helix Exp $
 
 require ('pre.php');
 require ('../snippet/snippet_utils.php');
@@ -50,7 +50,7 @@ if (user_isloggedin()) {
 	snippet_header(array('title'=>'Submit A New Snippet'));
 
 	?>
-	<H1>Post a New Code Snippet</H2>
+	<H2>Post a New Code Snippet</H2>
 	<P>
 	You can post a new code snippet and share it with other people around the world. 
 	Just fill in this information. <B>Give a good description</B> and <B>comment your code</B> 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.5 2003/11/28 10:10:21 helix Exp $
+// $Id: index.php,v 1.6 2004/01/13 14:51:53 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -35,7 +35,7 @@ if (user_isloggedin() || $sf_user_hash) {
 	echo site_user_header(array('title'=>'My Personal Page'));
 	?>
 
-	<H3>Personal Page for: <?php print $G_SESSION->getUnixName(); ?></H3>
+	<H2>Personal Page for: <?php print $G_SESSION->getUnixName(); ?></H2>
 	<P>
 	Your personal page contains lists of bugs and tasks that 
 	you are assigned, plus a list of groups that you are a member of.

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: mostactive.php,v 1.2 2003/11/13 11:29:29 helix Exp $
+// $Id: mostactive.php,v 1.3 2004/01/13 14:51:54 helix Exp $
 
 require ('pre.php');    
 
@@ -33,8 +33,8 @@ if ($type == 'week') {
 
 $HTML->header(array('title'=>$title));
 
-print '<P><B><FONT size="+1">'.$title.'</FONT></B>
-<BR><I>(Updated Daily)</I>
+print '<H2>'.$title.'</H2>
+<I>(Updated Daily)</I>
 
 <P><A href="/top/">[View Other Top Categories]</A>
 

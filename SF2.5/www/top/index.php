@@ -4,13 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:29 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 14:51:54 helix Exp $
 
 require ('pre.php');
 $HTML->header(array('title'=>'Top Project Listings'));
 ?>
 
-<P><B>Top <?php print $GLOBALS['sys_default_name'] ?> Projects</B></P>
+<H2>Top <?php print $GLOBALS['sys_default_name'] ?> Projects</H2>
 
 <P>We track many project usage statistics on <?php print $GLOBALS['sys_default_name'] ?>, and display here
 the top ranked projects in several categories.
