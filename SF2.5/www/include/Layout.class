@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	      
-// $Id: Layout.class,v 1.7 2004/08/03 10:29:41 helix Exp $
+// $Id: Layout.class,v 1.8 2005/02/24 17:29:00 helix Exp $
 
 
 /*
@@ -251,7 +251,7 @@ For privacy
 policy information, please see the <a href="/tos/privacy.php" class="legallink"
 ><font color="#cccccc"><?php echo $sys_default_name ?> Privacy Policy</font></a>.
 Content owned by Fraunhofer FOKUS is copyright 
-2000-2004 Fraunhofer FOKUS. All rights reserved.
+2000-<?php echo date("Y"); ?> Fraunhofer FOKUS. All rights reserved.
 <br>&nbsp;
 </font></SPAN>
 </center>
@@ -406,7 +406,7 @@ echo html_blankimage(5,100);
 	function footer($params) {
 	?>
 	<!-- end content -->
-	<p>&nbsp;</p>
+	<p>
 	</td>
 	<td width="9" bgcolor="<?php echo $this->COLOR_CONTENT_BACK; ?>">&nbsp;
 	</td>
@@ -499,9 +499,7 @@ echo html_blankimage(5,100);
 			//wasn't found or some other problem
 			return;
 		}
-		if (!$project->isProject()) {
-			return;
-		}
+		if ($project->isProject()) {
 
 		print '<H2>Project: '. $project->getPublicName() .' - ';
 		// specific to where we're at
@@ -525,7 +523,6 @@ echo html_blankimage(5,100);
 			case 'patch': print $Language->GROUP_SHORT_PATCH; break;
 			case 'screenshots': print $Language->GROUP_SHORT_SCREENSHOTS; break;
 			case 'memberlist': print $Language->GROUP_SHORT_MEMBERLIST; break;
-//			default: print "???" . $toptab; break;
 			default: print $Language->GROUP_SHORT_SUMMARY; break;
 		}
 	print '</H2>
@@ -635,12 +632,15 @@ echo html_blankimage(5,100);
 				$Language->GROUP_SHORT_SCREENSHOTS, $toptab == 'screenshots');
 		}
 
-
 		// Wiki
 		if ($project->usesWiki()) {
 			$this->tab_entry('/wiki/?group_id='.$group, $this->icons['Wiki'],
 				$Language->GROUP_SHORT_WIKI, $toptab == 'wiki');
 		}
+
+		// Developers
+		$this->tab_entry('/project/memberlist.php?group_id='.$group, $this->icons['Memberlist'],
+			$Language->GROUP_SHORT_MEMBERLIST, $toptab == 'memberlist');
 
 		// Donation
 		if ($project->usesDonation()) {
@@ -655,6 +655,60 @@ echo html_blankimage(5,100);
 		// 2003-02-21 end by helix
 
 		print '<HR SIZE="1" NoShade><P>';
+		}
+
+		if ($project->isFoundry()) {
+		print '<H2>Foundry: '. $project->getPublicName() .' - ';
+		// specific to where we're at
+		switch ($toptab) {
+			case 'home': print $Language->GROUP_SHORT_SUMMARY; break;
+			case 'forums': print $Language->GROUP_SHORT_FORUM; break;
+			case 'mail': print $Language->GROUP_SHORT_MAIL; break;
+			case 'admin': print $Language->GROUP_SHORT_ADMIN; break;
+			case 'news': print $Language->GROUP_SHORT_NEWS; break;
+			case 'screenshots': print $Language->GROUP_SHORT_SCREENSHOTS; break;
+			case 'memberlist': print $Language->GROUP_SHORT_MEMBERLIST; break;
+			default: print $Language->GROUP_SHORT_SUMMARY; break;
+		}
+	print '</H2>
+	<P>
+	<HR SIZE="1" NoShade>';
+
+		// Homepage
+		$this->tab_entry('/foundry/'. $project->getUnixName() .'/', $this->icons['Homepage'],
+			$Language->GROUP_SHORT_HOMEPAGE);
+
+		// Forums
+		if ($project->usesForum()) {
+			$this->tab_entry('/forum/?group_id='.$group, $this->icons['Forums'],
+				$Language->GROUP_SHORT_FORUM, $toptab == 'forums');
+		}
+
+		// Mailing Lists
+		if ($project->usesMail()) {
+			$this->tab_entry('/mail/?group_id='.$group, $this->icons['Lists'], 
+				$Language->GROUP_SHORT_MAIL, $toptab == 'mail');
+		}
+
+		// Newsbytes
+		if ($project->usesNews()) {
+			$this->tab_entry('/news/?group_id='.$group, $this->icons['News'], 
+				$Language->GROUP_SHORT_NEWS, $toptab == 'news');
+		}
+
+		// Developers
+		$this->tab_entry('/project/memberlist.php?group_id='.$group, $this->icons['Memberlist'],
+			$Language->GROUP_SHORT_MEMBERLIST, $toptab == 'memberlist');
+
+		// Foundry Admin
+		$this->tab_entry('/foundry/'.$project->getUnixName().'/admin/', $this->icons['Admin'],
+			$Language->GROUP_SHORT_ADMIN, $toptab == 'admin');
+
+		// 2003-02-21 end by helix
+
+		print '<HR SIZE="1" NoShade><P>';
+		}
+
 	}
 
 
