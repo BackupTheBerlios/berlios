@@ -42,6 +42,13 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 		chmod    0664	/home/groups/$i/htdocs/index.php
 	fi
 
+	if [ ! -d /home/groups/$i/htdocs/usage ] ; then
+                mkdir   /home/groups/$i/htdocs/usage
+        fi
+	chown -h $i:$i  /home/groups/$i/htdocs/usage
+	chmod 0755      /home/groups/$i/htdocs/usage
+	chmod g+s       /home/groups/$i/htdocs/usage
+
 	if [ ."$uname" = .Linux ]; then
 
 	# Linux does not have a POSIX find....
@@ -49,20 +56,23 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -print0 | xargs -0 chgrp -h $i /tmp/.xxzzy
 	find /home/groups/$i/htdocs/. -name usage -prune -o -type f ! -perm -0060 -print0 | xargs -0 chmod g+rw /tmp/.xxzzy
 	find /home/groups/$i/htdocs/. -name usage -prune -o -type d ! -perm -2070 -print0 | xargs -0 chmod g+rwxs /tmp/.xxzzy
+        find /home/groups/$i/htdocs/usage \( ! -user $i -o ! -group $i \) -print0 | xargs -0 chown -h $i:$i /tmp/.xxzzy
+        find /home/groups/$i/htdocs/usage ! -perm 0644 -a -type f -print0 | xargs -0 chmod 0644 /tmp/.xxzzy
 
 	else
 
 	# For any other OS assume a POSIX find
 
-	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -exec chgrp -h $i {} \;
-	find /home/groups/$i/htdocs/. -name usage -prune -o -type f ! -perm -0060 -exec chmod g+rw {} \;
-	find /home/groups/$i/htdocs/. -name usage -prune -o -type d ! -perm -2070 -exec chmod g+rwxs {} \;
+	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -exec chgrp -h $i {} +
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type f ! -perm -0060 -exec chmod g+rw {} +
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type d ! -perm -2070 -exec chmod g+rwxs {} +
+        find /home/groups/$i/htdocs/usage \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+        find /home/groups/$i/htdocs/usage ! -perm 0644 -a -type f -exec chmod 0644 {} +
 
 	fi
 
-	chown -h $i:$i	/home/groups/$i/log/*
-	chmod    0644	/home/groups/$i/log/*
-	
+	find /home/groups/$i/log \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+	find /home/groups/$i/log ! -perm 0644 -a -type f -exec chmod 0644 {} +
 done
 
 echo "Done"

@@ -3,72 +3,59 @@
 echo ""
 echo "Set permissions for projects: "
 
-for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp` ; do
+for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp$` ; do
 	echo ""
 	echo "Set permissions of directories for project $i"
-	chown $i:$i /home/groups/$i
-	chmod 0555 /home/groups/$i
-	chmod g+s /home/groups/$i
-	chown $i:$i /home/groups/$i/cgi-bin
-	chmod 0575 /home/groups/$i/cgi-bin
-	chmod g+s /home/groups/$i/cgi-bin
-	chown $i:$i /home/groups/$i/htdocs
-	chmod 0575 /home/groups/$i/htdocs
-	chmod g+s /home/groups/$i/htdocs
+	find /home/groups/$i -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+	find /home/groups/$i -prune ! -perm 2555 -exec chmod u=rx,g=rx,g+s,o=rx {} +
+
+	echo "Set permissions of cgi directory for project $i"
+	find /home/groups/$i/cgi-bin -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+	find /home/groups/$i/cgi-bin -prune ! -perm 2575 -exec chmod u=rx,g=rwx,g+s,o=wx {} +
+	
+	echo "Set permissions of htdocs directory for project $i"
+	find /home/groups/$i/htdocs -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+	find /home/groups/$i/htdocs -prune ! -perm 2575 -exec chmod u=rx,g=rwx,g+s,o=rx {} +
 
 	echo "Set permissions of log directory for project $i"
-	chown $i:$i /home/groups/$i/log
-	chmod 0755 /home/groups/$i/log
-	chmod g+s /home/groups/$i/log
-	chmod 0644 /home/groups/$i/log/*
+	find /home/groups/$i/log -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+        find /home/groups/$i/log -prune ! -perm 2755 -exec chmod u=rwx,g=rx,g+s,o=rx {} +
+	find /home/groups/$i/log -type f ! -perm 0644 -exec chmod u=rw,g=r,o=r
 
 	if [ -d /home/groups/$i/htdocs/usage ] ; then
 		echo "Set permissions of usage directory for project $i"
-		chown $i:$i /home/groups/$i/htdocs/usage
-		chmod 0755 /home/groups/$i/htdocs/usage
-		chmod g+s /home/groups/$i/htdocs/usage
-
-		echo "Set permissions of usage directory files for project $i"
-		chown $i:$i /home/groups/$i/htdocs/usage/*
-		chmod 0644 /home/groups/$i/htdocs/usage/*
-		chown $i:$i /home/groups/$i/htdocs/usage/.htaccess
-		chmod 0644 /home/groups/$i/htdocs/usage/.htaccess
+		find /home/groups/$i/htdocs/usage \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+        	find /home/groups/$i/htdocs/usage -prune ! -perm 2755 -exec chmod u=rwx,g=rx,g+s,o=rx {} +
+		find /home/groups/$i/htdocs/usage -type f ! -perm 0644 -exec chmod u=rw,g=r,o=r {} +
 	fi
 
 	if [ -d /home/groups/$i/vhost ] ; then
-		chown $i:$i /home/groups/$i/vhost
-		chmod 0555 /home/groups/$i/vhost
-		chmod g+s /home/groups/$i/vhost
+		find /home/groups/$i/vhost -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+		find /home/groups/$i/vhost -prune ! -perm 2555 -exec chmod u=rx,g=rx,g+s,o=rx {} +
 
-		echo "Set permissions of vhost directories for project $i"
 		for k in `cd /home/groups/$i/vhost ; ls` ; do
-			chown $i:$i /home/groups/$i/vhost/$k
-			chmod 0555 /home/groups/$i/vhost/$k
-			chmod g+s /home/groups/$i/vhost/$k
-			chown $i:$i /home/groups/$i/vhost/$k/cgi-bin
-			chmod 0575 /home/groups/$i/vhost/$k/cgi-bin
-			chmod g+s /home/groups/$i/vhost/$k/cgi-bin
-			chown $i:$i /home/groups/$i/vhost/$k/htdocs
-			chmod 0575 /home/groups/$i/vhost/$k/htdocs
-			chmod g+s /home/groups/$i/vhost/$k/htdocs
+			echo "Set permissions of vhost $k directory for project $i"
+			find /home/groups/$i/vhost/$k -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+                	find /home/groups/$i/vhost/$k -prune ! -perm 2555 -exec chmod u=rx,g=rx,g+s,o=rx {} +
 
-			echo "Set permissions of vhost log directory for project $i"
-			chown $i:$i /home/groups/vhost/$k/$i/log
-			chmod 0755 /home/groups/$i/vhost/$k/log
-			chmod g+s /home/groups/$i/vhost/$k/log
-			chmod 0644 /home/groups/$i/vhost/$k/log/*
+			echo "Set permissions of cgi-bin directory of vhost $k for project $i"
+			find /home/groups/$i/vhost/$k/cgi-bin -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+                        find /home/groups/$i/vhost/$k/cgi-bin -prune ! -perm 2575 -exec chmod u=rx,g=rwx,g+s,o=rx {} +
+			
+			echo "Set permissions of htdocs directory of vhost $k for project $i"
+                        find /home/groups/$i/vhost/$k/htdocs -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+                        find /home/groups/$i/vhost/$k/htdocs -prune ! -perm 2575 -exec chmod u=rx,g=rwx,g+s,o=rx {} +
 
-			echo "Set permissions of vhost usage directory files for project $i"
+			echo "Set permissions of log directory of vhost $k for project $i"
+                        find /home/groups/$i/vhost/$k/log -prune \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+                        find /home/groups/$i/vhost/$k/htdocs -prune ! -perm 2755 -exec chmod u=rwx,u=rx,g+s,o=rx {} +
+			find /home/groups/$i/vhost/$k/htdocs -type f ! -perm 0644 -exec chmod u=rw,g=r,o=r {} +
+
 			if [ -d /home/groups/$i/vhost/$k/htdocs/usage ] ; then
-				chown $i:$i /home/groups/$i/vhost/$k/htdocs/usage
-				chmod 0755 /home/groups/$i/vhost/$k/htdocs/usage
-				chmod g+s /home/groups/$i/vhost/$k/htdocs/usage
-
-				echo "Set permissions of vhost usage directory files for project $i"
-				chown $i:$i /home/groups/$i/vhost/$k/htdocs/usage/*
-				chmod 0644 /home/groups/$i/vhost/$k/htdocs/usage/*
-				chown $i:$i /home/groups/$i/vhost/$k/htdocs/usage/.htaccess
-				chmod 0644 /home/groups/$i/vhost/$k/htdocs/usage/.htaccess
+				echo "Set permissions of usage directory of vhost $k for project $i"
+				find /home/groups/$i/vhost/$k/htdocs/usage \( ! -user $i -o ! -group $i \) -exec chown -h $i:$i {} +
+                		find /home/groups/$i/vhost/$k/htdocs/usage -prune ! -perm 2755 -exec chmod u=rwx,g=rx,g+s,o=rx {} +
+                		find /home/groups/$i/vhost/$k/htdocs/usage -type f ! -perm 0644 -exec chmod u=rw,g=r,o=r {} +
 			fi
 		done
 	fi

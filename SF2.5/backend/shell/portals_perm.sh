@@ -6,17 +6,10 @@ echo "Set permissions for portals: "
 htdir=/usr/local/httpd/htdocs
 
 for i in berlios devel forum news ; do
-	echo "Set owner and permissions for usage directory of $i"
-	chown helix:berlios $htdir.$i/usage
-	chmod 0755 $htdir.$i/usage
-	chmod g+s $htdir.$i/usage
-
-	echo "Set owner and permissions for usage directory files of $i"
-	chown helix:berlios $htdir.$i/usage/*
-	chmod 0644 $htdir.$i/usage/*
-	chown helix:berlios $htdir.$i/usage/.htaccess
-	chmod 0644 $htdir.$i/usage/.htaccess
-
+	echo "Set permissions for usage directory for portal $i"
+	find $htdir.$i/usage \( ! -user helix -o ! -group berlios \) -exec chown -h helix:berlios {} +
+	find $htdir.$i/usage -prune ! -perm 2755 -exec chmod u=rwx,g=rx,g+s,o=rx {} +
+	find $htdir.$i/usage -type f ! -perm 0644 -exec chmod u=rx,g=r,o=r {} +
 done
 
 echo "Done"
