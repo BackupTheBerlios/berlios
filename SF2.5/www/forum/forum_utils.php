@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.5 2003/11/21 11:46:38 helix Exp $
+// $Id: forum_utils.php,v 1.6 2003/11/24 11:08:47 helix Exp $
 
 /*
 
@@ -61,7 +61,7 @@ function forum_header($params) {
 				echo '
 				<B>Posted By:</B> '.user_getname( db_result($result,0,'submitted_by')).'<BR>
 				<B>Date:</B> '. date($sys_datefmt,db_result($result,0,'date')).'<BR>
-				<B>Summary:</B><A HREF="/forum/forum.php?forum_id='.db_result($result,0,'forum_id').'">'. db_result($result,0,'summary').'</A>
+				<B>Summary:</B> <A HREF="/forum/forum.php?forum_id='.db_result($result,0,'forum_id').'">'. db_result($result,0,'summary').'</A>
 				<P>
 				'. nl2br( util_make_links( db_result($result,0,'details')));
 
@@ -92,7 +92,7 @@ function forum_header($params) {
 			html_image('images/ic/check.png','16','15',array()).' Monitor Forum</A> | '.
 			'<A HREF="/forum/save.php?forum_id='.$forum_id.'">';
 		// 2003-02-04 helix: change to relative images url
-		echo  html_image('images/ic/save.png','24','24',array()) .' Save Place</A> | ';
+		echo html_image('images/ic/save.png','24','24',array()) .' Save Place</A> | ';
 	}
 
 	echo '  <A HREF="/forum/admin/?group_id='.$group_id.'">Admin</A></B>';
@@ -188,7 +188,7 @@ function forum_show_a_nested_message ($result) {
 					'<BR><A HREF="/forum/message.php?msg_id='.
 					$result['msg_id'] .'">'.
 					html_image("images/msg.gif","10","12",array("BORDER"=>"0")) .
-					$bold_begin.$result['subject'] .' [ reply ]'. $bold_end .'</A> &nbsp; '.
+					$bold_begin." ".$result['subject'] .' [ reply ]'. $bold_end .'</A> &nbsp; '.
 					'<BR>'. date($sys_datefmt,$result['date']) .'
 				</TD>   
 			</TR>
@@ -292,7 +292,7 @@ function show_thread($thread_id) {
 		*/
 		if (get_forum_saved_date($thread['group_forum_id']) < $thread['date']) { $ret_val .= '<B>'; }
 
-		$ret_val .= $thread['subject'] .'</A></TD>'.
+		$ret_val .= ' '.$thread['subject'] .'</A></TD>'.
 			'<TD>'. $thread['user_name'] .'</TD>'.
 			'<TD>'.date($sys_datefmt, $thread['date'] ).'</TD></TR>';
 
@@ -349,7 +349,7 @@ function show_submessages($msg_arr, $msg_id, $level) {
 			*/
 			if (get_forum_saved_date($forum_id) < $msg_arr[$msg_id][$i]['date']) { $ret_val .= '<B>'; }
 
-			$ret_val .= $msg_arr[$msg_id][$i]['subject'] .'</A></TD>'.
+			$ret_val .= ' '.$msg_arr[$msg_id][$i]['subject'] .'</A></TD>'.
 				'<TD>'. $msg_arr[$msg_id][$i]['user_name'] .'</TD>'.
 				'<TD>'.date($sys_datefmt, $msg_arr[$msg_id][$i]['date'] ).'</TD></TR>';
 

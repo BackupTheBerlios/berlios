@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: forum.php,v 1.3 2003/11/24 11:08:47 helix Exp $
 
 /*
 
@@ -291,7 +291,7 @@ echo "<P>setting pref";
 			/*      
 				show the subject and poster
 			*/
-			$ret_val .= $thread['subject'] .'</A></TD>'.
+			$ret_val .= ' '.$thread['subject'] .'</A></TD>'.
 				'<TD>'. $thread['user_name'] .'</TD>'.
 				'<TD>'.date($sys_datefmt,$thread['date']).'</TD></TR>';
 				 
@@ -357,7 +357,7 @@ echo "<P>setting pref";
 			$ret_val .= '
 			        <TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD><A HREF="/forum/forum.php?thread_id='.
 			        $row['thread_id'].'&forum_id='.$forum_id.'">'.
-			        html_image("images/ic/cfolder15.png","15","13",array("border"=>"0")) . '  &nbsp; ';
+			        html_image("images/ic/cfolder15.png","15","13",array("border"=>"0"));
 			/*      
 			        See if this message is new or not
 			        If so, highlite it in bold
@@ -368,7 +368,7 @@ echo "<P>setting pref";
 			/* 
 			        show the subject and poster
 			*/
-			$ret_val .= $row['subject'] .'</A></TD>'.
+			$ret_val .= '&nbsp;'.$row['subject'] .'</A></TD>'.
 			        '<TD>'. $row['user_name'] .'</TD>'.
 				'<TD>'. $row['followups'] .'</TD>'.
 			        '<TD>'.date($sys_datefmt,$row['recent']).'</TD></TR>';
