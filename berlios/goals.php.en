@@ -48,10 +48,33 @@ normally only covered by proprietary software.
 Open Source Software.
 </ul>
 
-<p>BerliOS consists of a number of portals, each providing a specific service.
+<p>BerliOS is an interactive platform, that is, it lives and dies from the
+interaction of its users. All portals allow registered users to add material
+about and around Open Source.
+
+<p>The BerliOS platform consists of a number of portals, each providing 
+a specific service. These portals are:
+<ul>
+<li><a href="http://news.berlios.de/"         class="menus">News</a>
+<li><a href="http://forum.berlios.de/"        class="menus">Forum</a>
+<li><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
+<li><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
+<li><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
+<li><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
+<li><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
+<li><a href="http://developer.berlios.de/"    class="menus">Developer</a>
+<li><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
+<li><a href="http://user.berlios.de/"         class="menus">User</a>
+<li><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
+</ul>
+and are described in more details by following the BerliOS links on the left
+hand side, in the menu bar.
+
+<p>BerliOS is a pure web-based application supporting the Open Source
+Development methodology. It is written in PHP using an MySQL backend and
+Apache as webserver.
 
 </td>
-
 <td WIDTH="35%">
 
 <!-- recent news -->

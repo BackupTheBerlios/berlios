@@ -1,4 +1,4 @@
-<!-- $Id: know_hows.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
+<!-- $Id: know_hows.php.en,v 1.4 2001/12/18 11:10:27 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -31,28 +31,42 @@ require("include/site_menubar.html.en");
 
 <h2>Open Source Know-How</h2>
 
+<p>To spread the ideals of the Open Source movement, it is important to
+provide a service where potential users can obtain know-how and answers to
+their questions.
 
-<?php
-/**
- Should talk about the BerliOS know how, i.e. berlios as company, and
- how the platform offers the possibility of gaining know-how.
+<p>The <a href="http://sourcelines.berlios.de">SourceLines</a> portal is
+an up-to-date repository of Open Source solutions and descriptions of how
+these were done.
 
- Here we should talk about 
-  --> docswell: documentation know how
-  --> news: general know-how about the 
-  --> forum: general discussion about OS topics
-  --> wiki: project know how
-  --> sourcelines: existing best practices know-how
- portals
-**/
-?>
-BerliOS Portals:
+<p><a href="http://docswell.berlios.de">DocsWell</a> provides one central
+location for the announcement and retrieval of general documentation
+related to Open Source. Here you will find lists of HOWTOs, manuals, 
+guides, FAQs and books. Each entry may be downloaded directly from the site.
+Register users may add new entries and update existing ones.
+
+<p><a href="http://news.berlios.de">News</a> presents news about happenings
+within, about and around the Open Source community. News allows registered
+users to add and update news items. 
+
+<p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
+service where messages may be commented and replied to. Forum is intended to
+allow discussion related to Open Source.
+
+<p><a href="http://wiki.berlios.de">Wiki</a> provides an open communication
+portal based on the <a href="http://www.c2.com/cgi/wiki?WikiWikiWeb">Wiki
+concept</a> and is intended as an alternative to the mailing lists, forum,
+and email forms of communication. The main intention of Wiki is as a project
+aid to active projects, however, it main also be used as a repository of Open
+Source know-how.
+
+<p>BerliOS Portals:
 <ul>
-<li> <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
-<li> <a href="http://news.berlios.de">http://news.berlios.de</a>
-<li> <a href="http://forum.berlios.de">http://forum.berlios.de</a>
-<li> <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
-<li> <a href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
+<li> DocsWell <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
+<li> News <a href="http://news.berlios.de">http://news.berlios.de</a>
+<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
+<li> SourceLines <a href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
 </ul>
 
 
