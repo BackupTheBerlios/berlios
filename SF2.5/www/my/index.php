@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.4 2003/11/27 15:13:48 helix Exp $
+// $Id: index.php,v 1.5 2003/11/28 10:10:21 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -74,7 +74,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/bugs/?func=detailbug&group_id='.
 				db_result($result,$i,'group_id').'&bug_id='.db_result($result,$i,'bug_id').
 				'">'.sprintf("%06d",db_result($result,$i,'bug_id')).'</A></TD>'.
-				'<TD>'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
+				'<TD WIDTH="99%">'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
 
 			$last_group=db_result($result,$i,'group_id');
 		}
@@ -110,7 +110,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/support/?func=detailsupport&group_id='.
 				db_result($result,$i,'group_id').'&support_id='.db_result($result,$i,'support_id').
 				'">'.sprintf("%06d",db_result($result,$i,'support_id')).'</A></TD>'.
-				'<TD>'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
+				'<TD WIDTH="99%">'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
 
 			$last_group=db_result($result,$i,'group_id');
 		}
@@ -258,7 +258,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			'&group_id='.db_result($result, $i, 'group_id').
 			'&group_project_id='.db_result($result, $i, 'group_project_id').'">'.
 			sprintf("%06d",db_result($result, $i, 'project_task_id')).'</A></TD>
-			<TD>'.$style_begin.stripslashes(db_result($result, $i, 'summary')).$style_end.'</TD></TR>';
+			<TD WIDTH="99%">'.$style_begin.stripslashes(db_result($result, $i, 'summary')).$style_end.'</TD></TR>';
 
 			$last_group = db_result($result,$i,'group_project_id');
 		}
@@ -307,7 +307,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE">
 			<A HREF="/my/bookmark_delete.php?bookmark_id='. db_result($result,$i,'bookmark_id') .'">
 			<IMG SRC="/images/ic/trash.png" HEIGHT="16" WIDTH="16" BORDER="0"></A></TD>
-			<TD><B><A HREF="'. db_result($result,$i,'bookmark_url') .'">'.
+			<TD WIDTH="99%"><B><A HREF="'. db_result($result,$i,'bookmark_url') .'">'.
 			db_result($result,$i,'bookmark_title') .'</A></B> &nbsp;
 			<SMALL><A HREF="/my/bookmark_edit.php?bookmark_id='. db_result($result,$i,'bookmark_id') .'">[Edit]</A></SMALL></TD</TR>';
 		}
@@ -338,7 +338,7 @@ if (user_isloggedin() || $sf_user_hash) {
 			echo '
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE">
 			<A href="rmproject.php?group_id='. db_result($result,$i,'group_id') .'"><IMG SRC="/images/ic/trash.png" ALT="DELETE" HEIGHT="16" WIDTH="16" BORDER="0"></A></TD>
-			<TD><A href="/projects/'. db_result($result,$i,'unix_group_name') .'/">'. db_result($result,$i,'group_name') .'</A></TD></TR>';
+			<TD WIDTH="99%"><A href="/projects/'. db_result($result,$i,'unix_group_name') .'/">'. db_result($result,$i,'group_name') .'</A></TD></TR>';
 		}
 	}
 	echo $HTML->box1_bottom();
