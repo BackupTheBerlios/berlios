@@ -1,5 +1,5 @@
 <?php
-// ## export sf front page news in RSS
+// ## export project front page news in RSS 0.91
 include "pre.php";
 include "rss_utils.inc";
 header("Content-Type: text/xml");
@@ -28,8 +28,8 @@ print "  <title>$GLOBALS[sys_default_name] Project News</title>\n";
 print "  <description>$GLOBALS[sys_default_name] Project News Highlights</description>\n";
 print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
 print "  <language>en-us</language>\n";
-print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
-print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
+print "  <copyright>Copyright 2000-".date("Y")." Fraunhofer FOKUS</copyright>\n";
+print "  <pubDate>".gmdate('D, d M Y G:i:s',time())." GMT</pubDate>\n";
 print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 // ## item outputs
 while ($row = db_fetch_array($res)) {
