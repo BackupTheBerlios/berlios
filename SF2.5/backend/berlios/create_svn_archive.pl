@@ -37,6 +37,9 @@ while ($ln = shift(@group_dump)) {
     $chmod = "chmod -R u+rw,g+rw,o-w ".$dir;
     print("$chmod\n");
     system($chmod);
+    $chmod = "chmod a+x ".$dir."/hooks/*";
+    print("$chmod\n");
+    system($chmod);
     $chmod = "find $dir -type d | xargs chmod 2775";
     print("$chmod\n");
     system($chmod);
