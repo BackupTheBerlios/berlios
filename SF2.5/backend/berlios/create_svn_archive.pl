@@ -31,6 +31,12 @@ while ($ln = shift(@group_dump)) {
     print("$remove\n");
     system($remove);
   } elsif ($status eq "A") {
+    $setfacl = "setfacl -d -m u:wwwrun:rw- ".$dir."/db";
+    print("$setfacl\n");
+    system($setfacl);
+    $setfacl = "setfacl -m u:wwwrun:rw- ".$dir."/db/*";
+    print("$setfacl\n");
+    system($setfacl);
     $chown = "chown -R wwwrun:".$groupname." ".$dir;
     print("$chown\n");
     system($chown);
