@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: lastlogins.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: lastlogins.php,v 1.3 2004/02/08 15:53:41 helix Exp $
 
 require "pre.php";    
 session_require(array('group'=>'1','admin_flags'=>'A'));
@@ -25,7 +25,7 @@ print '<TABLE width=100% cellpadding=0 cellspacing=0 border=0>';
 
 while ($row_logins = db_fetch_array($res_logins)) {
 	print '<TR>';
-	print "<TD>$row_logins[user_name]</TD>";
+	print "<TD><a href=\"http://".$GLOBALS['sys_default_host']."/users/$row_logins[user_name]\">$row_logins[user_name]</a></TD>";
 	print "<TD>$row_logins[ip_addr]</TD>";
 	print "<TD>" . date("Y/m/d G:i",$row_logins['time']) . "</TD>";
 	print '</TR>';
