@@ -28,6 +28,13 @@
       <b><a href="<?php echo $top_level; ?>/partners/index.php.en" class="maintitlebar">Partners</a></b> |
       <b><a href="<?php echo $top_level; ?>/contact/index.php.en" class="maintitlebar">Contact</a></b></span>
     </td>
+    <td width="55%" align="right">
+      <span class="maintitlebar">&nbsp;
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.en" class="maintitlebar">English</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.de" class="maintitlebar">Deutsch</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.es" class="maintitlebar">Español</a></b></font>
+      </span>
+    </td>
   </tr>
 </table>
 <!-- end top strip -->

@@ -29,9 +29,11 @@
      <b><a href="<?php echo $top_level; ?>contact/index.php.es" class="maintitlebar">Contacto</a></b></span>
     </td>
     <td width="55%" align="right">
-      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.en">English</a></b></font> | 
-      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.de">Deutsch</a></b></font> | 
-      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.es">Español</a></b></font>
+      <span class="maintitlebar">&nbsp;
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.en" class="maintitlebar">English</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.de" class="maintitlebar">Deutsch</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.es" class="maintitlebar">Español</a></b></font>
+      </span>
     </td>
   </tr>
 </table>
