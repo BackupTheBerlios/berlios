@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: groupedit.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: groupedit.php,v 1.3 2004/11/12 12:09:30 helix Exp $
 
 require "pre.php";    
 require "vars.php";
@@ -63,6 +63,9 @@ if ($Update) {
 		db_query("UPDATE groups SET is_public=$form_public,status='$form_status',"
 		. "license='$form_license',type='$group_type',"
 		. "unix_box='$form_box',http_domain='$form_domain' WHERE group_id=$group_id");
+		if ($form_status == "D") {
+			db_query("UPDATE prweb_vhost SET state=2 WHERE group_id=$group_id");
+		}
 		$feedback .= 'Updated Project Info<br>';
 	}
 
