@@ -19,10 +19,16 @@ while ($ln = shift(@user_dump)) {
 	($uid, $status, $username, $shell, $pwd, $realname) = split(":", $ln);
 	if ($uid != "0") {
 	  if ($status eq "A") {
-	    $pwdent = "/usr/sbin/useradd -c \"".$realname . " at BerliOS\" -d ".$config{'user_home'}."/".$username." -g ".$username." -m -k ".$config{'shell_user_skel'}." -p '".$pwd."' -s ".$config{'shell'}." -u ".$uid." ".$username;
+	    my $user_home_dir = $config{'user_home'}."/".$username;
+	    if ( ! -d $user_home_dir ) {
+	      $pwdent = "/usr/sbin/userdel ".$username;
+              print("$pwdent\n");
+              system($pwdent);
+	    }
+	    $pwdent = "/usr/sbin/useradd -c \"".$realname . " at BerliOS\" -d ".$config{'user_home'}."/".$username." -g ".$username." -m -k ".$config{'shell_user_skel'}." -p '".$pwd."' -s ".$shell." -u ".$uid." ".$username;
 	    print("$pwdent\n");
 	    system($pwdent);
-            $pwdent = "/usr/sbin/usermod -g ".$username." -u ".$uid." -p '".$pwd."' ".$username;
+            $pwdent = "/usr/sbin/usermod -g ".$username." -u ".$uid." -p '".$pwd."' -s ".$shell." ".$username;
             print("$pwdent\n");
             system($pwdent);
 	    $cmd = "/bin/chown -R $uid:$username $config{'user_home'}/$username";
