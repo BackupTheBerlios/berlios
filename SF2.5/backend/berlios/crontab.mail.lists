@@ -7,6 +7,10 @@
 #
 05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.mail
 #
+# at the end of every week (before Mon 00:00:00)
+#
+30 23 * * 0 /usr/local/httpd/SF2.5/backend/berlios/cron.weekly.mail
+#
 # crontab entries for BerliOS Mailing Lists Server:
 # lists.berlios.de
 #
