@@ -24,8 +24,15 @@ while ($ln = shift(@list_dump)) {
 		if ($is_public == 1) {
                         $cmd = "newlist -q $listname $user\@mail.berlios.de $passwd 1";
                 }
-		if ($is_public == 9) {
+                if ($is_public == 8) {
                         $cmd = "rmlist $listname";
+	                system($cmd);
+			print("$cmd\n");
+			$cmd = "newlist -q $listname $user\@mail.berlios.de $passwd 1";
+                }
+
+		if ($is_public == 9) {
+                        $cmd = "rmlist -a $listname";
                 }
 	  	system($cmd);
 	  	print("$cmd\n");
