@@ -62,15 +62,15 @@ Anwendungen sowie Support-Firmen.
 
 <!-- Anwender outer wedge -->
 <area shape="poly" coords="88,190,43,190,49,146,79,92,118,60,141,99,103,137" 
-      href="anwender.php" alt="Anwender">
+      href="http://user.berlios.de" alt="Anwender">
 <!-- Entwickler outer wedge -->
 <area shape="poly" 
       coords="245,99,267,60,299,83,334,139,343,190,297,190,282,136" 
-      href="entwickler.php" alt="Entwickler">
+      href="http://developer.berlios.de" alt="Entwickler">
 <!-- Dienstleister and hersteller outer wedge -->
 <area shape="poly" 
       coords="117,320,140,280,193,295,245,281,268,320,229,336,164,337" 
-      href="dienstleister.php" alt="Dienstleister und Hersteller">
+      href="http://sourcebiz.berlios.de" alt="Dienstleister und Hersteller">
 
 </map>
 
