@@ -23,5 +23,15 @@ echo "BerliOS tasks to be executed at the beginning of every week on WWW server"
 #
 /usr/local/httpd/SF2.5/backend/shell/webalizer_new.sh
 
+#
+#   Remove portal log files older than 14 days
+#
+/usr/local/httpd/SF2.5/backend/shell/remove_portal_log.sh
+
+#
+#   Remove project log files older than 14 days
+#
+/usr/local/httpd/SF2.5/backend/shell/remove_project_log.sh
+
 echo ""
 echo "Done."
