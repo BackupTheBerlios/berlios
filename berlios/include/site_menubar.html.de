@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.de,v 1.7 2002/05/14 11:06:26 grex Exp $ -->
+<!-- $Id: site_menubar.html.de,v 1.8 2002/05/14 11:11:24 grex Exp $ -->
 
 <?php
  if ( !isset( $top_level ) ) {
@@ -7,8 +7,8 @@
 ?>
 <td bgcolor="#FFCC33">
 <!-- BerliOS menu -->
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-  <tr bgcolor="#000000">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
+  <tr bgcolor="#7B7B7B">
     <td align="center">
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Zielgruppe</font></span>
@@ -24,8 +24,8 @@
 </table>
 <p>
 
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-  <tr bgcolor="#000000">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
+  <tr bgcolor="#7B7B7B">
     <td align=center>
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Plattform</font></span>
@@ -41,8 +41,8 @@
 </table>
 <p>
 
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000">
-  <tr bgcolor="#000000">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B">
+  <tr bgcolor="#7B7B7B">
     <td align="center">
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Vermittlungsfunktion</font></span>
@@ -59,8 +59,8 @@
 </table>
 <p>
 
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-  <tr bgcolor="#000000">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B">
+  <tr bgcolor="#7B7B7B">
     <td align="center">
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Portal</font></span>
