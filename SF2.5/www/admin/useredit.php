@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: useredit.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: useredit.php,v 1.3 2004/06/14 07:48:43 helix Exp $
 
 /*
 
@@ -68,7 +68,8 @@ Unix Account Status:
 Email:
 <INPUT TYPE="TEXT" NAME="email" VALUE="<?php echo $row_user[email]; ?>" SIZE="25" MAXLENGTH="55">
 
-<p><A href="user_changepw.php?user_id=<?php print $user_id; ?>">[Change User Password]</A>
+<p><A href="user_changepw.php?user_id=<?php print $user_id; ?>">[Change User Password]</A><br>
+<A href="/account/pending-resend.php?form_user=<?php print user_getname($user_id); ?>">[Resend Pending Mail]</a>
 </p>
 
 <p>
@@ -85,8 +86,6 @@ group.
 
 <p>
 <H2>Current Groups:</H2>
-<br>
-&nbsp;
 
 <?php
 /*
@@ -100,16 +99,13 @@ $res_cat = db_query("SELECT groups.unix_group_name, groups.group_name AS group_n
 
 	print "<table>";
 	while ($row_cat = db_fetch_array($res_cat)) {
-		print ("<tr><td><b>$row_cat[group_name]</b> ($row_cat[unix_group_name])</td>"
+		print ("<tr><td><b>$row_cat[group_name]</b> ("
+			."<a href=\"/projects/".$row_cat[unix_group_name]."\">"
+			.$row_cat[unix_group_name]."</a>)</td>"
 			. "<td><a href=\"/project/admin/?group_id=$row_cat[group_id]\">[Remove User from Group]</a></td>");
 		print '<td><A HREF="/project/admin/userperms.php?group_id='.$row_cat['group_id'].'">[Edit Permissions]</A></td></tr>';
 	}
 	print "</table>";
-
-?>
-
-
-<?php
 
 html_feedback_bottom($feedback);
 
