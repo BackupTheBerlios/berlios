@@ -30,7 +30,7 @@
 #
 # grab projects from trove map and put into foundry_projects table
 #
-#15 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/populate_foundries.php -o /var/log/httpd/devel25/populate_foundries.log -O /var/log/httpd/devel25/populate_foundries.output
+15 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/populate_foundries.php -o /var/log/httpd/devel25/populate_foundries.log -O /var/log/httpd/devel25/populate_foundries.output
 #
 #
 # recalculate user popularity metric
