@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_project.php,v 1.2 2004/06/14 07:54:10 helix Exp $
+// $Id: rss_project.php,v 1.3 2005/02/07 13:28:57 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Project Exports Available"));
@@ -26,8 +26,13 @@ To get Project News or New Project Releases of a specific project use the Links 
 <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
 <LI><A href="rss_bsnewreleases.php?group_id=<?php echo $group_id; ?>">BerliOS Developer New Project Releases</A>
 (<A href="http://my.netscape.com/publish/formats/rss-spec-0.91.html">RSS 0.91</A>,
-
 <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
+</UL>
+<UL>
+<LI><A href="rss20_bsnews.php?group_id=<?php echo $group_id; ?>">BerliOS Developer Project News</A>
+(<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
+<LI><A href="rss20_bsnewreleases.php?group_id=<?php echo $group_id; ?>">BerliOS Developer New Project Releases</A>
+(<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
 </UL>
 
 <h4>Project Information</h4>

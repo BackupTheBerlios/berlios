@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.4 2004/06/09 10:57:15 helix Exp $
+// $Id: index.php,v 1.5 2005/02/07 13:26:16 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Exports Available"));
@@ -21,7 +21,9 @@ XML Exports
 <UL>
 <LI><A href="rss_bsprojects.php"><?php print $GLOBALS[sys_default_name] ?> Full Project Listing</A>
 (<A href="http://my.netscape.com/publish/formats/rss-spec-0.91.html">RSS 0.91</A>,
-<A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
+ <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
+<LI><A href="rss20_bsprojects.php"><?php print $GLOBALS[sys_default_name] ?> Full Project Listing</A>
+(<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
 <LI><A href="trove_tree.php"><?php print $GLOBALS[sys_default_name] ?> Trove Categories Tree</A>
 (<A href="http://www.w3.org/XML">XML</A>,
 <A href="trove_tree_0.1.dtd">&lt;trove_tree_0.1.dtd&gt;</A>)
@@ -37,6 +39,13 @@ You will get Project News or New Project Releases of a specific project, if an a
 <LI><A href="rss_bsnewreleases.php"><?php print $GLOBALS[sys_default_name] ?> New Releases/New Project Releases</A>
 (<A href="http://my.netscape.com/publish/formats/rss-spec-0.91.html">RSS 0.91</A>,
 <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
+</UL>
+
+<UL>
+<LI><A href="rss20_bsnews.php"><?php print $GLOBALS[sys_default_name] ?> Front Page News/Project News</A>
+(<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
+<LI><A href="rss20_bsnewreleases.php"><?php print $GLOBALS[sys_default_name] ?> New Releases/New Project Releases</A>
+(<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
 </UL>
 
 <h4>Project Information</h4>
