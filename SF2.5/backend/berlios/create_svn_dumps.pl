@@ -5,7 +5,7 @@
 # http://www.berlios.de/
 #
 # Create SVN dumps for every Project/Group
-# (/usr/local/httpd/htdocs/svndumps/<projectname>-repos.gz)
+# (/usr/local/httpd/htdocs.berlios/svndumps/<projectname>-repos.gz)
 # based on infos available from /home/dummy/dumps25/group_dump
 #
 
@@ -20,7 +20,7 @@ while ($ln = shift(@group_dump)) {
 	($groupname, $status, $groupid, $userlist) = split(":", $ln);
 	($username) = split(",", $userlist);
 	if ($status eq "A") {
-		$dumpcmd = "su -c \"svnadmin dump ".$config{'svnroot'}."/repos/$groupname >/tmp/$groupname-repos\" - $username";
+		$dumpcmd = "su -c \"umask 002;svnadmin dump ".$config{'svnroot'}."/repos/$groupname >/tmp/$groupname-repos\" - $username";
 		print("\n$dumpcmd\n");
 		system($dumpcmd);
 		$gzipcmd = "gzip -f /tmp/$groupname-repos";
