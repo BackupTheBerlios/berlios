@@ -23,12 +23,12 @@ function newsbox ($title, $content) {
           <table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">
             <tr>
               <td colspan=\"1\" bgcolor=\"#CCCCCC\">
-                <font size=\"2\"><b>$title</b>
+                <font size=\"2\"><b>$title</b></font>
               </td>
             </tr>
             <tr>
-              <td bgcolor=\"#FFFFFF\"><font size=\"2\">
-                 $content
+              <td bgcolor=\"#FFFFFF\">
+                 <font size=\"2\">$content</font></font>
               </td>
             </tr>
           </table>

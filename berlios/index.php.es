@@ -4,7 +4,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
 <link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: index.php.es,v 1.5 2002/05/13 23:21:57 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.6 2002/05/13 23:34:48 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 </head>
 <body bgcolor="#FFFFFF">
@@ -91,7 +91,7 @@ require("include/news.php");
       <!-- end content -->
     </td>
     <td width="5" bgcolor="#FFFFFF">
-      <img SRC="images/blank.gif" border=0 height=1 width=5>
+      <img SRC="images/blank.gif" border="0" height="1" width="5" alt="">
     </td>
   </tr>
 </table>

@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.4 2002/05/13 23:28:13 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.5 2002/05/13 23:34:48 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -31,7 +31,7 @@
     </td>
     <td valign="middle" width="99%">
       <b><font size="+1">BerliOS</font></b>
-      <br>The Open Source Mediator</td>
+      <br>The Open Source Mediator
 
       <!-- logo at right -->
       <map name="BerliOSPie_Navigate">
@@ -76,8 +76,8 @@
      <area shape="poly" 
       coords="51,30,60,30,59,25,58,20, 56,15,53,11,51,8,48,6, 45,4,40,12,44,14,46,16, 47,18,49,21,50,24" 
       href="developers.php.es" alt="Desarrolladores">
-     </map>
-
+     </map
+    </td>
     <td valign="middle">
       <table border="0">
         <tr>
