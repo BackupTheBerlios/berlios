@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: user_home.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: user_home.php,v 1.3 2004/04/02 10:55:08 helix Exp $
 
 /*
 
@@ -18,9 +18,9 @@
 */
 
 require ('vote_function.php');
+require ('donate.php');
 
 $HTML->header(array('title'=>'Developer Profile'));
-
 ?>
 
 <H3>Developer Profile</H3>
@@ -36,7 +36,7 @@ $HTML->header(array('title'=>'Developer Profile'));
 
 <TR valign=top>
 	<TD>Login Name: </TD>
-	<TD><B><?php print $user->getUnixName(); ?></B></TD>
+	<TD><B><?php print $user->getUnixName(); ?></B><?php print is_project_donor($user_id).is_user_donor($user_id).req_user_donate($user_id) ?></TD>
 </TR>
 
 <TR valign=top>
@@ -71,6 +71,13 @@ $HTML->header(array('title'=>'Developer Profile'));
 	echo $HTML->box1_middle('Peer Rating',false,false);
 
 	echo vote_show_user_rating($user_id);
+
+	echo $HTML->box1_middle('Donations',false,false);
+
+    echo '
+      <p><b><a href="/developer/make_donation.php?user_id='.$user_id.'">Make a donation.</a></b>
+      <p><a href="/developer/donations.php?user_id='.$user_id.'">View Donations</a></p>
+    ';
 
 	echo $HTML->box1_middle('Diary And Notes');
  

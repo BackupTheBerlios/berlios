@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: html.php,v 1.3 2003/11/28 10:08:22 helix Exp $
+// $Id: html.php,v 1.4 2004/04/02 10:55:08 helix Exp $
 
 // require("exit.php");
 
@@ -427,7 +427,7 @@ function site_user_header($params) {
 	echo html_feedback_top($GLOBALS['feedback']);
 	echo '
 	<P>
-	<A HREF="/my/">My Personal Page</A> | <A HREF="/my/diary.php">Diary &amp; Notes</A> | <A HREF="/account/">Account Options</A>
+	<A HREF="/my/">My Personal Page</A> | <A HREF="/my/diary.php">Diary &amp; Notes</A> | <A HREF="/account/">Account Options</A> | <A HREF="/my/donation_admin.php">Donations</A>
 	<P>';
 
 }

@@ -4,13 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_home.php,v 1.5 2004/03/17 16:40:38 helix Exp $
+// $Id: project_home.php,v 1.6 2004/04/02 10:55:08 helix Exp $
 
 require ('vote_function.php');
 require ('vars.php');
 require ($DOCUMENT_ROOT.'/news/news_utils.php');
 require ('trove.php');
 require ('project_summary.php');
+require ('donate.php');
 
 //make sure this project is NOT a foundry
 if (!$project->isProject()) {
@@ -29,7 +30,7 @@ site_project_header(array('title'=>$title,'group'=>$group_id,'toptab'=>'home'));
 ?>
 
 <TABLE WIDTH="100%" BORDER="0">
-<TR><TD WIDTH="99%" VALIGN="top">
+<TR><TD WIDTH="75%" VALIGN="top">
 <?php 
 
 // ########################################## top area, not in box 
@@ -101,7 +102,7 @@ if (db_numrows($res_admin) > 0) {
 	<SPAN CLASS="develtitle"><?php echo $Language->PROJECT_ADMINS; ?>:</SPAN><BR>
 	<?php
 		while ($row_admin = db_fetch_array($res_admin)) {
-			print "<A href=\"/users/$row_admin[user_name]/\">$row_admin[user_name]</A><BR>";
+			print "<A href=\"/users/$row_admin[user_name]/\">$row_admin[user_name]</A>".is_project_donor($row_admin[user_id]).is_user_donor($row_admin[user_id]).req_user_donate($row_admin[user_id])."<BR>";
 		}
 	?>
 	<HR WIDTH="100%" SIZE="1" NoShade>
@@ -135,8 +136,8 @@ $res_donate = db_query("SELECT * FROM group_donate WHERE group_id='$group_id'");
 if ($res_donate && db_numrows($res_donate) > 0) {
   echo '
 <p><table cellspacing="1" cellpadding="5" width="100%" border="0" bgcolor="#FFFFFF">
-<tr><td valign="top"><a href="/donate/projects.php?group_id='.$group_id.'"><img src="/images/x-click-but7.gif" align="top" border="0" width="72" height="29" alt="[Donate to '.$project->getPublicName().']"></a></td>
-<td valign="top">Do you like "'.$project->getPublicName().'" and what we do for the Open Source community? Consider supporting the project so that we can spend more time to develop Open Source software. Besides doing a good deed for the community, you\'ll also be listed on the <a href="/donate/contributors.php?group_id='.$group_id.'">project\'s contributors page</a>.</td>
+<tr><td valign="top"><a href="/project/make_donation.php?group_id='.$group_id.'"><img src="/images/x-click-but7.gif" align="top" border="0" width="72" height="29" alt="[Donate to '.$project->getPublicName().']"></a></td>
+<td valign="top">Do you like "'.$project->getPublicName().'" and what we do for the Open Source community? Consider supporting the project so that we can spend more time to develop Open Source software. Besides doing a good deed for the community, you\'ll also be listed on the <a href="/project/donations.php?group_id='.$group_id.'">project\'s supporters page</a>.</td>
 </tr></table>
 ';
 }
