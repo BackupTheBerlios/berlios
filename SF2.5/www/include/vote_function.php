@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: vote_function.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: vote_function.php,v 1.3 2003/11/26 14:42:29 helix Exp $
 
 function vote_number_to_stars($raw) {
 	$raw=intval($raw*2);
@@ -146,11 +146,11 @@ if (db_numrows($result) > 0) {
 			*/
 
 			echo '
-				<TR><TD VALIGN=TOP>&nbsp;</TD><TD>';
+				<TR><TD valign="top">&nbsp;</TD><TD>';
 
 		} else {
 			echo '
-				<TR><TD VALIGN=TOP><B>';
+				<TR><TD valign="top"><B>';
 			/*
 				If it's a 1-5 question box and first in series, move Quest
 				number down a bit
@@ -159,7 +159,7 @@ if (db_numrows($result) > 0) {
 				echo '&nbsp;<BR>';
 			}
 
-			echo $q_num.'&nbsp;&nbsp;&nbsp;&nbsp;<BR></TD><TD>';
+			echo $q_num.'&nbsp;&nbsp;&nbsp;&nbsp;<BR></TD><TD valign="top">';
 			$q_num++;
 		}
 
@@ -171,7 +171,7 @@ if (db_numrows($result) > 0) {
 
 			if ($question_type != $last_question_type) {
 				echo '
-					<B>1 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5</B>';
+					<B>&nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3 &nbsp;&nbsp; 4 &nbsp;&nbsp; 5</B>';
 				echo '<BR>';
 
 			}
@@ -236,9 +236,9 @@ if (db_numrows($result) > 0) {
 
 	?>
 	<TR><TD ALIGN="MIDDLE" COLSPAN="2">
-
+	&nbsp;<br>
 	<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="SUBMIT">
-	<BR>
+	<p>
 	<A HREF="/survey/privacy.php">Survey Privacy</A>
 	</TD></TR>
 	</FORM>
