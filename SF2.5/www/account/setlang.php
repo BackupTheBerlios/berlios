@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: setlang.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: setlang.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 setcookie('cookie_language_id',$language_id,(time()+2592000),'/','',0);
 $cookie_language_id=$language_id;

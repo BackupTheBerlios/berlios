@@ -4,9 +4,9 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: sflogo.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: sflogo.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
-require ('squal_pre.php');
+require_once ('squal_pre.php');
 
 /*
 	Determine group
@@ -29,17 +29,17 @@ if (!$res_logger) {
 // output image
 header("Content-Type: image/png");
 header("Cache-Control: no-cache, must-revalidate");
-header("Pragma: no-cache");
+//header("Pragma: no-cache");
 
-if (!$group_id) {
-	echo 'xxxxx NO GROUP ID xxxxxxx';
-	exit;
-}
+//if (!$group_id) {
+//	echo 'xxxxx NO GROUP ID xxxxxxx';
+//	exit;
+//}
 
-if ($type == 1) {
-	echo readfile ($sys_urlroot.'images/sflogo-88-1.png');
-}  else { // default
-	echo readfile ($sys_urlroot.'images/sflogo-88-1.png');
-} 
+//if ($type == 1) {
+	echo readfile ($sys_urlroot.'images/berliOS_small_logo.png');
+//}  else { // default
+//	echo readfile ($sys_urlroot.'images/berliOS_small_logo.png');
+//} 
 
 ?>

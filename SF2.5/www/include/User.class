@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	    
-// $Id: User.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: User.class,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 /*
@@ -127,6 +127,10 @@ class User extends Error {
 			db_reset_result($this->db_result);
 			
 			$this->data_array=db_fetch_array($this->db_result);
+// while (list($k,$v) = each($this->data_array)) {	
+// echo "<br>$k: $v\n";
+// }
+
 		}
 		$this->user_id=$this->data_array['user_id'];
 		$this->is_super_user=false;
@@ -313,7 +317,7 @@ class User extends Error {
 	 *	@sets user's preferred shell
 	 */
 	function setShell($shell) {
-		if (!sf_ldap_user_change_attribute($this->getUserId(),"loginShell",$shell)) {
+		if (!sf_ldap_user_set_attribute($this->getUserId(),"loginShell",$shell)) {
 		    $this->setError(sf_ldap_get_error_msg());
 		    return false;
 		}
@@ -346,7 +350,7 @@ class User extends Error {
 	 *	@returns this user's language_id
 	 */
 	function getLanguage() {
-		return $this->data_array['language'];
+		return $this->data_array['language_id'];
 	}
 
 	/**

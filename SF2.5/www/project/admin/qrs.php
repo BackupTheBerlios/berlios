@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: qrs.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: qrs.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -58,7 +58,7 @@ if( $submit ) {
 			Fifth insert it into the database
 		*/
 		$group_unix_name=group_getunixname($group_id);
-		$project_files_dir=$FTPFILES_DIR.$group_unix_name;
+		$project_files_dir=$FTPFILES_DIR."/".$group_unix_name;
 
 		if ($file_name) {
 			// Check to see if the user uploaded a file instead of selecting an existing one.
@@ -69,6 +69,7 @@ if( $submit ) {
 				if (is_file($userfile) && file_exists($userfile)) {
 					$new_userfile = explode("tmp/", $userfile);
 					$userfile = $new_userfile[1];
+
 					exec ("/usr/local/bin/tmpfilemove $userfile $userfile_name",$exec_res);
 					if ($exec_res[0]) {
 						echo '<H3>' . $exec_res[0],$exec_res[1] . '</H3><P>';
@@ -105,7 +106,7 @@ if( $submit ) {
 						clearstatcache();
 						if (is_file($FTPINCOMING_DIR.'/'.$file_name) && file_exists($FTPINCOMING_DIR.'/'.$file_name)) {
 							//move the file to a its project page using a setuid program
-							exec ("/usr/local/bin/fileforge $file_name ".$group_unix_name,$exec_res);
+							exec ("/usr/local/bin/fileforge-3 $file_name ".$group_unix_name,$exec_res);
 							if ($exec_res[0]) {
 								echo '<h3>'.$exec_res[0],$exec_res[1].'</H3><P>';
 							}
@@ -206,7 +207,7 @@ if( $submit ) {
 	if (!$atleastone) {
 		print '<h3>No available files</H3>
 			<P>
-			You can upload files using FTP to <B>upload.sourceforge.net</B> 
+			You can upload files using FTP to <B>'.$GLOBALS['sys_ftp_host'].'</B> 
 			in the <B>/incoming</B> directory, then hit <B>Refresh View</B>.';
 	}
 ?>

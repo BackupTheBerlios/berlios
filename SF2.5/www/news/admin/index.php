@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require('pre.php');
 
@@ -91,7 +91,7 @@ if ($group_id && $group_id != $sys_news_group && user_ismember($group_id,'A')) {
 		<INPUT TYPE="TEXT" NAME="summary" VALUE="'.db_result($result,0,'summary').'" SIZE="30" MAXLENGTH="60"><BR>
 		<B>Details:</B><BR>
 		<TEXTAREA NAME="details" ROWS="5" COLS="50" WRAP="SOFT">'.db_result($result,0,'details').'</TEXTAREA><P>
-		<B>If this item is on the SourceForge home page and you edit it, it will be removed from the home page.</B><BR>
+		<B>If this item is on the '.$GLOBALS['sys_default_name'].' home page and you edit it, it will be removed from the home page.</B><BR>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="SUBMIT">
 		</FORM>';
 
@@ -137,7 +137,9 @@ if ($group_id && $group_id != $sys_news_group && user_ismember($group_id,'A')) {
 				/*
 					Update the db so the item shows on the home page
 				*/
-				$sql="UPDATE news_bytes SET is_approved='1', date='".time()."', ".
+				// 2003-03-27 don't change date keep the existing one by helix
+				// $sql="UPDATE news_bytes SET is_approved='1', date='".time()."', ".
+				$sql="UPDATE news_bytes SET is_approved='1', ".
 					"summary='".htmlspecialchars($summary)."', details='".htmlspecialchars($details)."' WHERE id='$id'";
 				$result=db_query($sql);
 				if (!$result || db_affected_rows($result) < 1) {
@@ -207,7 +209,7 @@ if ($group_id && $group_id != $sys_news_group && user_ismember($group_id,'A')) {
 			Show list of waiting news items
 		*/
 
-		$sql="SELECT * FROM news_bytes WHERE is_approved=0";
+		$sql="SELECT * FROM news_bytes WHERE is_approved='0'";
 		$result=db_query($sql);
 		$rows=db_numrows($result);
 		if ($rows < 1) {
@@ -269,7 +271,7 @@ if ($group_id && $group_id != $sys_news_group && user_ismember($group_id,'A')) {
 
 } else {
 
-	exit_error('Permission Denied.','Permission Denied. You have to be an admin on the project you are editing or a member of the SourceForge News team.');
+	exit_error('Permission Denied.','Permission Denied. You have to be an admin on the project you are editing or a member of the '.$GLOBALS['sys_default_name'].' News team.');
 
 }
 ?>

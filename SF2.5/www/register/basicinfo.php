@@ -4,20 +4,20 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: basicinfo.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: basicinfo.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 session_require(array('isloggedin'=>'1'));
 $HTML->header(array('title'=>'Basic Project Information'));
 ?>
 
-<H2>Step 3: SourceForge Project Registration</H2>
+<H2>Step 3: <?php print $sys_default_name ?> Registration</H2>
 
 <p>We now need a short description of your project. This description
 needs to contain the purpose of the project and a summarization of your
 goals.
 
-<P>If the SourceForge staff approves your project account, the account
+<P>If the <?php print $sys_default_name ?> staff approves your project account, the account
 is to be used purely to meet the goals set forth in this statement.
 Use of the project account for anything other than 
 the purposes and goals in this statement is prohibited.

@@ -4,108 +4,47 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: staff.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: staff.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
 require ('pre.php');    
 $HTML->header(array('title'=>'SorceForge Staff'));
 
 ?>
 <P>
-<h2>SourceForge Staff</h2>
+<h2>BerliOS Staff</h2>
 <P>
 <table border=0 cellspacing=2 cellpadding=2 bgcolor="">
 
 <tr valign=top>
-<td><a href="/sendmessage.php?toaddress=pat_maillink_users.sourceforge.net">Patrick McGovern</a></td>
-<td>(pat)</td>
+<td><a href="/sendmessage.php?toaddress=helix@users.berlios.de">Lutz Henckel</a></td>
+<td>(helix)</td>
 <td>
-Patrick McGovern (pat) - Pat "Sounds Good" McGovern is the new Director of <A HREF="http://sourceforge.net/">SourceForge.net</A>.  We're glad to have Pat on board, as he used to run <A HREF="http://www.valinux.com/">valinux.com</A>, so he knows a thing or two about running important web sites.
+Lutz is the Project Leader of BerliOS.
 </td>
 </tr>
 
 <tr valign=top>
-<td><a href="/sendmessage.php?toaddress=dlb_maillink_users.sourceforge.net">Dan Bressler</a></td>
-<td>(dlb)</td>
-<td>
-Dan is the "Product Manager" for SourceForge. We're not sure what that means, only that he likes timelines and handles business development issues.
-</td>
+<td><a href="/sendmessage.php?toaddress=schily@users.berlios.de">Jörg Schilling</a></td>
+<td>(schily)</td>
+<td>Jörg is the developer of cdrecord and other nice Open Source Software.</td>
 </tr>
 
 <tr valign=top>
-<td><a href="/sendmessage.php?toaddress=bigdisk_maillink_users.sourceforge.net">Tim Perdue</a></td>
-<td>(bigdisk)</td>
-<td>Tim is the technical lead on SourceForge and is from Iowa. Yes Iowa. Not Idaho and not Ohio. 
-Iowa. When he's not working you can locate him fairly easy as he has the only BMW Z3 in Iowa.
-<P>
-Tim founded <A HREF="http://www.phpbuilder.com/">PHPBuilder.com</A> and <A HREF="http://www.geocrawler.com/">Geocrawler.com</A>.
-</td>
+<td><a href="/sendmessage.php?toaddress=riessen@users.berlios.de">Andreas Riessen</a></td>
+<td>(riessen)</td>
+<td>Andreas is a developer of <a href="http://sourceagency.berlios.de/">SourceAgency</a>.</td>
 </tr>
 
 <tr valign=top>
-<td><a href="/sendmessage.php?toaddress=pfalcon_maillink_users.sourceforge.net">Paul Sokolovsky</a></td>
-<td>(pfalcon)</td>
-<td>Paul is a developer, living in the Ukraine. Yep, it's where Chernobyl
-is located. He
-*claims* he had nothing to do with what happened.  He describes
-himself as a "confirmed geek/workaholic type".
-</td>
+<td><a href="/sendmessage.php?toaddress=grex@users.berlios.de">Gregorio Robles</a></td>
+<td>(grex)</td>
+<td>Gregorio is a student at the University of Madrid and is the main developer of <a href="http://sourceagency.berlios.de/">SourceAgency</a>.</td>
 </tr>
 
 <tr valign=top>
-<td><a
-href="/sendmessage.php?toaddress=zelphyr_maillink_users.sourceforge.net"
->Darrell Brogdon</a></td>
-<td>(zelphyr)</td>
-<td>Darrell is also on the SourceForge development team. He worked for
-another company, but they wanted to ditch Open Source and move to ASP
-for their web applications... Now he works for us.
-</td>
-</tr>
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=precision_maillink_users.sourceforge.net">Uriah Welcome</a></td>
-<td>(Precision)</td>
-<td>Uriah is a system adminsitrator/developer from the frosty regions of Minnesota.  When he's not shoveling his driveway or
-defrosting his car you'll find him locked away in a dark room somewhere in front of a computer.</td>
-</tr>
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=aphzen_maillink_users.sourceforge.net">Quentin Cregan</a></td>
-<td>(aphzen)</td>
-<td>Quentin handles most of the zillions of tech support inquiries that come into SourceForge, usually 
-with a smile on his face. He works from Australia.
-</td>
-</tr>
-
-<TR><TD COLSPAN="2"><B>Founders:</B></TD></TR>
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=fusion94_maillink_users.sourceforge.net">Tony Guntharp</a></td>
-</tr>
-
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=dtype_maillink_users.sourceforge.net">Drew Streib</a></td>
-</tr>
-
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=bigdisk_maillink_users.sourceforge.net">Tim Perdue</a></td>
-</TR>
-
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=precision_maillink_users.sourceforge.net">Uriah Welcome</a></td></TR>
-
-
-<TR><TD COLSPAN="2">&nbsp;<P><B>Signicant Outside Contributors:</B></TD></TR>
-
-<tr valign=top>
-<td><a href="/sendmessage.php?toaddress=wallace_maillink_users.sourceforge.net">Wallace Lee</a></td>
-<td>(wallace)</td>
-<td>Wallace has contributed significant tweaks and improvements to the SourceForge core code base. We appreciate 
-his efforts, as do the users who benefit from his contributions.
-</td>
+<td><a href="/sendmessage.php?toaddress=chrics@users.berlios.de">Christian Schmidt</a></td>
+<td>(chrics)</td>
+<td>Christian is a student at the Technical University of Berlin and a developer of <a href="http://docswell.berlios.de/">DocsWell</a>.</td>
 </tr>
 
 </table>

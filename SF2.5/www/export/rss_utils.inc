@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_utils.inc,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: rss_utils.inc,v 1.2 2003/11/13 11:29:22 helix Exp $
 
 function rss_setscheme() {
 	if ($GLOBALS['scheme'] == "netscape") {
@@ -33,12 +33,12 @@ function rss_dump_project_result_set ($res,$title,$desription='',$callback=0) {
         if (!$desription) $desription=$title;
 	// ## one time output
 	print " <channel>\n";
-	print "  <copyright>Copyright 1999-2000 VA Linux Systems, Inc.</copyright>\n";
+	print "  <copyright>Copyright 2000-2003 Fraunhofer FOKUS</copyright>\n";
 	print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
 	print "  <description>$desription</description>\n";
-	print "  <link>http://$GLOBALS[sys_default_domain]</link>\n";
+	print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
 	print "  <title>$title</title>\n";
-	print "  <webMaster>webmaster@$GLOBALS[sys_default_domain]</webMaster>\n";
+	print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 	print "  <language>en-us</language>\n";
 
 	// ## item outputs
@@ -48,7 +48,7 @@ function rss_dump_project_result_set ($res,$title,$desription='',$callback=0) {
                 }
 		print "  <item>\n";
 		print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
-		print "   <link>http://$GLOBALS[sys_default_domain]/projects/$row[unix_group_name]/</link>\n";
+		print "   <link>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</link>\n";
 		print "   <description>";
 		print ereg_replace(" *\r*\n *"," ",rss_description($row[short_description]));
                 print $addendum;

@@ -1,11 +1,11 @@
-<?php   
+<?php
 
 //
 // SourceForge: Breaking Down the Barriers to Open Source Development
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //              
-// $Id: Theme.class,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: Theme.class,v 1.2 2003/11/13 11:29:28 helix Exp $
 
 
 /*
@@ -29,16 +29,16 @@ class Theme extends Layout {
 		// Parent constructor
 		$this->Layout();
 
-		//Define deifferences from defaults for this theme
-		$this->COLOR_HTMLBOX_TITLE = '#737b9c';
-		$this->COLOR_HTMLBOX_BACK = '#EEEEF8';
-		$this->COLOR_LTBACK1 = '#EEEEF8';
+		//Define differences from defaults for this theme
+		$this->COLOR_HTMLBOX_TITLE = '#7B797B';
+//		$this->COLOR_HTMLBOX_BACK = '#EEEEF8';
+//		$this->COLOR_LTBACK1 = '#EEEEF8';
 
-		$this->FONT_CONTENT = 'Lucida';
-		$this->FONT_HTMLBOX_TITLE = 'Lucida';
+		$this->FONT_CONTENT = 'verdana,arial,helvetica,sans-serif';
+		$this->FONT_HTMLBOX_TITLE = 'verdana,arial,helvetica,sans-serif';
 
 		$this->FONTCOLOR_HTMLBOX_TITLE = '#FFFFFF';
-		$this->FONTCOLOR_CONTENT = '#000000';
+		$this->FONTCOLOR_CONTENT = '#FFFFFF';
 
 	}
 
@@ -98,21 +98,25 @@ class Theme extends Layout {
 
         	?>
     <style type="text/css">
-      <!--
-        .titlebar {text-decoration:none; color:<?php echo $thie->FONTCOLOR_HTMLBOX_TITLE; ?>; font-family: <?php echo $thie->FONT_HTMLBOX_TITLE; ?>,Lucida; font-weight: bold; font-size:<?php echo $this->FONTSIZE_HTMLBOX_TITLE; ?>}
-        .title {text-decoration:none; color:#000000; font-family: Helvetica; font-weight: bold; font-size:20px}
-        .normal {text-decoration:none; color:#000000; font-family: Helvetica; font-weight: light; font-size:12px}
+        .titlebar {text-decoration:none; color:<?php echo $this->FONTCOLOR_HTMLBOX_TITLE; ?>; font-family: <?php echo $this->FONT_HTMLBOX_TITLE; ?>; font-weight: bold; font-size:<?php echo $this->FONTSIZE_HTMLBOX_TITLE; ?>}
+        .title {text-decoration:none; color:#000000; font-weight: bold; font-size:20px}
+        .normal {text-decoration:none; color:#000000; font-weight: light; font-size:12px}
 
         BODY { background-color: <?php echo $this->COLOR_CONTENT_BACK; ?>; font-family: <?php echo $this->FONT_CONTENT; ?>,<?php echo $site_fonts; ?>; font-size:<?php echo $this->FONTSIZE; ?>; }
 
-        A { text-decoration: none; color #6666FF; }
-        A:visited { text-decoration: none; color: #6666AA; }
-        A:link { text-decoration: none; color: #6666AA; }
-        A:active { text-decoration: none; color: #6666AA; }
-        A:hover { text-decoration: none; color: #FF6666 }
-        OL,UL,P,BODY,TD,TR,TH,FORM,SPAN { font-family: <?php echo $this->FONT_CONTENT; ?>,arial,helvetica,sans-serif;color: #333333; }
-        H1,H2,H3,H4,H5,H6 { font-family: <?php echo $this->FONT_CONTENT; ?>,arial,helvetica,sans-serif }
-        PRE,TT { font-family: courier,sans-serif }
+        A { text-decoration: none; }
+        A:visited { text-decoration: none; }
+        A:link { text-decoration: none; }
+        A:active { text-decoration: none; }
+        A:hover { text-decoration: underline; color: #FF0000 }
+        OL,UL,P,BODY,TD,TR,TH,FORM,LI,INPUT,TEXTAREA,SELECT,SPAN { font-family: <?php echo $this->FONT_CONTENT; ?>,arial,helvetica,sans-serif;color: #333333; font-size:<?php echo $this->FONTSIZE; ?>; }
+        H1 { font-size: 16px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        H2 { font-size: 14px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        H3 { font-size: 12px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        H4 { font-size: 11px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        H5 { font-size: 10px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        H6 { font-size: 9px; font-family: <?php echo $this->FONT_CONTENT; ?> }
+        PRE,TT { font-family: courier,sans-serif; font-size:<?php echo $this->FONTSIZE; ?>; }
 
         SPAN.center { text-align: center }
         SPAN.boxspace { font-size: 2pt; }
@@ -130,41 +134,45 @@ class Theme extends Layout {
         A.tabs:visited { color: #000000; text-decoration: underline; }
 
         SPAN.alignright { text-align: right }
-        SPAN.maintitlebar { font-size: small; color: #FFFFFF }
-        SPAN.titlebar { text-align: center; font-size: small; color: #FFFFFF; font-weight: bold }
-        SPAN.develtitle { text-align: center; font-size: small; color: #000000; font-weight: bold }
+        SPAN.maintitlebar { font-size: 12px; color: #FFFFFF }
+        SPAN.titlebar { text-align: center; font-size: 12px; color: #FFFFFF; font-weight: bold }
+        SPAN.develtitle { text-align: center; font-size: 12px; color: #000000; font-weight: bold }
 
-        SPAN.osdn {font-size: x-small; font-family: verdana,arial,helvetica,sans-serif;}
-        SPAN.search {font-size: x-small; font-family: verdana,arial,helvetica,sans-serif;}
-        SPAN.slogan {font-size: large; font-weight: bold; font-family: verdana,arial,helvetica,sans-serif;}
-        SPAN.footer {font-size: x-small; font-family: verdana,arial,helvetica,sans-serif;}
+        SPAN.osdn {font-size: 12px; font-family: verdana,arial,helvetica,sans-serif;}
+        SPAN.search {font-size: 10px; font-family: verdana,arial,helvetica,sans-serif;}
+        SPAN.slogan {font-size: 14px; font-weight: bold; font-family: verdana,arial,helvetica,sans-serif;}
+        SPAN.footer {font-size: 10px; font-family: verdana,arial,helvetica,sans-serif;}
+	A.legallink { color:#000000; font-weight: bold; }
 
-        TD.featurebox { font-size: small; }
-
-      -->
+        TD.featurebox { font-size: 12px; }
     </style>
 
         <?php
 	        $this->generic_header_end($params);
         ?>
-        <BODY bgcolor=<?php echo $this->COLOR_CONTENT_BACK; ?> topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+        <BODY text="#333333" link="#6666aa" alink="#aa6666" vlink="#6666aa" bgcolor=<?php echo $this->COLOR_CONTENT_BACK; ?> topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
 <?php
 	        osdn_print_navbar();
 ?>
         <!-- top title table -->
+        <CENTER>
         <TABLE width="100%" border=0 cellspacing=0 cellpadding=0 bgcolor="<?php echo $this->COLOR_BARBACK; ?>" valign="center">
         <TR valign="top" bgcolor="<?php echo $this->COLOR_LTBACK1; ?>"><TD>
+<!--
         <A href="/"><?php
-
-        	html_image('/images/sflogo2-steel.png','143','70',array('vspace'=>'0'));
+        	print html_image('images/sflogo2-steel.png','143','70',array('vspace'=>'0'));
         ?></A>
+-->
         </TD>
         <TD width="99%"><!-- right of logo -->
+<!---
         <a href="http://www.valinux.com"><?php html_image("/images/valogo3.png",'117','70',array('align'=>'right','alt'=>'VA Linux Systems','hspace'=>'5','vspace'=>'0')); ?></A>
 
         <BR>
         <FONT SIZE="+1">Breaking Down The Barriers to Open Source Development</FONT>
         <BR>
+-->
+	<center>
         <?php
         	if (!user_isloggedin()) {
                 	print '<B>Status: Not Logged In</B>
@@ -177,25 +185,26 @@ class Theme extends Layout {
         <A href="/new/">[New Releases]</A>
         <A href="/docs/site/">[Site Docs]</A>
         <A href="/top/">[Top Projects]</A>
+	</center>
 
         <!-- VA Linux Stats Counter -->
         <?php
-        	if (!session_issecure()) {
-                	print '<IMG src="http://www2.valinux.com/clear.gif?id=105" width=1 height=1 alt="Counter">';
-	        }
+//        	if (!session_issecure()) {
+//                	print '<IMG src="http://www2.valinux.com/clear.gif?id=105" width=1 height=1 alt="Counter">';
+//	        }
         ?>
 
 
         </TD><!-- right of logo -->
         </TR>
 
-        <TR><TD bgcolor="#543a48" colspan=2><IMG src="/images/blank.gif" height=2 vspace=0></TD></TR>
+        <TR><TD bgcolor="#7B797B" colspan=2><IMG src="/images/blank.gif" height=2 vspace=0></TD></TR>
 
         </TABLE>
         <!-- end top title table -->
         <!-- content table -->
         <TABLE width="100%" cellspacing=0 cellpadding=0 border=0>
-        <TR valign="top">
+        <TR align="left" valign="top">
         <TD bgcolor=<?php print $this->COLOR_LTBACK1; ?>>
         <!-- menus -->
         <?php
@@ -204,7 +213,7 @@ class Theme extends Layout {
         </TD>
 
         <td width="9">
-        <?php html_blankimage(1,9); ?>
+        <?php print html_blankimage(1,9); ?>
         </td>
         <!-- content -->
 
@@ -224,7 +233,7 @@ class Theme extends Layout {
         <p>&nbsp;</p>
         </td>
         <td width="9">
-                <?php html_blankimage(1,10); ?>
+                <?php print html_blankimage(1,10); ?>
         </td>
 
         </tr>
@@ -246,8 +255,7 @@ class Theme extends Layout {
         <table cellspacing="0" cellpadding="3" width="100%" border="0" bgcolor="<?php echo $this->COLOR_TITLEBAR_BACK; ?>">
         <tr bgcolor="<?php echo $this->COLOR_HTMLBOX_TITLE; ?>">
         <td align="center">
-        <?php html_blankimage(1,135); ?><BR>
-        <span class="titlebar"><font color="#ffffff"><?php print $title; ?></font></span></td>
+        <?php print html_blankimage(1,135);?><br><span class="titlebar"><font color="#ffffff"><?php print $title; ?></font></span></td>
         </tr>
         <tr align="left" BGCOLOR="<?php echo $this->COLOR_LTBACK1; ?>"><td>
         <?php
@@ -265,17 +273,17 @@ class Theme extends Layout {
 	}
 
 	function menu_entry($link, $title) {
-	        print "\t".'<font face="arial, helvetica" size="2"><A class="menus" href="'.$link.'">'.$title.'</A></font><br>';
+	        print "\t".'<A class="menus" href="'.$link.'">'.$title.'</A><br>';
 	}
 
-	function tab_entry($url='http://localhost/', $icon='/images/ic/home16b.png', $title='Home', $selected=0) {
+	function tab_entry($url='http://localhost/', $icon='images/ic/home16b.png', $title='Home', $selected=0) {
 	        print '
                 <A ';
         	if ($selected) {
                 	print 'class=tabs ';
 	        }
         	print 'href="'. $url .'">';
-	        html_image($icon,'24','24',array('alt'=>"$title",'border'=>($selected?'1':'0')));
+	        print html_image($icon,'24','24',array('alt'=>"$title",'border'=>($selected?'1':'0')));
         	print '</A>';
 	}
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: cache.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: cache.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 // #################################### function cache_display
@@ -13,15 +13,16 @@ function cache_display($name,$function,$time) {
 	global $Language;
 	$filename = $GLOBALS['sf_cache_dir']."/sfcache_". $Language->getLanguageId() ."_". $GLOBALS['sys_theme'] ."_$name.sf";
 
+
 	while ((filesize($filename)<=1) || ((time() - filectime($filename)) > $time)) {
 		// file is non-existant or expired, must redo, or wait for someone else to
 
 		if (!file_exists($filename)) {
 			@touch($filename);
 		}
-
 		// open file. If this does not work, wait one second and try cycle again
-		if ($rfh=@fopen($filename,'r')) {
+		// if ($rfh=@fopen($filename,'r')) { Lutz was hast Du nur hier gebaut?
+		if ($rfh=@fopen($filename,'w')) {
 			// obtain a blocking write lock, else wait 1 second and try again
 			if(flock($rfh,2)) { 
 				// open file for writing. if this does not work, something is broken.
@@ -36,6 +37,7 @@ function cache_display($name,$function,$time) {
 				fclose($rfh); //close the lock
 				return $return;
 			} else { // unable to obtain flock
+				fclose($rfh); //close the lock
 				sleep(1);
 				clearstatcache();
 			}

@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //              
-// $Id: Theme.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Theme.class,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 /*
@@ -177,13 +177,6 @@ class Theme extends Layout {
         <A href="/new/">[New Releases]</A>
         <A href="/docs/site/">[Site Docs]</A>
         <A href="/top/">[Top Projects]</A>
-
-        <!-- VA Linux Stats Counter -->
-        <?php
-        	if (!session_issecure()) {
-                	print '<IMG src="http://www2.valinux.com/clear.gif?id=105" width=1 height=1 alt="Counter">';
-	        }
-        ?>
 
 
         </TD><!-- right of logo -->

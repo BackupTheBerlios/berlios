@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: forum_utils.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /*
 
@@ -49,7 +49,7 @@ function forum_header($params) {
 			} else {
 				$HTML->header($params);
 				echo '
-					<H2>SourceForge <A HREF="/news/">News</A></H2><P>';
+					<H2>'.$GLOBALS['sys_default_name'].' <A HREF="/news/">News</A></H2><P>';
 			}
 
 
@@ -87,10 +87,12 @@ function forum_header($params) {
 	echo '<P><B>';
 
 	if ($forum_id && user_isloggedin() ) {
+		// 2003-02-04 helix: change to relative images url
 		echo '<A HREF="/forum/monitor.php?forum_id='.$forum_id.'">' . 
-			html_image('/images/ic/check.png','16','15',array()).' Monitor Forum</A> | '.
+			html_image('images/ic/check.png','16','15',array()).' Monitor Forum</A> | '.
 			'<A HREF="/forum/save.php?forum_id='.$forum_id.'">';
-		echo  html_image('/images/ic/save.png','24','24',array()) .' Save Place</A> | ';
+		// 2003-02-04 helix: change to relative images url
+		echo  html_image('images/ic/save.png','24','24',array()) .' Save Place</A> | ';
 	}
 
 	echo '  <A HREF="/forum/admin/?group_id='.$group_id.'">Admin</A></B>';
@@ -634,15 +636,17 @@ function handle_monitoring($forum_id,$msg_id) {
 				"\nSubject: [" .db_result($result,0,'unix_group_name'). " - " . db_result($result,0,'forum_name')."] " . 
 					util_unconvert_htmlspecialchars(db_result($result,0,'subject')).
 				"\n\nRead and respond to this message at: ".
-				"\nhttp://$GLOBALS[sys_default_domain]/forum/message.php?msg_id=".$msg_id.
+				"\nhttp://$GLOBALS[sys_default_host]/forum/message.php?msg_id=".$msg_id.
 				"\nBy: " . db_result($result,0, 'user_name') .
 				"\n\n" . util_line_wrap(util_unconvert_htmlspecialchars(db_result($result,0, 'body'))).
 				"\n\n______________________________________________________________________".
 				"\nYou are receiving this email because you elected to monitor this forum.".
-				"\nTo stop monitoring this forum, login to SourceForge and visit: ".
-				"\nhttp://$GLOBALS[sys_default_domain]/forum/monitor.php?forum_id=$forum_id";
+				"\nTo stop monitoring this forum, login to ".$GLOBALS['sys_default_name']." and visit: ".
+				"\nhttp://$GLOBALS[sys_default_host]/forum/monitor.php?forum_id=$forum_id";
 
-			exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t -i >& /dev/null &");
+// echo "<pre>/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t</pre>";
+
+			exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t &");
 
 			$feedback .= ' email sent - people monitoring ';
 		} else {

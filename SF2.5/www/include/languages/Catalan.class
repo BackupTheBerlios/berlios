@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Catalan.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Catalan.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -109,14 +109,14 @@ class Catalan extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Trencant les barreres per al desenvolupament de codi obert';
-		$this->SOURCEFORGE_STATISTICS='Estadístiques de SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Estadístiques de '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Projectes més descarregats';
 		$this->HIGHEST_RANKED_USERS='Usuaris més actius';
 		$this->MOST_ACTIVE_THIS_WEEK='El més actiu aquesta setmana';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge és un<B>servei gratuït per a
+'.$GLOBALS['sys_default_name'].' és un<B>servei gratuït per a
 desenvolupadors de<A href="http://www.opensource.org">Codi obert</A></B>
 oferint fàçil accés als millors repositoris CVS, llistes de discussió,
 seguiment d\'errors, taulers de anuncis, fòrums,
@@ -132,7 +132,7 @@ FAQ ]</font></A>
 <P>
 <B>Retorn i participació</B>
 <P>
-Per poder obtenir el màxim de SourceForge, haureu 
+Per poder obtenir el màxim de '.$GLOBALS['sys_default_name'].', haureu 
 d\'<A href="/account/register.php">enregistrar-vos com a 
 usuari del lloc</A>.
 Això us permetrà participar plenament en tot el que tenim

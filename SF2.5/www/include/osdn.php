@@ -1,13 +1,13 @@
 <?php
-$osdn_sites[0] = array('Freshmeat' => 'http://www.freshmeat.net/');
-$osdn_sites[1] = array('Geocrawler' => 'http://www.geocrawler.com/');
-$osdn_sites[2] = array('Linux.Com' => 'http://www.linux.com/');
-$osdn_sites[3] = array('NewsForge' => 'http://www.newsforge.com/');
-$osdn_sites[4] = array("Open Magazine" => 'http://www.openmagazine.net/');
-$osdn_sites[5] = array('Question Exchange' => 'http://www.questionexchange.com/');
-$osdn_sites[6] = array('Slashdot.Org' => 'http://www.slashdot.com/');
-$osdn_sites[7] = array('Themes.Org' => 'http://www.themes.org/');
-$osdn_sites[8] = array('Thinkgeek' => 'http://www.thinkgeek.com/');
+$osdn_sites[0] = array('SourceWell' => 'http://sourcewell.berlios.de/');
+$osdn_sites[1] = array('DocsWell' => 'http://docswell.berlios.de/');
+$osdn_sites[2] = array('News' => 'http://news.berlios.de/');
+$osdn_sites[3] = array('SourceBiz' => 'http://sourcebiz.berlios.de/');
+$osdn_sites[4] = array("SourceLines" => 'http://sourcelines.berlios.de/');
+$osdn_sites[5] = array('DevCounter' => 'http://devcounter.berlios.de/');
+$osdn_sites[6] = array('SourceAgency' => 'http://sourceagency.berlios.de/');
+$osdn_sites[7] = array('Developer' => 'http://developer.berlios.de/');
+$osdn_sites[8] = array('OpenFacts' => 'http://openfacts.berlios.de/');
 
 function osdn_nav_dropdown() {
 	GLOBAL $osdn_sites;
@@ -55,13 +55,14 @@ function osdn_print_randpick($sitear, $num_sites = 1) {
 	reset($sitear);
 	while ( ( $i < $num_sites ) && (list($key,$val) = each($sitear)) ) {
 		list($key,$val) = each($val);
-		print "\t\t&nbsp;&middot;&nbsp;<a href='$val'style='text-decoration:none'><font color='#ffffff'>$key</font></a>\n";
+		print "\t\t&nbsp;<font color='#ffffff'>&middot;</font>&nbsp;<a href='$val'style='text-decoration:none'><font color='#ffffff'>$key</font></a>\n";
 		$i++;
 	}
-	print '&nbsp;&middot;&nbsp;';
+	print "&nbsp;<font color='#ffffff'>&middot;</font>&nbsp;";
 }
 
 function osdn_print_navbar() {
+	global $sys_default_name;
 
 
 	print '<!-- 
@@ -71,24 +72,24 @@ OSDN navbar
 -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
 	<tr> 
-		<td valign="middle" align="left" bgcolor="#6C7198">
+		<td valign="middle" align="left" bgcolor="#7B797B">
 		<SPAN class="osdn">
-			<font face="arial,geneva,helvetica,verdana,sans-serif" size="-2" color="#ffffff">&nbsp;&nbsp;&nbsp;<b><a href="http://osdn.com/" style="text-decoration:none"><font color="#ffffff">O&nbsp;<font color="#9b9b9b">|</font>&nbsp;S&nbsp;<font color="#9b9b9b">|</font>&nbsp;D&nbsp;<font color="#9b9b9b">|</font>&nbsp;N</font></a>&nbsp;:&nbsp;
+			&nbsp;&nbsp;&nbsp;<b><a href="http://www.berlios.de/" style="text-decoration:none"><font color="#ffffff">BerliOS</a>&nbsp;<font color="#ffffff">:</font>&nbsp;
 ';
-	osdn_print_randpick($GLOBALS['osdn_sites'], 3);
+	osdn_print_randpick($GLOBALS['osdn_sites'], 5);
 	print '
 		</SPAN>
 		</td>
-		<td valign="middle" align="right" bgcolor="#6C7198">
+		<td valign="middle" align="right" bgcolor="#7B797B">
 		<SPAN class="osdn">
-			<b><a href="http://www.osdn.com/index.pl?indexpage=myosdn" style="text-decoration:none"><font color="#ffffff">My OSDN</font></a>&nbsp;&middot;&nbsp;
-';
+			<b>';
 /*
+		<a href="http://www.osdn.com/index.pl?indexpage=myosdn" style="text-decoration:none"><font color="#ffffff">My OSDN</font></a>&nbsp;&middot;&nbsp;
 		<a href="" style="text-decoration:none"><font color="#ffffff">JOBS</font></a>&nbsp;&middot;&nbsp;
 */
 	print '
-		<a href="http://www.osdn.com/partner_programs.shtml" style="text-decoration:none"><font color="#ffffff">PARTNERS</font></a>&nbsp;&middot;&nbsp; 
-		<a href="http://www.osdn.com/gallery.pl?type=community" style="text-decoration:none"><font color="#ffffff">AFFILIATES</font></a>&nbsp;</b></font>
+		<a href="/partners.php" style="text-decoration:none"><font color="#ffffff">Partners</font></a>&nbsp;<font color="#ffffff">&middot;</font>&nbsp; 
+		<a href="/contact.php" style="text-decoration:none"><font color="#ffffff">Contact Us</font></a>&nbsp;</b></font>
 		</SPAN>
 		</td>
 	</tr>
@@ -96,8 +97,10 @@ OSDN navbar
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr> 
-		<td bgcolor="#d5d7d9" background="/images/steel3.jpg" WIDTH="20%">';
-	echo html_blankimage(1,100). '</TD><TD bgcolor="#d5d7d9" background="/images/steel3.jpg" WIDTH="60%">';
+		<td bgcolor="#ffffff" WIDTH="20%">';
+	echo '<a href="//'.$GLOBALS['sys_default_host'].'/">'.html_image("images/berliOS_logo.png","238","61",array("hspace"=>"5","border"=>"0","alt"=>" BerliOS ")).'</a></TD><TD bgcolor="#ffce31" WIDTH="60%">';
+	echo '&nbsp;&nbsp;<b><font size="+1">BerliOS Developer</font></b>';
+	echo '<br>&nbsp;&nbsp;Fostering Open Source Development';
 
 	srand((double)microtime()*1000000);
 	$random_num=rand(0,100000);
@@ -106,26 +109,13 @@ OSDN navbar
 
 		//secure pages use James Byer's Ad server
 
-		print '<a href="https://www2.valinux.com/adbouncer.phtml?f_s=468x60&f_p=1&f_RzXx='.$random_num.'">'.
-		'<img src="https://www2.valinux.com/adserver.phtml?f_s=468x60&f_p=1&f_RzXx='.$random_num.
-		'" width="468" height="60" border="0" alt=" Advertisement "></a>';
 	} else {
 
 		//insecure pages use osdn ad server
-echo '
-<ilayer id="adlayer" visibility="hide" width=468 height=60></ilayer>
-
-<NOLAYER>
-  <IFRAME SRC="http://sfads.osdn.com/1.html" width="468" height="60" '.
-'frameborder="no" border="0" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="no">'.
-'<A HREF="http://sfads.osdn.com/cgi-bin/ad_default.pl?click">'.
-'<IMG SRC="http://sfads.osdn.com/cgi-bin/ad_default.pl?display" border=0 height="60" width="468"></A>
-  </IFRAME>
-</NOLAYER>';
 
 	}
 	print '</td>
-		<td valign="center" align="left" bgcolor="#d5d7d9" background="/images/steel3.jpg" WIDTH="20%"><a href="http://www.osdn.com">' . html_image("images/OSDN-lc.gif","100","40",array("hspace"=>"10","border"=>"0","alt"=>" OSDN - Open Source Development Network ")) . '</a>
+		<td valign="center" align="right" bgcolor="#ffce31" WIDTH="20%"><a href="http://www.fokus.fhg.de">' . html_image("images/logo_fokus.png","60","60",array("hspace"=>"5","vspace"=>"5","border"=>"0","alt"=>" Fraunhofer FOKUS ")) . '</a>
 	</td>
 	</tr>
 </table>
@@ -137,9 +127,6 @@ echo '
 /*
 if (!session_issecure()) {
 
-	echo '
-<LAYER SRC="http://sfads.osdn.com/1.html" width=468 height=60 visibility=\'hide\' '.
-'onLoad="moveToAbsolute(adlayer.pageX,adlayer.pageY); clip.height=60; clip.width=468; visibility=\'show\';"></LAYER>';
 
 }
 */

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: utils.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: utils.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 function util_prep_string_for_sendmail($body) {
 	//$body=str_replace("\\","\\\\",$body);
@@ -410,6 +410,37 @@ function util_is_valid_filename ($file) {
 			return true;
 		}
 	}
+}
+
+/**
+ * valid_hostname() - Validates a hostname string to make sure it doesn't contain invalid characters
+ *
+ * @param               string  The optional hostname string
+ * @returns true on success/false on failur
+ *
+ */
+function valid_hostname ($hostname = "xyz") {
+
+        //bad char test
+        $invalidchars = eregi_replace("[-A-Z0-9\.]","",$hostname);
+
+        if (!empty($invalidchars)) {
+                return false;
+        }
+
+        //double dot, starts with a . or -
+        if (ereg("\.\.",$hostname) || ereg("^\.",$hostname) || ereg("^\-",$hostname)) {
+                return false;
+        }
+
+        $multipoint = explode(".",$hostname);
+
+        if (!(is_array($multipoint)) || ((count($multipoint) - 1) < 1)) {
+                return false;
+        }
+
+        return true;
+
 }
 
 ?>

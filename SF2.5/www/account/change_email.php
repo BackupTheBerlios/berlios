@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: change_email.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: change_email.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 session_require(array('isloggedin'=>1));
@@ -32,7 +32,7 @@ New Email Address:
 <INPUT type="submit" name="Send Confirmation to New Address" value="Send Confirmation to New Address">
 </FORM>
 
-<P><A href="/">[Return to SourceForge]</A>
+<P><A href="/">[Return to <?php $sys_default_name ?>]</A>
 
 <?php
 site_user_footer(array());

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: add_bug.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: add_bug.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 bug_header(array ('title'=>'Submit a Bug'));
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Indonesian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Indonesian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -106,7 +106,7 @@ class Indonesian extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Menumpas Halangan Dalam Pengembangan Open Source';
-		$this->SOURCEFORGE_STATISTICS='Statistik SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Statistik '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Proyek Top Downloads';
 		$this->HIGHEST_RANKED_USERS='Pengguna Peringkat Tertinggi';
 		$this->MOST_ACTIVE_THIS_WEEK='Paling Aktif Minggu Ini';
@@ -117,7 +117,7 @@ class Indonesian extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge adalah <B>layanan gratis untuk developer
+'.$GLOBALS['sys_default_name'].' adalah <B>layanan gratis untuk developer
 <A href="http://opensource.or.id">Open Source</A></B> yang menawarkan
 akses mudah ke gudang CVS terbaik, milis, pencarian bug, papan pesan/forum-forum,
 manajemen tugas, hosting situs, pengarsipan file permanen, backup lengkap,
@@ -129,10 +129,10 @@ dan semua diatur lewat web.
 <P>
 <B>Site Feedback and Partisipasi</B>
 <P>
-Untuk dapat menggunakan SourceForge secara maksimal, anda perlu 
+Untuk dapat menggunakan '.$GLOBALS['sys_default_name'].' secara maksimal, anda perlu 
 <A href="/account/register.php"> mendaftarkan diri</A> sebagai pengguna situs. 
  Ini berarti memperbolehkan anda untuk berpartisipasi penuh dalam semua yang kami tawarkan.
- Walaupun tanpa pendaftaran anda dapat menggunakan SourceForge, akan tetapi 
+ Walaupun tanpa pendaftaran anda dapat menggunakan '.$GLOBALS['sys_default_name'].', akan tetapi 
 tanpa mendaftarkan diri anda tidak dapat berpartisipasi secara penuh.
 <P>
 &nbsp;
@@ -143,7 +143,7 @@ tanpa mendaftarkan diri anda tidak dapat berpartisipasi secara penuh.
 then <A HREF="/account/login.php">Login</A> dan terakhir,
 <A HREF="/register/">Mendaftarkan Proyek Anda.</A>
 <P>
-Terima Kasih... dan selamat bergabung dengan SourceForge.';
+Terima Kasih... dan selamat bergabung dengan '.$GLOBALS['sys_default_name'];
 
 	}
 

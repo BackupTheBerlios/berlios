@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: menu.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: menu.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /* The correct theme.php must be included by this point -- Geoffrey */
 
@@ -17,7 +17,6 @@ function menu_show_search_box() {
 	}
 
 	print "\t<CENTER>\n";
-	print "\t<FONT SIZE=\"2\">\n";
 	print "\t<FORM action=\"/search/\" method=\"post\">\n";
 
 	print "\t<SELECT name=\"type_of_search\">\n";
@@ -48,6 +47,7 @@ function menu_show_search_box() {
 	print "\t<BR>\n";
 	print "\t<INPUT TYPE=\"submit\" NAME=\"Search\" VALUE=\"Search\">\n";
 	print "\t</FORM>\n";
+        print "\t</CENTER>\n";
 }
 
 //depricated - theme wrapper
@@ -74,14 +74,14 @@ function menu_software() {
 }
 
 function menu_sourceforge() {
-	GLOBAL $HTML, $Language;
-	$HTML->menuhtml_top('SourceForge');
-		$HTML->menu_entry('/docman/?group_id=1','<b>'.$Language->DOCUMENTATION.'</b>');
+	GLOBAL $HTML, $Language, $sys_default_name;
+	$HTML->menuhtml_top($sys_default_name);
+		$HTML->menu_entry('/docman/?group_id=2','<b>'.$Language->DOCUMENTATION.'</b>');
 		$HTML->menu_entry('/forum/?group_id=1',$Language->DISCUSSION_FORUMS);
 		$HTML->menu_entry('/people/',$Language->PROJECT_HELP_WANTED);
 		$HTML->menu_entry('/top/',$Language->TOP_PROJECTS);
-		print '<P>';
-		$HTML->menu_entry('/compilefarm/',$Language->COMPILE_FARM);
+//		print '<P>';
+//		$HTML->menu_entry('/compilefarm/',$Language->COMPILE_FARM);
 		print '<P>';
 		$HTML->menu_entry('/contact.php',$Language->CONTACT_US);
 		$HTML->menu_entry('/about.php',$Language->ABOUT_SOURCEFORGE);
@@ -89,8 +89,8 @@ function menu_sourceforge() {
 }
 
 function menu_foundry_links() {
-	GLOBAL $HTML, $Language;
-	$HTML->menuhtml_top('SourceForge Foundries');
+	GLOBAL $HTML, $Language, $sys_default_name;
+	$HTML->menuhtml_top($sys_default_name.' Foundries');
 		$HTML->menu_entry('/about_foundries.php', $Language->ABOUT_FOUNDRIES);
 		echo '<P>
 ';
@@ -163,7 +163,7 @@ function menu_foundry_guides($grp) {
 }
 
 function menu_loggedin($page_title) {
-	GLOBAL $HTML, $Language;
+	GLOBAL $HTML, $Language, $sys_default_name;
 	/*
 		Show links appropriate for someone logged in, like account maintenance, etc
 	*/
@@ -176,7 +176,7 @@ function menu_loggedin($page_title) {
 		$HTML->menu_entry('/my/',$Language->MY_PERSONAL_PAGE);
 
 		if (!$GLOBALS['HTTP_POST_VARS']) {
-			$bookmark_title = urlencode( str_replace('SourceForge: ', '', $page_title));
+			$bookmark_title = urlencode( str_replace($sys_default_name.': ', '', $page_title));
 			print '<P>';
 			$HTML->menu_entry('/my/bookmark_add.php?bookmark_url='.urlencode($GLOBALS['REQUEST_URI']).'&bookmark_title='.$bookmark_title,$Language->BOOKMARK_PAGE);
 		}
@@ -186,7 +186,7 @@ function menu_loggedin($page_title) {
 function menu_notloggedin() {
 	GLOBAL $HTML, $Language;
 	$HTML->menuhtml_top('Status:');
-		echo '<h4><FONT COLOR="#990000">NOT LOGGED IN</h4>';
+		echo '<FONT COLOR="#990000"><b>NOT LOGGED IN</b></FONT><br>';
 		$HTML->menu_entry('/account/login.php',$Language->LOGIN);
 		$HTML->menu_entry('/account/register.php',$Language->NEW_USER);
 	$HTML->menuhtml_bottom();
@@ -219,14 +219,13 @@ function menu_language_box() {
 		Thanks, netscape, for your cheesy browser
 
 	-->
-	<FONT SIZE="1">
 	<FORM ACTION="/account/setlang.php" METHOD="POST">
 	'. eregi_replace('<select ','<select onchange="submit()" ',html_get_language_popup ($Language,'language_id',$lang)) .'
 	<BR>
 	<NOSCRIPT>
 	<INPUT TYPE=SUBMIT NAME=SUBMIT VALUE="Change">
 	</NOSCRIPT>
-	</FORM></FONT>';
+	</FORM>';
 
 	$HTML->menuhtml_bottom();
 }
@@ -265,7 +264,7 @@ function menu_print_sidebar($params) {
 	}
 
 	//Foundry Links
-	echo menu_foundry_links();
+	//echo menu_foundry_links();
 
 	if (!user_isloggedin()) {
 		echo menu_language_box();

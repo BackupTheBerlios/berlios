@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Chinese.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Chinese.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -110,7 +110,7 @@ class Chinese extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='為開放源碼的發展開闢一條坦途';
-		$this->SOURCEFORGE_STATISTICS='SourceForge統計資料';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].'統計資料';
 		$this->TOP_PROJECT_DOWNLOADS='熱門專案下載排行榜';
 		$this->HIGHEST_RANKED_USERS='最高評價用戶排行榜';
 		$this->MOST_ACTIVE_THIS_WEEK='本週活動力最強排行榜';
@@ -121,7 +121,7 @@ class Chinese extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge為一<B>提供免費服務給
+'.$GLOBALS['sys_default_name'].'為一<B>提供免費服務給
 <A href="http://www.opensource.org">開放源碼</A>發展者的網站</B> 包括了CVS, 郵件討論群, 臭虫追蹤系統, 訊息論壇, 工作管理, 網站空間, 檔案儲存, 完整的檔案備份, 且完全以web-based來管理.
 <A href="/docman/display_doc.php?docid=753&group_id=1"><font size="-1">[ more ]</font></A>
 <A href="/docman/display_doc.php?docid=756&group_id=1"><font size="-1">[ FAQ ]</font></A>
@@ -130,7 +130,7 @@ SourceForge為一<B>提供免費服務給
 <P>
 <B>請立即加入並不吝指教</B>
 <P>
-為充分利用SourceForge所提供的服務,
+為充分利用'.$GLOBALS['sys_default_name'].'所提供的服務,
 <A href="/account/register.php">請立即註冊成為
 本站用戶</A>. 您將能充分參與本站所提供的各項活動, 您若尚未註冊成為用戶, 仍能瀏覽本站, 但無權充份參與本站活動. 
 <P>

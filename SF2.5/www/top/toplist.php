@@ -4,18 +4,18 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: toplist.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: toplist.php,v 1.2 2003/11/13 11:29:29 helix Exp $
 
 require "pre.php";    
 
 if ($GLOBALS[type] == 'downloads_week') {
 	$rankfield = 'downloads_week';
-	$title = 'Top Downloads in the Past 7 Days';
+	$title = 'Top Downloads This Week';
 	$column1 = 'Downloads';
 }
 else if ($GLOBALS[type] == 'pageviews_proj') {
 	$rankfield = 'pageviews_proj';
-	$title = 'Top Weekly Project Pageviews at *.'.$GLOBALS['sys_default_domain'].' (from impressions of SF logo)';
+	$title = 'Top Weekly Project Pageviews at *.'.$GLOBALS['sys_default_domain'].' (from impressions of '.$GLOBALS['sys_default_name'].' logo)';
 	$column1 = 'Pageviews';
 }
 else if ($GLOBALS[type] == 'forumposts_week') {
@@ -53,7 +53,6 @@ $res_top = db_query("SELECT groups.group_id,groups.group_name,groups.unix_group_
 	"WHERE top_group.$rankfield > 0 ".
 	"AND top_group.group_id=groups.group_id ".
 	"ORDER BY top_group.rank_$rankfield",100);
-
 echo db_error();
 
 while ($row_top = db_fetch_array($res_top)) {

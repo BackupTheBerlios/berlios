@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: user_changepw.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: user_changepw.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -37,7 +37,7 @@ function register_valid()	{
 	
 	// if we got this far, it must be good
         $user=user_get_object(user_getid());
-	if (!$user->setPasswd($GLOBALS[form_pw]) {
+	if (!$user->setPasswd($GLOBALS['form_pw'])) {
 		$GLOBALS['register_error'] = $user->getErrorMessage();
 		return 0;
 	}
@@ -47,9 +47,9 @@ function register_valid()	{
 // ###### first check for valid login, if so, congratulate
 
 if (register_valid()) {
-	$HTML->header(array(title=>"Alexandria: Change Password"));
+	$HTML->header(array(title=>$GLOBALS['sys_default_name'].": Change Password"));
 ?>
-<p><b>SourceForge Change Confirmation</b>
+<p><b><?php print $GLOBALS['sys_default_name'] ?> Change Confirmation</b>
 <p>Congratulations, genius. You have managed to change this user's password.
 <p>You should now <a href="/admin/userlist.php">Return to UserList</a>.
 <?php
@@ -57,7 +57,7 @@ if (register_valid()) {
 	$HTML->header(array(title=>"Change Password"));
 
 ?>
-<p><b>SourceForge Password Change</b>
+<p><b><?php print $GLOBALS['sys_default_name'] ?> Password Change</b>
 <?php if ($register_error) print "<p>$register_error"; ?>
 <form action="user_changepw.php" method="post">
 <p>New Password:

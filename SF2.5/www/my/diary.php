@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: diary.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: diary.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -50,8 +50,8 @@ if (user_isloggedin()) {
 						"\n\n" . util_line_wrap(stripslashes($details)).
 						"\n\n______________________________________________________________________".
 						"\nYou are receiving this email because you elected to monitor this user.".
-						"\nTo stop monitoring this user, login to SourceForge and visit: ".
-						"\nhttp://$GLOBALS[sys_default_domain]/developer/monitor.php?user=". user_getid();
+						"\nTo stop monitoring this user, login to ".$GLOBALS['sys_default_name']." and visit: ".
+						"\nhttp://$GLOBALS[sys_default_host]/developer/monitor.php?user=". user_getid();
 
 						exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t -i >& /dev/null &");
 

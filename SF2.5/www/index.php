@@ -4,12 +4,17 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
+//echo "<!-- 0 //-->";
 require ('pre.php');    // Initial db and session library, opens session
+//echo "<!-- 1 //-->";
 require ('cache.php');
+//echo "2";
 require($DOCUMENT_ROOT.'/forum/forum_utils.php');
+//echo "3";
 require ('features_boxes.php');
+//echo "4";
 
 $HTML->header(array('title'=>'Welcome'));
 
@@ -42,7 +47,8 @@ echo '<P>';
 // echo $HTML->box1_top($Language->GROUP_LONG_FOUNDRIES);
 ?>
 
-<br><b>SourceForge Development Foundries</b><br><br>
+<!-- No Foundries supported
+<br><b><?php echo $sys_default_name ?> Development Foundries</b><br><br>
 <table bgcolor="White" border="0" cellpadding="0" cellspacing="0" valign="top" width="100%">
 <tr>
 	<td>Hardware:</td>
@@ -73,6 +79,7 @@ echo '<P>';
 </tr>
 </table>
 <br>
+No Foundries supported -->
 
 <?php
 echo $HTML->box1_top($Language->GROUP_LONG_NEWS);

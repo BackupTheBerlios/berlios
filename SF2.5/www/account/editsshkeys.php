@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editsshkeys.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: editsshkeys.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -40,9 +40,9 @@ if (register_valid()) {
 	<P>
 	To avoid having to type your password every time for your CVS/SSH
 	developer account, you may upload your public key(s) here and they
-	will be placed on the CVS server in your ~/.ssh/authorized_keys file.
-	<P>To generate a public key, run the program 'ssh-keygen' (or ssh-keygen1).
-	The public key will be placed at '~/.ssh/identity.pub'. Read the ssh
+	will be placed on the CVS server in your ~/.ssh/authorized_keys2 file.
+	<P>To generate a public key, run the program 'ssh-keygen -t rsa'.
+	The public key will be placed at '~/.ssh/id_rsa.pub'. Read the ssh
 	documentation for further information on sharing keys.
 	<P>Updates will be reflected in the next 6 hour cron job.
 	<?php if ($register_error) print "<p>$register_error"; ?>

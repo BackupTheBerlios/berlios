@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editimages.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: editimages.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -49,7 +49,7 @@ echo '<H3>Edit Your Project\'s Images</H3>
 	<P>
 	You can store up to 1MB of images in our database. Use this page to add/delete your project images.
 	<P>
-	<H4>Add Image</H4>
+	<H3>Add Image</H3>
 	<P>
 	<FORM ACTION="'. $PHP_SELF .'" METHOD="POST" enctype="multipart/form-data">
 	<input type="hidden" name="group_id" VALUE="'.$group_id.'">

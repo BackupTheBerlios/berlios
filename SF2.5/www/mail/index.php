@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require('pre.php');
 require('../mail/mail_utils.php');
@@ -34,7 +34,7 @@ if ($group_id) {
 		exit;
 	}
 
-	echo "<P>Mailing lists provided via a SourceForge version of "
+	echo "<P>Mailing lists provided via a ".$GLOBALS['sys_default_name']." version of "
 		. "<A href=\"http://www.list.org\">GNU Mailman</A>. "
 		. "Thanks to the Mailman and <A href=\"http://www.python.org\">Python</A> "
 		. "crews for excellent software.";
@@ -48,11 +48,16 @@ if ($group_id) {
 		"<TR><TD VALIGN=\"TOP\">\n"; 
 
 	for ($j = 0; $j < $rows; $j++) {
-		echo '<A HREF="http://www.geocrawler.com/redir-sf.php3?list='.
-			db_result($result, $j, 'list_name').'">' . 
-			html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")) . ' &nbsp; '.
-			db_result($result, $j, 'list_name').' Archives</A>'; 
-		echo ' (go to <A HREF="http://'.$GLOBALS['sys_lists_host'].'/mailman/listinfo/'.
+		echo '<A HREF="https://'.$GLOBALS['sys_lists_host'];
+                if (db_result($result, $j, 'is_public') == 1)
+                        echo '/pipermail/';
+                else
+                        echo '/mailman/private/';
+
+		echo db_result($result, $j, 'list_name').'">' . 
+		html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")) . ' &nbsp; '.
+		db_result($result, $j, 'list_name').' Archives</A>'; 
+		echo ' (go to <A HREF="https://'.$GLOBALS['sys_lists_host'].'/mailman/listinfo/'.
 			db_result($result, $j, 'list_name').'">Subscribe/Unsubscribe/Preferences</A>)<BR>';
 		echo '&nbsp;'.  db_result($result, $j, 'description') .'<P>';
 	}

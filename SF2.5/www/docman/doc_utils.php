@@ -77,7 +77,7 @@ function display_docs($style,$group_id) {
 
 	if (db_numrows($result) < 1) {
 		
-		$query = "select name"
+		$query = "select name "
 			."from doc_states "
 			."where stateid = ".$style."";
 			$result = db_query($query);
@@ -90,6 +90,7 @@ function display_docs($style,$group_id) {
 		$title_arr[]='Document ID';
 		$title_arr[]='Name';
 		$title_arr[]='Create Date';
+                $title_arr[]='Update Date';
 
 		echo html_build_list_table_top ($title_arr);
 
@@ -98,7 +99,9 @@ function display_docs($style,$group_id) {
 			print 	"<tr bgcolor=\"".html_get_alt_row_color($i)."\">"
 				."<td>".$row['docid']."</td>"
 				."<td><a href=\"index.php?docid=".$row['docid']."&mode=docedit&group_id=".$group_id."\">".$row['title']."</a></td>"
-				."<td>".date($sys_datefmt,$row['createdate'])."</td></tr>";
+				."<td>".date($sys_datefmt,$row['createdate'])."</td>"
+				."<td>".date($sys_datefmt,$row['updatedate'])."</td>"
+				."</tr>";
 			$i++;
 		}	
 		echo '</table>';
@@ -140,7 +143,8 @@ function doc_droplist_count($l_group_id, $language_id) {
 		." and dg.group_id = '$l_group_id' "
 		." and dd.stateid = '1' "
 		." and sl.language_id = dd.language_id "
-		." group by dd.language_id";
+		." group by dd.language_id"
+		.",dg.group_id,sl.name"; // 2003-02-02 helix
 
 	$gresult = db_query($query);
 	
@@ -148,18 +152,18 @@ function doc_droplist_count($l_group_id, $language_id) {
 	if (db_numrows($gresult) >= 1) {
 
 		print "<table border=\"0\">"
-			." <tr><td valign=\"center\"><b>Language:</b></td>"
-			." <td valign=\"center\"><form name=\"langchoice\" action=\"index.php?group_id=".$l_group_id."\" method=\"POST\"><select name=\"language_id\">\n\n"; 
+			." <tr><td valign=\"center\"><b>Language:</b></td>\n"
+			." <td valign=\"center\"><form name=\"langchoice\" action=\"index.php?group_id=".$l_group_id."\" method=\"POST\"><select name=\"language_id\">\n"; 
 		while($grow = db_fetch_array($gresult)) {
 
 			if ($language_id == $grow['language_id']) {
 
-				print "<option value=\"".$grow['language_id']."\" selected>".$grow['name']." (".$grow['count(*)'].") </option>";
+				print "<option value=\"".$grow['language_id']."\" selected>".$grow['name']." (".$grow['count'].")</option>\n"; // 2003-02-02 helix
 			} else {
-				print "<option value=\"".$grow['language_id']."\">".$grow['name']." (".$grow['count(*)'].") </option>";
+				print "<option value=\"".$grow['language_id']."\">".$grow['name']." (".$grow['count'].")</option>\n"; // 2003-02-02 helix
 			}	
 		}	
-		print "</select></td><td valign=\"center\"><input type=\"submit\" value=\"Go\"></form></td></tr></table>"; 
+		print "</select></td><td valign=\"center\"><input type=\"submit\" value=\"Go\"></form></td></tr></table>\n"; 
 	}
 
 

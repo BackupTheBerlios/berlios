@@ -465,7 +465,7 @@ function mail_followup($support_id,$more_addresses=false) {
 		$body = "\n\nSupport Request #".db_result($result,0,'support_id').", was updated on ".
 				date($sys_datefmt,db_result($result,0,'open_date')). 
 			"\nYou can respond by visiting: ".
-			"\nhttp://".$GLOBALS['sys_default_domain']."/support/?func=detailsupport&support_id=".
+			"\nhttp://".$GLOBALS['sys_default_host']."/support/?func=detailsupport&support_id=".
 				db_result($result,0,"support_id")."&group_id=".db_result($result,0,"group_id").
 			"\n\nCategory: ".db_result($result,0,'category_name').
 			"\nStatus: ".db_result($result,0,'status_name').

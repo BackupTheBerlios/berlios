@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Italian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Italian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -95,13 +95,13 @@ class Italian extends BaseLanguage {
 		$this->GROUP_LONG_FTP='Spazio FTP anonimo';
 
 		$this->BREAKING_DOWN_BARRIERS='Abbattere le barriere allo sviluppo Open Source';
-		$this->SOURCEFORGE_STATISTICS='Statistiche SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Statistiche '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Progetti pi&ugrave; scaricati';
 		$this->HIGHEST_RANKED_USERS='I Migliori';
 		$this->MOST_ACTIVE_THIS_WEEK='I pi&ugrave; attivi della settimana';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
-SourceForge &egrave; un <B>servizio gratuito per gli sviluppatori
+'.$GLOBALS['sys_default_name'].' &egrave; un <B>servizio gratuito per gli sviluppatori
 <A href="http://www.opensource.org">Open Source</A></B>
 che offre un facile accesso ai migliori strumenti per
  CVS, mailing list, gestione bug, aree di discussione,
@@ -116,7 +116,7 @@ FAQ ]</font></A>
 <P>
 <B>Partecipate!</B>
 <P>
-Per ottenere il massimo da SourceForge, dovete
+Per ottenere il massimo da '.$GLOBALS['sys_default_name'].', dovete
 <A href="/account/register.php">registrarvi come utente
 </A>. Questo vi permetter&agrave; di partecipare appieno a quello che abbiamo da offrirvi.
 Ovviamente potete visitare il sito senza registrarvi, ma non avrete la possibilit&agrave; di partecipare.

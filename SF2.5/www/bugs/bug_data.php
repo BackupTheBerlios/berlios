@@ -787,7 +787,7 @@ function mail_followup($bug_id,$more_addresses=false) {
 			}       
 		}	       
 		$body .= "\n\nFor detailed info, follow this link:";
-		$body .= "\nhttp://$GLOBALS[sys_default_domain]/bugs/?func=detailbug&bug_id=$bug_id&group_id=".
+		$body .= "\nhttp://$GLOBALS[sys_default_host]/bugs/?func=detailbug&bug_id=$bug_id&group_id=".
 			db_result($result,0,'group_id');
 		
 		$subject='[Bug #'.db_result($result,0,'bug_id').'] '.

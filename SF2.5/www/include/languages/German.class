@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: German.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: German.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 /*
 
@@ -56,14 +56,14 @@ class German extends BaseLanguage {
 		$this->PROJECT_HELP_WANTED='Projekthilfe gesucht';
 		$this->TOP_PROJECTS='Top-Projekte';
 		$this->COMPILE_FARM='Compile-Farm';
-		$this->CONTACT_US='Kontakt';
-		$this->ABOUT_SOURCEFORGE='&Uuml;ber SourceForge';
+		$this->CONTACT_US='Kontakt '.$GLOBALS['sys_default_name'];
+		$this->ABOUT_SOURCEFORGE='&Uuml;ber '.$GLOBALS['sys_default_name'];
 
 		//tool short names as in HTML_TABS()
 		$this->GROUP_SHORT_SUMMARY='&Uuml;berblick';
 		$this->GROUP_SHORT_HOMEPAGE='Homepage';
 		$this->GROUP_SHORT_FORUM='Foren';
-		$this->GROUP_SHORT_BUGS='Bugs';
+		$this->GROUP_SHORT_BUGS='Fehler';
 		$this->GROUP_SHORT_SUPPORT='Support';
 		$this->GROUP_SHORT_PATCH='Patches';
 		$this->GROUP_SHORT_MAIL='Mailinglisten';
@@ -73,14 +73,17 @@ class German extends BaseLanguage {
 		$this->GROUP_SHORT_NEWS='Neuigkeiten';
 		$this->GROUP_SHORT_CVS='CVS';
 		$this->GROUP_SHORT_FILES='Dateien';
+		// 2003-04-05 helix
+		$this->GROUP_SHORT_SCREENSHOTS='Bildschirmphotos';
 
 		//tool long names for summary page
 		$this->LATEST_FILE_RELEASES='Letzte Dateireleases';
 		$this->FILE_PACKAGE='Paket';
 		$this->FILE_VERSION='Version';
+		$this->FILE_REL_DATE='Datum';
 		$this->FILE_MONITOR='&Uuml;berwachen';
 		$this->FILE_NOTES='Anmerkungen';
-		$this->FILE_DOWNLOAD='Downloaden';
+		$this->FILE_DOWNLOAD='Herunterladen';
 
 		$this->DEVELOPER_INFO='Entwicklerinformationen';
 		$this->PROJECT_ADMINS='Projektbetreuer';
@@ -89,7 +92,7 @@ class German extends BaseLanguage {
 
 		$this->GROUP_LONG_HOMEPAGE='Projekthomepage';
 		$this->GROUP_LONG_FORUM='&Ouml;ffentliche Foren';
-		$this->GROUP_LONG_BUGS='Bugtracking';
+		$this->GROUP_LONG_BUGS='Fehlerverfolgung';
 		$this->GROUP_LONG_SUPPORT='Support-Verwaltung';
 		$this->GROUP_LONG_PATCH='Patch-Verwaltung';
 		$this->GROUP_LONG_MAIL='Mailinglisten';
@@ -99,35 +102,39 @@ class German extends BaseLanguage {
 		$this->GROUP_LONG_NEWS='Letzte Neuigkeiten';	
 		$this->GROUP_LONG_CVS='CVS-Baum';
 		$this->GROUP_LONG_FTP='Anonymer FTP-Zugriff';
+		// 2003-04-05 helix
+		$this->GROUP_LONG_SCREENSHOTS='Bildschirmphotos';
+		$this->GROUP_LONG_WIKI='OpenFacts-Wiki-Seiten';
 
 		// neue strings für die homepage, hinzugefügt 1. 10.
-		$this->BREAKING_DOWN_BARRIERS='Wir reissen die Mauern zu Open-Source-Entwicklung nieder';
-		$this->SOURCEFORGE_STATISTICS='SourceForge Statistiken';
+		$this->BREAKING_DOWN_BARRIERS='Förderung von Open-Source-Entwicklung';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' Statistiken';
 		$this->TOP_PROJECT_DOWNLOADS='Popul&auml;rste Downloads (nach Projekten)';
+		$this->NEWEST_PROJECTS='Neueste Projekte';
 		$this->HIGHEST_RANKED_USERS='Am h&ouml;chsten eingestufte Benutzer';
 		$this->MOST_ACTIVE_THIS_WEEK='Aktivste Projekte in dieser Woche';
 		
 		// Homepage About BLURB, temporär, bis der Content-Manager fertig ist
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge ist ein <b>freier Dienst</b> f&uuml;r
+'.$GLOBALS['sys_default_name'].' ist ein <b>freier Dienst</b> f&uuml;r
 <a href="http://www.opensource.org">Open Source</a> Entwickler und bietet
-einfachen Zugang zu dem Besten aus CVS, Mailinglisten, Bug-Tracking,
+einfachen Zugang zum Besten aus CVS, Mailinglisten, Bug-Tracking,
 Diskussionsforen, Aufgabenverwaltung, Webhosting, dauerhafte
 Dateiarchivierung, Backups und vollst&auml;ndige Verwaltung per
 Web-Interface.
 
-<a href="/docman/display_doc.php?docid=753&group_id=1"><font size="-1">[ mehr ]</font></A>
-<a href="/docman/display_doc.php?docid=756&group_id=1"><font size="-1">[ FAQ ]</font></A>
+<a href="/docman/index.php?group_id=2">[ mehr ]</A>
+<!-- <a href="/docman/display_doc.php?docid=756&group_id=1">[ FAQ ]</A> -->
 <br>
 &nbsp;
 <p>
 <b>Feedback und Teilnahme an der Site</b>
 <p>
-Um SourceForge bestm&ouml;glich zu nutzen, sollten Sie sich
+Um '.$GLOBALS['sys_default_name'].' bestm&ouml;glich zu nutzen, sollten Sie sich
 <a href="/account/register.php">als Benutzer anmelden</a>. Mit einem
 Benutzeraccount k&ouml;nnen Sie am vollen Spektrum der Website teilhaben.
-Nat&uuml;rlich k&ouml;nnen Sie SourceForge auch ohne Registrierung nutzen,
+Nat&uuml;rlich k&ouml;nnen Sie '.$GLOBALS['sys_default_name'].' auch ohne Registrierung nutzen,
 haben dann allerdings nicht auf alle Bereiche vollen Zugriff.
 <p>
 &nbsp;

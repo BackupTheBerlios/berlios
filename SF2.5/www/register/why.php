@@ -4,14 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: why.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: why.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 $HTML->header(array(title=>"Why Register?"));
 ?>
 
 <p>
-SourceForge would like to extend an invitation to any Open Source project to be hosted for no price and
+<?php print $GLOBALS['sys_default_name'] ?> would like to extend an invitation to any Open Source project to be hosted for no price and
 no catch. This is our token of appreciation to the people who help make Open Source a reality.
 </p>
 
@@ -43,10 +43,10 @@ acquired and allocated for this project.
 </p>                           
            
 <p>
-<li>We will not require that you place any banner or even reference to SourceForge on your page. 
+<li>We will not require that you place any banner or even reference to <?php print $GLOBALS['sys_default_name'] ?> on your page. 
 <li>account acceptance is at our discretion and is based on the following criteria: relevance (Open
 Source sofware projects only), legitimacy (your project must have a specific goal), and
-appropriateness (no adult or otherwise publicly inacceptable material). Furthermore, SourceForge
+appropriateness (no adult or otherwise publicly inacceptable material). Furthermore, <?php print $GLOBALS['sys_default_name'] ?>
 reserves the right to revoke an existing account without notice if there is due cause. 
 </p>
 

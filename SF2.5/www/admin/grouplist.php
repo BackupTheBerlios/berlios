@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: grouplist.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: grouplist.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -26,7 +26,7 @@ if ($form_catroot == 1) {
 	if (isset($group_name_search)) {
 		print "<b>Groups that begin with $group_name_search</b>\n";
 		$res = db_query("SELECT group_name,unix_group_name,group_id,is_public,status,license "
-			. "FROM groups WHERE group_name LIKE '$group_name_search%' "
+			. "FROM groups WHERE group_name ILIKE '$group_name_search%' "
 			. ($form_pending?"AND WHERE status='P' ":"")
 			. " ORDER BY group_name");
 	} else {
@@ -36,16 +36,17 @@ if ($form_catroot == 1) {
 			. ($status?"WHERE status='$status' ":"")
 			. "ORDER BY group_name");
 	}
-} else {
-	print "<b>" . category_fullname($form_catroot) . "</b>\n";
-
-	$res = db_query("SELECT groups.group_name,groups.unix_group_name,groups.group_id,"
-		. "groups.is_public,"
-		. "groups.license,"
-		. "groups.status "
-		. "FROM groups,group_category "
-		. "WHERE groups.group_id=group_category.group_id AND "
-		. "group_category.category_id=$GLOBALS[form_catroot] ORDER BY groups.group_name");
+// 2003-02-03 helix
+//} else {
+//	print "<b>" . category_fullname($form_catroot) . "</b>\n";
+//
+//	$res = db_query("SELECT groups.group_name,groups.unix_group_name,groups.group_id,"
+//		. "groups.is_public,"
+//		. "groups.license,"
+//		. "groups.status "
+//		. "FROM groups,group_category "
+//		. "WHERE groups.group_id=group_category.group_id AND "
+//		. "group_category.category_id=$GLOBALS[form_catroot] ORDER BY groups.group_name");
 }
 ?>
 
@@ -57,7 +58,9 @@ if ($form_catroot == 1) {
 <TD><b>Status</b></TD>
 <TD><b>Public?</b></TD>
 <TD><b>License</b></TD>
+<!-- 2003-02-03 helix
 <TD><b>Categories</b></TD>
+-->
 <TD><B>Members</B></TD>
 </TR>
 
@@ -71,9 +74,10 @@ while ($grp = db_fetch_array($res)) {
 	print "<td>$grp[license]</td>";
 	
 	// categories
-	$count = db_query("SELECT group_id FROM group_category WHERE "
-                . "group_id=$grp[group_id]");
-        print ("<td>" . db_numrows($count) . "</td>");
+// 2003-02-03 helix
+//	$count = db_query("SELECT group_id FROM group_category WHERE "
+//                . "group_id=$grp[group_id]");
+//        print ("<td>" . db_numrows($count) . "</td>");
 
 	// members
 	$res_count = db_query("SELECT user_id FROM user_group WHERE group_id=$grp[group_id]");

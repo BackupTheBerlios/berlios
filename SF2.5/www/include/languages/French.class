@@ -102,7 +102,7 @@ class French extends BaseLanguage {
 		// Translation by nikopol
 
 		$this->BREAKING_DOWN_BARRIERS='Abaisser les barri&egrave;res du d&eacute;veloppement Open Source';
-		$this->SOURCEFORGE_STATISTICS='Statistiques de SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Statistiques de '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Projets les plus T&eacute;l&eacute;charg&eacute;s'; 
 		$this->HIGHEST_RANKED_USERS='Les D&eacute;veloppeurs les Mieux Class&eacute;s';
 		$this->MOST_ACTIVE_THIS_WEEK='Les Plus Actifs cette Semaine';
@@ -112,8 +112,8 @@ class French extends BaseLanguage {
 		//content manager is ready
 
 		$this->HOME_PAGE_ABOUT_BLURB='
-SourceForge est un <b>service gratuit pour les d&eacute;veloppeurs <A href="http://www.opensource.org">Open Source</A></b>.
-SourceForge offre l\'acc&egrave;s le plus simple aux meilleurs services CVS, listes
+'.$GLOBALS['sys_default_name'].' est un <b>service gratuit pour les d&eacute;veloppeurs <A href="http://www.opensource.org">Open Source</A></b>.
+'.$GLOBALS['sys_default_name'].' offre l\'acc&egrave;s le plus simple aux meilleurs services CVS, listes
 de diffusion, gestion des bugs, forums de discussion, gestion des t&acirc;ches,
 h&eacute;bergement de site, archivage de fichiers, sauvegardes compl&egrave;tes, etc.
 via une interface d\'administration enti&egrave;rement par le web.
@@ -125,7 +125,7 @@ via une interface d\'administration enti&egrave;rement par le web.
 <B>Participation des d&eacute;veloppeurs</B>
 <P>
 
-Pour pouvoir utiliser SourceForge au mieux, il est
+Pour pouvoir utiliser '.$GLOBALS['sys_default_name'].' au mieux, il est
 nec&eacute;ssaire de <A href="/account/register.php">s\'enregistrer comme un
 d&eacute;veloppeur officiel</a>.  Cela vous permettra de profiter de tous
 ce que nous avons &agrave; vous offrir. Vous pouvez bien entendu parcourir 
@@ -140,7 +140,7 @@ le site sans vous enregistrer, mais vous ne pourrez pas y participer pleinement.
 then <A HREF="/account/login.php">Connectez-vous</A> puis,
 <A HREF="/register/">Enregistrez votre Projet.</A>
 <P>
-Merci... et nous esp&eacute;rons que vous aimerez SourceForge!';
+Merci... et nous esp&eacute;rons que vous aimerez '.$GLOBALS['sys_default_name'].'!';
 
 
 	}

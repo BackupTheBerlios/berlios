@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: news_utils.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: news_utils.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 /*
 	News System
@@ -12,7 +12,7 @@
 */
 
 function news_header($params) {
-	global $DOCUMENT_ROOT,$HTML,$group_id,$news_name,$news_id,$sys_news_group;
+	global $DOCUMENT_ROOT,$HTML,$group_id,$news_name,$news_id,$sys_news_group,$sys_default_name;
 
 	$params['toptab']='news';
 	$params['group']=$group_id;
@@ -24,8 +24,9 @@ function news_header($params) {
 		site_project_header($params);
 	} else {
 		$HTML->header($params);
+/* 2003-03-18 set news group by helix */
 		echo '
-			<H2>SourceForge <A HREF="/news/">News</A></H2>';
+			<H2>'.$sys_default_name.' <A HREF="/news/?group_id='.$sys_news_group.'">News</A></H2>';
 	}
 	echo '<P><B>';
 	echo '<A HREF="/news/submit.php?group_id='.$group_id.'">Submit</A> | <A HREF="/news/admin/?group_id='.$group_id.'">Admin</A></B>';
@@ -81,7 +82,7 @@ function news_show_latest($group_id='',$limit=10,$show_summaries=true,$allow_sub
 				//show the project name 
 				if (db_result($result,$i,'type')==2) $group_type='/foundry/';
 				else $group_type='/projects/';
-				$proj_name=' &nbsp; - &nbsp; <A HREF="http://'.$GLOBALS['sys_default_domain'].$group_type. strtolower(db_result($result,$i,'unix_group_name')) .'/">'. db_result($result,$i,'group_name') .'</A>';
+				$proj_name=' &nbsp; - &nbsp; <A HREF="//'.$GLOBALS['sys_default_host'].$group_type. strtolower(db_result($result,$i,'unix_group_name')) .'/">'. db_result($result,$i,'group_name') .'</A>';
 			} else {
 				$proj_name='';
 				$summ_txt='';
@@ -89,12 +90,12 @@ function news_show_latest($group_id='',$limit=10,$show_summaries=true,$allow_sub
 
                         if (!$limit) {
 				$return .= '
-					<li><A HREF="http://'.$GLOBALS['sys_default_domain'].'/forum/forum.php?forum_id='. db_result($result,$i,'forum_id') .'"><B>'. db_result($result,$i,'summary') . '</B></A>';
+					<li><A HREF="//'.$GLOBALS['sys_default_host'].'/forum/forum.php?forum_id='. db_result($result,$i,'forum_id') .'"><B>'. db_result($result,$i,'summary') . '</B></A>';
                         	$return .= ' &nbsp; <I>'.date($sys_datefmt,db_result($result,$i,'date')).'</A></I><br>';
                         }
                         else {
 				$return .= '
-					<A HREF="http://'.$GLOBALS['sys_default_domain'].'/forum/forum.php?forum_id='. db_result($result,$i,'forum_id') .'"><B>'. db_result($result,$i,'summary') . '</B></A>';
+					<A HREF="//'.$GLOBALS['sys_default_host'].'/forum/forum.php?forum_id='. db_result($result,$i,'forum_id') .'"><B>'. db_result($result,$i,'summary') . '</B></A>';
                         	if (!$flat)
                         		$return .= '
 					<BR>&nbsp;';
@@ -120,7 +121,7 @@ function news_show_latest($group_id='',$limit=10,$show_summaries=true,$allow_sub
 	if ($allow_submit && $group_id != $sys_news_group) {
 		//you can only submit news from a project now
 		//you used to be able to submit general news
-		$return .= '<div align="center"><A HREF="/news/submit.php?group_id='.$group_id.'"><FONT SIZE="-1">[Submit News]</FONT></A></center>';
+		$return .= '<div align="center"><A HREF="/news/submit.php?group_id='.$group_id.'">[Submit News]</A></center>';
 	}
 	return $return;
 }

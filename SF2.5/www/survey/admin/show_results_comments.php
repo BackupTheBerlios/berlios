@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results_comments.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: show_results_comments.php,v 1.2 2003/11/13 11:29:28 helix Exp $
 
 require('pre.php');
 require('HTML_Graphs.php');

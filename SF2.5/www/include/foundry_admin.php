@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: foundry_admin.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: foundry_admin.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -57,7 +57,7 @@ if ($func) {
 			}
 		} else {
 			//user doesn't exist
-			$feedback .= "That project does not exist on SourceForge";
+			$feedback .= "That project does not exist on ".$GLOBALS['sys_default_name'];
 		}
 
 		$foundry->refreshFoundryData();

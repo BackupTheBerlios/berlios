@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: login.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: login.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 Header( "Expires: Wed, 11 Nov 1998 11:11:11 GMT"); 
 Header( "Cache-Control: no-cache"); 
@@ -96,7 +96,7 @@ if (browser_is_ie() && browser_is_mac()) {
 ?>
 	
 <p>
-<b>SourceForge Site Login</b>
+<b><?php echo $sys_default_name ?> Site Login</b>
 <p>
 <font color="red"><B>Cookies must be enabled past this point.</B></font>
 <P>

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: people_utils.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: people_utils.php,v 1.2 2003/11/13 11:29:25 helix Exp $
 
 /*
 	Job/People finder 
@@ -410,7 +410,7 @@ function people_show_job_list($result) {
 	$title_arr[]='Title';
 	$title_arr[]='Category';
 	$title_arr[]='Date Opened';
-	$title_arr[]='SF Project';
+	$title_arr[]='Project';
 
 	$return .= html_build_list_table_top ($title_arr);
 

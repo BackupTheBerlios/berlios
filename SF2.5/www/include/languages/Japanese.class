@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Japanese.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Japanese.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -60,7 +60,7 @@ class Japanese extends BaseLanguage {
 
 		// not in BaseLanguage.class, but we have the strings
 		// when BaseLanguage.class is ready...
-		$this->ABOUT_SOURCEFORGE='SourceForgeについて';
+		$this->ABOUT_SOURCEFORGE=$GLOBALS['sys_default_name'].'について';
 
 		$this->ABOUT_FOUNDRIES='ファンドリーについて';
 		$this->FOUNDRY_3D='3D';
@@ -116,13 +116,13 @@ class Japanese extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Breaking Down the Barriers to Open Source Development';
-		$this->SOURCEFORGE_STATISTICS='SourceForge統計';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].'統計';
 		$this->TOP_PROJECT_DOWNLOADS='プロジェクトダウンロード数';
 		$this->HIGHEST_RANKED_USERS='ユーザ別ランキング';
 		$this->MOST_ACTIVE_THIS_WEEK='最近一週間で活発なプロジェクト';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
-SourceForgeとは<a href="http://www.opensource.org/">オープンソース</A>開
+'.$GLOBALS['sys_default_name'].'とは<a href="http://www.opensource.org/">オープンソース</A>開
 発者にCVS、メーリングリスト、バグ追跡、掲示板・フォーラム、タスク管理、
 ホストホスティング、永久的なファイルの保管、完全なバックアップさらにWebベース
 の総合的な管理への容易で最高な利用を提供する無料のサービスです。
@@ -133,8 +133,8 @@ SourceForgeとは<a href="http://www.opensource.org/">オープンソース</A>開
 <P>
 <B>サイトへの意見と参加</B>
 <P>
-SourceForgeを最大限活用するには<a
-href="http://sourceforge.net/account/register.php">ユーザ登録</a>する必
+'.$GLOBALS['sys_default_name'].'を最大限活用するには<a
+href="/account/register.php">ユーザ登録</a>する必
 要があります。そうすることによりわれわれが提供するすべてのサービスに参加
 することができます。もちろん登録しなくともサイトを閲覧することはできます
 が、利用に制限があります。
@@ -143,9 +143,9 @@ href="http://sourceforge.net/account/register.php">ユーザ登録</a>する必
 <BR>
 <B>自分のプロジェクトを作る</B>
 <P>
-まず<a href="http://sourceforge.net/account/register.php">ユーザ登録
-</a>し、<a href="http://sourceforge.net/account/login.php">ログイン
-</a>します。そして<a href="http://sourceforge.net/register/">プロジェク
+まず<a href="/account/register.php">ユーザ登録
+</a>し、<a href="/account/login.php">ログイン
+</a>します。そして<a href="/register/">プロジェク
 トを登録</a>します。
 <P>
 ありがとうございます。そしてこのサイトでぜひ楽しんでください。';

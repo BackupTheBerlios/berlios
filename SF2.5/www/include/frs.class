@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: frs.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: frs.class,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /**
  * Base class for FRS (File Release System) and QRS (Quick-file Release System)
@@ -82,7 +82,7 @@ class FRS extends Error {
 	 * @param $post_date int THe post date
 	 * @returns True on success, False on error
 	 */
-	function frsAddFile($release_time, $filename, $file_size, $post_date, $release_id, $package_id, $type_id, $proc_id)
+	function frsAddFile($release_time, $filename, $group_unix_name, $file_size, $post_date, $release_id, $package_id, $type_id='0', $proc_id='0')
 	{
 		if( !$this->frsVerifyRelease($release_id, $package_id) ) {
 			$this->setError(' FRS Add File Failed: ' . $this->getErrorMessage());
@@ -90,11 +90,12 @@ class FRS extends Error {
 		}
 
 		//move the file to a its project page using a setuid program
-		exec ("/usr/local/bin/fileforge $filename ".$group_unix_name, $exec_res);
-		if ($exec_res[0]) {
-			$this->setError("FRS Add File Failed: $exec_res[0], $exec_res[1]");
-			return false;
-		}
+// file is already moved using frsMoveFile - 2003-10-29 helix
+//		exec ("/usr/local/bin/fileforge-1 '$filename' $group_unix_name", $exec_res);
+//		if ($exec_res[0]) {
+//			$this->setError("FRS Add File Failed: $exec_res[0] $exec_res[1]");
+//			return false;
+//		}
 
 		$res=db_query("INSERT INTO frs_file (release_time,filename,release_id,type_id,processor_id,file_size,post_date) VALUES (" .
 					  "'$release_time'," .
@@ -730,7 +731,9 @@ class FRS extends Error {
 	function frsVerifyFileMoved($file_location)
 	{
 		if( !file_exists($file_location) ) {
-			$this->setError($this->getErrorMessage() . " | Move File Failed ");
+// suppress output of error message twice - 2003-10-29 helix
+//                        $this->setError($this->getErrorMessage() . " | Move File Failed ");
+			$this->setError(" | Move File Failed ");
 			return false;
 		}
 
@@ -783,9 +786,26 @@ class FRS extends Error {
 	 */
 	function frsDeleteFile($file_id, $group_id)
 	{
-		$result = db_query("DELETE FROM frs_file WHERE file_id='$file_id'");
+		// 2002-03-17 needed to set deleted file by helix
+		$result = db_query("SELECT filename FROM frs_file WHERE file_id='$file_id'");
+		$file = db_result($result,0,'filename');
+		$group_unix_name = group_getunixname($group_id);
+		$result1 = db_query("DELETE FROM frs_file WHERE file_id='$file_id'");
 		//append the filename and project name to a temp file for the root perl job to grab
-		exec ("/bin/echo \"". db_result($result,0,'filename') ."::". group_getunixname($group_id) ."::xxx\" >> $FTPINCOMING_DIR/.delete_files");
+		exec ("/bin/echo \"$file::$group_unix_name::xxx\" >> $GLOBALS[FTPINCOMING_DIR]/.delete_files");
+
+		clearstatcache();
+		if (is_file("$GLOBALS[FTPFILES_DIR]/$group_unix_name/$file") && file_exists("$GLOBALS[FTPFILES_DIR]/$group_unix_name/$file")) {
+			//move the file to its project archive using a setuid program
+			exec ("/usr/local/bin/filearchive '$file' $group_unix_name", $exec_res);
+			if ($exec_res[0]) {
+				$this->setError(" | FRS Delete File Failed: $exec_res[0] $exec_res[1]");
+				return false;
+			}
+		} else {
+			$this->setError("FRS Delete File Failed: File Name Invalid Or Does Not Exist: $GLOBALS[FTPFILES_DIR]/$group_unix_name/$file ");
+			return false;
+		}
 
 		return true;
 	}
@@ -822,17 +842,17 @@ class FRS extends Error {
 			$array_emails=result_column_to_array($result);
 			$list=implode($array_emails,', ');
 		
-			$subject='SourceForge File Release Notice';
+			$subject=$GLOBALS['sys_default_name'].' File Release Notice';
 		
 			$body = "To: noreply@$GLOBALS[HTTP_HOST]".
 				"\nBCC: $list".
 				"\nSubject: $subject".
 				"\n\nA new version of ". db_result($result,0,'name')." has been released. ".
-				"\nYou can download it from SourceForge by following this link: ".
+				"\nYou can download it from ".$GLOBALS['sys_default_name']." by following this link: ".
 				"\n\n<http://".$GLOBALS['HTTP_HOST']."/project/showfiles.php?group_id=$group_id&release_id=$release_id> ".
 				"\n\nYou requested to be notified when new versions of this file ".
 				"\nwere released. If you don't wish to be notified in the ".
-				"\nfuture, please login to SourceForge and click this link: ".
+				"\nfuture, please login to ".$GLOBALS['sys_default_name']." and click this link: ".
 				"\n<http://$GLOBALS[HTTP_HOST]/project/filemodule_monitor.php?filemodule_id=$package_id> ";
 			
 			exec ("/bin/echo \"$body\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t");
@@ -861,9 +881,9 @@ class FRS extends Error {
 		clearstatcache();
 		if (is_file("$FTPINCOMING_DIR/$file") && file_exists("$FTPINCOMING_DIR/$file")) {
 			//move the file to a its project page using a setuid program
-			exec ("/usr/local/bin/fileforge $file $group_unix_name", $exec_res);
+			exec ("/usr/local/bin/fileforge-2 '$file' $group_unix_name", $exec_res);
 			if ($exec_res[0]) {
-				$this->setError("FRS Move File Failed: $exec_res[0],$exec_res[1]");
+				$this->setError("FRS Move File Failed: $exec_res[0] $exec_res[1]");
 				return false;
 			}
 		} else {

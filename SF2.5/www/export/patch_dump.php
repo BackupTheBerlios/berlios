@@ -4,7 +4,7 @@ include "pre.php";
 
 header("Content-Type: text/plain");
 print("<?xml version=\"1.0\"?>
-<!DOCTYPE sf_bugs SYSTEM \"http://$sys_default_domain/export/sf_patches_0.1.dtd\">
+<!DOCTYPE bs_bugs SYSTEM \"http://$sys_default_host/export/bs_patches_0.1.dtd\">
 <patches>
 ");
 

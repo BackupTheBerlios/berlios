@@ -4,14 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: form.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: form.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 $HTML->header(array(title=>"New Project Registration"));
 ?>
 
 <p>
-<h1>SourceForge New Project Registration Form</h1>
+<h1><?php print $GLOBALS['sys_default_name'] ?> New Project Registration Form</h1>
 </p>
 
 
@@ -21,7 +21,7 @@ $HTML->header(array(title=>"New Project Registration"));
                         <td>
                         <hr size=2><p>
                         <font face="helvetica, arial">
-                                Simply fill out this form to request an account on SourceForge.org. Fields with an asterisk (*) are required.
+                                Simply fill out this form to request an account on <?php print $GLOBALS['sys_default_name'] ?>. Fields with an asterisk (*) are required.
                                 <p>
                         <form method="POST" action="">
                         <table cellpadding=2 cellspacing=0 border=0>

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 require('pre.php');
 require('../forum/forum_utils.php');
@@ -24,7 +24,7 @@ if ($group_id) {
 		." LEFT JOIN forum f USING (group_forum_id) "
 		." WHERE g.group_id='$group_id' AND g.is_public IN ($public_flag)"
 		." group by g.group_forum_id, g.forum_name, g.description";
-
+	//echo "<p>$sql\n";
 	$result = db_query ($sql);
 
 	$rows = db_numrows($result); 

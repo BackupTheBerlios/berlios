@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: theme.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: theme.php,v 1.2 2003/11/13 11:29:28 helix Exp $
 
 // Make sure '/etc/local.inc' is required in pre.php!
 
@@ -265,7 +265,7 @@ echo html_blankimage(5,100) . '<br>';
 			<td width="141" background="<?php echo $GLOBALS['sys_themeimgroot']; ?>steel3.jpg" bgcolor="#cfd1d4" align="left" valign="top">
 
 	<CENTER>
-	<a href="/"><?php echo html_image($GLOBALS['sys_themeimgroot'] . "sflogo-hammer1.jpg","136","79",array("alt"=>" SourceForge ","border"=>"0")); ?></A>
+	<a href="/"><?php echo html_image($GLOBALS['sys_themeimgroot'] . "berliOS_small_logo.png","136","79",array("alt"=>" SourceForge ","border"=>"0")); ?></A>
 	</CENTER>
 	<P>
 	<!-- menus -->

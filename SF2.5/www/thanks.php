@@ -4,17 +4,18 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: thanks.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: thanks.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
 require "pre.php";    
-$HTML->header(array(title=>"About SorceForge"));
+$HTML->header(array(title=>"About BerliOS"));
 ?>
 
 <P>
-<h2>SourceForge Acknowledgements</h2>
+<h2>BerliOS Acknowledgements</h2>
 
-The Developers of SourceForge would like to thank the following people for their support and encouragement:
+BerliOS would like to thank the following organisation and people for their support and encouragement:
 <ul>
+<li>Hewlett-Packard GmbH
 <li>VA Linux Systems
 <li>Larry Augustin
 <li>Brian Biles

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: verify.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: verify.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 
@@ -51,7 +51,7 @@ if ($Login){
 $HTML->header(array('title'=>'Login'));
 
 ?>
-<p><b>SourceForge Account Verification</b>
+<p><b><?php echo $sys_default_name ?> Account Verification</b>
 <P>In order to complete your registration, login now. Your account will
 then be activated for normal logins.
 <?php 

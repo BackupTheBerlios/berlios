@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Bulgarian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Bulgarian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -104,7 +104,7 @@ class Bulgarian extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Да премахнем пречките пред разработването на софтуер с отворен код';
-		$this->SOURCEFORGE_STATISTICS='SourceForge статистика';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' статистика';
 		$this->TOP_PROJECT_DOWNLOADS='Най-популярните проекти';
 		$this->HIGHEST_RANKED_USERS='Най-популярните потребители';
 		$this->MOST_ACTIVE_THIS_WEEK='Най-активни през тази седмица';
@@ -115,7 +115,7 @@ class Bulgarian extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge е <B>безплатна услуга за разработващите софтуер с 
+'.$GLOBALS['sys_default_name'].' е <B>безплатна услуга за разработващите софтуер с 
 <A href="http://www.opensource.org">отворен код</A></B>, 
 предлагаща лесен достъп до най-доброто от CVS, дискусионни форуми, 
 проследяване на грешки, управление на задачи, 
@@ -129,7 +129,7 @@ SourceForge е <B>безплатна услуга за разработващите софтуер с
 <P>
 <B>Включване и обратна връзка</B>
 <P>
-За да може да използвате най-ефективно SourceForge, ще трябва да се 
+За да може да използвате най-ефективно '.$GLOBALS['sys_default_name'].', ще трябва да се 
 <A href="/account/register.php">регистрирате</A> като потребител. 
 Това ще ви позволи да участвате напълно във всичко, което предлагаме. 
 Разбира се, можете да разглеждате всичко и без регистриране, но така ще 

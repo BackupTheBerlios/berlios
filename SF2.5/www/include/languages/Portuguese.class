@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Portuguese.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Portuguese.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -106,15 +106,15 @@ class Portuguese extends BaseLanguage {
 		// New strings for home page added 10/1
 		// 
 		$this->BREAKING_DOWN_BARRIERS='Acabando com os Obstáculos contra Desenvolvimento de Open Source';
-		$this->SOURCEFORGE_STATISTICS='Estatísticas de SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Estatísticas de '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Downloads Principais de Projetos';
 		$this->HIGHEST_RANKED_USERS='Usuários Máximos';
 		$this->MOST_ACTIVE_THIS_WEEK='O Mais Ativo nesta Semana';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge é um <B>serviço gratuito aos
-<A href="Open">http://www.opensource.org">Open Source</A> desenvolvedores</B>
+'.$GLOBALS['sys_default_name'].' é um <B>serviço gratuito aos
+<A href="http://www.opensource.org">Open Source</A> desenvolvedores</B>
 oferecendo
 acesso fácil ao melhor em CVS, listas de discussão, rastreamento de erros de
 programas, Fóruns, administração de tarefas, hospedagem de sites,
@@ -130,7 +130,7 @@ FAQ ]</font></A>
 <B>Site Feedback and Participation</B>
 <B>Contatos e Partiçipação no Site</B>
 <P>
-Para obter o mais do SourceForge, você precisa <A href="/account/register.php">
+Para obter o mais do '.$GLOBALS['sys_default_name'].', você precisa <A href="/account/register.php">
 inscrever-se como um usuário do site</A>. Este permitirá que você participar
 completamente de todo que nós oferecemos. Você pode claro dar uma olhada oa
 site sem inscrever-se, mas você não tiver acesso para participar-se

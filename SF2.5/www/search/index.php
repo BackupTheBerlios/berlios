@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 /*
    SourceForge Search Engine
@@ -127,8 +127,8 @@ if ($type_of_search == "soft") {
 		}
 		header("Content-Type: text/plain");
         	rss_dump_project_result_set($result,
-                	'SourceForge Search Results',
-                        'SourceForge Search Results for "'
+                	$GLOBALS['sys_default_name'].' Search Results',
+                        $GLOBALS['sys_default_name'].' Search Results for "'
                         .htmlspecialchars($words).'"',
                         'callback');
                 exit;
@@ -256,7 +256,7 @@ if ($type_of_search == "soft") {
 		for ( $i = 0; $i < $rows; $i++ ) {
 			print	"<TR BGCOLOR=\"". html_get_alt_row_color($i) ."\"><TD><A HREF=\"/forum/message.php?msg_id="
 				. db_result($result, $i, "msg_id")."\">"
-				. html_images("images/msg.gif","10","12",array("BORDER"=>"0"))
+				. html_image("images/msg.gif","10","12",array("BORDER"=>"0"))
 				. db_result($result, $i, "subject")."</A></TD>"
 				. "<TD>".db_result($result, $i, "user_name")."</TD>"
 				. "<TD>".date($sys_datefmt,db_result($result,$i,"date"))."</TD></TR>\n";

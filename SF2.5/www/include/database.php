@@ -4,10 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: database.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: database.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 //
 
 /*
+
+	ALPHA VERSION - not debugged!!
 
 	This is the PostgreSQL version of our 
 	database connection/querying layer
@@ -29,7 +31,12 @@ $sys_db_row_pointer=array(); //current row for each result set
 
 function db_connect() {
 	global $sys_dbhost,$sys_dbuser,$sys_dbpasswd,$conn,$sys_dbname;
-	$conn = @pg_pconnect("user=$sys_dbuser dbname=$sys_dbname host=$sys_dbhost password=$sys_dbpasswd"); 
+	//echo "<br>in database.php - db_connect!";
+	//echo "<!-- vor //-->";
+	//if (function_exists('pg_pconnect')) echo "<!-- exists //-->"; else echo "<!-- not existing //-->";
+	$conn = @pg_pconnect("user=$sys_dbuser dbname=$sys_dbname host=$sys_dbhost password=$sys_dbpasswd");
+	//echo "<-- $conn //-->";
+	//echo "<!-- NACH //-->" ;
 	#return $conn;
 }
 

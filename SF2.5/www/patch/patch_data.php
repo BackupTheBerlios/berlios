@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: patch_data.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: patch_data.php,v 1.2 2003/11/13 11:29:25 helix Exp $
 
 /**
  *	Return the audit trail for this patch
@@ -553,7 +553,7 @@ function mail_followup($patch_id,$more_addresses=false) {
 		
 		$body .= "\n\n-------------------------------------------------------".
 			"\nFor more info, visit:".
-			"\n\nhttp://$GLOBALS[sys_default_domain]/patch/?func=detailpatch&patch_id=".
+			"\n\nhttp://$GLOBALS[sys_default_host]/patch/?func=detailpatch&patch_id=".
 				db_result($result,0,'patch_id') .'&group_id='. db_result($result,0,'group_id');
 				
 		$subject="[Patch #".db_result($result,0,'patch_id').'] '.
@@ -566,7 +566,7 @@ function mail_followup($patch_id,$more_addresses=false) {
 		}       
 		
 		$more='From: noreply@'.$GLOBALS['sys_default_domain'];
-		
+	
 		mail($to,$subject,$body,$more);
 		
 		$feedback .= " Patch Update Sent "; //to $to ";

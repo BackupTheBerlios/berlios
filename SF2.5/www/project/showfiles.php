@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: showfiles.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: showfiles.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');    
 
@@ -46,6 +46,7 @@ $group_unix_name=group_getunixname($group_id);
 //echo html_build_list_table_top($title_arr) . "\n";
 function col_heading($title)
 {
+  global $HTML;
   return '<FONT COLOR="'.
 	$HTML->FONTCOLOR_HTMLBOX_TITLE.'"><B>'.$title.'</B></FONT>';
 }
@@ -148,10 +149,10 @@ for ( $p = 0; $p < $num_packages; $p++ ) {
 if ( $proj_stats['size'] ) {
 	print '<TR><TD COLSPAN="8">&nbsp;</TR>'."\n";
 	print '<TR><TD><B>Project Totals: </B></TD>'
-		. '<TD><B><I>' . $proj_stats['releases'] . '</I></B></TD>'
-		. '<TD><B><I>' . $proj_stats['files'] . '</I></B></TD>'
-		. '<TD><B><I>' . $proj_stats['size'] . '</I></B></TD>'
-		. '<TD><B><I>' . $proj_stats['downloads'] . '</I></B></TD>'
+		. '<TD align="right"><B>' . $proj_stats['releases'] . '</B> </TD>'
+		. '<TD align="right"><B>' . $proj_stats['files'] . '</B> </TD>'
+		. '<TD align="right"><B>' . $proj_stats['size'] . '</B> </TD>'
+		. '<TD align="right"><B>' . $proj_stats['downloads'] . '</B> </TD>'
 		. '<TD COLSPAN="3">&nbsp;</TD></TR>'."\n";
 }
 

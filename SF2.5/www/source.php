@@ -17,8 +17,14 @@ $page_name = $DOCUMENT_ROOT . $page_url;
 if (file_exists($page_name) && !is_dir($page_name)) {
 	echo $HTML->header(array('title'=>'View Source'));
 	show_source($page_name);
-} else if (is_dir($page_name)) {
+} elseif (is_dir($page_name)) {
 	exit_error('ERROR','Trying to show source for a directory');
+} elseif (ereg("/projects/", $page_url)) {
+        echo $HTML->header(array('title'=>'View Source'));
+	$page_name = $DOCUMENT_ROOT . "/include/project_home.php";
+        show_source($page_name);
+} else {
+        exit_error('ERROR','Trying to show source for non existing file');
 }
 
 echo $HTML->footer(array());

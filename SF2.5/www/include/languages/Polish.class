@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Polish.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Polish.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -106,7 +106,7 @@ class Polish extends BaseLanguage {
 	        // New strings for home page added 10/1
 	        //
 	        $this->BREAKING_DOWN_BARRIERS='Prze³amujemy bariery w rozwoju oprogramowania Open Source';
-	        $this->SOURCEFORGE_STATISTICS='Statystyki SourceForge';
+	        $this->SOURCEFORGE_STATISTICS='Statystyki '.$GLOBALS['sys_default_name'];
 	        $this->TOP_PROJECT_DOWNLOADS='Najczê¶ciej pobierane projekty';
 	        $this->HIGHEST_RANKED_USERS='Najwy¿ej oceniani u¿ytkownicy';
 	        $this->MOST_ACTIVE_THIS_WEEK='Najbardziej aktywny w tym tygodniu';
@@ -116,7 +116,7 @@ class Polish extends BaseLanguage {
 	        // new strings added 00-11-16
 	        //
 
-	        $this->ABOUT_SOURCEFORGE='About SourceForge';
+	        $this->ABOUT_SOURCEFORGE='About '.$GLOBALS['sys_default_name'];
 
 	        $this->ABOUT_FOUNDRIES='O dzia³ach';
 
@@ -125,7 +125,7 @@ class Polish extends BaseLanguage {
 
 	        $this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge to <B>wolny serwis dla programistów 
+'.$GLOBALS['sys_default_name'].' to <B>wolny serwis dla programistów 
 <A href="http://www.opensource.org">Open Source</A></B> oferuj±cy
 ³atwy dostêp to najlepszego CVS, list dyskusyjnych, ¶ledzenia b³êdów, grup i forum dyskusyjnych,
 zarz±dzania zadaniami, hostingu stron, sta³ego archiwizowania plików, pe³nego backupu;
@@ -137,7 +137,7 @@ zarz±dzni ca³kowicie z poziomu WWW.
 <P>
 <B>Opinie i wspó³praca nad serwisem</B>
 <P>
-Aby w pe³ni skorzystaæ z SourceForge, powiniene¶
+Aby w pe³ni skorzystaæ z '.$GLOBALS['sys_default_name'].', powiniene¶
 <A href="/account/register.php">zarejestrowaæ siê jako u¿ytkownik serwisu</A>.
 Pozwoli Ci to korzystaæ ze wszystkiego, co mamy do zaoferowania.
 Oczywi¶cie mo¿esz korzystaæ z serwisu tak¿e bez rejestracji, jednak pewne

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_support.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: browse_support.php,v 1.2 2003/11/13 11:29:27 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -32,7 +32,7 @@ if ($order) {
 	//if ordering by priority OR closed date, sort DESC
 	$order_by = " ORDER BY $order ".((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
 } else {
-	$order_by = " ORDER BY support.group_id,support.support_status_id ";
+	$order_by = " ORDER BY support.group_id,support.support_id ";
 }
 
 if (!$set) {

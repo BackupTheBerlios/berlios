@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: change_pw.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: change_pw.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -57,7 +57,7 @@ function register_valid()	{
 if (register_valid()) {
 	site_user_header(array(title=>"Successfully Changed Password"));
 	?>
-	<p><b>SourceForge Change Confirmation</b>
+	<p><b><?php $sys_default_name ?> Change Confirmation</b>
 	<p>
 	Congratulations. You have changed your password.
 	This change is immediate on the web site, but will not take
@@ -68,7 +68,7 @@ if (register_valid()) {
 } else { // not valid registration, or first time to page
 	site_user_header(array(title=>"Change Password"));
 	?>
-	<p><b>SourceForge Password Change</b>
+	<p><b><?php $sys_default_name ?> Password Change</b>
 	<?php if ($register_error) print "<p>$register_error"; ?>
 	<form action="change_pw.php" method="post">
 	<p>Old Password:

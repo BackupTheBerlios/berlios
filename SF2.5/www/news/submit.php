@@ -4,12 +4,18 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: submit.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: submit.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require('pre.php');
 require('../forum/forum_utils.php');
 
 if (user_isloggedin()) {
+
+	//news must now be submitted from a project page - 
+
+	if (!$group_id) {
+		exit_no_group();
+	}
 
 	if (!user_ismember($group_id,'A')) {
 		exit_permission_denied('You cannot submit news '.
@@ -43,11 +49,6 @@ if (user_isloggedin()) {
 		}
 	}
 
-	//news must now be submitted from a project page - 
-
-	if (!$group_id) {
-		exit_no_group();
-	}
 	/*
 		Show the submit form
 	*/
@@ -62,7 +63,7 @@ if (user_isloggedin()) {
 		All posts <B>for your project</B> will appear instantly on your project 
 		summary page. Posts that are of special interest to the community will 
 		have to be approved by a member of the news team before they will appear 
-		on the SourceForge home page.
+		on the '.$GLOBALS['sys_default_name'].' home page.
 		<P>
 		You may include URLs, but not HTML in your submissions.
 		<P>

@@ -4,16 +4,16 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: about_foundries.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: about_foundries.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"About Foundries"));
 ?>
 
 <P>
-<h2>About SourceForge Foundries</h2>
+<h2>About <?php echo $sys_default_name ?> Foundries</h2>
 
-SourceForge Foundries serve as places for developers to congregate, share
+<?php echo $sys_default_name ?> Foundries serve as places for developers to congregate, share
 expertise and news, get and give advice, and generally help each other
 develop  better software faster (this is Open Source, after all).<br>
 
@@ -21,7 +21,7 @@ develop  better software faster (this is Open Source, after all).<br>
 
 If you're interested in volunteering to help support or start a foundry, or
 have suggestions, ideas, or gripes please
-<a href="/contact.php" >contact SourceForge</a>.
+<a href="/contact.php" >contact <?php echo $sys_default_name ?></a>.
 
 <h2>Foundries</h2>
 

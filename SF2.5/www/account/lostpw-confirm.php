@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: lostpw-confirm.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: lostpw-confirm.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require ('pre.php');    
 
@@ -16,15 +16,15 @@ $row_user = db_fetch_array($res_user);
 
 db_query("UPDATE users SET confirm_hash='$confirm_hash' WHERE user_id=$row_user[user_id]");
 
-$message = "Someone (presumably you) on the SourceForge site requested a\n"
+$message = "Someone (presumably you) on the $sys_default_name site requested a\n"
 	. "password change through email verification. If this was not you,\n"
 	. "ignore this message and nothing will happen.\n\n"
 	. "If you requested this verification, visit the following URL\n"
 	. "to change your password:\n\n"
-	. "<https://$GLOBALS[HTTP_HOST]/account/lostlogin.php?confirm_hash=$confirm_hash\n\n>"
-	. " -- the SourceForge staff\n";
+	. "https://$GLOBALS[HTTP_HOST]/account/lostlogin.php?confirm_hash=$confirm_hash\n\n"
+	. " -- the $sys_default_name staff\n";
 
-mail ($row_user['email'],"SourceForge Verification",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
+mail ($row_user['email'],$sys_default_name." Verification",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
 
 $HTML->header(array('title'=>"Lost Password Confirmation"));
 

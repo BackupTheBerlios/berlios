@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: survey_resp.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: survey_resp.php,v 1.2 2003/11/13 11:29:27 helix Exp $
 
 require('pre.php');
 require('../survey/survey_utils.php');
@@ -38,7 +38,7 @@ Thank you for taking time to complete this survey.
 <P>
 Regards,
 <P>
-<B>The SourceForge Crew</B>
+<B>The <?php print $GLOBALS['sys_default_name'] ?> Crew</B>
 <P>
 <?php
 /*

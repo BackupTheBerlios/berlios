@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editgroupinfo.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: editgroupinfo.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');
 require ('vars.php');
@@ -56,6 +56,20 @@ if ($Update) {
 	if (!$use_docman) {
 		$use_docman=0;
 	}
+// 2003-02-25 begin by helix
+	if (!$use_files) {
+		$use_files=0;
+	}
+	if (!$use_ftp) {
+		$use_ftp=0;
+	}
+	if (!$use_screenshots) {
+		$use_screenshots=0;
+	}
+	if (!$use_wiki) {
+		$use_wiki=0;
+	}
+// 2003-02-25 end by helix
 	if (!$send_all_bugs) {
 		$send_all_bugs=0;
 	}
@@ -92,6 +106,7 @@ if ($Update) {
 	if (!$form_homepage) {
 		$form_homepage='http://sourceforge.net';
 	}
+// 2003-02-25 by helix
 	$result=db_query('UPDATE groups SET '
 		."group_name='$form_group_name',"
 		."homepage='$form_homepage',"
@@ -108,6 +123,10 @@ if ($Update) {
 		."use_news='$use_news',"
 		."use_support='$use_support',"
 		."use_docman='$use_docman',"
+		."use_files='$use_files',"
+		."use_ftp='$use_ftp',"
+		."use_screenshots='$use_screenshots',"
+		."use_wiki='$use_wiki',"
 		."new_bug_address='$new_bug_address',"
 		."new_patch_address='$new_patch_address',"
 		."new_support_address='$new_support_address',"
@@ -160,6 +179,7 @@ print '
 	Show the options that this project is using
 */
 
+// 2003-02-25 by helix
 echo '
 	<B>Use Bug Tracker:</B> <INPUT TYPE="CHECKBOX" NAME="use_bugs" VALUE="1"'.( ($row_grp['use_bugs']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Bug Dependency List:</B> <INPUT TYPE="CHECKBOX" NAME="use_bug_depend" VALUE="1"'.( ($row_grp['use_bug_depend_box']==1) ? ' CHECKED' : '' ).'><BR>
@@ -172,7 +192,11 @@ echo '
 	<B>Use CVS:</B> <INPUT TYPE="CHECKBOX" NAME="use_cvs" VALUE="1"'.( ($row_grp['use_cvs']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use News:</B> <INPUT TYPE="CHECKBOX" NAME="use_news" VALUE="1"'.( ($row_grp['use_news']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Doc Mgr:</B> <INPUT TYPE="CHECKBOX" NAME="use_docman" VALUE="1"'.( ($row_grp['use_docman']==1) ? ' CHECKED' : '' ).'><BR>
-	<B>Use Support:</B> <INPUT TYPE="CHECKBOX" NAME="use_support" VALUE="1"'.( ($row_grp['use_support']==1) ? ' CHECKED' : '' ).'>';
+	<B>Use Support:</B> <INPUT TYPE="CHECKBOX" NAME="use_support" VALUE="1"'.( ($row_grp['use_support']==1) ? ' CHECKED' : '' ).'><BR>
+	<B>Use File Releases:</B> <INPUT TYPE="CHECKBOX" NAME="use_files" VALUE="1"'.( ($row_grp['use_files']==1) ? ' CHECKED' : '' ).'><BR>
+	<B>Use FTP:</B> <INPUT TYPE="CHECKBOX" NAME="use_ftp" VALUE="1"'.( ($row_grp['use_ftp']==1) ? ' CHECKED' : '' ).'><BR>
+	<B>Use Screenshots:</B> <INPUT TYPE="CHECKBOX" NAME="use_screenshots" VALUE="1"'.( ($row_grp['use_screenshots']==1) ? ' CHECKED' : '' ).'><BR>
+        <B>Use Wiki:</B> <INPUT TYPE="CHECKBOX" NAME="use_wiki" VALUE="1"'.( ($row_grp['use_wiki']==1) ? ' CHECKED' : '' ).'>';
 echo '
 	<P><B>If you wish, you can provide default email addresses to which new submissions will be sent.</B><BR>
 	<B>New Bugs:</B><BR><INPUT TYPE="TEXT" NAME="new_bug_address" VALUE="'.$row_grp['new_bug_address'].'" SIZE="25" MAXLENGTH="250"> 

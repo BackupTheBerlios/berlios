@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: pm_data.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: pm_data.php,v 1.2 2003/11/13 11:29:25 helix Exp $
 
 /**
  *	return a result set of the 100 most recent tasks in this subproject
@@ -280,7 +280,8 @@ function pm_data_create_task ($group_project_id,$start_month,$start_day,$start_y
 			$feedback .= ' ERROR inserting assigned to ';
 			return false;
 		}
-		mail_followup($project_task_id,$group_project_id,1);
+		// 2003-04-10 add missing 0 for more_addresses parameter by helix
+		mail_followup($project_task_id,$group_project_id,0,1);
 		db_commit();
 		return $project_task_id;
 	}
@@ -416,7 +417,7 @@ function pm_data_update_task ($group_project_id,$project_task_id,$start_month,$s
 
 }
 
-function mail_followup($project_task_id,$group_project_id,$more_addresses=false,$new_task=0) {
+function mail_followup($project_task_id,$group_project_id,$more_addresses=0,$new_task=0) {
 	global $sys_datefmt,$feedback;
 	/*
 	
@@ -436,7 +437,6 @@ function mail_followup($project_task_id,$group_project_id,$more_addresses=false,
 		"AND project_task.group_project_id=project_group_list.group_project_id ".
 		"AND groups.group_id=project_group_list.group_id ".
 		"AND project_task.created_by=users.user_id";
-		
 	$result=db_query($sql);
 	
 	if ($result && db_numrows($result) > 0) {
@@ -449,11 +449,11 @@ function mail_followup($project_task_id,$group_project_id,$more_addresses=false,
 			"FROM users,project_assigned_to ".
 			"WHERE project_assigned_to.project_task_id='$project_task_id' ".
 			"AND users.user_id=project_assigned_to.assigned_to_id";
-
 		$result3=db_query($sql);
 		$rows=db_numrows($result3);
 		if ($result3 && $rows > 0) {
-			$to .= implode(result_column_to_array($result3),', ');
+			// 2003-04-10 missing comma in list added by helix
+			$to .= ', ' . implode(result_column_to_array($result3),', ');
 		}
 
 		$body = "Task #".db_result($result,0,"project_task_id")." has been updated. ".
@@ -486,7 +486,7 @@ function mail_followup($project_task_id,$group_project_id,$more_addresses=false,
 		}
 		$body .= "\n\n-------------------------------------------------------".
 			"\nFor more info, visit:".
-			"\n\nhttp://$GLOBALS[sys_default_domain]/pm/task.php?func=detailtask&project_task_id=".
+			"\n\nhttp://$GLOBALS[sys_default_host]/pm/task.php?func=detailtask&project_task_id=".
 				db_result($result,0,'project_task_id')."&group_id=".
 				db_result($result,0,'group_id')."&group_project_id=".db_result($result,0,'group_project_id');
 		
@@ -501,8 +501,11 @@ function mail_followup($project_task_id,$group_project_id,$more_addresses=false,
 		
 		// If this is a new task, or if send all tasks == 1,
 		// append the new_task_address for the group
-		if (($new_task && db_result($result,0,'new_task_address')) || db_result($result,0,'send_all_tasks')) {
-			$to .= ', ' . db_result($result,0,'new_task_address');
+		// 2003-04-10 append only if new_task_address exists by helix
+		if ($new_task || db_result($result,0,'send_all_tasks')) {
+			if (db_result($result,0,'new_task_address')) {
+				$to .= ', ' . db_result($result,0,'new_task_address');
+			}
 		}
 		
 		$more='From: noreply@'.$GLOBALS['sys_default_domain'];

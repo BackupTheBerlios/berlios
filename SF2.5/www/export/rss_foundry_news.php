@@ -3,7 +3,7 @@
  * Export of foundry news in RSS
  * Author: Darrell Brogdon
  *
- * $Id: rss_foundry_news.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+ * $Id: rss_foundry_news.php,v 1.2 2003/11/13 11:29:22 helix Exp $
  */
 
 include "pre.php";

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: session.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: session.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 //
 
 //G_SESSION is now a User object if user is logged in
@@ -170,22 +170,20 @@ function session_getdata($session_hash) {
 	//      important - this must be updated with new 
 	//      columns from the users, themes tables
 	//
-	$res=db_query("SELECT s.session_hash, s.ip_addr, s.time, 
-	
-		u.user_id, u.user_name, u.email, u.user_pw, 
-		u.realname, u.status, u.shell, u.unix_pw, u.unix_status, 
-		u.unix_uid, u.unix_box, u.add_date, u.confirm_hash, 
-		u.mail_siteupdates, u.mail_va, u.authorized_keys, 
-		u.email_new, u.people_view_skills, u.people_resume, u.timezone, 
+	$res=db_query("SELECT s.session_hash, s.ip_addr, s.time, "
+		."u.user_id, u.user_name, u.email, u.user_pw, "
+		."u.realname, u.status, u.shell, u.unix_pw, u.unix_status, "
+		."u.unix_uid, u.unix_box, u.add_date, u.confirm_hash, "
+		."u.mail_siteupdates, u.mail_va, u.authorized_keys, "
+		."u.email_new, u.people_view_skills, u.people_resume, u.timezone, "
 
-		sl.language_id, sl.name, sl.filename, sl.classname, sl.language_code
-
-		FROM users u,
-		supported_languages sl, 
-		session s
-		WHERE u.language=sl.language_id 
-		AND s.user_id=u.user_id 
-		AND s.session_hash='$session_hash'");
+		."sl.language_id, sl.name, sl.filename, sl.classname, sl.language_code "
+		."FROM users u, "
+		."supported_languages sl, "
+		."session s "
+		."WHERE u.language=sl.language_id "
+		."AND s.user_id=u.user_id "
+		."AND s.session_hash='$session_hash'");
 	return $res;
 }
 

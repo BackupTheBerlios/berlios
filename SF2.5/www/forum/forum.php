@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: forum.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /*
 
@@ -82,13 +82,21 @@ if ($forum_id) {
 				if so, use it
 			if it was a custom set just posted && logged in, set pref if it's changed
 	*/
+
 	if (!$thread_id && user_isloggedin()) {
 		$_pref=$style.'|'.$max_rows;
 		if ($set=='custom') {
+
+// start changes by helix at 2003-01-15
+			$pref = user_get_preference('forum_style');
 //echo "<P>checking pref";
-			if (user_get_preference('forum_style')) {
+//			if (user_get_preference('forum_style')) {
+			if ($pref) {
 //echo "<P>pref exists";
-				if ($_pref == user_get_preference('forum_style')) {
+//				if ($_pref == user_get_preference('forum_style')) {
+				if ($_pref == $pref) {
+// end changes by helix at 2003-01-15
+
 //echo "<P>pref same: $_pref";
 					//do nothing - pref already stored
 				} else {
@@ -97,13 +105,22 @@ if ($forum_id) {
 					user_set_preference ('forum_style',$_pref);
 				}
 			} else {
-//echo "<P>setting pref";
+echo "<P>setting pref";
 					//set the pref
 					user_set_preference ('forum_style',$_pref);
 			}
 		} else {
-			if (user_get_preference('forum_style')) {
-				$_pref_arr=explode ('|',user_get_preference('forum_style'));
+
+// start changes by helix at 2003-01-15
+			$pref = user_get_preference('forum_style');
+//echo "<P>Pref: $pref\n";
+//			if (user_get_preference('forum_style')) {
+			if ($pref) {
+				$_pref_arr=explode ('|',$pref);
+
+//				$_pref_arr=explode ('|',user_get_preference('forum_style'));
+// end changes by helix at 2003-01-15
+
 				$style=$_pref_arr[0];
 				$max_rows=$_pref_arr[1];
 			} else {
@@ -114,6 +131,9 @@ if ($forum_id) {
 	}
 	if (!$style || ($style != 'ultimate' && $style != 'flat' && $style != 'nested' && $style != 'threaded')) {
 		$style='nested';
+	}
+	if(!$max_rows || $max_rows < 25) {
+		$max_rows = 25;
 	}
 
 
@@ -196,12 +216,16 @@ if ($forum_id) {
 		"AND users.user_id=forum.posted_by ".
 		"ORDER BY forum.most_recent_date DESC";
 
+//echo "<p>$sql\n";
 		$result=db_query($sql,($max_rows+25),$offset);
 		while ($row=db_fetch_array($result)) {
 			$msg_arr["$row[is_followup_to]"][]=$row;
 		}
 
 		$rows=count($msg_arr[0]);
+
+//echo "<p>Rows: $rows\n";
+//echo "<br>Max Rows: $max_rows\n";
 		if ($rows > $max_rows) {
 			$rows=$max_rows;
 		}

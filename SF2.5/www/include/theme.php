@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: theme.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: theme.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 $theme_arcolor = array(White=>"#FFFFFF", Black=>"#000000", Blue=>"#0000FF", Green=>"#00FF00", Red=>"#FF0000");
 $theme_arfont = array(Helvetica=>"Helvetica", Times=>"Times", Courier=>"Courier", Lucida=>"Lucida");
@@ -30,7 +30,8 @@ function user_getthemeid($user_id = 0) {
                                 return $USER_THEME["user_$user_id"];
                         } else {
                                 //invalid theme - store and return
-                                $USER_THEME["user_$user_id"]="<B>Invalid User ID</B>";
+                                //$USER_THEME["user_$user_id"]="<B>Invalid User ID</B>"; // 2003-02-03 helix
+				$USER_THEME["user_$user_id"]=$GLOBALS['sys_themeid']; // 2003-02-03 helix
                                 return $USER_THEME["user_$user_id"];
                         }
                 }
@@ -148,6 +149,7 @@ function theme_sysinit($theme_id = 0){
 	}
 
 	//Make sure the theme directory and class file exists.
+//print "<p>".$GLOBALS['sys_theme']."<br>".$GLOBALS['sys_themeroot'].$GLOBALS['sys_theme']."<br>".$GLOBALS['sys_themeroot'].$GLOBALS['sys_theme']."/Theme.class\n";
 	if(!isset($GLOBALS['sys_theme']) || !is_dir($GLOBALS['sys_themeroot'].$GLOBALS['sys_theme'])|| !is_file($GLOBALS['sys_themeroot'].$GLOBALS['sys_theme'].'/Theme.class')){
 		$GLOBALS['sys_themeid'] = 1;
 		$GLOBALS['sys_theme'] = 'forged';
@@ -156,6 +158,7 @@ function theme_sysinit($theme_id = 0){
 		include($GLOBALS['sys_themeroot'].$GLOBALS['sys_theme'].'/Theme.class');
 		$HTML = new Theme();
 	}
+//print "<p>sys_themeid: ".$GLOBALS['sys_themeid'].", sys_theme: ".$GLOBALS['sys_theme']."\n";
 	
 }
 
@@ -193,10 +196,10 @@ function theme_usermodform($selected,$action,$name,$component) {
 	print'
 		<FONT FACE="Helvetica" SIZE="2">
 ';
-		theme_selectfull($GLOBALS['sys_themeid'],"sys_themeid");
+		theme_selectfull($GLOBALS['sys_themeid'],"sys_themeid_new");
 	print'
 		<BR>
-		<INPUT TYPE="submit" NAME="theme_action" VALUE="Preview Theme">
+<!--		<INPUT TYPE="submit" NAME="theme_action" VALUE="Preview Theme"> // 2003-02-02 helix -->
 		<INPUT TYPE="submit" NAME="theme_action" VALUE="Apply Theme">
 		</FONT>
 ';
@@ -243,7 +246,6 @@ function theme_modfontform($action,$name,$component) {
 		theme_optionselectfull("FONTCOLOR_HTMLBOX_TITLE", $GLOBALS['theme_arcolor'], $GLOBALS['FONTCOLOR_HTMLBOX_TITLE']);
 
         print'  <BR>
-                <INPUT TYPE="submit" NAME="font_action" VALUE="Preview Fonts">
                 <INPUT TYPE="submit" NAME="font_action" VALUE="Apply Fonts">
                 <INPUT TYPE="submit" NAME="font_action" VALUE="Cancel">
                 </FONT>

@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Project.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Project.class,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 /*
@@ -85,6 +85,24 @@ class Project extends Group {
 	function usesPmDependencies() {
 		return $this->project_data_array['use_pm_depend_box'];
 	}
+
+	// 2003-02-01 begin helix 
+	function usesFiles() {
+		return $this->project_data_array['use_files'];
+	}
+
+	function usesFtp() {
+		return $this->project_data_array['use_ftp'];
+	}
+
+	function usesScreenshots() {
+		return $this->project_data_array['use_screenshots'];
+	}
+
+	function usesWiki() {
+                return $this->project_data_array['use_wiki'];
+        }
+	// 2003-02-01 end helix 
 
 
 	/*

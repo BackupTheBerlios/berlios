@@ -4,31 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: partners.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: partners.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Partners"));
-?>
 
-<P><B>Partners</B>
+require("/usr/local/httpd/htdocs.berlios/partners/include/partners.html.en");
 
-<P>SourceForge is proud to partner with the following organizations:
-
-<P>
-<TABLE width=100%>
-
-<TR valign="top">
-<TD><A href="http://www.cosource.com/"><?php html_image('/images/others/cosource142x31.gif','142','31',array()); ?></A></TD>
-<TD><B><A href="http://www.cosource.com/">Cosource.com</A></B>
-<BR>Cosource.com is a collaborative, reverse-auction web site enabling international
-consumers and developers of Open Source products to work together to fund development
-of innovative software solutions. 
-</TD>
-</TR>
-
-</TABLE>
-
-<?php
 $HTML->footer(array());
 
 ?>

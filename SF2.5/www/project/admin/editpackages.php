@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editpackages.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: editpackages.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -39,7 +39,9 @@ if ($is_admin && $submit) {
 	} else if ($func=='update_package' && $package_id && $package_name && $status_id) {
 		if ($status_id != 1) {
 			//if hiding a package, refuse if it has releases under it
-			$res=db_query("SELECT * FROM frs_release WHERE package_id='$package_id'");
+			// 2003-06-18 add: AND status_id=1
+			// reject only if there exist active releases for the package, by helix
+			$res=db_query("SELECT * FROM frs_release WHERE package_id='$package_id' AND status_id=1");
 			if (db_numrows($res) > 0) {
 				$feedback .= ' Sorry - you cannot delete a package that still contains file releases ';
 				$status_id=1;
@@ -73,10 +75,10 @@ You can use packages to group different file releases together, or use them howe
 <h4>Your Packages:</H4>
 <P>
 Start by defining your packages, then you can upload files with FTP to the <B>incoming</B> directory on 
-<B>upload.sourceforge.net</B>. Once you have the files uploaded, you can then <B>create releases</B> 
+<B>'.$GLOBALS['sys_ftp_host'].'</B>. Once you have the files uploaded, you can then <B>create releases</B> 
 of your packages.
 <P>
-Once you have have packages defined, you can start creating new <B>releases of packages.</B>
+Once you have packages defined, you can start creating new <B>releases of packages.</B>
 <P>
 <H3>Releases of Packages</H3>
 <P>

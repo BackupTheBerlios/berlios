@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_bug.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: browse_bug.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -32,7 +32,7 @@ if ($order) {
 	//if ordering by priority OR closed date, sort DESC
 	$order_by = " ORDER BY $order ".((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
 } else {
-	$order_by = " ORDER BY bug.group_id,bug.status_id ";
+	$order_by = " ORDER BY bug.group_id,bug.bug_id ";
 }
 
 if (!$set) {
@@ -183,6 +183,7 @@ if ($set=='open') {
 			"AND users.user_id=bug.submitted_by ".
 			"AND user2.user_id=bug.assigned_to ".
 			"AND group_id='$group_id'".
+"AND bug_id!='100'".
 			$order_by ; 
 
 		$statement="Using Your Filter";
@@ -198,6 +199,7 @@ if ($set=='open') {
 			"AND bug.status_id <> '3' ".
 			"AND user2.user_id=bug.assigned_to ".
 			"AND group_id='$group_id'".
+"AND bug_id!='100'".
 			$order_by ;
 
 	}
@@ -213,9 +215,11 @@ if ($set=='open') {
 		" $status_str $assigned_str $bug_group_str $category_str ".
 		"AND user2.user_id=bug.assigned_to ".
 		"AND group_id='$group_id'".
+"AND bug_id!='100'".
 		$order_by ;
 
 }
+//echo "<p>$sql\n";
 
 $result=db_query($sql,51,$offset);
 

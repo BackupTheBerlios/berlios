@@ -4,13 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userlist.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: userlist.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 session_require(array('group'=>'1','admin_flags'=>'A'));
 $HTML->header(array('title'=>'Alexandria: User List'));
 
-function show_users_list ($result) {
+function show_users_list ($result,$status) {
 	echo '<P>Key:
 		<B>Active</B>
 		<I>Deleted</I>
@@ -30,9 +30,9 @@ function show_users_list ($result) {
 		if ($usr[status] == 'S') print "</TD>";
 		if ($usr[status] == 'P') print "</TD>";
 		print "\n<TD><A HREF=\"/developer/?form_dev=$usr[user_id]\">[DevProfile]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=activate&user_id=$usr[user_id]\">[Activate]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=delete&user_id=$usr[user_id]\">[Delete]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=suspend&user_id=$usr[user_id]\">[Suspend]</A></TD>";
+		print "\n<TD><A HREF=\"userlist.php?action=activate&user_id=$usr[user_id]&status=$status\">[Activate]</A></TD>";
+		print "\n<TD><A HREF=\"userlist.php?action=delete&user_id=$usr[user_id]&status=$status\">[Delete]</A></TD>";
+		print "\n<TD><A HREF=\"userlist.php?action=suspend&user_id=$usr[user_id]&status=$status\">[Suspend]</A></TD>";
 		print "</TR>";
 	}
 	print "</TABLE>";
@@ -81,11 +81,15 @@ if (!$group_id) {
 	print "\n<p>";
 	
 	if ($user_name_search) {
-		$result = db_query("SELECT user_name,user_id,status FROM users WHERE user_name LIKE '$user_name_search%' ORDER BY user_name");
+		if ($status) $where_status = "AND status='$status'";
+		else $where_status = "";
+		$result = db_query("SELECT user_name,user_id,status FROM users WHERE user_name ILIKE '$user_name_search%' $where_status ORDER BY user_name");
 	} else {
-		$result = db_query("SELECT user_name,user_id,status FROM users ORDER BY user_name");
+		if ($status) $where_status = "WHERE status='$status'";
+                else $where_status = "";
+		$result = db_query("SELECT user_name,user_id,status FROM users $where_status ORDER BY user_name");
 	}
-	show_users_list ($result);
+	show_users_list ($result,$status);
 } else {
 	/*
 		Show list for one group
@@ -94,11 +98,13 @@ if (!$group_id) {
 	
 	print "\n<p>";
 
+	if ($status) $where_status = "AND status='$status'";
+        else $where_status = "";
 	$result = db_query("SELECT users.user_id AS user_id,users.user_name AS user_name,users.status AS status "
 		. "FROM users,user_group "
 		. "WHERE users.user_id=user_group.user_id AND "
-		. "user_group.group_id=$group_id ORDER BY users.user_name");
-	show_users_list ($result);
+		. "user_group.group_id=$group_id $where_status ORDER BY users.user_name");
+	show_users_list ($result,$status);
 
 	/*
         	Show a form so a user can be added to this group

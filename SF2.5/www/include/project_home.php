@@ -1,4 +1,10 @@
-<?php // // SourceForge: Breaking Down the Barriers to Open Source Development // Copyright 1999-2000 (c) The SourceForge Crew // http://sourceforge.net // // $Id: project_home.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+<?php
+//
+// SourceForge: Breaking Down the Barriers to Open Source Development
+// Copyright 1999-2000 (c) The SourceForge Crew
+// http://sourceforge.net
+//
+// $Id: project_home.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 require ('vote_function.php');
 require ('vars.php');
@@ -33,7 +39,7 @@ $res_admin = db_query("SELECT users.user_id AS user_id,users.user_name AS user_n
 	. "user_group.admin_flags = 'A'");
 
 if ($project->getStatus() == 'H') {
-	print "<P>NOTE: This project entry is maintained by the SourceForge staff. We are not "
+	print "<P>NOTE: This project entry is maintained by the ".$GLOBALS['sys_default_name']." staff. We are not "
 		. "the official site "
 		. "for this product. Additional copyright information may be found on this project's homepage.\n";
 }
@@ -57,6 +63,8 @@ if (!$actv_res) $actv_res=0;
 print("Registered: " . date($sys_datefmt, $project->getStartDate()));
 print '<br>Activity Percentile: ' . $actv_res . '%';
 print '<br>View project activity <a href="/project/stats/?group_id='.$group_id.'">statistics</a>';
+print '<br>View project web <a href="http://'.$project->getUnixName().'.berlios.de/usage">statistics</a>';
+print '<br>View list of <a href="/export/rss_project.php?group_id='.$group_id.'">RSS feeds</a> available for this project';
 
 $jobs_res = db_query("SELECT name ".
                 "FROM people_job,people_job_category ".
@@ -121,10 +129,39 @@ print '
 <P>
 ';
 
+// 2003-07-16 by Masato
+
+echo $HTML->box1_top("Berlios Services for Developers");
+echo '<TABLE cellspacing="5" cellpadding="5" width="100%" border="0">'.
+	'<TR bgcolor="'.$GLOBALS['COLOR_LTBACK1'].'">'.
+	'<TD align="center" WIDTH="33%">'.
+	'<A HREF="http://devcounter.berlios.de/">DevCounter</A>'.
+	'</TD><TD align="center" WIDTH="33%">'.
+	'<A HREF="http://sourcewell.berlios.de/">SourceWell</A>'.
+	'</TD><TD align="center">'.
+	'<A HREF="http://docswell.berlios.de/">Docswell</A>'.
+	'</TD></TR>'.
+	'<TR bgcolor="'.$GLOBALS['COLOR_LTBACK1'].'">'.
+	'<TD align="center">'.
+	'An open, free & independent developer pool '.
+	'created to help developers find other developers, help, '.
+	'testers and new project members.'.
+	'</TD><TD align="center" VALIGN="TOP">'.
+	'Open Source Software Announcement & Retrieval Sytem'.
+	'</TD><TD align="center" VALIGN="TOP">'.
+	'Documents Announcement & Retrieval System'.
+	'</TD></TR>'.
+	'</TABLE>';
+echo $HTML->box1_bottom();
+echo '<BR>';
+
+// 2003-07-16 by Masato (end)
 
 // ############################# File Releases
 
-echo $HTML->box1_top($Language->LATEST_FILE_RELEASES); 
+// 2002-02-25 by helix
+if ($project->usesFiles()) {
+	echo $HTML->box1_top($Language->LATEST_FILE_RELEASES); 
 	$unix_group_name = $project->getUnixName();
 
 	echo '
@@ -151,6 +188,7 @@ echo $HTML->box1_top($Language->LATEST_FILE_RELEASES);
 			"FROM frs_package,frs_release ".
 			"WHERE frs_package.package_id=frs_release.package_id ".
 			"AND frs_package.group_id='$group_id' ".
+			"AND frs_package.status_id=1 ".
 			"AND frs_release.status_id=1 ".
 			"ORDER BY frs_package.package_id,frs_release.release_date DESC";
 
@@ -191,12 +229,13 @@ echo $HTML->box1_top($Language->LATEST_FILE_RELEASES);
 
 		}
 		?></TABLE>
-	<div align="center">
+	<p align="center">
 	<a href="/project/showfiles.php?group_id=<?php print $group_id; ?>">[View ALL Project Files]</A>
-	</div>
+	</p>
 <?php
 	echo $HTML->box1_bottom();
-
+// 2002-02-25 by helix
+}
 ?>
 <P>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -262,7 +301,7 @@ if ($project->usesPatch()) {
 	print '
 		<HR SIZE="1" NoShade>
 		<A href="/patch/?group_id='.$group_id.'">';
-	print html_image("images/ic/patch.png",'20','20',array('alt'=>$Language->GROUP_SHORT_PATCH));
+	print html_image("images/ic/patch16b.png",'20','20',array('alt'=>$Language->GROUP_SHORT_PATCH));
 	print '&nbsp;'.$Language->GROUP_LONG_PATCH.'</A>';
 	print " ( <B>". project_get_open_patch_count($group_id) ."</B>";
 	print " open patches, <B>". project_get_total_patch_count($group_id) ."</B> total )";
@@ -322,7 +361,7 @@ if ($project->usesCVS()) {
 	echo ' ( <B>'.$cvs_commit_num.'</B> commits, <B>'.$cvs_add_num.'</B> adds )';
         if ($cvs_commit_num || $cvs_add_num) {
         	echo '<br> &nbsp; - <a href="http://'.$sys_cvs_host
-                     .'/cgi-bin/cvsweb.cgi?cvsroot='.$project->getUnixName()
+                     .'/cgi-bin/viewcvs.cgi/'.$project->getUnixName()
                      .'">Browse CVS</a>';
         }
 
@@ -330,11 +369,38 @@ if ($project->usesCVS()) {
 
 // ######################## AnonFTP 
 
-if ($project->isActive()) {
+// 2003-02-21 helix
+if ($project->usesFtp()) {
 	print '<HR SIZE="1" NoShade>';
-	print "<A href=\"ftp://" . $project->getUnixName() . ".sourceforge.net/pub/". $project->getUnixName() ."/\">";
+	print "<A href=\"ftp://" . $sys_ftp_host . "/pub/". $project->getUnixName() ."/\">";
 	print html_image("images/ic/ftp16b.png",'20','20',array('alt'=>$Language->GROUP_LONG_FTP));
-	print $Language->GROUP_LONG_FTP."</A>";
+	print " ".$Language->GROUP_LONG_FTP."</A>";
+}
+
+// 2003-02-21 helix
+// ######################### Screenshots
+
+if ($project->usesScreenshots()) {
+	print '<HR SIZE="1" NoShade><A href="/screenshots/?group_id='.$group_id.'">';
+	print html_image("images/ic/frame_image16b.png",'20','20',array('alt'=>$Language->GROUP_SHORT_SCREENSHOTS));
+	print " ".$Language->GROUP_LONG_SCREENSHOTS."</A>";
+	echo ' ( <B>'. project_get_screenshots_count($group_id) .'</B> screenshots )';
+}
+
+// 2003-01-31 helix
+// ######################## Wiki
+
+if ($project->usesWiki()) {
+        print '<HR SIZE="1" NoShade>';
+        print html_image("images/ic/manual16b.png",'20','20',array('alt'=>$Language->GROUP_LONG_WIKI));
+	print $Language->GROUP_LONG_WIKI;
+        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index-en.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
+	print "English</A>";
+        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
+        print "Deutsch</A>";
+        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index-es.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
+        print "Español</A>";
+
 }
 
 $HTML->box1_bottom();

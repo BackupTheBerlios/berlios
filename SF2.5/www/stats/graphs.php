@@ -4,14 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: graphs.php,v 1.1 2003/11/12 16:09:03 helix Exp $ 
+// $Id: graphs.php,v 1.2 2003/11/13 11:29:27 helix Exp $ 
 require('pre.php');
 require('site_stats_utils.php');
 
    // require you to be a member of the sfstats group (group_id = 11084)
 session_require( array('group'=>$sys_stats_group) );
 
-$HTML->header(array('title'=>"SourceForge Site Statistics "));
+$HTML->header(array('title'=>$GLOBALS['sys_default_name']." Site Statistics "));
 
 //
 // BEGIN PAGE CONTENT CODE
@@ -38,10 +38,15 @@ print '<font size="+1"><b>Sitewide Statistics Graphs</b></font><BR>' . "\n";
 <?php
 
 print '<BR><BR>' . "\n";
-print '<IMG SRC="' . 'stats/views_graph.png">' . "\n";
+//print '<IMG SRC="' . 'stats/views_graph.png">' . "\n";
+print '<IMG SRC="' . 'views_graph.png">' . "\n";
 print '<BR><BR>' . "\n";
-print '<IMG SRC="u' . 'stats/sers_graph.png">' . "\n";
+print '<IMG SRC="' . 'users_graph.png">' . "\n";
 print '<BR><BR>' . "\n";
+print '<IMG SRC="' . 'weekly_views.png">' . "\n";
+print '<BR><BR>' . "\n";
+//print '<IMG SRC="u' . 'stats/sers_graph.png">' . "\n";
+//print '<BR><BR>' . "\n";
 print '</DIV>' . "\n";
 
 //

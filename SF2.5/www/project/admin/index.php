@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -77,14 +77,14 @@ Homepage Link: <B>'. db_result($res_grp,0,'homepage') .'</B>
 <P>
 <HR NOSHADE>
 <P>
-<H4>Showing The SourceForge Logo:</H4>
+<H4>Showing The '.$sys_default_name.' Logo:</H4>
 <P>
 '.
-htmlspecialchars('<A href="http://sourceforge.net"> 
-<IMG src="http://sourceforge.net/sflogo.php?group_id='. $group_id .'" width="88" height="31"
-border="0" alt="SourceForge Logo"></A>');
+htmlspecialchars('<A href="http://'.$sys_default_host.'"> 
+<IMG src="http://'.$sys_default_host.'/bslogo.php?group_id='. $group_id .'" width="124" height="32"
+border="0" alt="'.$sys_default_name.' Logo"></A>');
 
-echo '<P>'.html_image('/images/sflogo-88-1.png','88','31',array(),0);
+echo '<P>'.html_image('images/berliOS_small_logo.png','124','32',array(),0);
 
 $HTML->box1_bottom(); 
 

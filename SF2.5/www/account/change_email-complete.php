@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: change_email-complete.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: change_email-complete.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -36,7 +36,7 @@ change is complete. Your new email address on file is
 <?php print $row_user['user_name']; ?>@<?php print $GLOBALS['sys_users_host']; ?> will now
 be forwarded to this account.
 
-<P><A href="/">[Return to SourceForge]</A>
+<P><A href="/">[Return to <?php echo $sys_default_name ?>]</A>
 
 <?php
 site_user_footer(array());

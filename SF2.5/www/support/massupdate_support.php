@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: massupdate_support.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: massupdate_support.php,v 1.2 2003/11/13 11:29:27 helix Exp $
 
 //support_id is an array of patches that were checked. The other params are not arrays.
 function support_data_update ($group_id,$support_id,$priority,$support_status_id,

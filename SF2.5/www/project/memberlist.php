@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: memberlist.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: memberlist.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    
 
@@ -17,12 +17,14 @@ print '<P>If you would like to contribute to this project by becoming a develope
 contact one of the project admins, designated in bold text below.<br><br>';
 
 // list members
+// 2003-04-03 select only active users by helix
 $query =  "SELECT users.user_name AS user_name,users.user_id AS user_id,"
 	. "users.realname AS realname, users.add_date AS add_date, "
 	. "user_group.admin_flags AS admin_flags, people_job_category.name AS role "
 	. "FROM users,user_group,people_job_category "
 	. "WHERE users.user_id=user_group.user_id AND user_group.group_id=$group_id "
         . "AND user_group.member_role=people_job_category.category_id "
+	. "AND users.status='A' "
 	. "ORDER BY users.user_name";
 
 

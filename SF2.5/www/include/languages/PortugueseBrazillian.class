@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: PortugueseBrazillian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: PortugueseBrazillian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -95,7 +95,7 @@ class PortugueseBrazillian extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Quebrando as Barreiras para o Desenvolvimento em Código Aberto';
-		$this->SOURCEFORGE_STATISTICS='Estatísticas do SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Estatísticas do '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Projetos Mais Baixados';
 		$this->HIGHEST_RANKED_USERS='Usuários Mais Pontuados';
 		$this->MOST_ACTIVE_THIS_WEEK='Mais Ativo da Semana';
@@ -106,7 +106,7 @@ class PortugueseBrazillian extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge é um <B>serviço gratuido para desenvolvedores em
+'.$GLOBALS['sys_default_name'].' é um <B>serviço gratuido para desenvolvedores em
 <A href="http://www.opensource.org">Código Aberto</A> </B> oferecendo
 fácil acesso ao que há de melhor em CVS, listas, controle de bugs, quadro de mensagens/fórums,
 gerenciador de tarefas, hospedagem, arquivamento permanente de arquivos, backups completos,
@@ -118,7 +118,7 @@ e administração totalmente baseado na web.
 <P>
 <B>Conteúdo do Site e Participação</B>
 <P>
-Para tirar o máximo proveito do SourceForge, você deve se 
+Para tirar o máximo proveito do '.$GLOBALS['sys_default_name'].', você deve se 
 <A href="/account/register.php">registrar como um usuário do site</A>. 
 Isso permitirá que você participe plenamente em tudo o que temos a oferecer. 
 É claro que você pode ver o conteúdo do site, mas não terá accesso para participar plenamente.

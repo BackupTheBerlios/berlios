@@ -56,7 +56,7 @@ class Esperanto extends BaseLanguage {
 		$this->TOP_PROJECTS='Supraj projektoj';
 		$this->COMPILE_FARM='Muntejo';
 		$this->CONTACT_US='Kontaktu nin';
-		$this->ABOUT_SOURCEFORGE='Pri SourceForge'; 
+		$this->ABOUT_SOURCEFORGE='Pri '.$GLOBALS['sys_default_name']; 
 		$this->ABOUT_FOUNDRIES='Pri fandejoj'; 
 		$this->FOUNDRY_3D='3D'; 
 		$this->FOUNDRY_GAMES='Ludoj'; 
@@ -108,14 +108,14 @@ class Esperanto extends BaseLanguage {
 
 		// Hejmpagxaj cxenoj
 		$this->BREAKING_DOWN_BARRIERS='Forigu obstaklojn por skribi liberajn programojn';
-		$this->SOURCEFORGE_STATISTICS='Statistika&#309;oj de SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Statistika&#309;oj de '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Supraj Projektaj El&#349;utoj';
 		$this->HIGHEST_RANKED_USERS='Supraj Rangitaj Uzantoj';
 		$this->MOST_ACTIVE_THIS_WEEK='Plej Aktiva &#265;i tiu Semajno';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge estas <B>senpaga servo por programantoj de
+'.$GLOBALS['sys_default_name'].' estas <B>senpaga servo por programantoj de
 <A href="http://www.opensource.org">Liberaj Programoj</A></B>,
 kiu enhavas facilan uzon de la plej bonaj ecoj en CVS, retpo&#349;taj listoj,
 cimilo, diskutforumoj,
@@ -126,11 +126,11 @@ kaj veba administrado.
 <BR>
 &nbsp;
 <P>
-<B>SourceForge reenmeto kaj partoprenado</B>
+<B>'.$GLOBALS['sys_default_name'].' reenmeto kaj partoprenado</B>
 <P>
-Por uzi SourceForge plene, vi bezonas
+Por uzi '.$GLOBALS['sys_default_name'].' plene, vi bezonas
 <A href="/account/register.php">registri&#285;i kiel uzanto</A>.  Vi povas rigardi
-SourceForge sen registri&#285;i sed ne partopreni plene.
+'.$GLOBALS['sys_default_name'].' sen registri&#285;i sed ne partopreni plene.
 <P>
 &nbsp;
 <BR>
@@ -140,7 +140,7 @@ SourceForge sen registri&#285;i sed ne partopreni plene.
 poste <A HREF="/account/login.php">Saluti</A> kaj finfine,
 <A HREF="/register/">Registri&#285;i vian projekton.</A>
 <P>
-Dankon... kaj &#285;uu SourceForge.';
+Dankon... kaj &#285;uu '.$GLOBALS['sys_default_name'];
 	}
 }
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:22 helix Exp $
 
 require ('pre.php');    
 
@@ -31,15 +31,22 @@ print '<TABLE width="100%"><TR valign="top"><TD width="65%">'."\n";
 // ######################## anonymous CVS instructions
 
 if ($row_grp['is_public']) {
+
+// 2003-03-24 add module description by helix
 	print '<P><B>Anonymous CVS Access</B>
-<P>This project\'s SourceForge CVS repository can be checked out through anonymous
+<P>This project\'s '.$sys_default_name.' CVS repository can be checked out through anonymous
 (pserver) CVS with the following instruction set. The module you wish
-to check out must be specified as the <I>modulename</I>. When prompted
+to check out must be specified as the <I>modulename</I>
+(modules are top level directories in the repository).
+To see the list of the modules available in the repository
+use the <a href="http://'.$sys_cvs_host.'/cgi-bin/viewcvs.cgi/'
+.$row_grp['unix_group_name'].'">web-based CVS repository access</a>.
+When prompted
 for a password for <I>anonymous</I>, simply press the Enter key.
 
-<P><FONT size="-1" face="courier">cvs -d:pserver:anonymous@cvs.'.$row_grp['http_domain'].':/cvsroot/'.$row_grp['unix_group_name'].' login
+<P><TT>cvs -d:pserver:anonymous@cvs.'.$row_grp['http_domain'].':/cvsroot/'.$row_grp['unix_group_name'].' login
 <BR>&nbsp;<BR>cvs -z3 -d:pserver:anonymous@cvs.'.$row_grp['http_domain'].':/cvsroot/'.$row_grp['unix_group_name'].' co <I>modulename</I>
-</FONT>
+</TT>
 
 <P>Updates from within the module\'s directory do not need the -d parameter.';
 }
@@ -47,14 +54,14 @@ for a password for <I>anonymous</I>, simply press the Enter key.
 // ############################ developer access
 
 print '<P><B>Developer CVS Access via SSH</B>
-<P>Only project developers can access the CVS tree via this method. SSH1 must
+<P>Only project developers can access the CVS tree via this method. SSH2 must
 be installed on your client machine. Substitute <I>modulename</I> and
 <I>developername</I> with the proper values. Enter your site password when
 prompted.
 
-<P><FONT size="-1" face="courier">export CVS_RSH=ssh
+<P><TT>export CVS_RSH=ssh
 <BR>&nbsp;<BR>cvs -z3 -d<I>developername</I>@cvs.'.$row_grp['http_domain'].':/cvsroot/'.$row_grp['unix_group_name'].' co <I>modulename</I>
-</FONT>';
+</TT>';
 
 // ################## summary info
 
@@ -86,7 +93,7 @@ if ($row_grp['is_public']) {
 of this project\'s code. You may also view the complete histories of any
 file in the repository.
 <UL>
-<LI><A href="http://cvs.sourceforge.net/cgi-bin/cvsweb.cgi?cvsroot='
+<LI><A href="http://'.$sys_cvs_host.'/cgi-bin/viewcvs.cgi/'
 .$row_grp['unix_group_name'].'"><B>Browse CVS Repository</B>';
 }
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: sendmessage.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: sendmessage.php,v 1.2 2003/11/13 11:29:20 helix Exp $
 
 require ('pre.php');    
 
@@ -43,7 +43,7 @@ if ($send_mail) {
 		$to=eregi_replace('_maillink_','@',$toaddress);
 		$from='From: '. $name .' <'. $email .'>';
 		mail($to, stripslashes($subject),stripslashes($body) ,$from);
-		$HTML->header(array('title'=>'SorceForge Contact'));
+		$HTML->header(array('title'=>'BerliOS Contact'));
 		echo '<H2>Message sent</H2>';
 		$HTML->footer(array());
 		exit;
@@ -54,14 +54,14 @@ if ($send_mail) {
 		$to=db_result($result,0,'email');
 		$from='From: '. $name .' <'. $email .'>';
 		mail($to, stripslashes($subject), stripslashes($body),$from);
-		$HTML->header(array('title'=>'SorceForge Contact'));
+		$HTML->header(array('title'=>'BerliOS Contact'));
 		echo '<H2>Message sent</H2>';
 		$HTML->footer(array());
 		exit;
 	}
 }
 
-$HTML->header(array('title'=>'SorceForge Staff'));
+$HTML->header(array('title'=>'BerliOS Staff'));
 
 ?>
 

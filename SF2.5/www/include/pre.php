@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: pre.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: pre.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /*
 	redirect to proper hostname to get around certificate problem on IE 5
@@ -12,7 +12,8 @@
 
 // Defines all of the Source Forge hosts, databases, etc.
 // This needs to be loaded first becuase the lines below depend upon it.
-require ('/etc/local.inc');
+require ('/etc/sourceforge/local25.inc');
+
 
 /*
 
@@ -30,11 +31,11 @@ if ($OVERRIDES_PATH) {
 	require ($OVERRIDES_PATH."overrides.inc");
 }
 
-if (($HTTP_HOST != $GLOBALS['sys_default_domain']) && ($HTTP_HOST != $GLOBALS['sys_fallback_domain']) && ($HTTP_HOST != 'localhost') && ($HTTP_HOST != $GLOBALS['sys_default_domain'].':80')) {
+if (($HTTP_HOST != $GLOBALS['sys_default_host']) && ($HTTP_HOST != $GLOBALS['sys_fallback_host']) && ($HTTP_HOST != 'localhost') && ($HTTP_HOST != $GLOBALS['sys_default_host'].':80')) {
 	if ($SERVER_PORT == '443') {
-		header ("Location: https://".$GLOBALS['sys_default_domain']."$REQUEST_URI");
+		header ("Location: https://".$GLOBALS['sys_default_host']."$REQUEST_URI");
 	} else {
-		header ("Location: http://".$GLOBALS['sys_default_domain']."$REQUEST_URI");
+		header ("Location: http://".$GLOBALS['sys_default_host']."$REQUEST_URI");
 	}
 	exit;
 }
@@ -89,11 +90,17 @@ require('menu.php');
 //theme functions like get_themename, etc
 require('theme.php');
 
+
 $sys_datefmt = "Y-M-d H:i";
 
 // #### Connect to db
 
+//echo "IN pre.php - vor dbconnect()";
+
 db_connect();
+
+//echo "IN pre.php - nach dbconnect()";
+
 
 if (!$conn) {
 	print "$sys_name Could Not Connect to Database: ".db_error();

@@ -13,7 +13,7 @@ require ('pre.php');
 
 header("Content-Type: text/plain");
 print("<?xml version=\"1.0\"?>
-<!DOCTYPE trove-tree SYSTEM \"http://$sys_default_domain/export/trove_tree_0.1.dtd\">
+<!DOCTYPE trove-tree SYSTEM \"http://$sys_default_host/export/trove_tree_0.1.dtd\">
 <trove-tree>\n");
 
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editreleases.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: editreleases.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 /* Updated rewrite of the File Release System to clean up the UI 
  * a little and incorporate FRS.class.		-Darrell
@@ -31,7 +31,7 @@ if ($step1) {
 	$exec_changes = true;
 
 	// Check for uploaded release notes
-	if ($uploaded_notes != "none") {
+	if ($uploaded_notes != "") {
 		$notes = addslashes(fread(fopen($HTTP_POST_FILES['uploaded_notes']['tmp_name'],'r'),filesize($HTTP_POST_FILES['uploaded_notes']['tmp_name'])));
 		if ((strlen($notes) < 20) || (strlen($notes) > 256000)) {
 			$feedback .= " Release Notes Are Either Too Small Or Too Large ";
@@ -42,7 +42,7 @@ if ($step1) {
 	}
 
 	// Check for uplaoded change logs
-	if ($uploaded_changes != "none") {
+	if ($uploaded_changes != "") {
 		$changes = addslashes(fread(fopen($HTTP_POST_FILES['uploaded_changes']['tmp_name'],'r'), filesize($HTTP_POST_FILES['uploaded_changes']['tmp_name'])));
 		if ((strlen($changes) < 20) || (strlen($changes) > 256000)) {
 			$feedback .= " Change Log Is Either Too Small Or Too Large ";
@@ -66,13 +66,13 @@ if ($step1) {
 if ($step2) {	
 	// Build a Unix time value from the supplied Y-m-d value
 	$group_unix_name=group_getunixname($group_id);
-	$project_files_dir=$FTPFILES_DIR.$group_unix_name;
+	$project_files_dir=$FTPFILES_DIR."/".$group_unix_name;
 
 	// For every file selected add that file to this release
 	for($x=0;$x<count($file_list);$x++) {
 		$frs->frsMoveFile($file_list[$x], $group_unix_name, time(), $FTPINCOMING_DIR, $release_id);
 		$frs->frsVerifyFileMoved("$project_files_dir/$file_list[$x]");
-		$frs->frsAddFile(time(), $file_list[$x], filesize("$project_files_dir/$file_list[$x]"), time(), $release_id, $package_id);
+		$frs->frsAddFile(time(), $file_list[$x], $group_unix_name, filesize("$project_files_dir/$file_list[$x]"), time(), $release_id, $package_id);
 		if( !$frs->isError() ) {
 			$feedback .= " File(s) Added ";
 		}
@@ -250,7 +250,7 @@ Edit Existing Release
 
 Next, choose your files from the list below. Choose <b>ONLY YOUR</b> files. If you choose someone else's files, 
 they will not be able to access them and they will be rightfully upset.<br>
-You can upload new files using FTP to <b>upload.sourceforge.net</b> in the <b>incoming</b> directory. 
+You can upload new files using FTP to <b><?php echo $GLOBALS['sys_ftp_host'] ?></b> in the <b>incoming</b> directory. 
 When you are done uploading, just hit the refresh button to see the new files.
 <br><br>
 <table border="0" cellpadding="3" cellspacing="3">

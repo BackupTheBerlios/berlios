@@ -4,17 +4,17 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: diary.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: diary.php,v 1.2 2003/11/13 11:29:22 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
 
-if ($user) {
+if ($diary_user) {
 
 	echo $HTML->header(array('title'=>'My Diary And Notes'));
 
 	echo '
-	<H2>Diary And Notes For: '. user_getrealname($user) .'</H2>
+	<H2>Diary And Notes For: '. user_getrealname($diary_user) .'</H2>
 	<P>
 
 	<P>';
@@ -22,7 +22,7 @@ if ($user) {
 	echo $HTML->box1_top('Existing Diary And Note Entries',false,false);
 
 	if ($diary_id) {
-		$sql="SELECT * FROM user_diary WHERE user_id='$user' AND id='$diary_id' AND is_public=1";
+		$sql="SELECT * FROM user_diary WHERE user_id='$diary_user' AND id='$diary_id' AND is_public=1";
 		$res=db_query($sql);
 		if (!$res || db_numrows($res) < 1) {
 			echo '<TR><TD COLSPAN=2>Entry Not Found For This User.</TD></TR>';
@@ -41,7 +41,7 @@ if ($user) {
 		List all diary entries
 
 	*/
-	$sql="SELECT * FROM user_diary WHERE user_id='$user' AND is_public=1 ORDER BY id DESC";
+	$sql="SELECT * FROM user_diary WHERE user_id='$diary_user' AND is_public=1 ORDER BY id DESC";
 
 	$result=db_query($sql);
 	$rows=db_numrows($result);
@@ -53,7 +53,7 @@ if ($user) {
 		for ($i=0; $i<$rows; $i++) {
 			echo '
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD><A HREF="'. $PHP_SELF .'?diary_id='.
-				db_result($result,$i,'id').'&user='. $user .'">'.db_result($result,$i,'summary').'</A></TD>'.
+				db_result($result,$i,'id').'&diary_user='. $diary_user .'">'.db_result($result,$i,'summary').'</A></TD>'.
 				'<TD>'. date($sys_datefmt, db_result($result,$i,'date_posted')).'</TD></TR>';
 		}
 		echo '

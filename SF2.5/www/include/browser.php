@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browser.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: browser.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 unset ($BROWSER_AGENT);
@@ -57,6 +57,15 @@ function browser_is_netscape() {
 		return false;
 	}
 }
+
+function browser_is_communicator() {
+        if (browser_get_agent()=='MOZILLA' && ereg("4.", browser_get_version())) {
+                return true;
+        } else {
+                return false;
+        }
+}
+
 
 
 /*

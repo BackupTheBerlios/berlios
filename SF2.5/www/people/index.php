@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:25 helix Exp $
 
 require('pre.php');
 require('../people/people_utils.php');
@@ -32,7 +32,7 @@ if ($group_id) {
 
 	echo '
 	<H3>Projects Needing Help</H3>
-	The SourceForge Project Help Wanted board is for non-commercial, project
+	The '.$GLOBALS['sys_default_name'].' Project Help Wanted board is for non-commercial, project
 	volunteer openings. Commercial use is prohibited.
 	<P>
 	Project listings remain live for two weeks, or until closed by the

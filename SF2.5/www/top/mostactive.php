@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: mostactive.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: mostactive.php,v 1.2 2003/11/13 11:29:29 helix Exp $
 
 require ('pre.php');    
 
@@ -16,14 +16,16 @@ if ($type == 'week') {
 	$sql="SELECT groups.group_name,groups.unix_group_name,groups.group_id,project_weekly_metric.ranking,project_weekly_metric.percentile ".
 		"FROM groups,project_weekly_metric ".
 		"WHERE groups.group_id=project_weekly_metric.group_id AND ".
-		"groups.is_public=1 ".
+		"groups.is_public=1 AND ".
+		"groups.status='A' ".
 		"ORDER BY ranking ASC";
 	$title = 'Most Active This Week';
 } else {
 	$sql="SELECT groups.group_name,groups.unix_group_name,groups.group_id,project_metric.ranking,project_metric.percentile ".
 		"FROM groups,project_metric ".
 		"WHERE groups.group_id=project_metric.group_id AND ".
-		"groups.is_public=1 ".
+		"groups.is_public=1 AND ".
+		"groups.status='A' ".
 		"ORDER BY ranking ASC";
 	$title = 'Most Active All Time';
 }
@@ -51,7 +53,7 @@ while ($row_top = db_fetch_array($res_top)) {
 	print '<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD>&nbsp;&nbsp;'.$row_top['ranking']
 		.'</TD><TD><A href="/projects/'. strtolower($row_top['unix_group_name']) .'/">'
 		.$row_top['group_name']."</A>"
-		.'</TD><TD align="right">'.$row_top['percentile'].'</TD></TR>';
+		.'</TD><TD align="right">'.sprintf("%.3f", $row_top['percentile']).'</TD></TR>';
 }
 
 print '<TR BGCOLOR="'.$HTML->COLOR_LTBACK2.'"><TD>'.(($offset>0)?'<A HREF="mostactive.php?type='.$type.'&offset='.($offset-50).'"><B><-- More</B></A>':'&nbsp;').'</TD>

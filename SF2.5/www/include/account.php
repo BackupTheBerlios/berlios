@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: account.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: account.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 //
 // adduser.php - All the forms and functions to manage unix users
 //
@@ -24,6 +24,12 @@ function account_register_new($unix_name,$realname,$password1,$password2,$email,
 		$feedback .= "That username already exists.";
 		return false;
 	}       
+// Check that username is not identical with an existing unix groupname (groups) helix 22.06.2001
+	if (db_numrows(db_query("SELECT unix_group_name FROM groups WHERE unix_group_name LIKE '$unix_name'")) > 0) {
+		$feedback .= "That username is identical with the unixname of an existing group.";
+		return false;
+	}       
+// End of change helix 22.06.2001
 	if (!$unix_name) {
 		$feedback .= "You must supply a username.";
 		return false;
@@ -73,13 +79,13 @@ function account_register_new($unix_name,$realname,$password1,$password2,$email,
 	} else {
 	
 		// send mail
-		$message = "Thank you for registering on the SourceForge web site. In order\n"
+		$message = "Thank you for registering on the ".$GLOBALS['sys_default_name']." web site. In order\n"
 			. "to complete your registration, visit the following url: \n\n"
-			. "<https://". $GLOBALS['HTTP_HOST'] ."/account/verify.php?confirm_hash=$confirm_hash>\n\n"
+			. "https://". $GLOBALS['HTTP_HOST'] ."/account/verify.php?confirm_hash=$confirm_hash\n\n"
 			. "Enjoy the site.\n\n"
-			. " -- the SourceForge staff\n";
+			. " -- the ".$GLOBALS['sys_default_name']." staff\n";
 			
-		mail($email,"SourceForge Account Registration",$message,"From: noreply@".$GLOBALS['HTTP_HOST']);
+		mail($email,$GLOBALS['sys_default_name']." Account Registration",$message,"From: noreply@".$GLOBALS['HTTP_HOST']);
 		
 		return $user_id;
 	}       
@@ -127,7 +133,7 @@ function account_namevalid($name) {
 	// illegal names
 	if (eregi("^((root)|(bin)|(daemon)|(adm)|(lp)|(sync)|(shutdown)|(halt)|(mail)|(news)"
 		. "|(uucp)|(operator)|(games)|(mysql)|(httpd)|(nobody)|(dummy)"
-		. "|(www)|(cvs)|(shell)|(ftp)|(irc)|(debian)|(ns)|(download))$",$name)) {
+		. "|(www)|(cvs)|(shell)|(ftp)|(irc)|(debian)|(ns)|(download)|(monitor)|(backup))$",$name)) {
 		$GLOBALS['register_error'] = "Name is reserved.";
 		return 0;
 	}
@@ -145,7 +151,7 @@ function account_groupnamevalid($name) {
 	// illegal names
 	if (eregi("^((www[0-9]?)|(cvs[0-9]?)|(shell[0-9]?)|(ftp[0-9]?)|(irc[0-9]?)|(news[0-9]?)"
 		. "|(mail[0-9]?)|(ns[0-9]?)|(download[0-9]?)|(pub)|(users)|(compile)|(lists)"
-		. "|(slayer)|(orbital)|(tokyojoe)|(webdev)|(projects)|(cvs)|(slayer)|(monitor)|(mirrors?))$",$name)) {
+		. "|(slayer)|(orbital)|(tokyojoe)|(webdev)|(projects)|(cvs)|(slayer)|(monitor)|(backup)|(mirrors?))$",$name)) {
 		$GLOBALS['register_error'] = "Name is reserved for DNS purposes.";
 		return 0;
 	}
@@ -175,13 +181,17 @@ function account_gensalt(){
 
 	$a = genchr(); 
 	$b = genchr();
-	$salt = "$1$" . "$a$b";
+//	$salt = "$1$" . "$a$b";
+	$salt = "$a$b";
 	return $salt;	
 }
 
 // generate unix pw
 function account_genunixpw($plainpw) {
+// begin changed by helix on 2003-01-20
 	return crypt($plainpw,account_gensalt());
+//	return crypt($plainpw);
+// end changed by helix on 2003-01-20
 }
 
 // print out shell selects
@@ -197,6 +207,16 @@ function account_shellselects($current) {
 			echo "<option value=$this_shell>$this_shell</option>\n";
 		}
 	}
+}
+
+/**
+ *      account_group_homedir() - Returns full path of group home directory
+ *
+ *  @param              string  The group name
+ *      @return home directory path
+ */
+function account_group_homedir($group) {
+        return '/home/groups/'.$group;
 }
 
 ?>

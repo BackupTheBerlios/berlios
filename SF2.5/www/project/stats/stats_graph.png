@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: stats_graph.png,v 1.1 2003/11/12 16:09:03 helix Exp $ 
+// $Id: stats_graph.png,v 1.2 2003/11/13 11:29:26 helix Exp $ 
 require('pre.php');
 require("graph_lib.php");
 require("project_stats_utils.php");
@@ -89,7 +89,7 @@ $data2 = $graph->AddData($xdata,$ydata2,$xlabel);
 $graph->DrawGrid('gray');
 $graph->LineGraph( $data1, 'red' );
 $graph->LineGraph( $data2, 'blue' );
-$graph->SetTitle( "Sourceforge Statistics: " . group_getname($group_id) );
+$graph->SetTitle( "BerliOS Statistics: " . group_getname($group_id) );
 $graph->SetSubTitle("Page Views (red) and Downloads (blue) for the past $i days");
 $graph->SetxTitle('Date');
 $graph->SetyTitle('Views (red) / Downloads (blue)');

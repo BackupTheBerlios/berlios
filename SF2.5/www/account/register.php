@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: register.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: register.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require ('pre.php');    
 require ('account.php');
@@ -22,9 +22,9 @@ if ($submit) {
 		echo $HTML->header(array('title'=>'Register Confirmation'));
 		?>
 		<p>
-		<b>SourceForge: New Account Registration Confirmation</b>
+		<b><?php echo $sys_default_name ?>: New Account Registration Confirmation</b>
 		<p>
-		Congratulations. You have registered on SourceForge.
+		Congratulations. You have registered on <?php echo $sys_default_name ?>.
 		<p> 
 		You are now being sent a confirmation email to verify your email 
 		address. Visiting the link sent to you in this email will activate
@@ -37,7 +37,7 @@ if ($submit) {
 }
 
 
-$HTML->header(array('title'=>'SourceForge: Register'));
+$HTML->header(array('title'=>$sys_default_name.': Register'));
 
 if (browser_is_windows() && browser_is_ie() && browser_get_version() < '5.1') {
 	echo '<H2><FONT COLOR="RED">Internet Explorer users need to 
@@ -50,7 +50,7 @@ if (browser_is_ie() && browser_is_mac()) {
 
 
 ?>
-<p><b>SourceForge New Account Registration</b>
+<p><b><?php echo $sys_default_name ?> New Account Registration</b>
 <?php 
 if ($feedback) {
 	print "<p><FONT color=#FF0000>$feedback $register_error</FONT>";
@@ -58,8 +58,12 @@ if ($feedback) {
 ?>
 <form action="https://<?php echo $HTTP_HOST.$PHP_SELF; ?>" method="post">
 <p>
-Login Name:<br>
-<input type="text" name="unix_name" value="<?php print($unix_name); ?>">
+Login Name:
+<br><i>Please take into account that a unix name of a project
+you like to register in the future cannot get
+the same name as this Login Name. It is recommended to choose a Login Name
+which have something to do with your personal name.</i>
+<br><input type="text" name="unix_name" value="<?php print($unix_name); ?>">
 <p>
 Password (min. 6 chars):<br>
 <input type="password" name="password1" value="<?php print($password1); ?>">
@@ -79,7 +83,7 @@ Timezone:<BR>
 Email Address:
 <BR><I>This email address will be verified before account activation.
 It will not be displayed on the site. You will receive a mail forward
-account at loginname@<?php echo $GLOBALS['user_host']; ?> that will forward to
+account at loginname@<?php echo $GLOBALS['sys_users_host']; ?> that will forward to
 this address.</I>
 <BR><INPUT size=30 type="text" name="email" value="<?php print($email); ?>">
 <P>

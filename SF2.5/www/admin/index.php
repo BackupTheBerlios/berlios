@@ -4,14 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
 
 session_require(array('group'=>'1','admin_flags'=>'A'));
 
-site_admin_header(array('title'=>"Alexandria Admin"));
+site_admin_header(array('title'=>"Site Admin"));
 
 $abc_array = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9');
 
@@ -25,9 +25,7 @@ fields blank, etc... Also, navigating the admin functions with the
 
 <p><B>User/Group/Category Maintenance</B>
 <ul>
-<!--
 <li><a href="userlist.php">Display Full User List/Edit Users</a>&nbsp;&nbsp;
--->
 <li>Display Users Beginning with : 
 <?php
 	for ($i=0; $i < count($abc_array); $i++) {
@@ -42,10 +40,11 @@ Search <i>(email,username,realname,userid)</i>:
   <input type="hidden" name="usersearch" value="1">
   <input type="submit" value="get">
 </form>
+<li>Users in <a href="userlist.php?status=P"><B>P</B> (pending) Status</A>
+<li>Users in <a href="userlist.php?status=S"><B>S</B> (suspended) Status</A>
+<li>Users in <a href="userlist.php?status=D"><B>D</B> (deleted) Status</A>
 <BR>&nbsp;
-<!-- 
 <li><a href="grouplist.php">Display Full Group List/Edit Groups</a>
--->
 
 <li>Display Groups Beginning with : 
 <?php
@@ -83,7 +82,7 @@ Search <i>(groupid,groupunixname,groupname)</i>:
 
 <P><B>Site Utilities</B>
 <UL>
-<LI><A href="massmail.php">Mail Engine for SourceForge Subscribers (MESS)</A>
+<LI><A href="massmail.php">Mail Engine for <?php print $GLOBALS['sys_default_name'] ?> Subscribers (MESS)</A>
 <LI><A HREF="add_language.php">Add Supported Language</A>
 </UL>
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: license.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: license.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 require "vars.php";
@@ -26,6 +26,11 @@ if ($insert_group_name && $group_id && $rand_hash && $form_full_name && $form_un
 	if (db_numrows(db_query("SELECT group_id FROM groups WHERE unix_group_name='$form_unix_name'")) > 0) {
 		exit_error("Group Name Taken","That group name already exists.");
 	}
+// Check that username is not identical with an existing unix groupname (groups) helix 22.06.2001
+	if (db_numrows(db_query("SELECT user_id FROM users WHERE user_name LIKE '$form_unix_name'")) > 0) {
+		exit_error("Group Name Taken","An identical user name already exists.");
+	}
+// End of change helix 22.06.2001
 	/*
 		Hash prevents them from updating a live, existing group account
 	*/
@@ -48,7 +53,7 @@ $HTML->header(array('title'=>'License'));
 <P><B><I>If you are applying for a website-only project, please
 select "website-only" from the choices below and proceed.</I></B>
 
-<P>SourceForge was created to advance Open Source software development.
+<P><?php print $GLOBALS['sys_default_name'] ?> was created to advance Open Source software development.
 To keep things simple, we are relying on the outstanding work
 of the <A href="http://www.opensource.org">Open Source Initiative</A>
 for our licensing choices.
@@ -67,7 +72,7 @@ you may not change a project's license once it has been set. If you
 feel that you have a special case and legal capability to do this,
 we will work with you on a case-by-case basis.
 
-<P>SourceForge is not responsible for legal discrepencies regarding 
+<P><?php print $GLOBALS['sys_default_name'] ?> is not responsible for legal discrepencies regarding 
 your license.
 
 <P><B>Licenses</B>

@@ -4,17 +4,17 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 session_require(array(isloggedin=>1));
 $HTML->header(array(title=>"Project Registration"));
 ?>
 
-<H2>SourceForge Project Registration</H2>
+<H2><?php print $sys_default_name ?> Project Registration</H2>
 
 <p>
-SourceForge would like to extend an invitation to any 
+<?php print $sys_default_name ?> would like to extend an invitation to any 
 <A href="http://www.opensource.org">Open Source</A> project to be hosted for no price and
 no catch. This is our token of appreciation to the people who help make 
 <A href="http://www.opensource.org">Open Source</A> a reality.
@@ -22,7 +22,7 @@ no catch. This is our token of appreciation to the people who help make
 
 <p><B>The Process</B>
 
-<P>Registering a project with SourceForge is an easy process, but we do require
+<P>Registering a project with <?php print $sys_default_name ?> is an easy process, but we do require
 a lot of information in order to automate things as much as possible. The entire
 process should take about 10 minutes. 
 

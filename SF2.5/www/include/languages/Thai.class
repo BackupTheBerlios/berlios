@@ -101,14 +101,14 @@ class Thai extends BaseLanguage {
 		$this->GROUP_LONG_FTP='พื้นที่ FTP นิรนาม';//'Anonymous FTP Space';
 
 		$this->BREAKING_DOWN_BARRIERS='ทะลายอุปสรรคสู่การพัฒนาแบบโอเพ่นซอร์ส';//'Breaking Down the Barriers to Open Source Develop                    ment';
-		$this->SOURCEFORGE_STATISTICS='สถิติ SourceForge';//'SourceForge Statistics';
+		$this->SOURCEFORGE_STATISTICS='สถิติ '.$GLOBALS['sys_default_name'];//'SourceForge Statistics';
 		$this->TOP_PROJECT_DOWNLOADS='โปรเจกต์ดาวโหลดสูงสุด';//'Top Project Downloads';
 		$this->HIGHEST_RANKED_USERS='คนคะแนนสูงสุด';//'Highest Ranked Users';
 		$this->MOST_ACTIVE_THIS_WEEK='ตื่นตัวสูงสุดในสัปดาห์';//'Most Active This Week';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge เป็น <B>บริการฟรีแก่นักพัฒนา
+'.$GLOBALS['sys_default_name'].' เป็น <B>บริการฟรีแก่นักพัฒนา
 <A href="http://opensource.thai.net">โอเพ่นซอร์ส</A></B> โดยมีบริการที่สะดวกและดีที่สุด ทั้ง
 ระบบ CVS, จดหมายกลุ่ม, ระบบติดตามบั๊ก, กระดานสนทนา, ระบบจัดการภารกิจ, ให้เนื้อที่เว็บไซต์, 
 ระบบจัดเก็บไฟล์ถาวร, มีการสำรองไฟล์ทั้งหมด, รวมทั้งให้บริหารระบบต่าง ๆ ได้ผ่านเว็บทั้งหมด.
@@ -119,7 +119,7 @@ SourceForge เป็น <B>บริการฟรีแก่นักพัฒนา
 <P>
 <B>การมีส่วนร่วม และป้อนกลับกับไซต์</B>
 <P>
-เพื่อให้ได้รับประโยชน์จาก SourceForge สูงสุด, คุณจำเป็นต้อง
+เพื่อให้ได้รับประโยชน์จาก '.$GLOBALS['sys_default_name'].' สูงสุด, คุณจำเป็นต้อง
 <A href="/account/register.php">ลงทะเบียนเป็นสมาชิกไซต์</A>.
 คุณจะได้รับอนุญาตให้เข้ามีส่วนร่วมเต็มที่ในทุกสิ่งที่เรามีบริการ.
 คุณสามารถเข้าชมไซต์ไปเรื่อย ๆ โดยไม่จำเป็นต้องลงทะเบียน

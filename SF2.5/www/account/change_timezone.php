@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: change_timezone.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: change_timezone.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require ('pre.php');
 require ('account.php');
@@ -32,8 +32,8 @@ site_user_header(array('title'=>"Change Timezone &amp; Language"));
 ?>
 <H3>Timezone/Language Change</h3>
 <P>
-Now, no matter where you live, you can see all dates and times throughout SourceForge 
-as if it were in your neighborhood.
+Now, no matter where you live, you can see all dates and times throughout 
+<?php echo $sys_default_name ?> as if it were in your neighborhood.
 <P>
 <FORM ACTION="<?php echo $PHP_SELF; ?>" METHOD="POST">
 <?php

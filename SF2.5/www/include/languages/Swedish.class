@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Swedish.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Swedish.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -62,7 +62,7 @@ class Swedish extends BaseLanguage {
 		$this->COMPILE_FARM='Kompileringsverkstad';
 		$this->CONTACT_US='Kontakta oss';
 		// New strings for menu added 2000-10-17
-		$this->ABOUT_SOURCEFORGE='Om SourceForge';
+		$this->ABOUT_SOURCEFORGE='Om '.$GLOBALS['sys_default_name'];
 		$this->ABOUT_FOUNDRIES='Om Foundries';
 
 		//tool short names as in HTML_TABS()
@@ -111,13 +111,13 @@ class Swedish extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Bryter ner gr&auml;nserna f&ouml;r open source-utveckling';
-		$this->SOURCEFORGE_STATISTICS='SourceForge-statistik';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].'-statistik';
 		$this->TOP_PROJECT_DOWNLOADS='Projekt med flest h&auml;mtningar';
 		$this->HIGHEST_RANKED_USERS='H&ouml;gst rankade anv&auml;ndare';
 		$this->MOST_ACTIVE_THIS_WEEK='Mest aktiva denna vecka';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
-		SourceForge &auml;r en <B>fri tj&auml;nst f&ouml;r
+		'.$GLOBALS['sys_default_name'].' &auml;r en <B>fri tj&auml;nst f&ouml;r
 		<A href="http://www.opensource.org">open source</A>-utvecklare
 		</B>som erbjuder enkel tillg&aring;ng till det b&auml;sta i
 		CVS, s&auml;ndlistor, felhantering, meddelandeforum,
@@ -131,7 +131,7 @@ class Swedish extends BaseLanguage {
 		<P>
 		<B>Deltagande och synpunkter p&aring; webbplatsen</B>
 		<P>
-		F&ouml;r att f&aring; ut det mesta av SourceForge m&aring;ste
+		F&ouml;r att f&aring; ut det mesta av '.$GLOBALS['sys_default_name'].' m&aring;ste
 		du <A href="/account/register.php">registrera dig som en
 		webbplatsanv&auml;ndare</A>.
 		Det g&ouml;r att du kan deltaga i allt vi har att erbjuda. Du

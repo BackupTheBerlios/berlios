@@ -4,19 +4,19 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: requirements.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: requirements.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 session_require(array(isloggedin=>1));
 $HTML->header(array(title=>"Project Requirements"));
 ?>
 
-<H2>Step 1: SourceForge Services & Requirements (Service Specific Rules)</H2>
+<H2>Step 1: <?php print $sys_default_name ?>  Services & Requirements (Service Specific Rules)</H2>
 
 <p>
-We are now offering a full suite of services for SourceForge projects. If
+We are now offering a full suite of services for <?php print $sys_default_name ?> projects. If
 you haven't already, please be sure to browse the most recent revision of
-the SourceForge Services.
+the <?php print $sys_default_name ?> Services.
 </p>
 
 <p>
@@ -26,7 +26,7 @@ the SourceForge Services.
 <p>
 The space given to you on this server is given for the expressed purpose of
 Open Source development or, in the case of web sites, the advancement of
-Open Source. For more information, please read the SourceForge Terms of
+Open Source. For more information, please read the <?php print $sys_default_name ?> Terms of
 Service ("Terms of Service").
 </p>
 
@@ -48,20 +48,20 @@ Terms of Service.
 
 <p>
 You may not place any revenue-generating advertisements on a site hosted at
-SourceForge.
+<?php print $sys_default_name ?>.
 </p>
 
 <p>
-<b>SourceForge Link</b>
+<b><?php print $sys_default_name ?> Link</b>
 </p>
 
 <p>
-If you host a web site at SourceForge, you must place one of our approved
-graphic images on your site with a link back to SourceForge. The graphic may
-either link to the main SourceForge site or to your project page on
-SourceForge. We will leave placement up to you.  For information about how
-to insert a SourceForge logo which will track your pageviews, please read
-the SourceForge documentation.
+If you host a web site at <?php print $sys_default_name ?>, you must place one of our approved
+graphic images on your site with a link back to <?php print $sys_default_name ?>. The graphic may
+either link to the main <?php print $sys_default_name ?> site or to your project page on
+<?php print $sys_default_name ?>. We will leave placement up to you.  For information about how
+to insert a <?php print $sys_default_name ?> logo which will track your pageviews, please read
+the <?php print $sys_default_name ?> documentation.
 </p>
 
 <p>

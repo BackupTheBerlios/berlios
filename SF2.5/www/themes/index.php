@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:28 helix Exp $
 
 require "pre.php";    
 session_require(array('isloggedin'=>'1'));
@@ -15,6 +15,7 @@ switch ($theme_action) {
         exit;
     }
     case 'Apply Theme': {
+	$GLOBALS['sys_themeid'] = $sys_themeid_new; // 2003-02-02 helix
 	theme_set_usertheme($GLOBALS['sys_themeid']);
     }
     case 'Preview Theme':{
@@ -102,7 +103,7 @@ $HTML->box1_top("Choosing Theme and Colors for " . user_getname()); ?>
 <p>Welcome, <b><?php print user_getname(); ?></b>. 
 <p>You can change your theme from here. 
 <P>
-Your profile currently uses the <?php print get_themename(user_getthemeid()); ?> theme.
+Your profile currently uses the <?php print get_themename(user_getthemeid(user_getid())); ?> theme.
 <?php $HTML->box1_bottom(); ?>
 
 <TABLE width=100% cellpadding=0 cellspacing=0 border=0><TR valign=top>
@@ -111,7 +112,7 @@ Your profile currently uses the <?php print get_themename(user_getthemeid()); ?>
 <?php $HTML->box1_top("New User Theme");
 echo "<div align='center'>\n";
 // User Theme select form
-theme_usermodform(user_getthemeid(),'https://'.$HTTP_HOST.'/themes/index.php','theme_modform',0);
+theme_usermodform(user_getthemeid(user_getid()),'https://'.$HTTP_HOST.'/themes/index.php','theme_modform',0);
 ?>
 </div>
 <?php

@@ -4,10 +4,10 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 require "pre.php";    
-$HTML->header(array(title=>"Welcome to SourceForge"));
+$HTML->header(array(title=>"Welcome to ".$GLOBALS['sys_default_name']));
 
 print "<p>Page Information";
 print "<p>Page Information";

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: user_home.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: user_home.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /*
 
@@ -45,12 +45,21 @@ $HTML->header(array('title'=>'Developer Profile'));
 </TR>
 
 <TR valign=top>
-	<TD>Email Addr: </TD>
+	<TD>DevCounter: </TD>
 	<TD>
-	<B><A HREF="/sendmessage.php?touser=<?php print $user_id; 
-		?>"><?php print $user->getUnixName(); ?> at <?php print $GLOBALS['sys_users_host']; ?></A></B>
+	<B><A HREF="http://devcounter.berlios.de/showprofile.php?devname=<?php print $user->getUnixName(); 
+		?>"><?php print $user->getUnixName(); ?></A></B>
 	</TD>
 </TR>
+
+<TR valign=top>
+        <TD>Email Addr: </TD>
+        <TD>
+        <B><A HREF="/sendmessage.php?touser=<?php print $user_id;
+                ?>"><?php print $user->getUnixName(); ?> at <?php print $GLOBALS['sys_users_host']; ?></A></B>
+        </TD>
+</TR>
+
 
 <TR>
 	<TD>
@@ -75,9 +84,9 @@ $HTML->header(array('title'=>'Developer Profile'));
 		"WHERE user_id='". $user_id ."' AND is_public=1");
 	echo 'Diary/Note Entries: '.db_result($res,0,0).'
 	<P>
-	<A HREF="/developer/diary.php?user='. $user_id .'">View Diary & Notes</A>
+	<A HREF="/developer/diary.php?diary_user='. $user_id .'">View Diary & Notes</A>
 	<P>
-	<A HREF="/developer/monitor.php?user='. $user_id .'">'. html_image("/images/ic/check.png",'15','13',array(),0) .'Monitor This Diary</A>';
+	<A HREF="/developer/monitor.php?diary_user='. $user_id .'">'. html_image("images/ic/check.png",'15','13',array(),0) .'Monitor This Diary</A>';
 
 	?>
 </TD></TR>
@@ -117,7 +126,7 @@ If you are familiar with this user, please take a moment to rate him/her
 on the following criteria. Keep in mind, that your rating will be visible to
 the user and others.
 <P>
-The SourceForge Peer Rating system is based on concepts from 
+The <?php print $GLOBALS['sys_default_name'] ?> Peer Rating system is based on concepts from 
 <A HREF="http://www.advogato.com">Advogato.</A> The system has been re-implemented and expanded in a few ways.
 	<CENTER>
         <?php echo vote_show_user_rate_box ($user_id); ?>
@@ -129,7 +138,7 @@ processing required to do otherwise, these numbers incoporate responses from
 both "trusted" and "non-trusted" users.
 <ul>
 <li> The "Sitewide Rank" field shows the user's rank compared to all ranked
-SourceForge users. 
+<?php print $GLOBALS['sys_default_name'] ?> users. 
 <li>The "Aggregate Score" shows an average, weighted overall score, based on
 trusted-responses only. 
 <li>The "Personal Importance" field shows the weight that users ratings of

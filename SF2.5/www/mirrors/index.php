@@ -4,122 +4,63 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Mirrors of Other Sites"));
 ?>
-<FONT face="arial, helvetica" size="5"><B>Site Mirrors</B></FONT>
+<H2>Site Mirrors</H2>
 <HR NoShade>
 
-<P>SourceForge provides high-bandwidth mirrors for several other
-projects. Our mirror server is a Quad XEON 400Mhz, with 2 GB RAM
-and 850 GB of formatted storage on 5 Mylex ExtremeRAID controllers. Its
-switched 100Mbit connection feeds directly to VA routers and two
-DS-3 lines.
+<P><?php print $GLOBALS['sys_default_name'] ?> provides high-bandwidth mirrors for several other projects. Our mirror server is a HP9000 L-Class System with 2 PA-RISC 8500/360 MHz CPUs, with 1 GB RAM and 250 GB of formatted storage on a FC 60 Raid controller. Its switched 100Mbit connection feeds directly to FOKUS routers and a 155Mbit line.
 
 <P>Following is a partial mirror list. All mirrors can be found at:
-<UL><LI><B><A href="http://download.sourceforge.net/pub/mirrors/">http://download.sourceforge.net/pub/mirrors/</A></B>
+<UL><LI><B><A href="http://<?php print $GLOBALS['sys_download_host'] ?>/pub/mirrors/">http://<?php print $GLOBALS['sys_download_host'] ?>/pub/mirrors/</A></B>
 (preferred)
-<LI><B><A href="ftp://download.sourceforge.net/pub/mirrors/">ftp://download.sourceforge.net/pub/mirrors/</A></B>
+<LI><B><A href="ftp://<?php print $GLOBALS['sys_ftp_host'] ?>/pub/mirrors/">ftp://<?php print $GLOBALS['sys_ftp_host'] ?>/pub/mirrors/</A></B>
 </UL>
 
 <P>To report problems with these mirrors, or to suggest another mirror,
-send email to <A href="mailto:dtype@sourceforge.net">dtype@sourceforge.net</A>.
+send email to <A href="mailto:berlios-admin@berlios.de">berlios-admin@berlios.de</A>.
 
 <HR>
 
-<P><B><A href="http://download.sourceforge.net/mirrors/CPAN/">CPAN</A></B> -
-CPAN is the Comprehensive Perl Archive Network. Here you will find All
-Things Perl. <I>(We are a primary CPAN mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/debian/">Debian GNU/Linux</A></B> -
-Debian is the largest GNU/Linux distribution completely maintained by a base of volunteers.
-More than 500 developers currently work to make Debian the most complete distribution available
-today. <I>(We are a master push mirror for Debian.)</I>
-
-<P><?php html_image('/images/others/gnome1.png','44','50',array(align=>'right')); ?>
-<B><A href="http://download.sourceforge.net/mirrors/gnome/">Gnome</A></B> - GNOME 
-is the GNU Network Object Model Environment. The GNOME project intends 
-to build a complete, easy-to-use desktop
-environment for the user, and a powerful application framework 
-for the software developer. <I>(We are a primary Gnome mirror.)</I>
-
-<P><?php html_image('/images/others/kde-logotp3.png','148','40',array(align=>'right')); ?>
-<B><A href="http://download.sourceforge.net/mirrors/kde/">KDE</A></B> -
-KDE is a powerful graphical desktop environment for Unix workstations. It combines
-ease of use, contemporary functionality and outstanding graphical design with the
-technological superiority of the Unix operating system.  
-<I>(We are a primary KDE mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/kernel.org/">kernel.org</A></B> -
-The Linux Kernel Archives is the primary site for the Linux kernel source.
-<I>(We are in the Linux Kernel Archive Mirror System for www/ftp.us.kernel.org.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/linuxppc/">Linux/PPC</A></B> -
-Linux/PPC runs natively on PCI-based Apple PowerMacs, many IBM &amp; Motorola PReP and CHRP
-workstations, Amiga Power-UP systems and several embedded platforms including the Motorola MBX and
-RPX. <I>(We are a primary Linux/PPC mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/metalab/">metalab.unc.edu</A></B> -
-The /pub/Linux directory for metalab (formerly sunsite.unc.edu) has long been a first 
-rate collection of Linux-related software. SourceForge now mirrors this collection in
-its entirety. 
-
-<P><B><A href="http://download.sourceforge.net/mirrors/mozilla/">mozilla.org</A></B> -
-Mozilla is an open-source web browser, designed for standards compliance, performance 
-and portability. <I>(We are a primary mozilla mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/NetBSD/">NetBSD</A></B> -
-NetBSD is a free, highly portable UNIX-like operating system available for many platforms, from
-64bit alpha servers to handheld devices. Its clean design and advanced features make it
-excellent in both production and research environments.
-<I>(We are a primary NetBSD mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/OpenBSD/">OpenBSD</A></B> -
-The OpenBSD project produces a FREE, multi-platform 4.4BSD-based UNIX-like operating 
-system. Our efforts emphasize portability, standardization, correctness, proactive 
-security and integrated cryptography.
-<I>(We are a primary OpenBSD mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/redhat/">Red Hat Linux</A></B> -
-Red Hat Linux is a powerful, extremely stable,
-next-generation computer operating system that provides a
-high performance computing environment for both server
-and desktop PCs.
-<I>(We are a primary Red Hat mirror.)</I>
-
-<P><B><A href="http://download.sourceforge.net/mirrors/storm/">Storm Linux</A></B> -
-Storm Linux 2000 is based on the award winning Debian GNU/Linux. We've
-enhanced Debian's robust, open source, distribution by making it easier to install,
-configure, administer, and update.
-<I>(We are mirror4.stormix.com.)</I>
+<P><B><A href="http://<?php print $GLOBALS['sys_download_host'] ?>/pub/mirrors/debian/">Debian GNU/Linux</A></B> -
+Debian is the largest GNU/Linux distribution completely maintained by a base of volunteers. More than 500 developers currently work to make Debian the most complete distribution available today.
 
 <P><?php html_image('/images/others/suse_g_sm.png','77','55',array(align=>'right')); ?>
-<B><A href="http://download.sourceforge.net/pub/mirrors/suse/">SuSE Linux</A></B> -
-SuSE Linux provides a comprehensive set of software, and features the YaST2 setup
-and configuration tool with automatic hardware detection for PCI components and a
-menu-driven graphical interface. For the experienced SuSE Linux user, the familiar
-YaST1, with all its features, continues to be available for updates and system
-administration.
-<I>(We are a primary SuSE Linux mirror and US distribution point.)</I>
+<B><A href="http://<?php print $GLOBALS['sys_download_host'] ?>/pub/mirrors/suse/">SuSE Linux</A></B> -
+SuSE Linux provides a comprehensive set of software, and features the YaST2 setup and configuration tool with automatic hardware detection for PCI components and a menu-driven graphical interface. For the experienced SuSE Linux user, the familiar YaST1, with all its features, continues to be available for updates and system administration.
 
-<P><B><A href="http://download.sourceforge.net/mirrors/XFree86/">XFree86</A></B> -
-XFree86 is a freely redistributable implementation of the X Window
+<P><B><A href="http://xfree86.berlios.de">XFree86</A></B> -
+XFree86 (<a href="ftp://ftp.berlios.de/pub/xfree86">ftp://ftp.berlios.de/pub/xfree86</a>)
+is a freely redistributable implementation of the X Window
 System that runs on UNIX(R) and UNIX-like operating systems (and OS/2). 
 The XFree86 Project has traditionally focused on Intel x86-based
 platforms (which is where the `86' in our name comes from), 
 but our current release also supports other platforms.
-<I>(We are a primary XFree86 mirror.)</I>
 
-<P><B><A href="http://download.sourceforge.net/mirrors/yellowdog/">Yellow Dog Linux</A></B> -
-Yellow Dog Linux is the most complete Linux distribution for PowerPC.                                         
-This operating system takes full advantage of the most current, stable, and
-secure Linux kernel and libraries, and best of all, some of the fastest hardware
-on the planet.
-<I>(We are in the ftp.yellowdoglinux.com DNS rotation.)</i>
+<P><B><A href="http://linuxgazette.berlios.de">Linux Gazette</A></B> -
+Linux Gazette (<a href="ftp://ftp.berlios.de/pub/linuxgazette">ftp://ftp.berlios.de/pub/linuxgazette</a>)
+a member of the Linux Documentation Project, is an on-line WWW publication dedicated to two simple ideas:
+making Linux just a little more fun and sharing ideas and discoveries.
+
+<P><B><A href="http://linuxfocus.berlios.de">LinuxFocus</A></B> -
+LinuxFocus is the first really international Linux Magazine.
+It is managed and produced by Linux volunteers, fans and developers.
+LF is free and available on the web all over the world.
+
+<P><B><A href="http://apache.berlios.de">Apache</A></B> -
+The Apache Software Foundation (<a href="ftp://ftp.berlios.de/pub/apache">ftp://ftp.berlios.de/pub/apache</a>)
+provides support for the Apache community of open-source software projects.
+
+<P><B><A href="http://opensource.berlios.de">Open Source Initiative (OSI)</A></B> -
+The Open Source Initiative (OSI) is a non-profit corporation dedicated to managing and promoting
+the Open Source Definition for the good of the community.
+
+<P><B><A href="http://tldp.berlios.de">The Linux Documentation Project (TLDP)</A></B> -
+The Linux Documentation Project is a loosely knit team of volunteers who provide documenation for many aspects of Linux. There are several forms of documentation: Guides, HOWTOs, man pages and FAQs.
 
 <?php
 $HTML->footer(array());
-
 ?>

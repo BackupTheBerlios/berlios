@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Hebrew.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Hebrew.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -88,7 +88,7 @@ class Hebrew extends BaseLanguage {
 		$this->GROUP_LONG_FTP='ימינונא יפיטפא תורש';
 
 		$this->BREAKING_DOWN_BARRIERS='ישפוח דוק חותיפל םוסחמה תא םירבוש';
-		$this->SOURCEFORGE_STATISTICS='SourceForge תוקיטסיטס';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' תוקיטסיטס';
 		$this->TOP_PROJECT_DOWNLOADS='םיליעפ יכה םיטקיורפה';
 		$this->HIGHEST_RANKED_USERS='םיליעפ יכה םישמתשמה';
 		$this->MOST_ACTIVE_THIS_WEEK='עובשה םיליעפ יכה';
@@ -96,7 +96,7 @@ class Hebrew extends BaseLanguage {
 		$this->HOME_PAGE_ABOUT_BLURB='
 
 <P ALIGN="right">
-<BR>.ישפוח רוקמ דוק יחתפמל תורש אוה SourceForge
+<BR>.ישפוח רוקמ דוק יחתפמל תורש אוה '.$GLOBALS['sys_default_name'].'
 <BR> ,םימורופ ,םיגאב רחא בקעמ ,רוויד תומישר ,CVS ל הטושפו הבוט השיג םיקפסמ ונחנא
 <BR>.בווהמ לוהינל השיגו ,םיאלמ םייוביג ,עובק םיצבק רגאמ ,םירתא תנסחא ,תומישמ ילהנמ
 <BR><A href="/docman/display_doc.php?docid=756&group_id=1"><font size="-1">[
@@ -109,7 +109,7 @@ class Hebrew extends BaseLanguage {
 <P ALIGN="RIGHT">
 <B>תופתתשהו בושמ</B>
 <P ALIGN="RIGHT">
-ךרתצת התא SourceForge מ רתויב בוטה תא לבקל ליבשב
+ךרתצת התא '.$GLOBALS['sys_default_name'].' מ רתויב בוטה תא לבקל ליבשב
 <BR>.םיעיצמ ונחנאש המ לכל האלמ השיג ךל איבי הז
 <A href="/account/register.php">.רתאב שמתשמכ םשרהל</A>
 <BR>.האלמ השיג ךל היהת אל לבא ,םשריהל ילב רתאב שולגל ןבומכ לוכי התא

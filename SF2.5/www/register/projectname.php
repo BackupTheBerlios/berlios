@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: projectname.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: projectname.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 session_require(array('isloggedin'=>'1'));
@@ -25,8 +25,8 @@ if ($insert_purpose && $form_purpose) {
 		. "'__$random_num',"
 		. "'__$random_num',"
 		. "'I'," // status
-		. "'shell1'," // unix_box
-		. "'cvs1'," // cvs_box
+		. "'unicorn'," // unix_box
+		. "'cvs'," // cvs_box
 		. "'__$random_num',"
 		. "'".htmlspecialchars($form_purpose)."',"
 		. time() . ","
@@ -73,9 +73,9 @@ many things, including:
 
 <UL>
 <LI>A web site at unixname.<?php echo $GLOBALS['sys_default_domain']; ?> 
-<LI>Email at aliases@unixname.<?php echo $GLOBALS['sys_default_domain']; ?> 
+<LI>Email at aliases@<?php echo $GLOBALS['sys_users_host']; ?> 
 <LI>A CVS Repository root of /cvsroot/unixname
-<LI>Shell access to unixname.<?php echo $GLOBALS['sys_default_domain']; ?> 
+<LI>Shell access to <?php echo $GLOBALS['sys_shell_host']; ?> 
 <LI>Search engines throughout the site
 </UL>
 

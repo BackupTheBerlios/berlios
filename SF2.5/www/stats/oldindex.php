@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: oldindex.php,v 1.1 2003/11/12 16:09:03 helix Exp $ 
+// $Id: oldindex.php,v 1.2 2003/11/13 11:29:27 helix Exp $ 
 
 echo "<h1>this page -- if needed -- needs to be fixed to use the new cacher</H1>";
 
@@ -17,7 +17,7 @@ session_require( array('group'=>$sys_stats_group) );
 
 $HTML->header(array('title'=>'Site Statistics'));
 
-echo '<P><B> <A HREF="/stats/project.php">Project Stats</A> | <A HREF="/stats/">SourceForge Stats</A> </B>';
+echo '<P><B> <A HREF="/stats/project.php">Project Stats</A> | <A HREF="/stats/">'.$GLOBALS['sys_default_name'].' Stats</A> </B>';
 echo '<P>';
 
 echo cache_display("stats_sf_stats",'1',1800);

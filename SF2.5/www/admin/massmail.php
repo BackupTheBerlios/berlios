@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: massmail.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: massmail.php,v 1.2 2003/11/13 11:29:21 helix Exp $
 
 require "pre.php";    
 session_require(array('group'=>'1','admin_flags'=>'A'));
@@ -33,7 +33,7 @@ $res_count = db_query("SELECT count(*) AS count FROM users,user_group WHERE "
 $row_count = db_fetch_array($res_count);
 $count_sfadmin = $row_count[count];
 
-print '<P><B>Mail Engine for SourceForge Subscribers (MESS)</B>
+print '<P><B>Mail Engine for '.$GLOBALS['sys_default_name'].' Subscribers (MESS)</B>
 
 <P>Be <FONT color=#FF0000><B>VERY</B></FONT> careful with this form,
 because sutmitting it WILL send email to lots of users.
@@ -52,7 +52,7 @@ Send only to project developers ('
 Send only to project administrators ('
 .$count_admin
 .')<BR><INPUT type="radio" name="destination" value="sfadmin">
-Send only to SourceForge administrators (test) ('
+Send only to '.$GLOBALS['sys_default_name'].' administrators (test) ('
 .$count_sfadmin
 .')<BR><INPUT type="radio" name="destination" value="all">
 Send to all users, regardless of their preferences ('
@@ -62,15 +62,16 @@ Send to all users, regardless of their preferences ('
 <BR><INPUT type="text" name="first_user" value="0">
 <P>
 Subject:
-<BR><INPUT type="text" name="mail_subject" value="SourceForge: ">
+<BR><INPUT type="text" name="mail_subject" value="'.$GLOBALS['sys_default_name'].': ">
 
 <P>Text of Message:
 <PRE>
 <BR><TEXTAREA name="mail_message" cols="70" rows="40" wrap="physical">
 
 ---------------------
-This email was sent from '. $GLOBALS['sys_default_domain'] .'. To change your email receipt
-preferences, please visit the site and edit your account via the
+This email was sent from '. $GLOBALS['sys_default_host'] .'.
+To change your email receipt preferences,
+please visit the site and edit your account via the
 "Account Maintenance" link.
 
 Direct any questions to admin@'. $GLOBALS['sys_default_domain'].', or reply to this email.

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Russian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Russian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -65,8 +65,8 @@ class Russian extends BaseLanguage {
                 $this->COMPILE_FARM='Фабрика компиляции';
                 $this->CONTACT_US='Обратная связь';
 	        // 2000-11-24
- 		$this->ABOUT_SOURCEFORGE='О SourceForge';
-	 	$this->ABOUT_FOUNDRIES='О цехах SourceForge';
+ 		$this->ABOUT_SOURCEFORGE='О '.$GLOBALS['sys_default_name'];
+	 	$this->ABOUT_FOUNDRIES='О цехах '.$GLOBALS['sys_default_name'];
            
                	//tool short names as in HTML_TABS()
                	$this->GROUP_SHORT_MAIN ='Main';
@@ -115,7 +115,7 @@ class Russian extends BaseLanguage {
           	// New strings for home page added 10/1
           	//
           	$this->BREAKING_DOWN_BARRIERS='Преодолевая барьеры на пути разработки с открытым исходным кодом';
-          	$this->SOURCEFORGE_STATISTICS='Статистика SourceForge';
+          	$this->SOURCEFORGE_STATISTICS='Статистика '.$GLOBALS['sys_default_name'];
           	$this->TOP_PROJECT_DOWNLOADS='Наиболее загружаемые проекты';
           	$this->HIGHEST_RANKED_USERS='Пользователи с высоким рейтингом';
           	$this->MOST_ACTIVE_THIS_WEEK='Наиболее активные за эту неделю';
@@ -125,7 +125,7 @@ class Russian extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge - <B>свободный и бесплатный сервис для разработчиков,
+'.$GLOBALS['sys_default_name'].' - <B>свободный и бесплатный сервис для разработчиков,
 работающих по принципу Открытого Исходного Кода/Наполнения
 (<A href="http://www.opensource.org">Open Source</A>)</B>
 и предлагающий быстрый и легкий доступ к таким сервисам, как
@@ -142,7 +142,7 @@ CVS (система управления
 <B>Использование сервисов и участие в проектах</B>
 <P>
 Для того, чтобы получить доступ ко всему многообразию сервисов,
-предлагаемых на SourceForge, вам нужно 
+предлагаемых на '.$GLOBALS['sys_default_name'].', вам нужно 
 <A href="/account/register.php">зарегистрироваться в качестве
 пользователя сайта</A>.
 Конечно же, вы можете путешествовать по сайту без регистрации,
@@ -156,7 +156,7 @@ CVS (система управления
 <A HREF="/account/login.php">войдите в систему</A> и наконец,
 <A HREF="/register/">зарегистрируйте ваш проект</A>.
 <P>
-Спасибо за выбор SourceForge... И мы желаем вам приятного и полезного
+Спасибо за выбор '.$GLOBALS['sys_default_name'].'... И мы желаем вам приятного и полезного
 времяпровождения!';
 	}
 

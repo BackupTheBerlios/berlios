@@ -7,7 +7,7 @@
 // SourceForge LDAP module
 // pfalcon@users.sourceforge.net 2000-10-17
 //
-// $Id: ldap.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: ldap.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 /*

@@ -4,21 +4,21 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: i18n.php,v 1.1 2003/11/12 16:09:03 helix Exp $ 
+// $Id: i18n.php,v 1.2 2003/11/13 11:29:27 helix Exp $ 
 require('pre.php');
 require('site_stats_utils.php');
 
 // require you to be a member of the sfstats group
 session_require( array('group'=>$sys_stats_group) );
 
-$HTML->header(array('title'=>"SourceForge I18n Statistics"));
+$HTML->header(array('title'=>$GLOBALS['sys_default_name']." I18n Statistics"));
 
 //
 // BEGIN PAGE CONTENT CODE
 //
 
 echo html_build_list_table_top(array("Language","Users","%"));
-echo "<h1>SourceForge Languages Distribution</h1>";
+echo "<h1>".$GLOBALS['sys_default_name']." Languages Distribution</h1>";
 
 $sql='
 SELECT count(user_name) AS total
@@ -29,7 +29,8 @@ $total=db_result(db_query($sql),0,'total');
 $sql='
 SELECT supported_languages.name AS lang,count(user_name) AS cnt
 FROM supported_languages LEFT JOIN users ON language_id=users.language
-GROUP BY language_id
+GROUP BY language_id,name
+ORDER BY cnt DESC
 ';
 $res=db_query($sql);
 $non_english=0;
@@ -48,7 +49,7 @@ echo '<tr><td><b>Total Non-English</b></td>'.
 echo "</table>";
 
 echo "<p>This is a list of the preferences that users have chosen in \n".
-     "their sourceforge user preferences; it \n".
+     "their ".$GLOBALS['sys_default_name']." user preferences; it \n".
      "does not include languages which are selected via cookies or \n".
      "browser preferences.</p>";
 

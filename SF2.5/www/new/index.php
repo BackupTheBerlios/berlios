@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 require "pre.php";    
 require "vote_function.php";
@@ -15,7 +15,8 @@ if ( !$offset || $offset < 0 ) {
 }
 
 // For expediancy, list only the filereleases in the past three days.
-$start_time = time() - (7 * 86400);
+//$start_time = time() - (7 * 86400);
+$start_time = 0;
 
 $query	= "SELECT groups.group_name,"
 	. "groups.group_id,"
@@ -27,14 +28,13 @@ $query	= "SELECT groups.group_name,"
 	. "frs_release.name AS release_version,"
 	. "frs_release.release_date,"
 	. "frs_release.released_by,"
-	. "frs_package.name AS module_name, "
-	. "frs_dlstats_grouptotal_agg.downloads "
-	. "FROM groups,users,frs_package,frs_release,frs_dlstats_grouptotal_agg "
+	. "frs_package.name AS module_name "
+	. "FROM groups,users,frs_package,frs_release "
 	. "WHERE ( frs_release.release_date > $start_time "
 	. "AND frs_release.package_id = frs_package.package_id "
 	. "AND frs_package.group_id = groups.group_id "
 	. "AND frs_release.released_by = users.user_id "
-	. "AND frs_package.group_id = frs_dlstats_grouptotal_agg.group_id "
+	. "AND frs_package.status_id=1 "
 	. "AND frs_release.status_id=1 ) "
 //
 //appears that this group by is unnecessary in this query
@@ -58,8 +58,9 @@ if (!$res_new || db_numrows($res_new) < 1) {
 	print "\t<TABLE width=100% cellpadding=0 cellspacing=0 border=0>";
 	for ($i=0; $i<$rows; $i++) {
 		$row_new = db_fetch_array($res_new);
-		// avoid dupulicates of different file types
-		if (!($G_RELEASE["$row_new[group_id]"])) {
+		// avoid duplicates of different file types
+		// 2003-04-25 use release id instead of group id by helix
+		if (!($G_RELEASE["$row_new[release_id]"])) {
 			print "<TR valign=top>";
 			print "<TD colspan=2>";
 			print "<A href=\"/projects/$row_new[unix_group_name]/\"><B>$row_new[group_name]</B></A>"
@@ -97,26 +98,27 @@ if (!$res_new || db_numrows($res_new) < 1) {
 			print "Notes & Changes</A>";
 			print '<HR></TD></TR>';
 
-			$G_RELEASE["$row_new[group_id]"] = 1;
+			// 2003-04-25 use release id instead of group id by helix
+			$G_RELEASE["$row_new[release_id]"] = 1;
 		}
 	}
 
 	echo "<TR BGCOLOR=\"#EEEEEE\"><TD>";
         if ($offset != 0) {
-		echo "<FONT face=\"Arial, Helvetica\" SIZE=3 STYLE=\"text-decoration: none\"><B>";
+		echo "<B>";
         	echo "<A HREF=\"/new/?offset=".($offset-20)."\"><B>" . 
-			html_image("images/t2.gif","15,"15",array("BORDER"=>"0","ALIGN"=>"MIDDLE")) . 
-			" Newer Releases</A></B></FONT>";
+			html_image("images/t2.gif","15","15",array("BORDER"=>"0","ALIGN"=>"MIDDLE")) . 
+			" Newer Releases</A></B>";
         } else {
         	echo "&nbsp;";
         }
 
 	echo "</TD><TD COLSPAN=\"2\" ALIGN=\"RIGHT\">";
 	if (db_numrows($res_new)>$rows) {
-		echo "<FONT face=\"Arial, Helvetica\" SIZE=3 STYLE=\"text-decoration: none\"><B>";
+		echo "<B>";
 		echo "<A HREF=\"/new/?offset=".($offset+20)."\"><B>Older Releases " .
 		html_image("images/t.gif","15","15",array("BORDER"=>"0","ALIGN"=>"MIDDLE")) . 
-		"</A></B></FONT>";
+		"</A></B>";
 	} else {
 		echo "&nbsp;";
 	}

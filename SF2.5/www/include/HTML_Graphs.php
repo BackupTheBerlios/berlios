@@ -4,20 +4,20 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: HTML_Graphs.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: HTML_Graphs.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 /*
 #######################################################################
 #
-#       $Id: HTML_Graphs.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+#       $Id: HTML_Graphs.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 #
 #   $Author: helix $
 #   $Locker:  $
 #
-#     $Date: 2003/11/12 16:09:03 $
+#     $Date: 2003/11/13 11:29:23 $
 #
 #   $Source: /home/xubuntu/berlios_backup/github/tmp-cvs/berlios/Repository/SF2.5/www/include/HTML_Graphs.php,v $
-# $Revision: 1.1 $
+# $Revision: 1.2 $
 #    $State: Exp $
 #
 #      Revision 1.5  1998/11/05 06:15:52  pdavis

@@ -4,21 +4,21 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: privacy.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: privacy.php,v 1.2 2003/11/13 11:29:29 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 $HTML->header(array(title=>"Terms of Service Agreement"));
 ?>
 
 <p>
-<h2>SourceForge Privacy Policy</h2>
+<h2><?php echo $sys_default_name ?> Privacy Policy</h2>
 </p>
 
 <p>
-At SourceForge, we intend to give you as much control as possible over your
+At <?php echo $sys_default_name ?>, we intend to give you as much control as possible over your
 personal information, including the Registration Data.   We will let each
 user know how we will use the personal information derived from each user's
-access to and use of SourceForge and/or the Services.
+access to and use of <?php echo $sys_default_name ?> and/or the Services.
 </p>
 
 <p>
@@ -26,25 +26,25 @@ NOTICE
 </p>
 
 <p>
-SourceForge will track the domains from which people visit SourceForge and
+<?php echo $sys_default_name ?> will track the domains from which people visit <?php echo $sys_default_name ?> and
 analyze this data for trends and statistics.  Subject to the provisions of
-this Privacy Policy, different SourceForge sites may use accumulated data
+this Privacy Policy, different <?php echo $sys_default_name ?> sites may use accumulated data
 for different purposes, including but not limited to marketing analysis,
 service evaluation and planning.
 </p>
 
 <p>
-SourceForge contains links to other Websites, whether owned or controlled by
-SourceForge affiliates or unrelated third parties.  SourceForge is not
+<?php echo $sys_default_name ?> contains links to other Websites, whether owned or controlled by
+<?php echo $sys_default_name ?> affiliates or unrelated third parties. <?php echo $sys_default_name ?> is not
 responsible for the privacy policies and practices of any linked Website.
 </p>
 
 <p>
-Currently, SourceForge uses personal information as a basis for
+Currently, <?php echo $sys_default_name ?> uses personal information as a basis for
 notifications to users, "opt-in" emails, and in order to implement the terms
 of the Terms of Service governing the website (the "TOS").    User names and
 email addresses (as well as any additional information that a user may
-choose to post) are publicly available on the SourceForge site, unless a
+choose to post) are publicly available on the <?php echo $sys_default_name ?> site, unless a
 user elects to "opt-out" of such display of personal information.  However,
 in cases where users voluntarily and publicly disclose personal information
 which may contain Registration Data, or otherwise post personal information
@@ -54,16 +54,16 @@ applicable license.
 </p>
 
 <p>
-Subject to the foregoing, SourceForge may conduct surveys of other studies
+Subject to the foregoing, <?php echo $sys_default_name ?> may conduct surveys of other studies
 of its customer base and usage for marketing and planning purposes.  With
 respect to information collected from such surveys or studies, and in the
 event that responses are to be publicly disclosed, users will be notified at
-the time they take the survey and SourceForge will disclose only aggregate
+the time they take the survey and <?php echo $sys_default_name ?> will disclose only aggregate
 information regarding its users and not personal information identifying any
 specific individual.  Notwithstanding the foregoing, in cases where surveys
-allow users to submit written comments, and where SourceForge advises users
+allow users to submit written comments, and where <?php echo $sys_default_name ?> advises users
 of the possibility of such disclosure at the time they take the survey,
-SourceForge reserves the right to disclose text information provided by any
+<?php echo $sys_default_name ?> reserves the right to disclose text information provided by any
 user through such a survey, provided that no personal information
 identifying that user is disclosed.
 </p>
@@ -73,11 +73,11 @@ identifying that user is disclosed.
 </p>
 
 <p>
-Cookies:  SourceForge employs "cookies" to provide a user with tailored
+Cookies:  <?php echo $sys_default_name ?> employs "cookies" to provide a user with tailored
 information.  A "cookie" is an element of data which a Service or site, when
 visited by a user, sends to that user's browser which, in turn, may store
-that element on the user's hard drive or memory.  SourceForge uses cookies
-to better serve users who use our Services; any cookies sent by SourceForge
+that element on the user's hard drive or memory.  <?php echo $sys_default_name ?> uses cookies
+to better serve users who use our Services; any cookies sent by <?php echo $sys_default_name ?>
 will be marked so that they will only be accessible by websites subject to
 this Privacy Policy.  However, at his or her option and at his or her sole
 expense and responsibility, any user may block or delete our cookies from
@@ -95,7 +95,7 @@ list, or a URL where the user may find such directions.
 
 <p>
 Other Notification: In order to implement or enforce the Terms of Service of
-the relevant SourceForge site, SourceForge may use personal information to
+the relevant <?php echo $sys_default_name ?> site, <?php echo $sys_default_name ?> may use personal information to
 contact users on an individual basis.
 </p>
 
@@ -130,34 +130,34 @@ application.
 
 <p>
 At no time, unless such disclosure is required by law or a user specifically
-authorizes such disclosure, will SourceForge disclose individual user
+authorizes such disclosure, will <?php echo $sys_default_name ?> disclose individual user
 personal information that is not publicly available to unrelated third
 parties.
 </p>
 
 <p>
-Surveys and Resulting Information:  Subject to the foregoing, SourceForge
+Surveys and Resulting Information:  Subject to the foregoing, <?php echo $sys_default_name ?>
 may conduct surveys or other studies of its customer base and usage for
 marketing and planning purposes.  Participation in such surveys is at the
-user's option;  SourceForge does not conduct mandatory surveys.
+user's option;  <?php echo $sys_default_name ?> does not conduct mandatory surveys.
 </p>
 
 <p>
 With respect to information collected from such surveys or studies, and in
 the event that responses are to be publicly disclosed, users will be
-notified at the time they take the survey and SourceForge will disclose
+notified at the time they take the survey and <?php echo $sys_default_name ?> will disclose
 only aggregate information regarding its users and not personal information
-identifying any specific individual.  Circumstances under which SourceForge
+identifying any specific individual.  Circumstances under which <?php echo $sys_default_name ?>
 would publicly disclose such aggregate information include, but are not
 limited to, sharing survey results with the site population, providing data
-to SourceForge advertisers on user preferences and/or demographics, and
+to <?php echo $sys_default_name ?> advertisers on user preferences and/or demographics, and
 publicizing overall usage data in press communications.
 </p>
 
 <p>
 Notwithstanding the foregoing, in cases where surveys allow users to submit
-written comments, and where SourceForge advises users of the possibility of
-such disclosure at the time they take the survey, SourceForge reserves the
+written comments, and where <?php echo $sys_default_name ?> advises users of the possibility of
+such disclosure at the time they take the survey, <?php echo $sys_default_name ?> reserves the
 right to disclose text information provided by any user through such a
 survey, provided that no personal information identifying that user is
 disclosed.
@@ -170,8 +170,8 @@ disclosed.
 <p>
 With regard to personal information, users can view their data on their
 personal profile page.  When technically feasible, users are permitted to
-update their personal information directly through SourceForge Service.
-When such updating service is not technically feasible, SourceForge will
+update their personal information directly through <?php echo $sys_default_name ?> Service.
+When such updating service is not technically feasible, <?php echo $sys_default_name ?> will
 make reasonable efforts to assist users in updating their personal
 information.
 </p>
@@ -181,7 +181,7 @@ information.
 </p>
 
 <p>
-To secure site integrity, SourceForge employs measures including but not
+To secure site integrity, <?php echo $sys_default_name ?> employs measures including but not
 limited to security audits, use of encryption tools and software, and other
 reasonable security measures and procedures.
 </p>
@@ -196,21 +196,21 @@ restricted to site administrators and individuals on a need-to-know basis.
 </p>
 
 <p>
-In the event that SourceForge becomes aware that site security is
+In the event that <?php echo $sys_default_name ?> becomes aware that site security is
 compromised or user nonpublic information has been disclosed to unrelated
 third parties as a result of external activity, including but not limited to
-external security attacks, SourceForge shall take reasonable measures which
+external security attacks, <?php echo $sys_default_name ?> shall take reasonable measures which
 it deems appropriate, including but not limited to internal investigation
 and reporting, and notification to and cooperation with law enforcement
 authorities.
 </p>
 
 <p>
-If SourceForge becomes aware that a user's personal information provided to
-SourceForge has been disclosed in a manner not permitted by this Privacy
-Policy, SourceForge shall make reasonable efforts to notify the affected
+If <?php echo $sys_default_name ?> becomes aware that a user's personal information provided to
+<?php echo $sys_default_name ?> has been disclosed in a manner not permitted by this Privacy
+Policy, <?php echo $sys_default_name ?> shall make reasonable efforts to notify the affected
 user, as soon as reasonably possible and as permitted by law, of what
-information has been disclosed, to the extent that SourceForge knows this
+information has been disclosed, to the extent that <?php echo $sys_default_name ?> knows this
 information.
 </p>
 
@@ -220,7 +220,7 @@ information.
 
 <p>
 To update the privacy policy, we will both post the changed version and its
-effective date at <a href="http://sourceforge.net/tos/privacy.php">http://sourceforge.net/tos/privacy.php</a>.  Concurrently with
+effective date at <a href="http://<?php echo $sys_default_host ?>/tos/privacy.php">http://<?php echo $sys_default_host ?>/tos/privacy.php</a>. Concurrently with
 any change to the core privacy policy, we will email notice of the change to
 known users at least 15 days (or such shorter or longer time as mandated by
 law or any judicial or government body ) in advance.

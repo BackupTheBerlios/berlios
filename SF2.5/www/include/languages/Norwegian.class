@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Norwegian.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Norwegian.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 /*
 
@@ -93,14 +93,14 @@ class Norwegian extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Gj&oslash;r det lettere &aring; utvikle Open Source programvare';
-		$this->SOURCEFORGE_STATISTICS='SourceForge statistikk';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' statistikk';
 		$this->TOP_PROJECT_DOWNLOADS='Flest nedlastinger';
 		$this->HIGHEST_RANKED_USERS='H&oslash;yest rangerte brukere';
 		$this->MOST_ACTIVE_THIS_WEEK='Mest aktive denne uken';
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-SourceForge er en <B>fri tjeneste som tilbys utviklere av
+'.$GLOBALS['sys_default_name'].' er en <B>fri tjeneste som tilbys utviklere av
 <A href="http://www.opensource.org">Open Source</A>-programvare</B>. Her f&aring;r du
 enkel tilgang til det beste innen CVS, epostlister, feilkontroll, meldingsforum,
 prosjektstyring, webhosting, filarkiver, backup-l&oslash;sninger og web-basert

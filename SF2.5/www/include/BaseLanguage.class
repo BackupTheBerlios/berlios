@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: BaseLanguage.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: BaseLanguage.class,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 /*
@@ -69,11 +69,12 @@ class BaseLanguage {
 	var $PROJECT_HELP_WANTED='Project Help Wanted';
 	var $TOP_PROJECTS='Top Projects';
 	var $COMPILE_FARM='Compile Farm';
-	var $CONTACT_US='Contact SourceForge';
+	var $CONTACT_US='Contact BerliOS';
 
-        // 2000-11-24
- 	var $ABOUT_SOURCEFORGE='About SourceForge';
+        // 2000-11-24 begin helix
+ 	var $ABOUT_SOURCEFORGE='About BerliOS';
  	var $ABOUT_FOUNDRIES='About Foundries';
+        // 2000-11-24 end helix
 
 	//tool short names as in HTML_TABS()
 	var $GROUP_SHORT_MAIN ='Main';
@@ -90,7 +91,12 @@ class BaseLanguage {
 	var $GROUP_SHORT_NEWS='News';
 	var $GROUP_SHORT_CVS='CVS';
 	var $GROUP_SHORT_FILES='Files';
-        // 2000-11-24
+	// 2003-02-21 helix
+	var $GROUP_SHORT_FTP='FTP';
+	var $GROUP_SHORT_SCREENSHOTS='Screenshots';
+	// 2003-01-31 helix
+	var $GROUP_SHORT_WIKI='Wiki';
+	// 2000-11-24
 	var $GROUP_SHORT_MEMBERLIST='Developers';
 
 	//tool long names for summary page
@@ -119,15 +125,19 @@ class BaseLanguage {
 	var $GROUP_LONG_NEWS='Latest News';	
 	var $GROUP_LONG_CVS='CVS Repository';
 	var $GROUP_LONG_FTP='Anonymous FTP Space';
-	var $GROUP_LONG_FOUNDRIES='SourceForge Development Foundries';
-
+	// 2003-02-21 helix
+	var $GROUP_LONG_SCREENSHOTS='Screenshots';
+	// 2003-01-31 helix
+	var $GROUP_LONG_WIKI='OpenFacts Wiki Pages';
+	var $GROUP_LONG_FOUNDRIES='BerliOS Development Foundries';
 
 	//
 	// New strings for home page added 10/1
 	//
-	var $BREAKING_DOWN_BARRIERS='Breaking Down the Barriers to Open Source Development';
-	var $SOURCEFORGE_STATISTICS='SourceForge Statistics';
+	var $BREAKING_DOWN_BARRIERS='Fostering Open Source Development';
+	var $SOURCEFORGE_STATISTICS='BerliOS Statistics';
 	var $TOP_PROJECT_DOWNLOADS='Top Project Downloads';
+	var $NEWEST_PROJECTS='Newest Projects';
 	var $HIGHEST_RANKED_USERS='Highest Ranked Users';
 	var $MOST_ACTIVE_THIS_WEEK='Most Active This Week';
 	var $SFOS='SourceForge OnSite';
@@ -138,19 +148,19 @@ class BaseLanguage {
 
 	var $HOME_PAGE_ABOUT_BLURB='
 
-SourceForge is a <B>free service to
+BerliOS Developer is a <B>free service to
 <A href="http://www.opensource.org">Open Source</A> developers</B> offering
 easy access to the best in CVS, mailing lists, bug tracking, message boards/forums,
 task management, site hosting, permanent file archival, full backups,
 and total web-based administration. 
-<A href="/docman/display_doc.php?docid=753&group_id=1"><font size="-1">[ more ]</font></A>
-<A href="/docman/display_doc.php?docid=756&group_id=1"><font size="-1">[ FAQ ]</font></A>
+<A href="/docman/index.php?group_id=2">[ more ]</A>
+<!-- <A href="/docman/display_doc.php?docid=756&group_id=1">[ FAQ ]</A> -->
 <BR>
 &nbsp;
 <P>
 <B>Site Feedback and Participation</B>
 <P>
-In order to get the most out of SourceForge, you\'ll need
+In order to get the most out of BerliOS, you\'ll need
 to <A href="/account/register.php">register as a
 site user</A>. This will allow you to participate fully in all we have to
 offer. You may of course browse the site without registering, but will

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Dutch.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Dutch.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -119,8 +119,8 @@ class Dutch extends BaseLanguage {
 		//
 		// New strings for home page added 10/1
 		//
-		$this->BREAKING_DOWN_BARRIERS='Breaking Down the Barriers to Open Source Development';
-		$this->SOURCEFORGE_STATISTICS='SourceForge Statistieken';
+		$this->BREAKING_DOWN_BARRIERS='Supporting Open Source Development';
+		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' Statistieken';
 		$this->TOP_PROJECT_DOWNLOADS='Top projectendownloads';
 		$this->HIGHEST_RANKED_USERS='Gebruikers met de hoogste rang';
 		$this->MOST_ACTIVE_THIS_WEEK='Meest actief deze week';
@@ -131,7 +131,7 @@ class Dutch extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-		SourceForge is een <B>gratis service voor
+		'.$GLOBALS['sys_default_name'].' is een <B>gratis service voor
 		<A href="http://www.opensource.org">Open Source</A> ontwikkelaars</B> die
 		gemakkelijke toegang tot het beste in CVS, mailing lijsen, bug tracking, berichtborden/forums,
 		task management, site hosting, permanent file archival, full backups,
@@ -143,7 +143,7 @@ class Dutch extends BaseLanguage {
 		<P>
 		<B>Site feedback en hoe mee te doen</B>
 		<P>
-		Om het meeste uit SourceForge te halen, moet u naar
+		Om het meeste uit '.$GLOBALS['sys_default_name'].' te halen, moet u naar
 		<A href="/account/register.php">registreren als een site
 		gebruiker</A> gaan. Dit stelt u in staat om volledig mee te doen met alles
 		wat we te bieden hebben. U kan natuurlijk de site doorkijken zonder te

@@ -4,19 +4,21 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: features_boxes.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: features_boxes.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 
 function show_features_boxes() {
 	GLOBAL $HTML,$Language;
 	$return .= $HTML->box1_top($Language->SOURCEFORGE_STATISTICS,0);
 	$return .= show_sitestats();
-	$return .= $HTML->box1_middle($Language->SFOS);
-	$return .= show_sfos();
+//	$return .= $HTML->box1_middle($Language->SFOS);
+//	$return .= show_sfos();
 	$return .= $HTML->box1_middle($Language->TOP_PROJECT_DOWNLOADS);
 	$return .= show_top_downloads();
-	$return .= $HTML->box1_middle($Language->HIGHEST_RANKED_USERS);
-	$return .= show_highest_ranked_users();
+	$return .= $HTML->box1_middle($Language->NEWEST_PROJECTS);
+	$return .= show_newest_projects();
+//	$return .= $HTML->box1_middle($Language->HIGHEST_RANKED_USERS);
+//	$return .= show_highest_ranked_users();
 	$return .= $HTML->box1_middle($Language->MOST_ACTIVE_THIS_WEEK);
 	$return .= show_highest_ranked_projects();
 	$return .= $HTML->box1_bottom(0);
@@ -139,8 +141,8 @@ function show_top_downloads() {
 	// print each one
 	while ($row_topdown = db_fetch_array($res_topdown)) {
 		if ($row_topdown['downloads'] > 0) 
-			$return .= "<BR>($row_topdown[downloads]) <A href=\"/projects/$row_topdown[unix_group_name]/\">"
-			. "$row_topdown[group_name]</A>\n";
+			$return .= "<B>($row_topdown[downloads])</B> <A href=\"/projects/$row_topdown[unix_group_name]/\">"
+			. "$row_topdown[group_name]</A><BR>\n";
 	}
 	$return .= '<P align="center"><A href="/top/">[ More ]</A>';
 	
@@ -219,7 +221,7 @@ function show_newest_projects() {
 	} else {
 		while ( $row_newproj = db_fetch_array($res_newproj) ) {
 			if ( $row_newproj['register_time'] ) {
-				$return .= "(" . date("m/d",$row_newproj['register_time'])  . ") "
+				$return .= "<B>(" . date("m/d",$row_newproj['register_time'])  . ")</B> "
 				. "<A href=\"/projects/$row_newproj[unix_group_name]/\">"
 				. "$row_newproj[group_name]</A><BR>";
 			}
@@ -259,7 +261,7 @@ function show_highest_ranked_projects() {
 		return db_error();
 	} else {
 		while ($row=db_fetch_array($result)) {
-			$return .= '<B>( '.$row['percentile'].'% )</B>'
+			$return .= '<B>( '.sprintf("%.2f", $row['percentile']).'% )</B>'
 				.' <A HREF="/projects/'.$row['unix_group_name'].
 			'/">'.$row['group_name'].'</A><BR>';
 		}

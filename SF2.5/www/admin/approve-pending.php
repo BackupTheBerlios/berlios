@@ -4,7 +4,29 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: approve-pending.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: approve-pending.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+
+
+
+
+// 13.08.03 checking for adminscript running
+if (file_exists("/tmp/6hour.lck"))
+  {
+   //lock-file exists
+   $filestatistik = lstat("/tmp/6hour.lck");
+   
+   /*while(list($key, $val) = each($statistik)) {
+     echo $key . ": " . $val;
+     echo "<br>";
+   }*/
+   echo "Warning! Admin Script is running<BR>please wait until it has finnished<BR>The Script has been started at: ";
+   $zeit = localtime($filestatistik[9] , 1); 
+   echo $zeit[tm_mday].".".$zeit[tm_mon].".".($zeit[tm_year]+1900)." ".
+   $zeit[tm_hour].":".$zeit[tm_min].":".$zeit[tm_sec];
+  }
+else
+  {
+   //The script does not running, it's save 
 
 require ('pre.php');	 
 require ('vars.php');
@@ -19,7 +41,7 @@ session_require(array('group'=>'1','admin_flags'=>'A'));
 
 function activate_group($group_id) {
 	global $feedback;
-echo("activate_group($group_id)<br>");	
+//echo("activate_group($group_id)<br>");	
 
 	if (sf_ldap_create_group($group_id,0)) {
 		db_query("UPDATE groups ".
@@ -136,7 +158,7 @@ while ($row_grp = db_fetch_array($res_grp)) {
 	Custom response tilte and text<br>
 	<input type="text" name="response_title" size="30" max="25"><br>
 	<textarea name="response_text" rows="10" cols="50"></textarea>
-	<input type="checkbox" name="add_to_can" value="yes">Add this custom response to to canned responses
+	<input type="checkbox" name="add_to_can" value="yes">Add this custom response to canned responses
 	<br>
 	<INPUT type="submit" name="submit" value="Delete">
 	</FORM>
@@ -152,15 +174,16 @@ while ($row_grp = db_fetch_array($res_grp)) {
 	<br>
 	&nbsp;
 	<?php
-	$res_cat = db_query("SELECT category.category_id AS category_id,"
-		. "category.category_name AS category_name FROM category,group_category "
-		. "WHERE category.category_id=group_category.category_id AND "
-		. "group_category.group_id=$row_grp[group_id]");
-	while ($row_cat = db_fetch_array($res_cat)) {
-		print "<br>$row_cat[category_name] "
-		. "<A href=\"groupedit.php?group_id=$row_grp[group_id]&group_idrm=$row_grp[group_id]&form_catrm=$row_cat[category_id]\">"
-		. "[Remove from Category]</A>";
-	}
+// 2003-02-03 helix
+//	$res_cat = db_query("SELECT category.category_id AS category_id,"
+//		. "category.category_name AS category_name FROM category,group_category "
+//		. "WHERE category.category_id=group_category.category_id AND "
+//		. "group_category.group_id=$row_grp[group_id]");
+//	while ($row_cat = db_fetch_array($res_cat)) {
+//		print "<br>$row_cat[category_name] "
+//		. "<A href=\"groupedit.php?group_id=$row_grp[group_id]&group_idrm=$row_grp[group_id]&form_catrm=$row_cat[category_id]\">"
+//		. "[Remove from Category]</A>";
+//	}
 
 	// ########################## OTHER INFO
 
@@ -195,5 +218,5 @@ echo '
 	';
 	
 site_admin_footer(array());
-
+  } // end of admin-script-check
 ?>

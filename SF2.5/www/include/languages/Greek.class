@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Greek.class,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: Greek.class,v 1.2 2003/11/13 11:29:24 helix Exp $
 
 
 /*
@@ -115,7 +115,7 @@ class Greek extends BaseLanguage {
 		// New strings for home page added 10/1
 		//
 		$this->BREAKING_DOWN_BARRIERS='Καταλύωντας τους φραγμούς στην Ανάπτυξη Ελεύθερου Λογισμικού';
-		$this->SOURCEFORGE_STATISTICS='Στατιστικά SourceForge';
+		$this->SOURCEFORGE_STATISTICS='Στατιστικά '.$GLOBALS['sys_default_name'];
 		$this->TOP_PROJECT_DOWNLOADS='Κορυφαίες Μεταφορτώσεις Έργων';
 		$this->HIGHEST_RANKED_USERS='Χρήστες Μεγαλύτερης Αξιολόγησης';
 		$this->MOST_ACTIVE_THIS_WEEK='Περισσότερο Ενεργό για Αυτήν την Εβδομάδα';
@@ -126,7 +126,7 @@ class Greek extends BaseLanguage {
 
 		$this->HOME_PAGE_ABOUT_BLURB='
 
-Το SourceForge είναι μια <B>ελεύθερη υπηρεσία για
+Το '.$GLOBALS['sys_default_name'].' είναι μια <B>ελεύθερη υπηρεσία για
 <A href="http://www.opensource.org">Open Source</A> προγραμματιστές</B> που προσφέρει
 εύκολη πρόσβαση στα καλύτερα χαρακτηριστικά του CVS, των λιστών συνδρομητών, της παρακολούθησης σφαλμάτων, 
 των βημάτων συζητήσεων,
@@ -139,7 +139,7 @@ class Greek extends BaseLanguage {
 <P>
 <B>Ανάδραση Δικτυακού Τόπου και Συμμετοχή</B>
 <P>
-Για να επωφεληθείτε τα μέγιστα από το SourceForge, θα πρέπει να
+Για να επωφεληθείτε τα μέγιστα από το '.$GLOBALS['sys_default_name'].', θα πρέπει να
 <A href="/account/register.php"> εγγραφείτε ως χρήστης συστήματος</A>. 
 Αυτό θα σας επιτρέψει να συμμετάσχετε πλήρως σε όλα όσα έχουμε να προσφέρουμε.
 Φυσικά, μπορείτε να περιηγηθήτε σε αυτό το δικτυακό τόπο χωρίς εγγραφή, ωστόσο δε θα

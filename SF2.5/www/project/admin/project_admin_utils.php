@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_admin_utils.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: project_admin_utils.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 /*
 
@@ -35,7 +35,9 @@ function project_admin_header($params) {
         echo '
         | <A HREF="/people/createjob.php?group_id='.$group_id.'">Post Jobs</A> | 
 	<A HREF="/people/?group_id='.$group_id.'">Edit Jobs</A> |
-	<A HREF="/project/admin/editimages.php?group_id='.$group_id.'">Edit Screenshots</A>
+	<A HREF="/project/admin/editimages.php?group_id='.$group_id.'">Screenshots</A> |
+	<A HREF="/project/admin/mydatabase.php?group_id='.$group_id.'">Database</A> |
+	<A HREF="/project/admin/vhost.php?group_id='.$group_id.'">Virtual Host</A>
 	</B>
 	<P>';
 }
@@ -235,5 +237,67 @@ function show_grouphistory ($group_id) {
 		<H3>No Changes Have Been Made to This Group</H3>';
 	}       
 }       
+
+/*
+	prdb_namespace_seek - check that a projects' potential db name hasn't
+	already been used.  If it has - add a 1..20 to the end of it.  If it 
+	iterates through twenty times and still fails - namespace depletion - 
+	throw an error.
+
+ */
+function prdb_namespace_seek($namecheck) {
+
+	$query = "select * "
+		."from prdb_dbs "
+		."where dbname = '$namecheck'";
+
+	$res_dbl = db_query($query);
+	
+	$newname = $namecheck;
+
+	if (db_numrows($res_dbl) > 0) {
+		//crap, we're going to have issues
+		$curr_num = 1;
+
+		while ((db_numrows($res_dbl) > 0) && ($curr_num < 20)) {
+			
+			$curr_num++;
+			$newname = $namecheck."$curr_num";
+					
+			$query = "select * "
+				."from prdb_dbs "
+				."where dbname = '$newname'";
+
+			$res_dbl = db_query($query);
+		}
+
+		// if we reached 20, then the namespace is depleted - eject eject
+		if ($curr_num == 20) {
+			exit_error("Namespace Failure","Failed to find namespace for database");
+		}
+
+	}
+	return $newname;
+
+} //end prdb_namespace_seek()
+
+function random_pwgen() {
+
+	srand ( (double) microtime()*10000000); 
+	$rnpw = "";
+
+	for ($i = 0; $i < 10; $i++) {
+
+		$rn = rand(1,2);
+
+		if ($rn == 1) {
+			$rnpw .= rand(1,9);
+		} else {
+			$rnpw .= chr(rand(65,122));
+		}
+
+	}
+	return $rnpw;
+}
 
 ?>

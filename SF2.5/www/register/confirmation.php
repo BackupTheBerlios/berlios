@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: confirmation.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: confirmation.php,v 1.2 2003/11/13 11:29:26 helix Exp $
 
 require 'pre.php';    // Initial db and session library, opens session
 session_require(array('isloggedin'=>'1'));
@@ -113,11 +113,11 @@ if ($show_confirm) {
 	?>
 
 	<H1>Registration Complete!</H1>
-	<P>Your project has been submitted to the SourceForge admininstrators. 
+	<P>Your project has been submitted to the <?php print $GLOBALS['sys_default_name'] ?> admininstrators. 
 	Within 24 hours, you will receive decision notification and further 
 	instructions.
 	<P>
-	Thank you for choosing SourceForge.
+	Thank you for choosing <?php print $GLOBALS['sys_default_name'] ?>.
 	<P>
 
 	<?php

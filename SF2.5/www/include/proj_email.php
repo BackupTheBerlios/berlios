@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: proj_email.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: proj_email.php,v 1.2 2003/11/13 11:29:23 helix Exp $
 
 function send_new_project_email($group_id) {
 
@@ -27,32 +27,33 @@ function send_new_project_email($group_id) {
 	// send one email per admin
 while ($row_admins = db_fetch_array($res_admins)) {
 	$message = 
-'Your project registration for SourceForge has been approved. 
+'Your project registration for '.$GLOBALS['sys_default_name'].' has been approved. 
 
 Project Full Name:  '.$row_grp['group_name'].'
 Project Unix Name:  '.$row_grp['unix_group_name'].'
 CVS Server:         cvs.'.$row_grp['unix_group_name'].'.'.$GLOBALS['sys_default_domain'].'
-Shell/Web Server:   '.$row_grp['unix_group_name'].'.'.$GLOBALS['sys_default_domain'].'
+Shell Server:       '.$GLOBALS['sys_shell_host'].'
+Web Server:         '.$row_grp['unix_group_name'].'.'.$GLOBALS['sys_default_domain'].'
 
 Your DNS will take up to a day to become active on our site. Your shell
 accounts will become active at the next 6-hour cron update. While
 waiting for your DNS to resolve, you may try shelling into 
-'. $GLOBALS['sys_shell_host']. ' and pointing CVS to '. $GLOBALS['sys_cvs_host'].'.
+'. $GLOBALS['sys_shell_host'].' and pointing CVS to '. $GLOBALS['sys_cvs_host'].'.
 
 If after six hours your shell accounts still do not work, please
 open a support ticket so that we may take a look at the problem.
 Please note that all shell accounts are closed to telnet and only
-work with SSH1.
+work with SSH2.
 
 Your web site is accessible through your shell account. Directory
 information will be displayed immediately after logging in.
 
 Please take some time to read the site documentation about project
-administration. If you visit your own project page in SourceForge
-while logged in, you will find additional menu functions to your left
-labeled "Project Administrator". 
+administration. If you visit your own project page in '.$GLOBALS['sys_default_name'].'
+while logged in, you will find additional menu functions to your
+left labeled "Project Administrator". 
 
-We highly suggest that you now visit SourceForge and create a public
+We highly suggest that you now visit  and create a public
 description for your project. This can be done by visiting your project
 page while logged in, and selecting \'Project Admin\' from the menus
 on the left.
@@ -63,12 +64,12 @@ people can find your project, you should do this now. Visit your project
 while logged in, and select \'Project Admin\' from the menus on the
 left.
 
-Enjoy the system, and please tell others about SourceForge. Let us know
+Enjoy the system, and please tell others about '.$GLOBALS['sys_default_name'].'. Let us know
 if there is anything we can do to help you.
 
- -- the SourceForge crew';
+ -- the '.$GLOBALS['sys_default_name'].' crew';
 	
-	mail($row_admins['email'],"SourceForge Project Approved",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
+	mail($row_admins['email'],$GLOBALS['sys_default_name']." Project Approved",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
 
 }
 
@@ -90,7 +91,7 @@ function send_project_rejection($group_id, $response_id, $message="zxcv")
 		$response = db_result(db_query("SELECT response_text FROM canned_responses WHERE response_id='$response_id'"),0,"response_text");
 	}
 
-	mail($email, "SourceForge Project Denied", $response, "From: noreply@sourceforge.net");
+	mail($email, $GLOBALS['sys_default_name']." Project Denied", $response, "From: noreply@".$GLOBALS['sys_default_domain']);
 
 	return true;
 }

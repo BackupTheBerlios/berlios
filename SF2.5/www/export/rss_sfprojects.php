@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_sfprojects.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: rss_sfprojects.php,v 1.2 2003/11/13 11:29:22 helix Exp $
 
 // ## export SourceForge project list in RSS
 
@@ -18,9 +18,9 @@ print '<?xml version="1.0"?>
 $res = db_query(
 	 'SELECT group_id,group_name,unix_group_name,homepage,short_description '
 	.'FROM groups '
-	.'WHERE is_public=1 AND status="A" '
+	.'WHERE is_public=1 AND status=\'A\' '
         .'ORDER BY group_id',$limit);
 
-rss_dump_project_result_set($res,'SourceForge Full Project Listing');
+rss_dump_project_result_set($res,$GLOBALS[sys_default_name].' Full Project Listing');
 ?>
 </rss>
