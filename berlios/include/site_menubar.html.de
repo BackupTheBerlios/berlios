@@ -1,0 +1,45 @@
+<td BGCOLOR="#FFCC33">
+<!-- BerliOS menu -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">BerliOS</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td><a href="/index.php.de" class="menus">Home</a>
+<br><a href="http://news.berlios.de/" class="menus">News</a>
+<br><a href="http://forum.berlios.de/" class="menus">Diskussionsforum</a>
+<br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
+<br><a href="http://user.berlios.de/index.php.de" class="menus">Anwender</a>
+<br><a href="http://developer.berlios.de/index.php" class="menus">Entwickler</a>
+<br><a href="http://sourcebiz.berlios.de/?lang=German" class="menus">Hersteller &amp; Support</a>
+<p><a href="index.php.en"><img src="/images/englishflag.png" border="0"></a></td>
+</tr>
+</table>
+<!-- end BerliOS menu -->
+<!-- Search menu -->
+<!--
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Suche</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+<center>
+<font size="-1">
+<form action="/cgi-bin/webglimpse/export/http"><input TYPE="hidden" NAME="localcopy" VALUE="n"><input TYPE="hidden" NAME="lines" checked VALUE="on"><input TYPE="text" SIZE="15" NAME="query" VALUE="">
+<p><input TYPE="submit" NAME="Search" VALUE="Suche">
+</form>
+</font>
+</center>
+</td>
+</tr>
+</table>
+-->
+<!-- end Search menu -->
+</td>
+
+<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="/images/blank.gif" BORDER=0 height=1 width=10></td>

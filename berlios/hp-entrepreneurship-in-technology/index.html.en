@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>HP Entrepreneurship in Technology - BerliOS Project Proposal</title>
+    <LINK REL=STYLESHEET TYPE="text/css" HREF="../style.css">
+  </head>
+
+<body TEXT="#333333" BGCOLOR="#FFFFFF" LINK="#666666" VLINK="#551A8B" ALINK="#FF0000">
+
+<h1>HP Entrepreneurship in Technology</h1>
+
+<h3>BerliOS Project</h3>
+
+<p style="margin-left: 1cm">Homepage: <a href="http://www.berlios.de/">http://www.berlios.de/</a>
+<br>Project proposal: <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/">http://www.berlios.de/hp-entrepreneurship-in-technology/</a>
+
+<p style="margin-left: 1cm">For the project proposal an <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/index.html.en">English</a> and <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/index.html.de">German</a> version is available. Please set your preferred language in the preferences of your browser to see the corresponding version.
+
+<h3>Participants in the BerliOS Project</h3>
+
+<p style="margin-left: 1cm"><b>FOKUS - Research Institute for Open Communication Systems at
+<br>GMD - German National Research Center for Information Technology</b>
+<br>Kaiserin-Augusta-Allee 31
+<br>D-10589 Berlin
+<br>Germany
+<br>Phone: +49-30-34 63-7000
+<br>Fax: +49-30-34 63-8000
+<br>e-mail: <a href="mailto:info@fokus.gmd.de">info@fokus.gmd.de</a>
+<br>Internet: <a href="http://www.fokus.gmd.de/" target="_blank">http://www.fokus.gmd.de/</a>
+
+<p style="margin-left: 1cm"><b>Prof. Dr. Dr. h.c. Radu Popescu-Zeletin (Director)</b>
+<br>e-mail: <a href="mailto:zeletin@fokus.gmd.de">zeletin@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/zeletin" target="_blank">http://www.fokus.gmd.de/usr/zeletin</a>
+
+<p style="margin-left: 1cm"><b>Dipl.-Ing. Berthold Butscher (Deputy Director)</b>
+<br>e-mail: <a href="mailto:butscher@fokus.gmd.de">butscher@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/butscher" target="_blank">http://www.fokus.gmd.de/usr/butscher</a>
+
+<p style="margin-left: 1cm"><b>Dipl.-Inform. Lutz Henckel (Project Leader)</b>
+<br>e-mail: <a href="mailto:lutz.henckel@fokus.gmd.de">lutz.henckel@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/lutz.henckel" target="_blank">http://www.fokus.gmd.de/usr/lutz.henckel</a>
+
+<h3>Summary</h3>
+
+<p style="margin-left: 1cm">Due to the success and dissemination of Linux the idea of Open Source Software (OSS) is now known in industry as well as in the public. The BerliOS Open Source Center shall support and mediate between interests and needs of the different groups (like developers, users, distributors, support companies, etc.) and to promote dissemination of this market model. The main objective of BerliOS is to increase the level of awareness and to support deployment through mediation between free developers, commercial providers (e.g. software manufacturers, support companies) and users (e.g. small and mid-size enterprises as well as the public administration).
+
+<h3>Timetable and Milestones</h3>
+
+<p style="margin-left: 1cm"><b>Duration:</b> 24 month
+<br><b>Begin:</b> X
+
+<p style="margin-left: 1cm"><b>Activities</b>
+
+<p style="margin-left: 1cm">A1: Concept development, infrastructure set-up and operation
+
+<ul style="margin-left: 1cm">
+<li>to set-up and operate a server-based infrastructure,
+<li>to develop a concept for the establishment of a software exchange and to define corresponding execution rules,
+<li>to develop a concept for a longer-term financing of the BerliOS Open Source Center.
+</ul>
+
+<p style="margin-left: 1cm">A2: Services for users
+
+<ul style="margin-left: 1cm">
+<li>to  a Portal Site (One-Stop-Site) for Open Source documentation, information, news and discussion,
+<li>to analyze and document exemplary solutions applicable in selected trades,
+<li>to perform demand and market analyses in co-operation with users, developers and support companies.
+</ul>
+
+<p style="margin-left: 1cm">A3: Services for developers
+
+<ul style="margin-left: 1cm">
+<li>to provide a free of charge infrastructure supporting joint coordinated software development between people who live and work at different geographical places,
+<li>to work out recommendations for development of "truly" portable Open Source software,
+<li>to initiate new OSS projects as a result of demand and market analyses supported by the Open Source Software Exchange.
+</ul>
+
+<p style="margin-left: 1cm">A4: Services for Manufacturers, Distributors and Support Companies
+
+<ul style="margin-left: 1cm">
+<li>to realize and provide databases for products and services where companies are able to define the contents by itself,
+<li>to provide forums to discuss about products and problems in particular trades,
+<li>to initiate new product developments as a result of demand and market analyses.
+</ul>
+
+<p style="margin-left: 1cm"><b>Milestones</b>
+
+<dl style="margin-left: 1cm">
+<dt>M1 (begin + 6 month):
+<dd>Operation start of infrastructure and Portal Site for users, developers, manufacturers, distributors and support companies.
+<dt>M2 (begin + 9 month):
+<dd>Selection of particular trades, which will be exemplary analyzed and documented.
+<dt>M3 (begin + 12 month):
+<dd>Concept and execution rules for the implementation of an Open Source Software Exchange.
+<br>Documentation of exemplary solutions in particular trades and identification of missing components.
+<br>Recommendations for development of "truly" portable Open Source software.
+<dt>M4 (begin + 15 month):
+<dd>Acquisition of funds and invitation for offers in Open Source Software Exchange.
+<dt>M5 (begin + 24 month):
+<dd>Report about experiences in connection with development progress of OSS components and products for selected trades.
+<br>Concept for a longer-term financing of the BerliOS Open Source Center.
+</dl>
+
+<p style="margin-left: 1cm"><b>Publications</b>
+
+<ul style="margin-left: 1cm">
+<li>...
+<li>Wizard of OS
+</ul>
+
+<h3>Background</h3>
+
+<p style="margin-left: 1cm">The birth of the Open Source idea was in the late 70th when a project was started to develop a distributed News system for the Internet. Thereby the disclosure of the sources was absolutely necessary due to the fact that it should be possible to port the system to several different variants of the Unix operating system. After that in the year 1984
+the GNU project was started with the goal to develop a complete free Unix-like operating system. At the beginning compiler and software development tools were realized. Later on system and network utilities were implemented. In the first phase the GNU software was very popular at universities and research labs, due to fact that the source code is freely available and the possibility to make enhancements as well as to adapt it to individual needs. Furthermore universities and schools like to use the open source code for teaching and studying purposes. Due to the absence of an operating system kernel at first the GNU components were developed for the proprietary operating system SunOS, ported to Sun Solaris, IBM AIX, HP-UX, SGI IRIX, SCO Unix, etc., and used as a replacement for or supplement to commercial components. The later development of the Linux Kernel and the bundling of kernel, utilities and applications to a complete operating system leverages the Open Source idea. Today Linux Distributions are offered by several companies e.g. Caldera, Corel, Red Hat, SuSE, etc.
+
+<p style="margin-left: 1cm"><b>Developers</b>
+
+<p style="margin-left: 1cm">The development of Open Source software is done by individual persons or free developer groups. In doing so adequate wages is not the main motivation but rather the visibility of the developer, the public discussion of technical realization and the joint learning process are the motivating strengths for the commitment of individuals.
+Due to the fact that the source code can be freely distributed, used and modified enables the participation and integration of interested persons in the development process which accelerates development cycles and leads to higher software quality. Due to foster the openness of free developer groups and to support the joint learning and development process the attractiveness of participation still can be increased significantly. Against the background of a serious lack of computer specialists the support of personal commitment leads to higher qualification and opens the possibility of a basic qualification for people which like to change their carrier direction. This can be a contribution to satisfy the keen demand for computer specialists. 
+
+<p style="margin-left: 1cm"><b>Users</b>
+
+<p style="margin-left: 1cm">In opposite to commercial software the deployment of Open Source software shows substantial advantages. Costs for licenses cease to exist which leads to increase the competitiveness of companies. Due to the openness of sources developments can relay on it and adaptations to individual needs can be realized by the users itself or by software houses on behalf of clients. On the other hand open sources can be verified which is a pre-requisite to excite trustworthiness for a given solution. For commercial products only the behavior can be observed from outside. Therefore possibility for verification is only limited and the customer is forced to trust the manufacturer finally.
+
+<p style="margin-left: 1cm">The stability of Open Source solutions are mostly quite high, because bug analysis and correction are not only cleaned up by the software manufacturer but also by testers and users. Due to distribution and survey of the software wrong development directions and bugs will be recognized early yet during development phase. This leads to accelerate iteration cycles.
+
+<p style="margin-left: 1cm">The offer of Open Source software growth very fast because a tremendous number of people join in the development process.
+
+<p style="margin-left: 1cm">In spite of these obvious advantages the market penetration is not as high as in research and education area particularly with regard to SME's and public administration. The causes for these circumstances are on one hand a shortfall in knowledge about the offered Open Source alternatives, lacking knowhow or on the other hand missing professional offerings for consulting, integration and support. The knowledge about Open Source alternatives can be increased substantially by organizing workshops and information events as well as demand analysis and documentation. Thereby special requirements of particular trades has to be considered. It is important to point out and document already existing solutions and also to identify missing components which averts the usage of Open Source solutions today.
+
+<p style="margin-left: 1cm"><b>Manufacturers, Distributors and Support Companies</b>
+
+<p style="margin-left: 1cm">The increasing deployment of Open Source software in the business environment will also create a higher demand for professional consultancy, technical support and training. This leads to job creation in a new dynamic industry sector. Business opportunities arise for information technology professionals and company start-ups offering Open Source expertise and technical support services.
+
+<p style="margin-left: 1cm">But also traditional software manufacturers recognize the advantages which offer the Open Source market model. New technologies gain a high dissemination whereby an establishment of industry standards can be reached. Furthermore interested users and free developers can be acquired for testing, maintenance and further development which leads to cost reduction and encourage the personal identification with the original manufacturer. Than increased personal identification with a manufacturer also enforces readiness to buy products.
+
+<p style="margin-left: 1cm">Further information about the BerliOS project can be found using the URL:
+<a href="http://www.berlios.de/">http://www.berlios.de/</a>.
+
+<h3>Activity description</h3>
+
+<p style="margin-left: 1cm">The main goal of BerliOS is to support the different interest groups in the area of Open Source Software (OSS) and thereby to offer a neutral mediator function. The target groups of BerliOS are on one hand the developers and users of Open Source software and on the other hand commercial manufacturers of OSS operating systems and applications as well as support companies.
+
+<p style="margin-left: 1cm"><b>Users</b>
+
+<p style="margin-left: 1cm">Besides private users of Open Source software small to mid-size enterprises (SMEs) as well as the public administration are important target groups BerliOS will address. It will be pointed out in which application areas entire OSS solutions are already available today and are applicable in production fields.
+
+<p style="margin-left: 1cm">In dialogue with the users of particular trades missing components will be identified, which still averts OSS solutions to come into operation today. The development of these missing components shall then be initiated by contacting software manufacturers or free developer groups to realize corresponding components.
+
+<p style="margin-left: 1cm">Another main focus will be the provision of general information about the OSS community. Among other thinks this includes web-based documentation, databases for software, hardware and products, news, event notes as well as search engines.
+Furthermore existing solutions into operation in particular trades are presented and documented. Discussion forums supports the exchange of experience between the users of OSS solutions. Finally the most important Web and FTP servers are mirrored to offer the world-wide developed Open Source software and documentation in the national (Germany) domain extensive and fast.
+
+<p style="margin-left: 1cm">The following information and services are offered to users:
+
+<ul style="margin-left: 1cm">
+<li><b>Documentation</b>
+<br>The world-wide emerging documentation about Open Source software is classified by BerliOS and is provided to the public via the world-wide web. The documentation contains HOWTO and FAQ documents, free books and books directories, as well as standards and other documents. Beside the offering of English documents a main goal of BerliOS is the provision of information in German language.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Databases</b>
+<br>Through databases extensive information is offered to users about Open Source distributions and application software, hardware and software products as well as support services and companies. With an easy to use interface recherche functions can be initiated by users.
+</li>
+<p style="margin-left: 1cm">
+<li><b>News &amp; Events</b>
+<br>Recent news and event notes about Open Source topics are offered in a compact form.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Software Archives</b>
+<br>The main archives of world-wide developed Open Source software are mirrored to support an extensive software offering with fast access in the national domain (Germany).
+Downloads are provided by World-wide Web and FTP.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Solutions for particular trades</b>
+<br>Existing solutions in particular companies are introduced and documented. The experience gained during realization and deployment then can be used as an example for implementation in other companies to show chances and risks. BerliOS offers a technical infrastructure for the exchange of experience between users and provide a mediator function between users and developers as well as support companies.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Software Exchange</b>
+<br>For free developer groups incentives are provided by an Open Source Software Exchange. In the market particular enterprises, interest groups or the government will offer an amount of money for a needed solution. The developers which supplies the components first will gain the money.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Search Engine</b>
+<br>Besides our own search engine enabling users to find information on the BerliOS Web server an additional directory of other world-wide existing search engines is offered.
+</li>
+</ul>
+
+<p style="margin-left: 1cm" ><b>Developers</b>
+
+<p style="margin-left: 1cm">A server-based infrastructure will be provided for the developers of Open Source software. The administrative tools supports the joint coordinated software development between people who live and work at different geographical places.
+
+<p style="margin-left: 1cm">For free developer groups incentives shall be provided by an Open Source Software Exchange. In the market particular enterprises, interest groups or the government will offer an amount of money for a needed solution. The developers which supplies the components first will gain the money.
+
+<p style="margin-left: 1cm">The motivation for software manufacturers to develop commercial products results from demand analyses in particular trades which shows a market gap. 
+
+<p style="margin-left: 1cm">For the realization of Open Source projects the following services are provided free of charge:
+
+<ul style="margin-left: 1cm">
+<li>
+<b>Software Repositories with Version Control</b>
+<br>Each project gets its own CVS repository with separate CVSROOT. Developers are granted secure read/write access to the tree through SSH. Anonymous CVS/pserver read access is granted to the general public.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Web Server</b>
+<br>Each project gets its own web directory for presentation purposes. An own CGI directory allows the execution of scripts. The domain is hosted on a name-based VirtualHost on the main project web server.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>FTP Server</b>
+<br>Each project gets its own FTP directory. Developers are granted to upload files. Anonymous users are granted to download files only.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Database</b>
+<br>Each project gets its own MySQL database the web server has access to. An web-based interface allows the administration of the database for developers.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Mailing Lists</b>
+<br>Each project can create and manage its own mailing lists. There exist two different types. Every user is able to become a member of an open mailing list. But only an administrator is able to add a new member to a closed one.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Discussion Forums</b>
+<br>Discussion forums provide the exchange of experience, requests for help and development, etc.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Bug Tracking</b>
+<br>Reporting bugs and its management is supported by a bug tracking system.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Surveys and Rating</b>
+<br>Surveys can be performed by each project to get a valuation or to recognize trends and user wishes in the preliminary stages of development.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>News</b>
+<br>Each project can provide and manage its own news.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Project Management</b>
+<br>By the use of a web browser as well as the server-based administration tools an easy maintenance is provided for all facets of a project.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Project Map</b>
+<br>All projects hosted from BerliOS will be organized thematically and listed in a project map.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Software Exchange</b>
+<br>In the market particular enterprises, interest groups or the government will offer an amount of money for a needed solution. The developers which supplies the components first will gain the money.
+</li>
+</ul>
+
+<p style="margin-left: 1cm"><b>Manufacturers, Distributors &amp; Support Companies</b>
+
+<p style="margin-left: 1cm">The application of Open Source software in business environment creates a need for high quality consultancy, technical support and training leading to job creation in a new dynamic industry sector. BerliOS will support this process by acting as information switchboard and clearing house between demand and supply side of Open Source support services.
+
+<p style="margin-left: 1cm">A neutral platform will be provided to present products from manufacturers of operating system distributions and applications as well as support companies:
+
+<ul style="margin-left: 1cm">
+<li><b>Databases</b>
+<br>Through the provision of databases for companies, products and services and its thematically structuring the users gets the possibility to find information they really need. Within the scope of the allowed structure companies are able to define its contents by itself and to update it whenever needed reflecting the actual status.
+</li>
+</ul>
+
+<h3>Public Domain Software and Labs</h3>
+
+<p style="margin-left: 1cm">The preponderant part of the server-based application software to manage OSS development projects and to generate dynamic Web content using databases as well as the complete documentation is based on Open Source components and will be freely available over the Internet.
+
+</body>
+</html>

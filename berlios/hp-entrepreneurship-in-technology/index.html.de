@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>HP Entrepreneurship in Technology - BerliOS Projektantrag</title>
+    <LINK REL=STYLESHEET TYPE="text/css" HREF="../style.css">
+  </head>
+
+<body TEXT="#333333" BGCOLOR="#FFFFFF" LINK="#666666" VLINK="#551A8B" ALINK="#FF0000">
+
+<h1>HP Entrepreneurship in Technology</h1>
+
+<h3>BerliOS Projekt</h3>
+
+<p style="margin-left: 1cm">Homepage: <a href="http://www.berlios.de/">http://www.berlios.de/</a>
+<br>Projektvorschlag: <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/">http://www.berlios.de/hp-entrepreneurship-in-technology/</a>
+
+<p style="margin-left: 1cm">Der Projektvorschlag existiert in einer <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/index.html.en">Englischen</a> und einer <a href="http://www.berlios.de/hp-entrepreneurship-in-technology/index.html.de">Deutschen</a> Version. Setzen Sie bitte Ihren Browser in den Voreinstellungen auf die gew&uuml;nschte Sprache, damit die entsprechende Version angezeigt wird.
+
+<h3>Projektteilnehmer</h3>
+
+<p style="margin-left: 1cm"><b>FOKUS - Forschungsinstitut f&uuml;r Offene Kommunikationssysteme des
+<br>GMD - Forschungszentrums f&uuml;r Informationstechnik GmbH</b>
+<br>Kaiserin-Augusta-Allee 31
+<br>D-10589 Berlin
+<br>Deutschland
+<br>Telefon: +49-30-34 63-7000
+<br>Telefax: +49-30-34 63-8000
+<br>e-mail: <a href="mailto:info@fokus.gmd.de">info@fokus.gmd.de</a>
+<br>Internet: <a href="http://www.fokus.gmd.de/" target="_blank">http://www.fokus.gmd.de/</a>
+
+<p style="margin-left: 1cm"><b>Prof. Dr. Dr. h.c. Radu Popescu-Zeletin (Direktor)</b>
+<br>e-mail: <a href="mailto:zeletin@fokus.gmd.de">zeletin@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/zeletin" target="_blank">http://www.fokus.gmd.de/usr/zeletin</a>
+
+<p style="margin-left: 1cm"><b>Dipl.-Ing. Berthold Butscher (stellv. Direktor)</b>
+<br>e-mail: <a href="mailto:butscher@fokus.gmd.de">butscher@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/butscher" target="_blank">http://www.fokus.gmd.de/usr/butscher</a>
+
+<p style="margin-left: 1cm"><b>Dipl.-Inform. Lutz Henckel (Projektleiter)</b>
+<br>e-mail: <a href="mailto:lutz.henckel@fokus.gmd.de">lutz.henckel@fokus.gmd.de</a>
+<br>internet: <a href="http://www.fokus.gmd.de/usr/lutz.henckel" target="_blank">http://www.fokus.gmd.de/usr/lutz.henckel</a>
+
+<h3>Zusammenfassung</h3>
+
+<p style="margin-left: 1cm">Mit dem Erfolg und der Verbreitung von Linux wurde der
+Gedanke der "Open-Source-Software" (OSS) inzwischen erkennbar in die Wirtschaft und
+&Ouml;ffentlichkeit getragen. Das Open-Source-Zentrum BerliOS soll die
+Interessen und Bed&uuml;rfnisse der verschiedenen beteiligten Interessengruppen
+(Entwickler, Nutzer, Support-Firmen etc.) b&uuml;ndeln und die weitere Verbreitung dieses
+Marktmodells unterst&uuml;tzen. Ein wesentliche Aufgabe von BerliOS ist es, den
+Bekanntheitsgrad von OSS zu erh&ouml;hen und deren Einsatz durch Vermittlung zwischen
+den freien Entwicklern bzw. kommerziellen Anbietern (z.B. Softwareh&auml;user,
+Support-Firmen) und den Endnutzern (z.B. kleine und mittelst&auml;ndische Unternehmen
+sowie &ouml;ffentliche Verwaltung) zu f&ouml;rdern.
+
+<h3>Zeitplan und Meilensteine</h3>
+
+<p style="margin-left: 1cm"><b>Laufzeit:</b> 24 Monate
+<br><b>Beginn:</b> X
+
+<p style="margin-left: 1cm"><b>Aktivitäten</b>
+
+<p style="margin-left: 1cm">A1: Konzeption, Infrastrukturaufbau und Betrieb
+
+<ul style="margin-left: 1cm">
+<li>Aufbau und Betrieb der server-basierte Infrastruktur,
+<li>Erarbeitung eines Konzepts f&uuml;r die Etablierung einer Software-B&ouml;rse und Definition von Durchf&uuml;hrungsregeln
+<li>Erarbeitung eines Konzepts zur l&auml;ngerfristigen Finanzierung des BerliOS
+Open-Source-Centers.
+</ul>
+
+<p style="margin-left: 1cm">A2: Dienstleistungen für Anwender
+
+<ul style="margin-left: 1cm">
+<li>Realisierung einer Portal Site (One-Stop-Site) für Open-Source-Dokumentation, Information, News und Diskussion,
+<li>Analyse und Dokumentation von beispielhaften Anwendungsl&ouml;sungen in ausgew&auml;hlten Branchen,
+<li>Durchf&uuml;hrung von Bedarfs- und Marktanalysen in Zusammenarbeit mit Anwendern, Entwicklern, Herstellern und Dienstleistern.
+</ul>
+
+<p style="margin-left: 1cm">A3: Dienstleistungen für Entwickler
+
+<ul style="margin-left: 1cm">
+<li>Bereitstellung einer kostenlose Infrastruktur zur Unterstützung gemeinsamer koordinierter OSS-Entwicklung in geographisch verteilten Entwicklergruppen,
+<li>Erarbeitung von Empfehlungen zur Entwicklung von wirklich portabler Open-Source-Software,
+<li>Anstoss neuer OSS-Projekte als Ergebnis von Bedarfs- und Marktanalysen unterstützt durch Open-Source-Software Börse.
+</ul>
+
+<p style="margin-left: 1cm">A4: Dienstleistungen für Hersteller und Dienstleister
+
+<ul style="margin-left: 1cm">
+<li>Realisierung und Bereitstellung einer Plattform zur Selbstdarstellung in Produkt- und Dienstleistungsdatenbanken,
+<li>Unters&uuml;tzung von Produkt und Branchenspezifischen Diskussionsforen,
+<li>Initieren neuer Produktentwicklungen als Ergebnis der Bedarfs- und Marktanalysen mit branchenspezifischen Anwendergruppen.
+</ul>
+
+<p style="margin-left: 1cm"><b>Meilensteine</b>
+
+<dl style="margin-left: 1cm">
+<dt>M1 (Beginn + 6 Monate):
+<dd>Inbetriebnahme der Infrastruktur und Portal Site f&uuml;r Anwender, Entwickler, Hersteller und Dienstleister.
+<dt>M2 (Beginn + 9 Monate):
+<dd>Auswahl der Branchen, die beispielhaft analysiert und dokumentiert werden.
+<dt>M3 (Beginn + 12 Monate):
+<dd>Konzept und Durchf&uuml;hrungsbedingungen f&uuml;r die Implementierung einer Software-B&ouml;rse
+<br>Dokumentation existerender Branchenbeispiele und Identifikation fehlender Komponenten
+<br>Empfehlungen zur Entwicklung von wirklich portabler Open-Source-Software
+<dt>M4 (Beginn + 15 Monate):
+<dd>Aquisition von F&ouml;rdermitteln und Ausschreibung in OSS-B&ouml;rse
+<dt>M5 (Beginn + 24 Monate):
+<dd>Erfahrungsbericht &uuml;ber den Entwicklungsfortschritt von OSS-Komponenten bzw. Produkten f&uuml;r ausgew&auml;hlte Branchen.
+<br>Konzept zur l&auml;ngerfristigen Finanzierung des BerliOS Open-Source-Centers.
+</dl>
+
+<p style="margin-left: 1cm"><b>Ver&ouml;ffentlichungen</b>
+
+<ul style="margin-left: 1cm">
+<li>...
+<li>Wizard of OS
+</ul>
+
+<h3>Hintergrund</h3>
+
+<p style="margin-left: 1cm">Bereits Ende der 70'ger Jahre wurde ein Open-Source-Projekt gestartet, indem ein verteiltes News-System f&uuml;r das Internet realisiert wurde. Die Offenlegung der Quellen war dabei unbedingt erforderlich, da das System auf unterschiedliche Varianten des Unix-Betriebssystems portiert werden sollte. Im Jahr 1984 startete dann das GNU-Projekt das sich bereits damals zum Ziel gesetzt hatte, ein vollkommen freies Unix-kompatibles Betriebssystem zum entwickeln.
+Zun&auml;chst wurden Compiler und Software-Entwicklungstools realisiert, sp&auml;ter kamen Dienstprogramme und Netzwerkkomponenten hinzu. In der ersten Phase erfreute sich die GNU-Software grosser Beliebtheit insbesondere an Universit&auml;ten und Forschungslabors, aufgrund der frei verf&uuml;gbaren Quellen und
+der damit verbundenen M&ouml;glichkeit der Weiterentwicklung und Anpassung an
+individuelle Bed&uuml;rfnisse. Die offengelegten Quellen werden aber auch gern als
+Lehr- und Lernobjekt an Universit&auml;ten und Schulen eingesetzt. Aus Mangel
+eines nicht vorhandenen Betriebssystemkerns wurden die GNU-Komponenten zun&auml;chst f&uuml;r das propriet&auml;re Unix-Betriebssystem SunOS entwickelt, auf Sun Solaris, IBM AIX, HP-UX, SGI IRIX, SCO Unix, etc. portiert und als Ersatz f&uuml;r oder Erg&auml;nzung zu
+kommerziellen Komponenten eingesetzt. Den Durchbruch schaffte der Open-Source-Gedanke aber erst mit der Entwicklung des Linux-Betriebsystemkerns und der B&uuml;ndelung von Kern, Dienstprogrammen und Anwendungen zu einem vollst&auml;ndigen Betriebssystem. Sogenannte Linux-Distributionen werden heute z.B. von Caldera, Corel, Red Hat, SuSE, etc. angeboten.
+
+<p style="margin-left: 1cm"><b>Entwickler</b>
+
+<p style="margin-left: 1cm">Die Entwicklung von Open-Source-Software wird von einzelnen Personen oder freien Gruppen durchgef&uuml;hrt, wobei deren finanzielle Entlohnung nicht im Vordergrung steht. Vielmehr sind die Sichtbarkeit des Entwicklers, die &ouml;ffentliche Diskussion der technischen Realisierung und der damit einhergehende kollektive Lernprozess die motivierenden Kr&auml;fte f&uuml;r das Engagement des Einzelnen.
+Da die Quellen frei verteilt, genutzt sowie nach eigenem Belieben modifiziert und erweitert werden k&ouml;nnen, ergeben sich M&ouml;glichkeiten weitere interessierte Personen in den Entwicklungsprozess mit einzubeziehen, was zu schnelleren Entwicklungszyklen und besserer Qualit&auml;t f&uuml;hrt.
+Durch die F&ouml;rderung der Offenheit von Entwicklergruppen und die Unterst&uuml;tzung des kollektiven Lern- und Entwicklungsprozesses kann die Attraktivit&auml;t einer Beteiligung aber noch wesentlich gesteigert werden. Vor dem Hintergrund eines gravierenden Fachkr&auml;ftemangels in der Computer- und IT-Branche kann die F&ouml;rderung des pers&ouml;nlichen Engagements einerseits zu einer H&ouml;herqualifizierung aber auch zur Qualifizierung von Quereinsteigern f&uuml;hren, was wiederum eine Entspannung auf dem Arbeitsmarkt bewirken kann.
+
+<p style="margin-left: 1cm"><b>Anwender</b>
+
+<p style="margin-left: 1cm">Der Einsatz von Open-Source-Software hat gegen&uuml;ber propriet&auml;rer Software einige wesentliche Vorteile. Lizenzkosten entfallen was bei kommerzieller Nutzung zu Kosteneinsparung f&uuml;hrt und damit die
+Konkurrenzf&auml;higkeit erh&ouml;hrt. Durch die Offenlegung der Quellen k&ouml;nnen einerseits Weiterentwicklungen und Anpassungen durch den Nutzer selbst realisiert oder im Auftrag von Drittfirmen durchgef&uuml;hrt werden. Andererseits sind freie Quellen verifizierbar, was die Vertrauensw&uuml;rdigkeit gegen&uuml;ber der eingesetzten L&ouml;sung erst erm&ouml;glicht. Bei kommerziellen Produkten kann dagegen nur das Verhalten von au&szlig;en beobachtet werden. Verfizierbarkeit ist somit nur eingeschr&auml;nkt gegeben und der Kunde ist letztlich gezwungen dem Hersteller zu vertrauen.
+
+<p style="margin-left: 1cm">Die Stabilit&auml;t von Open-Source-L&ouml;sungen sind meist recht hoch, da Fehleranalyse und Behebung nicht nur allein durch den Hersteller, sondern auch durch Tester und Benutzer erfolgt. Durch die
+Verbreitung und Begutachtung bereits in der Entwicklungsphase werden Fehlentwicklungen und Fehler sehr fr&uuml;h erkannt und die Iterationsschritte beschleunigt.
+
+<p style="margin-left: 1cm">Das Angebot von Open-Source-Software w&auml;chst sehr schnell, da sich weltweit eine ungeheure Anzahl von Personen an der Entwicklung beteiligt.
+
+<p style="margin-left: 1cm">Trotz dieser offensichtlichen Vorteile ist die Marktdurchdringung von Open-Source-L&ouml;sungen insbesondere bei KMU's und der &ouml;ffentlichen Verwaltung noch nicht soweit fortgeschritten wie z.B. im Forschungs- und Ausbildungsbereich. Die Gr&uuml;nde liegen entweder in einem Wissensdefizit &uuml;ber sich bietende Open-Source-Alternativen, in fehlendem Know-How oder mangelnden professionellen Angeboten f&uuml;r Beratung, Integration und Support. Das Wissen &uuml;ber Open-Source-Alternativen ist ein Punkt, der durch Informationsveranstaltungen sowie durch Bedarfsanalyse und Dokumentation wesentlich verbessert werden kann. Dabei sind besonders die Anforderungen einzelner Branchen zu ber&uuml;cksichtigen. Wichtig ist einerseits das Aufzeigen und die Dokumentation bereits existierender beispielhafter L&ouml;sungen und andererseits die Identifikation fehlender Komponenten, die eine Einf&uuml;hrung von OSS-L&ouml;sungen heute noch verhindern.
+
+<p style="margin-left: 1cm">
+
+<p style="margin-left: 1cm"><b>Hersteller und Dienstleister</b>
+
+<p style="margin-left: 1cm">Durch den verstärkten Einsatz von Open-Source-Software in Firmen wird auch die Nachfrage nach professioneller Beratung, technischem Support und Schulung verstärken. Dies wird in der Zukunft neue hochwertige Arbeitsplätze in einem neuen dynamischen Wirtschaftszweig schaffen. Geschäftsfelder werden sich insbesondere für IT-Spezialisten und junge Unternehmen eröffnen, die Expertise im Open-Source-Bereich besitzen und technische Support-Dienstleistungen anbieten.
+
+<p style="margin-left: 1cm">Aber auch Software-Hersteller erkennen in zunehmenden Ma&szlig;e die Vorteile, die Open-Source-Software bietet. Neue Technologien erreichen in k&uuml;rzester Zeit eine gro&szlig;e Verbreitung, wodurch Industriestandards etabliert werden. Weiterhin kann man f&uuml;r Tests, Pflege und Weiterentwicklung interessierte Nutzer und freie Entwickler gewinnen, was Kosten spart und die Identifikation mit dem Hersteller f&ouml;rdert. Die gr&ouml;&szlig;ere Identifikation mit einem Hersteller f&uuml;hrt dazu, dass auch die Bereitschaft verst&auml;rkt wird, Produkte des Herstellers zu erwerben.
+
+<p style="margin-left: 1cm">Weitere Informationen &uuml;ber das BerliOS-Projekt sind unter
+<a href="http://www.berlios.de/">http://www.berlios.de/</a> zu finden.
+
+<h3>T&auml;tigkeitsbeschreibung</h3>
+
+<p style="margin-left: 1cm">BerliOS hat sich zum Ziel gesetzt die unterschiedlichen
+Interessengruppen im Umfeld der Open-Source-Software (OSS) zu unterst&uuml;tzen und
+dabei eine neutrale Vermittlerfunktion anzubieten. Die Zielgruppen von BerliOS
+sind einerseits die Entwickler und Anwender von Open-Source-Software und
+andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
+Anwendungen sowie Support-Firmen.
+
+<p style="margin-left: 1cm"><b>Anwender</b>
+
+<p style="margin-left: 1cm">Neben den privaten Anwendern von Open-Source-Software sind
+besonders kleine und mittelst&auml;ndische Unternehmen (KMU) sowie die &ouml;ffentliche
+Verwaltung wichtige Zielgruppen, die BerliOS ansprechen wird. Es soll aufgezeigt
+werden, in welchen Anwendungsbereichen bereits heute durchg&auml;ngige OSS-L&ouml;sungen
+verf&uuml;gbar und in einem Produktionsumfeld einsetzbar sind.
+
+<p style="margin-left: 1cm">Begleitend dazu werden Bedarfsanalysen im Dialog mit den
+Anwendern einzelner Branchen durchgef&uuml;hrt, wodurch fehlende Komponenten
+identifiziert werden, die den Einsatz von OSS-L&ouml;sungen heute noch
+verhindern.
+Die Realisierung der fehlenden Komponenten soll dann angesto&szlig;en werden,
+indem entweder Software-H&auml;user angesprochen werden oder sich freie	Entwicklergruppen
+aus der OSS-Szene bilden und entsprechende Komponenten erstellen.
+
+<p style="margin-left: 1cm">Ein weiterer Schwerpunkt wird die allgemeine Information
+&uuml;ber die OSS-Szene sein. Dazu geh&ouml;ren unter anderem die Web-basierte
+Dokumentation,
+Software-, Hardware- und Produkt-Datenbanken, News und Veranstaltungskalender
+sowie eine Suchmaschine.
+Weiterhin sollen branchenspezifische L&ouml;sungen exemplarisch vorgestellt
+und dokumentiert werden. Diskussionsforen unterst&uuml;tzen dabei den Austausch
+von Erfahrungen, die Anwender beim Einsatz von OSS-L&ouml;sungen gewonnen
+haben. Schliesslich werden die wichtigsten Web-/FTP-Server gespiegelt, um die weltweit
+entwickelte Open-Source-Software und deren Dokumentation im nationalen Bereich	umfassend und schnell anbieten zu k&ouml;nnen.
+
+<p style="margin-left: 1cm">Dem Anwender werden folgende Informationen und Dienste geboten:
+
+<ul style="margin-left: 1cm">
+<li><b>Dokumentation</b>
+<br>Die weltweit entstandene Dokumentation von Open-Source-Software wird von BerliOS thematisch geordnet und &uuml;ber das World-Wide Web bereitgestellt. Die Dokumentation wird HOWTO- und FAQ-Dokumente, freie B&uuml;cher und Buchverzeichnisse sowie Standards und andere Dokumente umfassen. Neben dem Angebot von englischsprachiger Dokumentation wird besonderer Wert auf die Verf&uuml;gbarmachung deutschsprachiger Informationen gelegt.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Datenbanken</b>
+<br>Durch die Bereitstellung von Datenbanken f&uuml;r Open-Source-Distributionen und Anwendungen, Hardware- und Software-Produkte sowie Dienstleistungen und Firmen werden dem Anwender umfassende Informationen geboten, die durch komfortable Recherchefunktionen erg&auml;nzt werden.
+</li>
+<p style="margin-left: 1cm">
+<li><b>News und Veranstaltungen</b>
+<br>Aktuelle Nachrichten und Veranstaltungshinweise, die sich mit OSS-Themen
+befassen, werden in komprimierter Form dargestellt.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Software-Archive</b>
+<br>Durch die Spiegelung der wichtigsten Open-Source-Software-Archive kann die weltweit entwickelte OSS im nationalen Bereich umfassend und schnell angeboten werden, die dann &uuml;ber das World-Wide Web bzw. FTP abrufbar ist. 
+</li>
+<p style="margin-left: 1cm">
+<li><b>Branchenspezifische L&ouml;sungen</b>
+<br>Bereits existierende L&ouml;sungen aus einzelnen Branchen werden vorgestellt
+und dokumentiert. Die Erfahrungen &uuml;ber die Realisierbarkeit und die
+sich daraus ergebenen Chancen und Risiken sollen als Beispiel f&uuml;r den Einsatz in anderen Firmen der gleichen Branche dienen. BerliOS m&ouml;chte einerseits die technische Infrastruktur f&uuml;r den Erfahrungsaustausch zwischen Anwendern mit vergleichbaren Problemstellungen bieten und andererseits eine Vermittlerfunktion zwischen Anwendern und Entwicklern sowie Support-Firmen &uuml;bernehmen.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Software-B&ouml;rse</b>
+<br>Einzelne Unternehmen, Interessengruppen oder die &ouml;ffentliche Hand
+bieten eine Summe f&uuml;r eine ben&ouml;tigte OSS-L&ouml;sung, die
+diejenigen Entwickler erhalten, die entsprechende Komponenten liefern.
+</li>
+<p style="margin-left: 1cm">
+<li><b>Suchmaschine</b>
+<br>Neben einer eigenen Suchmaschine, die das Auffinden von Informationen auf
+dem BerliOS-Web-Server erm&ouml;glicht, wird ein Verzeichnis der weltweit existierenden Suchmaschinen angeboten.
+</li>
+</ul>
+
+<p style="margin-left: 1cm" ><b>Entwickler</b>
+
+<p style="margin-left: 1cm">Den Entwicklern von Open-Source-Software wird eine zentrale
+Infrastruktur bereitgestellt, die eine gemeinsame koordinierte
+Software-Entwicklung unterst&uuml;tzt, wobei die einzelnen Entwickler an
+unterschiedlichen geographischen Orten leben und arbeiten k&ouml;nnen.
+
+<p style="margin-left: 1cm">F&uuml;r freie OSS-Entwicklergruppen sollen Anreize durch eine Open-Source-Software-B&ouml;rse geschaffen werden, damit mehr auf die Erfordernisse
+f&uuml;r den Einsatz im Gesch&auml;ftsumfeld eingegangen wird.
+In dieser OSS-B&ouml;rse
+bieten einzelne Unternehmen, Interessengruppen oder die &ouml;ffentliche Hand
+eine Summe f&uuml;r eine ben&ouml;tigte OSS-L&ouml;sung, die diejenigen
+Entwickler erhalten, die entsprechende Komponenten liefern.
+
+<p style="margin-left: 1cm">Aber auch die Motivation f&uuml;r Software-H&auml;user zur Entwicklung von
+kommerziellen Produkten ergibt sich durch das Aufzeigen eines potentiellen
+Marktes, der sich aus den branchenspezifischen Bedarfsanalysen ableiten
+l&auml;&szlig;t.
+
+<p style="margin-left: 1cm">Zur Durchf&uuml;hrung von OSS-Entwicklungsprojekten werden die folgenden Dienste kostenlos angeboten:
+
+<ul style="margin-left: 1cm">
+<li>
+<b>Software-Repositorien mit Versionsverwaltung</b>
+<br>Ein eignes CVS-Repositorium mit separatem CVSROOT wird jedem Projekt zur Verf&uuml;gung gestellt. Durch die Verwendung von SSH (Secure Shell) erhalten die Entwickler einen gesichterten lesenden und schreibenden Zugriff auf den CVS-Baum. F&uuml;r alle anderen Benutzer ist ein anonymer lesender Zugriff erlaubt. 
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Web-Server</b>
+<br>Jedes Projekt erh&auml;lt ein eigenes Web-Verzeichnis, um sich im WWW der &Ouml;ffentlichkeit zu pr&auml;sentieren. Ein eigenes CGI-Verzeichnis erm&ouml;glicht die Ausf&uuml;hrung von Scripten. Die Domain eines Projektes lautet http://ihrprojekt.berlios.de/ und wird mittels eines namensbasierten virtuellen Hosts auf dem zentralen Projekt-Web-Server realisiert.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>FTP-Server</b>
+<br>Jedem Projekt steht ein eigener FTP-Bereich zur Verf&uuml;gung, auf dem die Mitglieder des Entwicklerteams Dateien ablegen k&ouml;nnen. Diese Dateien stehen zum Download f&uuml;r anonyme Benutzer bereit.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Datenbank</b>
+<br>Jedem Projekt wird eine eigene MySQL-Datenbank bereitgestellt, auf die der Web-Server zugreifen kann. Eine Web-basierte Schnittstelle erm&ouml;glicht die Administration der Datenbank.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Mailing-Listen</b>
+<br>Jedes Projekt kann eigene Mailing-Listen erzeugen und verwalten. Es werden zwei Arten von Mailing-Listen unterschieden. In einer offenen Mailing-Liste
+kann jeder Mitglied werden, dagegen wird bei einer geschlossenen Liste die
+Aufnahme von neuen Mitgliedern durch einem Administrator vorgenommen.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Diskussionsforen</b>
+<br>Projektspezifische Diskussionsforen erm&ouml;glichen den Austausch von Erfahrungen, Anfragen zur Hilfestellung und Entwicklung, etc.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Fehlerverfolgung</b>
+<br>Das Melden von Fehlern und deren Verwaltung wird durch ein Fehlerverfolgungssystem unterst&uuml;tzt.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Umfragen und Bewertung</b>
+<br>Umfragen k&ouml;nnen von jedem Projekt durchgef&uuml;hrt werden, um eine
+Bewertung der eigenen Entwicklung zu erhalten, oder um Trends bzw. Benutzerw&uuml;nsche im Vorfeld einer Entwicklung zu erkennen.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>News</b>
+<br>Jedes Projekt kann seine eigenen Nachrichten bereitstellen und diese verwalten.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Projektverwaltung</b>
+<br>Mit Hilfe eines Web-Browsers sowie Server-basierter Administrationsprogramme wird die konfortable Verwaltung aller Belange eines Projektes unterst&uuml;tzt.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Projektverzeichnisse</b>
+<br>Alle BerliOS-Projekte werden thematisch geordnet und in einem &uuml;bergeordneten Verzeichnis aufgelistet.
+</li>
+<p style="margin-left: 1cm">
+<li>
+<b>Software-B&ouml;rse</b>
+<br>Einzelne Unternehmen, Interessengruppen oder die &ouml;ffentliche Hand
+bieten eine Summe f&uuml;r eine ben&ouml;tigte OSS-L&ouml;sung, die
+diejenigen Entwickler erhalten, die entsprechende Komponenten liefern.
+</li>
+</ul>
+
+<p style="margin-left: 1cm"><b>Hersteller &amp; Support</b>
+
+<p style="margin-left: 1cm">Die Nachfrage nach professioneller Beratung, technischem Support und Schulung wird im gleichen Ma&szlig;e steigen, wie sich auch der Einsatz von Open-Source-L&ouml;sungen in Firmen erh&ouml;ht. BerliOS will seinen Beitrag zu dieser Entwicklung leisten, indem es als Drehscheibe f&uuml;r Informationen dient und die Funktion eines Clearinghauses zwischen Anwendern und Anbietern von Open-Source-Dienstleistungen
+&uuml;bernimmt.
+
+<p style="margin-left: 1cm">Den Herstellern von Betriebssystemdistributionen und kommerzieller Software
+f&uuml;r OSS-Betriebssysteme sowie Support-Firmen wird eine neutrale Plattform
+zur Selbstdarstellung geboten:
+
+<ul style="margin-left: 1cm">
+<li><b>Datenbanken</b>
+<br>Durch die Bereitstellung von Datenbanken
+f&uuml;r Firmen, Produkte und Dienstleistungen und deren thematische
+Strukturierung sollen insbesondere den Anwendern das zielgenaue Auffinden
+von Informationen erm&ouml;glichen. Im Rahmen der vorgegebenen Strukturierung
+k&ouml;nnen die Anbieter selbst die Inhalte definieren und jederzeit dem
+eigenem aktuellen Status anpassen.
+</li>
+</ul>
+
+<h3>&Ouml;ffentliche Software und Labors</h3>
+
+<p style="margin-left: 1cm">Der &uuml;berwiegende Teil der server-basierten Anwendungsoftware
+zur Verwaltung von OSS-Entwicklungsprojekten und zur dynamischen Generierung von Web-Inhalten
+mittels Datenbanksystemen sowie die gesamte Dokumentation basiert auf Open-Source-Komponenten und
+wird auch als Open-Source frei im Internet zur Verf&uuml;gung gestellt.
+
+</body>
+</html>

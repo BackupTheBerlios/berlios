@@ -1,0 +1,69 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
+   <title>BerliOS - The Open Source Mediator - About us</title>
+<link rel="stylesheet" href="../berlios.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<?php
+require("../include/site_header.html.en");
+?>
+
+<!-- content -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+
+<?php
+require("../include/site_menubar.html.en");
+?>
+
+<!-- content -->
+<td WIDTH="99%">
+<p>&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+<td WIDTH="65%">
+<h2>About us</h2>
+
+<p><b>Mission Statement</b>
+<br>The main goal of BerliOS is to support the different interest groups in the area of Open Source Software (OSS) and thereby to offer a neutral mediator function. The target groups of BerliOS are on one hand the developers and users of Open Source Software and on the other hand commercial manufacturers of OSS operating systems and applications as well as support companies.
+
+<p><b>The Team</b>
+<br>Currently the BerliOS team consists of very few employees of <a href="http://www.fokus.gmd.de/">GMD FOKUS</a>.
+
+<p><b>Thanks</b>
+<br>We owe a lot of thanks to the BerliOS team members that helps during the planing phase as well as our <a href="../partners/index.php.en">partners</a> for generous sponsorship.
+<br>&nbsp;
+
+</td>
+
+<td>
+&nbsp;
+</td>
+
+<td WIDTH="35%">
+
+<!-- recent news -->
+<?php
+require("../include/news.php");
+?>
+
+</td>
+</tr>
+</table>
+<!-- end content -->
+</td>
+
+<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
+</tr>
+</table>
+
+<?php
+require("../include/site_footer.html");
+?>
+
+</body>
+</html>
