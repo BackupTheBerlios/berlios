@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: db_top_groups_calc.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: db_top_groups_calc.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 # use strict;
 use DBI;
@@ -13,6 +13,8 @@ require("../include.pl");
 #my ($sql, $rel);
 my ($day_begin, $day_end, $mday, $year, $mon, $week, $day);
 my $verbose = 1;
+
+print "\n\nCalculate top projects...\n";
 
 ##
 ## Set begin and end times (in epoch seconds) of day to be run
@@ -30,8 +32,7 @@ if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
         $day_end = timegm( 0, 0, 0, (gmtime( time() ))[3,4,5] );
            ## go until midnight yesterday.
         $day_begin = timegm( 0, 0, 0, (gmtime( time() - 86400 ))[3,4,5] );
-
-        print "$day_begin $day_end \n";
+        $week_begin = timegm( 0, 0, 0, (gmtime( time() - ( 8 * 86400 )))[3,4,5] );
 }
 
    ## Preformat the important date strings.
@@ -39,6 +40,11 @@ $year   = strftime("%Y", gmtime( $day_begin ) );
 $mon    = strftime("%m", gmtime( $day_begin ) );
 $week   = strftime("%U", gmtime( $day_begin ) );    ## GNU ext.
 $day    = strftime("%d", gmtime( $day_begin ) );
+
+$wyear   = strftime("%Y", gmtime( $week_begin ) );
+$wmon    = strftime("%m", gmtime( $week_begin ) );
+$wweek   = strftime("%U", gmtime( $week_begin ) );    ## GNU ext.
+$wday    = strftime("%d", gmtime( $week_begin ) );
 print "Running week $week, day $day month $mon year $year \n" if $verbose;
 
 
@@ -55,6 +61,15 @@ while( ($group_id,$group_name) = $rel->fetchrow() ) {
 }
 
 # get forumposts_week stats
+$query = "SELECT group_id,rank_forumposts_week
+    FROM top_group";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+while(my ($group_id,$rank_forumposts_week) = $rel->fetchrow()) {
+	$top[$group_id][4] = $rank_forumposts_week;
+}
+
 $query = "SELECT forum_group_list.group_id AS group_id,
     count(*) AS count 
     FROM forum,forum_group_list 
@@ -71,10 +86,82 @@ while(my ($group_id,$count) = $rel->fetchrow()) {
 	$currentrank++;
 }
 
+# get pageviews stats
+$query = "SELECT group_id,rank_pageviews_proj
+    FROM top_group";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+while(my ($group_id,$rank_pageviews_proj) = $rel->fetchrow()) {
+	$top[$group_id][9] = $rank_pageviews_proj;
+}
+
+$query = "SELECT group_id,sum(count) AS sum
+    FROM stats_agg_logo_by_group
+    WHERE day<='$year$mon$day' AND day>='$wyear$wmon$wday'
+    GROUP BY group_id ORDER BY sum DESC";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+$currentrank = 1;
+while(my ($group_id,$count) = $rel->fetchrow()) {
+	$top[$group_id][10] = $count;
+	$top[$group_id][11] = $currentrank;
+	$currentrank++;
+}
+
+# get download this week stats
+$query = "SELECT group_id,rank_downloads_week
+    FROM top_group";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+while(my ($group_id,$rank_downloads_week) = $rel->fetchrow()) {
+	$top[$group_id][2] = $rank_downloads_week;
+}
+
+$query = "SELECT group_id,sum(downloads) AS count
+    FROM stats_project
+    WHERE week='$week'
+    GROUP BY group_id ORDER BY count DESC";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+$currentrank = 1;
+while(my ($group_id,$count) = $rel->fetchrow()) {
+	$top[$group_id][7] = $count;
+	$top[$group_id][8] = $currentrank;
+	$currentrank++;
+}
+
+# get download all stats
+$query = "SELECT group_id,rank_downloads_all
+    FROM top_group";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+while(my ($group_id,$rank_downloads_all) = $rel->fetchrow()) {
+	$top[$group_id][1] = $rank_downloads_all;
+}
+
+$query = "SELECT group_id,downloads AS count
+    FROM frs_dlstats_grouptotal_agg
+    ORDER BY count DESC";
+my $rel = $dbh->prepare($query);
+$rel->execute();
+
+$currentrank = 1;
+while(my ($group_id,$count) = $rel->fetchrow()) {
+	$top[$group_id][5] = $count;
+	$top[$group_id][6] = $currentrank;
+	$currentrank++;
+}
+
 ##
 ##	wrap this process inside a transaction
 ##
-my $rel = $dbh->do("BEGIN WORK;");
+####my $rel = $dbh->do("BEGIN WORK;");
+$dbh->{AutoCommit} = 0;
 
 my $query = "DELETE FROM top_group";
 my $rel = $dbh->do($query);
@@ -101,5 +188,7 @@ for ($i=1;$i<$max_group_id;$i++) {
 ##
 ##      wrap this process inside a transaction
 ##
-my $rel = $dbh->do("COMMIT WORK;");
+####my $rel = $dbh->do("COMMIT WORK;");
+my $rel = $dbh->commit();
 
+print "\n\nCalculate top projects done.\n";

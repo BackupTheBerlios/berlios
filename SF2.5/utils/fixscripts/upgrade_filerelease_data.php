@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: upgrade_filerelease_data.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: upgrade_filerelease_data.php,v 1.2 2003/11/13 11:01:42 helix Exp $
 
 exit;
 
@@ -27,9 +27,9 @@ require ('squal_pre.php');
 
 echo $REMOTE_ADDR;
 
-if (!strstr($REMOTE_ADDR,'192.168.1.')) {
-        exit_permission_denied();
-}
+//if (!strstr($REMOTE_ADDR,'192.168.1.')) {
+//        exit_permission_denied();
+//}
 
 //get all the tasks
 $result=db_query("SELECT * FROM frs_release WHERE release_id > 9290 ORDER BY release_id ASC");

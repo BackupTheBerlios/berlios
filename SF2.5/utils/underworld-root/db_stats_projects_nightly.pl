@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: db_stats_projects_nightly.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: db_stats_projects_nightly.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 # use strict;
 use DBI;
@@ -13,6 +13,8 @@ $dbh = &db_connect();
 my ($sql, $rel);
 my ($day_begin, $day_end, $mday, $year, $mon, $week, $day);
 my $verbose = 1;
+
+print "\n\nCreate stats of projects...\n";
 
 ##
 ## Set begin and end times (in epoch seconds) of day to be run
@@ -32,6 +34,7 @@ if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 	$day_begin = timegm( 0, 0, 0, (gmtime( time() - 86400 ))[3,4,5] );
 
 }
+print "Day begin: $day_begin - Day end: $day_end\n" if $verbose;
 
    ## Preformat the important date strings.
 $year	= strftime("%Y", gmtime( $day_begin ) );
@@ -51,14 +54,14 @@ $sql = "INSERT INTO stats_project_build_tmp
 	SELECT group_id,'group_ranking',ranking 
 	FROM project_metric";
 $rel = $dbh->prepare($sql)->execute();
-print "Inserted group_ranking from project_metric...\n" if $verbose;
+print "Inserted group_ranking from project_metric...\n$sql\n" if $verbose;
 
 ## group_metric
 $sql = "INSERT INTO stats_project_build_tmp
 	SELECT group_id,'group_metric',percentile 
 	FROM project_metric";
 $rel = $dbh->prepare($sql)->execute();
-print "Inserted percentile from project_metric...\n" if $verbose;
+print "Inserted percentile from project_metric...\n$sql\n" if $verbose;
 
 ## developers
 $sql = "INSERT INTO stats_project_build_tmp
@@ -66,7 +69,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	FROM user_group 
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Inserted developers from user_group...\n" if $verbose;
+print "Inserted developers from user_group...\n$sql\n" if $verbose;
 
 ## file_releases
 $sql = "INSERT INTO stats_project_build_tmp
@@ -76,25 +79,25 @@ $sql = "INSERT INTO stats_project_build_tmp
 		AND frs_release.package_id = frs_package.package_id )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert file_releases from frs_release,frs_package...\n" if $verbose;
+print "Insert file_releases from frs_release,frs_package...\n$sql\n" if $verbose;
 
 ## downloads
 $sql = "INSERT INTO stats_project_build_tmp
 	SELECT group_id,'downloads',downloads
 	FROM frs_dlstats_group_agg 
-	WHERE ( day = '$year$mon$day' )
-	GROUP BY group_id";
+	WHERE ( day = '$year$mon$day' )";
+##	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert downloads from frs_dlstats_group_agg...\n" if $verbose;
+print "Insert downloads from frs_dlstats_group_agg...\n$sql\n" if $verbose;
 
 ## site_views 
 $sql = "INSERT INTO stats_project_build_tmp
 	SELECT group_id,'site_views',count
 	FROM stats_agg_logo_by_group
-	WHERE ( day = '$year$mon$day' )
-	GROUP BY group_id";
+	WHERE ( day = '$year$mon$day' )";
+##	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert site_views from activity_log...\n" if $verbose;
+print "Insert site_views from activity_log...\n$sql\n" if $verbose;
 
 if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 	## register_time
@@ -103,7 +106,7 @@ if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 		FROM groups
 		GROUP BY group_id";
 	$rel = $dbh->prepare($sql)->execute();
-	print "Insert register_time from groups...\n" if $verbose;
+	print "Insert register_time from groups...\n$sql\n" if $verbose;
 
 } else {
 	## site_views
@@ -113,7 +116,7 @@ if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 		WHERE ( day = '$year$mon$day' AND type = 0 )
 		GROUP BY group_id";
 	$rel = $dbh->prepare($sql)->execute();
-	print "Insert site_views from activity_log...\n" if $verbose;
+	print "Insert site_views from activity_log...\n$sql\n" if $verbose;
 }
 
 print "Postponed: subdomain_views need to be inserted later from the project server logs...\n" if $verbose;
@@ -126,7 +129,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 		AND forum.date > $day_begin AND forum.date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert msg_posted from forum_group_list and forum...\n" if $verbose;
+print "Insert msg_posted from forum_group_list and forum...\n$sql\n" if $verbose;
 
 ## msg_uniq_auth
 $sql = "INSERT INTO stats_project_build_tmp
@@ -136,7 +139,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 		AND forum.date > $day_begin AND forum.date < $day_end )
  	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert msg_uniq_auth from forum_group_list and forum...\n" if $verbose;
+print "Insert msg_uniq_auth from forum_group_list and forum...\n$sql\n" if $verbose;
 
 ## bugs_opened
 $sql = "INSERT INTO stats_project_build_tmp
@@ -145,7 +148,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( date > $day_begin AND date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert bugs_opened from bug...\n" if $verbose;
+print "Insert bugs_opened from bug...\n$sql\n" if $verbose;
 
 ## bugs_closed
 $sql = "INSERT INTO stats_project_build_tmp 
@@ -154,7 +157,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( close_date > $day_begin AND close_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert bugs_closed from bug...\n" if $verbose;
+print "Insert bugs_closed from bug...\n$sql\n" if $verbose;
 
 ## support_opened
 $sql = "INSERT INTO stats_project_build_tmp
@@ -163,7 +166,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( open_date > $day_begin AND open_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert support_opened from support...\n" if $verbose;
+print "Insert support_opened from support...\n$sql\n" if $verbose;
 
 ## support_closed
 $sql = "INSERT INTO stats_project_build_tmp
@@ -172,7 +175,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( close_date > $day_begin AND close_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert support_closed from support...\n" if $verbose;
+print "Insert support_closed from support...\n$sql\n" if $verbose;
 
 ## patches_opened
 $sql = "INSERT INTO stats_project_build_tmp
@@ -181,7 +184,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( open_date > $day_begin AND open_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert patches_opened from patch...\n" if $verbose;
+print "Insert patches_opened from patch...\n$sql\n" if $verbose;
 
 ## patches_closed
 $sql = "INSERT INTO stats_project_build_tmp
@@ -190,7 +193,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( close_date > $day_begin AND close_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert patches_closed from patch...\n" if $verbose;
+print "Insert patches_closed from patch...\n$sql\n" if $verbose;
 
 ## tasks_opened
 $sql = "INSERT INTO stats_project_build_tmp
@@ -200,7 +203,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( start_date > $day_begin AND start_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert tasks_opened from project_task...\n" if $verbose;
+print "Insert tasks_opened from project_task...\n$sql\n" if $verbose;
 
 ## tasks_closed
 $sql = "INSERT INTO stats_project_build_tmp
@@ -210,7 +213,7 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( end_date > $day_begin AND end_date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert tasks_closed from project_task...\n" if $verbose;
+print "Insert tasks_closed from project_task...\n$sql\n" if $verbose;
 
 ## help_requests
 $sql = "INSERT INTO stats_project_build_tmp
@@ -220,45 +223,51 @@ $sql = "INSERT INTO stats_project_build_tmp
 	WHERE ( date > $day_begin AND date < $day_end )
 	GROUP BY group_id";
 $rel = $dbh->prepare($sql)->execute();
-print "Insert help_requests from people_job...\n" if $verbose;
+print "Insert help_requests from people_job...\n$sql\n" if $verbose;
 
 ##
 ## Create the daily tmp table for the update.
 ##
-$sql="DROP TABLE IF EXISTS stats_project_tmp";
+$sql="DROP TABLE stats_project_tmp";
 $rel = $dbh->prepare($sql)->execute();
-print "Dropping stats_project_tmp in preparation...\n" if $verbose;
+print "Dropping stats_project_tmp in preparation...\n$sql\n" if $verbose;
 
-$sql = "CREATE TABLE stats_project_tmp ( 
-        month           int(11) DEFAULT '0' NOT NULL,
-	week		int(11)	DEFAULT '0' NOT NULL,
-        day             int(11) DEFAULT '0' NOT NULL,
-        group_id        int(11) DEFAULT '0' NOT NULL,
-        group_ranking   int(11) DEFAULT '0' NOT NULL,
-        group_metric    float(8,5) DEFAULT '0' NOT NULL,
-        developers      smallint(6) DEFAULT '0' NOT NULL,
-        file_releases   smallint(6) DEFAULT '0' NOT NULL,
-        downloads       int(11) DEFAULT '0' NOT NULL,
-        site_views      int(11) DEFAULT '0' NOT NULL,
-        subdomain_views int(11) DEFAULT '0' NOT NULL,
-        msg_posted      smallint(6) DEFAULT '0' NOT NULL,
-        msg_uniq_auth   smallint(6) DEFAULT '0' NOT NULL,
-        bugs_opened     smallint(6) DEFAULT '0' NOT NULL,
-        bugs_closed     smallint(6) DEFAULT '0' NOT NULL,
-        support_opened  smallint(6) DEFAULT '0' NOT NULL,
-        support_closed  smallint(6) DEFAULT '0' NOT NULL,
-        patches_opened  smallint(6) DEFAULT '0' NOT NULL,
-        patches_closed  smallint(6) DEFAULT '0' NOT NULL,
-        tasks_opened    smallint(6) DEFAULT '0' NOT NULL,
-        tasks_closed    smallint(6) DEFAULT '0' NOT NULL,
-        help_requests   smallint(6) DEFAULT '0' NOT NULL,
-        cvs_checkouts   smallint(6) DEFAULT '0' NOT NULL,
-        cvs_commits     smallint(6) DEFAULT '0' NOT NULL,
-        cvs_adds        smallint(6) DEFAULT '0' NOT NULL,
-        KEY idx_project_log_group (group_id)
+$sql = "CREATE TABLE stats_project_tmp (
+        month integer DEFAULT '0' NOT NULL,
+        week integer DEFAULT '0' NOT NULL,
+        day integer DEFAULT '0' NOT NULL,
+        group_id integer DEFAULT '0' NOT NULL,
+        group_ranking integer DEFAULT '0' NOT NULL,
+        group_metric double precision DEFAULT '0.00000' NOT NULL,
+        developers integer DEFAULT '0' NOT NULL,
+        file_releases integer DEFAULT '0' NOT NULL,
+        downloads integer DEFAULT '0' NOT NULL,
+        site_views integer DEFAULT '0' NOT NULL,
+        subdomain_views integer DEFAULT '0' NOT NULL,
+        msg_posted integer DEFAULT '0' NOT NULL,
+        msg_uniq_auth integer DEFAULT '0' NOT NULL,
+        bugs_opened integer DEFAULT '0' NOT NULL,
+        bugs_closed integer DEFAULT '0' NOT NULL,
+        support_opened integer DEFAULT '0' NOT NULL,
+        support_closed integer DEFAULT '0' NOT NULL,
+        patches_opened integer DEFAULT '0' NOT NULL,
+        patches_closed integer DEFAULT '0' NOT NULL,
+        tasks_opened integer DEFAULT '0' NOT NULL,
+        tasks_closed integer DEFAULT '0' NOT NULL,
+        help_requests integer DEFAULT '0' NOT NULL,
+        cvs_checkouts integer DEFAULT '0' NOT NULL,
+        cvs_commits integer DEFAULT '0' NOT NULL,
+        cvs_adds integer DEFAULT '0' NOT NULL
 )";
+
 $rel = $dbh->prepare($sql)->execute();
-print "Created stats_project_tmp for agregation...\n" if $verbose;
+print "Created stats_project_tmp for agregation...\n$sql\n" if $verbose;
+
+$sql = "CREATE INDEX stats_project_tmp_group_id 
+	on stats_project_tmp(group_id)";
+$rel = $dbh->prepare($sql)->execute();
+print "Added index to stats_project_tmp...\n$sql\n" if $verbose;
+
 
 ##
 ## Populate the stats_archive_project_tmp table the old
@@ -298,13 +307,22 @@ foreach $group_id ( keys %stat_data ) {
 	if ( $stat_data{$group_id}{"register_time"} < $day_end ) {
 
 		delete $stat_data{$group_id}{"register_time"};
-		$sql  = "INSERT INTO stats_project_tmp SET ";
-		$sql .= "group_id=$group_id,";
-		$sql .= join( ",",  
-			map { "$_\=\'$stat_data{$group_id}{$_}\'" } (keys %{$stat_data{$group_id}}) 
-			);
+##		$sql  = "INSERT INTO stats_project_tmp SET ";
+		$sql  = "INSERT INTO stats_project_tmp ";
+		$keys = "group_id,";
+		$values = "$group_id,";
+##		$sql .= "group_id=$group_id,";
+##		$sql .= join( ",",  
+##			map { "$_\=\'$stat_data{$group_id}{$_}\'" } (keys %{$stat_data{$group_id}}) 
+##			);
+		$keys .= join( ",", keys %{$stat_data{$group_id}}); 
+		$values .= join( ",",
+			 map { "\'$stat_data{$group_id}{$_}\'" } (keys %{$stat_data{$group_id}})
+			 );
+		$sql .= "( ".$keys." ) VALUES ( ".$values." )";
 		$rel = $dbh->prepare($sql);
 		$rel->execute();
+print "$sql\n";
 	}
 }
 print "Finished.\n" if $verbose;
@@ -313,9 +331,9 @@ print "Finished.\n" if $verbose;
 ##
 ## Drop the tmp table.
 ##
-$sql = "DROP TABLE IF EXISTS stats_project_build_tmp";
-$rel = $dbh->prepare($sql)->execute();
-print "Dropped stats_project_build_tmp...\n" if $verbose;
+#$sql = "DROP TABLE stats_project_build_tmp";
+#$rel = $dbh->prepare($sql)->execute();
+#print "Dropped stats_project_build_tmp...\n$sql\n" if $verbose;
 
 
 ##
@@ -326,30 +344,31 @@ print "Dropped stats_project_build_tmp...\n" if $verbose;
 $sql = "CREATE INDEX idx_project_stats_day 
 	on stats_project_tmp(day)";
 $rel = $dbh->prepare($sql)->execute();
+print "Added further indexes to stats_project_tmp...\n$sql\n" if $verbose;
 
 $sql = "CREATE INDEX idx_project_stats_week
 	on stats_project_tmp(week)";
 $rel = $dbh->prepare($sql)->execute();
+print "Added further indexes to stats_project_tmp...\n$sql\n" if $verbose;
 
 $sql = "CREATE INDEX idx_project_stats_month
 	on stats_project_tmp(month)";
 $rel = $dbh->prepare($sql)->execute();
-print "Added further indexes to stats_project_tmp...\n" if $verbose;
+print "Added further indexes to stats_project_tmp...\n$sql\n" if $verbose;
 
 ##
 ## Merge tmp table back into the live stat table
 ##
 $sql = "DELETE FROM stats_project WHERE month='$year$mon' AND day='$day'";
 $rel = $dbh->prepare($sql)->execute();
-print "Cleared Old data from stats_project...\n" if $verbose;
+print "Cleared Old data from stats_project...\n$sql\n" if $verbose;
 
 $sql = "INSERT INTO stats_project
 	SELECT * FROM stats_project_tmp";
 $rel = $dbh->prepare($sql)->execute();
-print "Wrote back new data to stats_project...\n" if $verbose;
+print "Wrote back new data to stats_project...\n$sql\n" if $verbose;
 
-print "Done.\n" if $verbose;
-exit;
+print "Create stats of projects done.\n";
 
 ##
 ## EOF

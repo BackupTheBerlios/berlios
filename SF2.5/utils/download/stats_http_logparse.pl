@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: stats_http_logparse.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: stats_http_logparse.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 use DBI;
 use Time::Local;
@@ -17,6 +17,8 @@ require("../include.pl");  # Include all the predefined functions
 #######################
 
 my ( $filerel, $query, $rel, %groups, %filerelease, $bytes, $filepath, $group_name, $filename, $files );
+
+print "\n\nParse HTTP Daemon log files...\n";
 
 &db_connect;
 
@@ -55,7 +57,7 @@ while( $filerel = $rel->fetchrow_arrayref() ) {
 
 print " done.\n" if $verbose;
 
-print "Begining processing for logfile \'$file\'..." if $verbose;			
+print "Begining processing for logfile \'$file\'..." if $verbose;
 
 if ( -f $file ) {
 	open(LOGFILE, "< $file" ) || die "Cannot open $file";
@@ -104,10 +106,13 @@ foreach $id ( keys %downloads ) {
 	$query  = "INSERT INTO stats_http_downloads (day,filerelease_id,group_id,downloads) ";
 	$query .= "VALUES (\'" . sprintf("%d%02d%02d", $year, $month, $day) . "\',\'";
 	$query .= $id . "\',\'" . $groups{$id} . "\',\'" . $downloads{$id} . "\')";
-	$dbh->do( $query );
+$dbh->do( $query );
+print "$query\n" if $verbose;
 }
 
 print " done.\n" if $verbose;
+
+print "Parse HTTP Daemon log files done.\n";
 
 ##
 ## EOF

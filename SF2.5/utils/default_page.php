@@ -2,7 +2,7 @@
 // Default Web Page for groups that haven't setup their page yet
 // Please replace this file with your own website
 //
-// $Id: default_page.php,v 1.1 2003/11/12 16:09:03 helix Exp $
+// $Id: default_page.php,v 1.2 2003/11/13 11:01:41 helix Exp $
 //
 $headers = getallheaders();
 ?>

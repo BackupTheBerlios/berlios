@@ -1,12 +1,14 @@
 #!/usr/bin/perl 
 #
-# $Id: stats_nightly_filerelease.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: stats_nightly_filerelease.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 use DBI;
 use Time::Local;
 require("../include.pl");  # Include all the predefined functions
 
 my $verbose = 1;
+
+print "\n\nUpdate the nightly agregates...\n";
 
 &db_connect;
 
@@ -31,6 +33,7 @@ print "Running year $year, month $month, day $day.\n" if $verbose;
 ##
 $sql	= "SELECT group_id,SUM(downloads) FROM stats_http_downloads "
 	. "WHERE ( day = '$today' ) GROUP BY group_id";
+print("\n$sql\n");
 $rel = $dbh->prepare($sql) || die "SQL parse error: $!";
 $rel->execute() || die "SQL execute error: $!";
 while ( @tmp_ar = $rel->fetchrow_array() ) {
@@ -39,6 +42,7 @@ while ( @tmp_ar = $rel->fetchrow_array() ) {
 
 $sql	= "SELECT group_id,SUM(downloads) FROM stats_ftp_downloads "
 	. "WHERE ( day = '$today' ) GROUP BY group_id";
+print("\n$sql\n");
 $rel = $dbh->prepare($sql) || die "SQL parse error: $!";
 $rel->execute() || die "SQL execute error: $!";
 while ( @tmp_ar = $rel->fetchrow_array() ) {
@@ -46,6 +50,7 @@ while ( @tmp_ar = $rel->fetchrow_array() ) {
 }
 
 $sql = "DELETE FROM frs_dlstats_group_agg WHERE day='$today'";
+print("\n$sql\n");
 $rel = $dbh->do($sql) || die "SQL parse error: $!";
 foreach $group_id ( keys %downloads ) {
 	$xfers = $downloads{$group_id};
@@ -66,6 +71,7 @@ $total_xfers = 0;
 ##
 $sql	= "SELECT filerelease_id,SUM(downloads) FROM stats_http_downloads "
 	. "WHERE ( day = '$today' ) GROUP BY filerelease_id";
+print("\n$sql\n");
 $rel = $dbh->prepare($sql) || die "SQL parse error: $!";
 $rel->execute() || die "SQL execute error: $!";
 while ( @tmp_ar = $rel->fetchrow_array() ) {
@@ -74,6 +80,7 @@ while ( @tmp_ar = $rel->fetchrow_array() ) {
 
 $sql	= "SELECT filerelease_id,SUM(downloads) FROM stats_ftp_downloads "
 	. "WHERE ( day = '$today' ) GROUP BY filerelease_id";
+print("\n$sql\n");
 $rel = $dbh->prepare($sql) || die "SQL parse error: $!";
 $rel->execute() || die "SQL execute error: $!";
 while ( @tmp_ar = $rel->fetchrow_array() ) {
@@ -81,12 +88,15 @@ while ( @tmp_ar = $rel->fetchrow_array() ) {
 }
 
 $sql = "DELETE FROM frs_dlstats_file_agg WHERE day='$today'";
+print("\n$sql\n");
 $rel = $dbh->do($sql) || die "SQL parse error: $!";
 foreach $file_id ( keys %downloads ) {
 	$xfers = $downloads{$file_id};
 	$total_xfers += $xfers;
 	$sql  = "INSERT INTO frs_dlstats_file_agg VALUES ('$file_id','$today','$xfers')";
-	$rel = $dbh->do($sql) || die "SQL parse error: $!";
+print("\n$sql\n");
+####	$rel = $dbh->do($sql) || die "SQL parse error: $!";
+	$rel = $dbh->do($sql);
 }
 
 
@@ -98,7 +108,10 @@ if ( $total_xfers != $first_xfers ) {
 	print "stats_nightly_filerelease.pl: THE TRANSER STATS DID NOT AGREE!! FIX ME!!\n";
 }
 $sql	= "UPDATE stats_site SET downloads='$total_xfers' WHERE (month='" . sprintf("%04d%02d", $year, $month) . "' AND day='$day') ";
+print("\n$sql\n");
 $rel = $dbh->do($sql) || die "SQL parse error: $!";
+
+print "\n\nUpdate the nightly agregates done.\n";
 
 ##
 ## EOF

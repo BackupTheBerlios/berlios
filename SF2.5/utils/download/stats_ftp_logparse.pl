@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: stats_ftp_logparse.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: stats_ftp_logparse.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 use DBI;
 use Time::Local;
@@ -17,6 +17,8 @@ require("../include.pl");  # Include all the predefined functions
 #######################
 
 my ( $filerel, $query, $rel, %groups, %filerelease, $bytes, $filepath, $group_name, $filename, $files );
+
+print "\n\nParse FTP Daemon log files...\n";
 
 &db_connect;
 
@@ -106,6 +108,8 @@ foreach $id ( keys %downloads ) {
 }
 
 print " done.\n" if $verbose;
+
+print "Parse FTP Daemon log files done.\n";
 
 ##
 ## EOF

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: mailing_lists_create.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: mailing_lists_create.pl,v 1.2 2003/11/13 11:01:41 helix Exp $
 #
 # mailing_lists_create.pl - Creates mailing lists based off of the file dump
 require("include.pl");  # Include all the predefined functions and variables

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ia64_dump.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: ia64_dump.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 # dump_database.pl - script to dump data from the database to flat files so the ofher perl
 #		     scripts can process it without needing to access the database.

@@ -2,7 +2,7 @@
 #
 #  Delete user entry from LDAP
 #  by pfalcon@users.sourceforge.net 2000-10-18
-#  $Id: ldap-del-user,v 1.1 2003/11/12 16:09:03 helix Exp $
+#  $Id: ldap-del-user,v 1.2 2003/11/13 11:01:41 helix Exp $
 #
 
 require("include.pl");  # Include all the predefined functions

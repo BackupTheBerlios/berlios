@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: mailing_lists_dump.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: mailing_lists_dump.pl,v 1.2 2003/11/13 11:01:42 helix Exp $
 #
 # mailing_list_dump.pl - Script to suck data outta the database to be processed on the mail
 #                        mail server to create mailing lists

@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 #
-# $Id: ssh_create.pl,v 1.2 2003/11/13 11:01:41 helix Exp $
+# $Id: ssh2_create.pl,v 1.1 2003/11/13 11:01:41 helix Exp $
 #
-# ssh_create.pl - Dumps SSH authorized_keys into users homedirs on the cvs server.
+# ssh2_create.pl - Dumps SSH2 authorized_keys into users homedirs on the cvs server.
 #
 
 require("include.pl");  # Include all the predefined functions and variables
@@ -25,20 +25,20 @@ while ($ln = pop(@ssh_key_file)) {
 	$ssh_dir = "/home/users/$username/.ssh";
 
 	if (! -d $ssh_dir) {
-		mkdir $ssh_dir, 0755;
+		mkdir $ssh_dir, 0700;
 	}
 
-	print("Writing authorized_keys for $username:\n");
+	print("Writing authorized_keys2 for $username:\n");
 
-	write_array_file("$ssh_dir/authorized_keys", @user_authorized_keys);
+	write_array_file("$ssh_dir/authorized_keys2", @user_authorized_keys);
 	system("chown $username:$username ~$username");
         print("chown $username:$username ~$username\n");
 	system("chown $username:$username $ssh_dir");
 	print("chown $username:$username $ssh_dir\n");
-	system("chmod 0644 $ssh_dir/authorized_keys");
-	print("chmod 0644 $ssh_dir/authorized_keys\n");
-	system("chown $username:$username $ssh_dir/authorized_keys");
-	print("chown $username:$username $ssh_dir/authorized_keys\n");
+	system("chmod 0600 $ssh_dir/authorized_keys2");
+	print("chmod 0600 $ssh_dir/authorized_keys2\n");
+	system("chown $username:$username $ssh_dir/authorized_keys2");
+	print("chown $username:$username $ssh_dir/authorized_keys2\n");
 }
 print ("Done\n");
 undef @user_authorized_keys;

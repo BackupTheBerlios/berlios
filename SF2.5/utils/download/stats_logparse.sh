@@ -1,9 +1,9 @@
 #!/bin/sh
 
-cd /root/bin/alexandria/utils/download
+cd /usr/local/httpd/SF2.5/utils/download
 
 ## parse each logfile set 
-./stats_ftp_logparse.pl $*
+##./stats_ftp_logparse.pl $*
 ./stats_http_logparse.pl $*
 
 ## and then build the agregates
@@ -11,5 +11,4 @@ cd /root/bin/alexandria/utils/download
 
 ## after which, we update the nightly agregates
 ./stats_nightly_filerelease.pl $*
-
 

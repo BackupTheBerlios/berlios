@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: sort_file.pl,v 1.1 2003/11/12 16:09:03 helix Exp $
+# $Id: sort_file.pl,v 1.2 2003/11/13 11:01:41 helix Exp $
 #
 # sort.pl - Quick Perl script to sort /etc/group or /etc/passwd depending
 #           on command line options

@@ -1,8 +1,8 @@
 /*
- * Small Tool to move files from the FTP incoming dir
- * to the project ftp space.  Runs +suid.
+ * Small Tool to move files from the download dir
+ * to the archive dir.  Runs +suid.
  *
- * $Id: fileforge.c,v 1.2 2003/11/13 11:01:41 helix Exp $
+ * $Id: filearchive.c,v 1.1 2003/11/13 11:01:41 helix Exp $
  */
 #include <stdlib.h>
 #include <stdio.h>
@@ -35,7 +35,6 @@ int legal_string (char* test_string) {
 
   /* test for illegal combinations of legal characters: ".." */
   if (strstr(test_string, "..")) {
-    printf("Illegal combination of legal characters '..'");
     return 0;
   } /* if */
 
@@ -45,11 +44,8 @@ int legal_string (char* test_string) {
 int main (int argc, char** argv) {
 
   /* edit me */
-  char* src_dir   = "/usr/local/ftp/incoming/";
-  char* dest_dir  = "/usr/local/httpd/htdocs.download/";
-  uid_t owner = 40; /* ftp */
-  gid_t group = 101; /* ftpadmin */
-  mode_t mode = 0664;
+  char* src_dir   = "/usr/local/httpd/htdocs.download/";
+  char* dest_dir  = "/usr/local/httpd/htdocs.archive/";
 
 
   /* don't edit me (unless mv isn't in /bin) */
@@ -59,13 +55,16 @@ int main (int argc, char** argv) {
   char* src_file;
 
   if (argc != 3) {
-    fprintf(stderr, "FAILURE: usage: fileforge file group");
+    fprintf(stderr, "FAILURE: usage: filearchive file group");
     exit(1);
   } /* if */
   else {
     /* set source */
-    src_file = (char *) malloc(strlen(src_dir) + strlen(argv[1]) + 1);
+    /* add missing length of argv[2] - helix 2003-10-23 */
+    src_file = (char *) malloc(strlen(src_dir) + strlen(argv[1]) + strlen(argv[2]) + 1);
     strcpy(src_file, src_dir);
+    strcat(src_file, argv[2]);
+    strcat(src_file, "/");
     strcat(src_file, argv[1]);
 
     /* set destination */
@@ -87,16 +86,6 @@ int main (int argc, char** argv) {
 
     if ((mkdir(dest_file, 0775) != 0) && errno != EEXIST) {
       fprintf(stderr, "FAILURE: destination directory could not be created\n");
-      exit(1);
-    } /* if */
-
-    if (chown(src_file,owner,group) != 0) {
-      fprintf(stderr, "FAILURE: ownership of file could not be changed\n");
-      exit(1);
-    } /* if */
-
-    if (chmod(src_file,mode) != 0) {
-      fprintf(stderr, "FAILURE: permission of file could not be changed\n");
       exit(1);
     } /* if */
 

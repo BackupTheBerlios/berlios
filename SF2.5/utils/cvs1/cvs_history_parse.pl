@@ -9,7 +9,7 @@
 ## checkouts, commits, and adds to each project over the past 24 hours.
 ##
 ##
-## $Id: cvs_history_parse.pl,v 1.1 2003/11/12 16:09:03 helix Exp $ 
+## $Id: cvs_history_parse.pl,v 1.2 2003/11/13 11:01:41 helix Exp $ 
 ##
 use strict;
 use Time::Local;
@@ -17,8 +17,8 @@ use POSIX qw( strftime );
 
 my ($year, $month, $day, $day_begin, $day_end);
 my ($group, $histline, $daily_log_file, $key, $verbose);
-my $verbose = 0;
-my $base_log_dir = "/usr/local/boa/htdocs/cvslogs";
+my $verbose = 1;
+my $base_log_dir = "/usr/local/httpd/htdocs.berlios/cvslogs";
 
 $|=0 if $verbose;
 
@@ -26,8 +26,9 @@ $|=0 if $verbose;
 if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 
         $day_begin = timegm( 0, 0, 0, $ARGV[2], $ARGV[1] - 1, $ARGV[0] - 1900 );
-        $day_end = timegm( 0, 0, 0, (gmtime( $day_begin + 86400 ))[3,4,5] );
-	
+##        $day_end = timegm( 0, 0, 0, (gmtime( $day_begin + 86400 ))[3,4,5] );
+          ## End at midnight last night.
+        $day_end = timegm( 0, 0, 0, (gmtime( time() ))[3,4,5] );	
 	$year = $ARGV[0];
 	$month = $ARGV[1];
 	$day = $ARGV[2];
@@ -45,26 +46,21 @@ if ( $ARGV[0] && $ARGV[1] && $ARGV[2] ) {
 
 }
 
-<<<<<<< cvs_history_parse.pl
-<<<<<<< cvs_history_parse.pl
 my $daily_log_file;
 
-=======
 print "Parsing cvs logs looking for traffic on day $day, month $month, year $year.\n" if $verbose;
 
->>>>>>> 1.5
-if ( -d $base_log_dir ) {
-	$daily_log_file = $base_log_dir . "/" . sprintf("%04d",$year);
-	if ( ! -d $daily_log_file ) {
-		mkdir( $daily_log_file, 0755 );
-	}
-	$daily_log_file .= "/" . sprintf("%02d", $month);
-	if ( ! -d $daily_log_file ) {
-		mkdir( $daily_log_file, 0755 );
-	}
-	$daily_log_file . "/cvs_traffic_" . sprintf("%04d%02d$02d",$year,$month,$day) . ".log";
-}
-=======
+##if ( -d $base_log_dir ) {
+##	$daily_log_file = $base_log_dir . "/" . sprintf("%04d",$year);
+##	if ( ! -d $daily_log_file ) {
+##		mkdir( $daily_log_file, 0755 );
+##	}
+##	$daily_log_file .= "/" . sprintf("%02d", $month);
+##	if ( ! -d $daily_log_file ) {
+##		mkdir( $daily_log_file, 0755 );
+##	}
+##	$daily_log_file . "/cvs_traffic_" . sprintf("%04d%02d$02d",$year,$month,$day) . ".log";
+##}
 if ( -d $base_log_dir ) {
 	$daily_log_file = $base_log_dir . "/" . sprintf("%04d", $year);
 	if ( ! -d $daily_log_file ) {
@@ -81,7 +77,6 @@ if ( -d $base_log_dir ) {
 	die("Base log directory \'$base_log_dir\' does not exist!");
 }
 
->>>>>>> 1.4
 open(DAYS_LOG, "> $daily_log_file") || die "Unable to open the log file \'$daily_log_file\'";
 print "Opened log file at \'$daily_log_file\' for writing...\n";
 print "Running tree at /cvsroot/\n";

@@ -2,7 +2,7 @@
  * Small Tool to move HTTP uploaded files from /tmp
  * to the general incoming dir.  Runs +suid.
  *
- * $Id: tmpfilemove.c,v 1.1 2003/11/12 16:09:03 helix Exp $
+ * $Id: tmpfilemove.c,v 1.2 2003/11/13 11:01:41 helix Exp $
  */
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,7 +28,7 @@ int legal_string (char* test_string) {
 	 ((test_string[i] > 57) && (test_string[i] < 65)) ||
 	 ((test_string[i] != 95) && (test_string[i] > 90) && (test_string[i] < 97)) ||
 	 (test_string[i] > 122) ) {
-      printf("%c", test_string[i]);
+      printf("Invalid character in filename '%c'", test_string[i]);
       return 0;
     } /* if */
   } /* for */
@@ -45,7 +45,7 @@ int main (int argc, char** argv) {
 
   /* edit me */
   char* src_dir   = "/tmp/";
-  char* dest_dir  = "/nfs/garbage/incoming/";
+  char* dest_dir  = "/usr/local/ftp/incoming/";
 
   /* don't edit me (unless mv isn't in /bin) */
   char* move_path = "/bin/mv";
