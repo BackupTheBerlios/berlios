@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: menu.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: menu.php,v 1.3 2003/12/03 12:09:43 helix Exp $
 
 /* The correct theme.php must be included by this point -- Geoffrey */
 
@@ -78,6 +78,8 @@ function menu_sourceforge() {
 	$HTML->menuhtml_top($sys_default_name);
 		$HTML->menu_entry('/docman/?group_id=2','<b>'.$Language->DOCUMENTATION.'</b>');
 		$HTML->menu_entry('/forum/?group_id=1',$Language->DISCUSSION_FORUMS);
+                $HTML->menu_entry('/bugs/?group_id=1',$Language->SUBMIT_BUGS);
+                $HTML->menu_entry('/support/?group_id=1',$Language->REQUEST_SUPPORT);
 		$HTML->menu_entry('/people/',$Language->PROJECT_HELP_WANTED);
 		$HTML->menu_entry('/top/',$Language->TOP_PROJECTS);
 //		print '<P>';

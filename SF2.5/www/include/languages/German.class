@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: German.class,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: German.class,v 1.3 2003/12/03 12:09:43 helix Exp $
 
 /*
 
@@ -53,6 +53,8 @@ class German extends BaseLanguage {
 		$this->CODE_SNIPPET_LIBRARY='Codeschnipsel-Sammlung';
 		$this->DOCUMENTATION='Dokumentation';
 		$this->DISCUSSION_FORUMS='Diskussionsforen';
+		$this->SUBMIT_BUGS = 'Fehler melden';
+		$this->REQUEST_SUPPORT = 'Support anfragen';
 		$this->PROJECT_HELP_WANTED='Projekthilfe gesucht';
 		$this->TOP_PROJECTS='Top-Projekte';
 		$this->COMPILE_FARM='Compile-Farm';
