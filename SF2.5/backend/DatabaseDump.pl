@@ -4,7 +4,7 @@
 # Copyright 1999-2000 (c) The SourceForge Crew
 # http://sourceforge.net
 #
-# $Id: DatabaseDump.pl,v 1.2 2004/04/21 10:24:24 helix Exp $
+# $Id: DatabaseDump.pl,v 1.3 2004/05/13 13:23:58 helix Exp $
 #
 use DBI;
 use Sys::Hostname;
@@ -147,7 +147,7 @@ while(my ($http_domain,$unix_group_name,$group_name,$status) = $c->fetchrow()) {
 		if ($unix_group_name eq "sourceagency") {
 			push @tmp_array, "    AllowOverride AuthConfig FileInfo Indexes Limit Options\n";
 		} else {
-			push @tmp_array, "    AllowOverride AuthConfig FileInfo Indexes Limit\n";
+			push @tmp_array, "    AllowOverride AuthConfig FileInfo Indexes Limit Options\n";
 		}
 		push @tmp_array, "    Options Indexes Includes FollowSymLinks MultiViews\n";
 		push @tmp_array, "    Order allow,deny\n";
@@ -260,7 +260,7 @@ print("Dumping Mailing List Aliases Data: ");
 # First lets Dump the Mailing List Info
 push @tmp_array, "\n\n### Mailman Mailing List Aliases ###\n";
 
-$query = "SELECT list_name from mail_group_list";
+$query = "SELECT list_name from mail_group_list where is_public != '9'";
 $c = $dbh->prepare($query);
 $c->execute();
 while(my ($list_name) = $c->fetchrow()) {
