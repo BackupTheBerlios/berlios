@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.es,v 1.4 2002/05/13 23:28:13 grex Exp $ -->
+<!-- $Id: site_menubar.html.es,v 1.5 2002/05/13 23:51:40 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -46,7 +46,7 @@
       <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000">
         <tr bgcolor="#000000">
           <td align="center"><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt="">
-            <br><span class="titlebar"><font color="#FFFFFF">Mediador</font></span>
+            <span class="titlebar"><font color="#FFFFFF">Mediador</font></span>
           </td>
         </tr>
       
@@ -66,7 +66,7 @@
         <tr bgcolor="#000000">
           <td align="center"><img SRC="<?php echo $top_level; ?>/images/blank.gif" 
            height="1" width="135" border="0" alt="">
-            <br><span class="titlebar"><font color="#FFFFFF">Portales</font></span>
+            <span class="titlebar"><font color="#FFFFFF">Portales</font></span>
           </td>
         </tr>
       
