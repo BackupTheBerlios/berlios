@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.6 2004/01/13 14:51:53 helix Exp $
+// $Id: index.php,v 1.7 2004/04/21 10:13:03 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -54,7 +54,8 @@ if (user_isloggedin() || $sf_user_hash) {
 		FROM bug,groups 
 		WHERE bug.status_id=1 
 		AND groups.group_id=bug.group_id  
-		AND bug.assigned_to='".user_getid()."' 
+		AND (bug.assigned_to='".user_getid()."' 
+		OR bug.submitted_by='".user_getid()."') 
 		ORDER BY groups.group_name ASC";
 
 	$result=db_query($sql,100);
@@ -89,7 +90,8 @@ if (user_isloggedin() || $sf_user_hash) {
 	$sql="SELECT groups.group_name,support.group_id,support.support_id,support.priority,support.summary 
 		FROM support,groups 
 		WHERE support.support_status_id = '1' 
-		AND support.assigned_to='".user_getid()."' 
+		AND (support.assigned_to='".user_getid()."' 
+		OR support.submitted_by='".user_getid()."') 
 		AND groups.group_id=support.group_id 
 		ORDER BY groups.group_name ASC";
 
@@ -110,6 +112,43 @@ if (user_isloggedin() || $sf_user_hash) {
 			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/support/?func=detailsupport&group_id='.
 				db_result($result,$i,'group_id').'&support_id='.db_result($result,$i,'support_id').
 				'">'.sprintf("%06d",db_result($result,$i,'support_id')).'</A></TD>'.
+				'<TD WIDTH="99%">'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
+
+			$last_group=db_result($result,$i,'group_id');
+		}
+	}
+
+	/*
+		Feature Requests for this User
+	*/
+	$last_group=0;
+	echo $HTML->box1_middle('My Feature Requests',false,false);
+
+	$sql="SELECT groups.group_name,feature.group_id,feature.feature_id,feature.priority,feature.summary 
+		FROM feature,groups 
+		WHERE feature.feature_status_id = '1' 
+		AND (feature.assigned_to='".user_getid()."' 
+		OR feature.submitted_by='".user_getid()."') 
+		AND groups.group_id=feature.group_id 
+		ORDER BY groups.group_name ASC";
+
+	$result=db_query($sql,100);
+	$rows=db_numrows($result);
+	if (!$result || $rows < 1) {
+		echo '
+		<TR><TD COLSPAN="2"><B>No open feature requests are assigned to you or were submitted by you</B></TD></TR>';
+	} else {
+		for ($i=0; $i<$rows; $i++) {
+			if (db_result($result,$i,'group_id') != $last_group) {
+				echo '
+				<TR><TD COLSPAN="2"><B><A HREF="/feature/?group_id='.
+				db_result($result,$i,'group_id').'">'.
+				group_getname(db_result($result,$i,'group_id')).'</A></TD></TR>';
+			}
+			echo '
+			<TR BGCOLOR="'.get_priority_color(db_result($result,$i,'priority')).'"><TD><A HREF="/feature/?func=detailfeature&group_id='.
+				db_result($result,$i,'group_id').'&feature_id='.db_result($result,$i,'feature_id').
+				'">'.sprintf("%06d",db_result($result,$i,'feature_id')).'</A></TD>'.
 				'<TD WIDTH="99%">'.stripslashes(db_result($result,$i,'summary')).'</TD></TR>';
 
 			$last_group=db_result($result,$i,'group_id');
