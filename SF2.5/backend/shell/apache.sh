@@ -9,7 +9,7 @@ uname=`uname`
 echo ""
 echo "Checking Project Web Directories: "
 
-for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v 'ftp$'` ; do
+for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v '^ftp$'` ; do
 	echo "Project: $i"
 
 	if [ ! -d /home/groups/$i/log ] ; then
