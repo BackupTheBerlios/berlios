@@ -1,3 +1,5 @@
+<!-- $Id: site_menubar.html.de,v 1.5 2002/05/13 21:52:40 grex Exp $ -->
+
 <?php
  if ( !isset( $top_level ) ) {
    $top_level = ".";
@@ -80,7 +82,9 @@ height="1" width="135" border=0><br>
 <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
 <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
-<p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a></td>
+<p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a>
+<p><a href="index.php.es"><img src="<?php echo $top_level; ?>/images/esflag.png" border="0"></a>
+</td>
 </td>
 </tr>
 </table>

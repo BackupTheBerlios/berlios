@@ -1,4 +1,5 @@
-<!-- $Id: users.php.en,v 1.3 2002/01/07 06:39:40 riessen Exp $ -->
+<!-- $Id: users.php.en,v 1.4 2002/05/13 21:52:40 grex Exp $ -->
+<!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -11,7 +12,7 @@
 <body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
 
 <?php
-require("include/site_header.html.en");
+require("include/site_header.html.es");
 ?>
 
 <!-- content -->
@@ -19,7 +20,7 @@ require("include/site_header.html.en");
 <tr VALIGN=TOP>
 
 <?php
-require("include/site_menubar.html.en");
+require("include/site_menubar.html.es");
 ?>
 
 <!-- content -->
@@ -29,7 +30,7 @@ require("include/site_menubar.html.en");
 <tr VALIGN=TOP>
 <td WIDTH="65%">
 
-<h2>Users</h2>
+<h2>Usuarios</h2>
 
 <p>BerliOS' target user group are small and medium sized companies and
 Governmental Organisations and Departments. These are  partly end users
