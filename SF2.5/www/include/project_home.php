@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_home.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: project_home.php,v 1.3 2004/02/08 15:50:30 helix Exp $
 
 require ('vote_function.php');
 require ('vars.php');
@@ -61,7 +61,7 @@ $actv_res = db_result($actv,0,"percentile");
 if (!$actv_res) $actv_res=0;
 
 print("Registered: " . date($sys_datefmt, $project->getStartDate()));
-print '<br>Activity Percentile: ' . $actv_res . '%';
+print '<br>Activity Percentile (last week): ' . $actv_res . '%';
 print '<br>View project activity <a href="/project/stats/?group_id='.$group_id.'">statistics</a>';
 print '<br>View project web <a href="http://'.$project->getUnixName().'.berlios.de/usage">statistics</a>';
 print '<br>View list of <a href="/export/rss_project.php?group_id='.$group_id.'">RSS feeds</a> available for this project';
