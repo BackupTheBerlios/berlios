@@ -4,10 +4,10 @@
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
 <link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: index.php.es,v 1.4 2002/05/13 23:11:39 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.5 2002/05/13 23:21:57 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 </head>
-<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+<body bgcolor="#FFFFFF">
 
 <?php
 require("include/site_header.html.es");

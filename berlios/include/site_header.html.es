@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.2 2002/05/13 22:55:28 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.3 2002/05/13 23:21:57 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -21,7 +21,7 @@
 <!-- end top strip -->
 
 <!-- top title -->
-<table border="0" cellspacing="0" cellpadding=0 width="100%" valign="center">
+<table border="0" cellspacing="0" cellpadding=0 width="100%">
   <tr valign="top" bgcolor="#FFCC33">
     <td>
       <a href="index.php.es"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" hspace="5" vspace="5" border="0" height="61" width="238" alt="BerliOS"></a>
@@ -30,7 +30,7 @@
       <img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
     </td>
     <td valign="middle" width="99%">
-      <b><font size=+1>BerliOS</font></b>
+      <b><font size="+1">BerliOS</font></b>
       <br>The Open Source Mediator</td>
 
       <!-- logo at right -->

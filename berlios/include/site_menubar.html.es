@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.es,v 1.2 2002/05/13 22:44:09 grex Exp $ -->
+<!-- $Id: site_menubar.html.es,v 1.3 2002/05/13 23:21:57 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -83,8 +83,8 @@
             <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
             <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
       
-            <p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a>
-            <p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a>
+            <p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0" alt="de"></a>
+            <p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0" alt="en"></a>
           </td>
         </tr>
       </table>
