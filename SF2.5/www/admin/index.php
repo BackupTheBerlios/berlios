@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: index.php,v 1.3 2004/04/02 10:40:21 helix Exp $
 
 require "pre.php";
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -67,6 +67,21 @@ Search <i>(groupid,groupunixname,groupname)</i>:
 <LI>Groups in <a href="grouplist.php?status=I"><B>I</B> (incomplete) Status</A>
 <LI>Groups in <a href="approve-pending.php"><B>P</B> (pending) Status</A> <i>(New Project Approval)</i>
 <LI>Groups in <a href="grouplist.php?status=D"><B>D</B> (deleted) Status</A>
+</ul>
+
+<p><b>Donations</b>
+<ul>
+<li>Group Donations in <a href="group_donations.php"><b>Every</b> Status</a>
+<li>Group Donations in <a href="group_donations.php?status=P"><b>P</b> (pending) Status</a>
+<li>Group Donations in <a href="group_donations.php?status=A"><b>A</b> (approved) Status</a>
+<li>Group Donations in <a href="group_donations.php?status=D"><b>D</b> (deleted) Status</a>
+</ul>
+
+<ul>
+<li>User Donations in <a href="user_donations.php"><b>Every</b> Status</a>
+<li>User Donations in <a href="user_donations.php?status=P"><b>P</b> (pending) Status</a>
+<li>User Donations in <a href="user_donations.php?status=A"><b>A</b> (approved) Status</a>
+<li>User Donations in <a href="user_donations.php?status=D"><b>D</b> (deleted) Status</a>
 </ul>
 
 <p><b>Trove</b>
