@@ -43,7 +43,7 @@
       <img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
     </td>
     <td valign="middle" width="99%">
-      <b><font size=+1>BerliOS</font></b>
+      <b><font size="+1">BerliOS</font></b>
       <br>Der Open-Source-Mediator
     </td>
     <td valign="middle">
