@@ -35,7 +35,7 @@ if ($group_id) {
 
 	//otherwise, throw up an error
 	if (db_numrows($result) < 1) {
-		print "<b>This project has no categorized data.</b><p>";
+		print "This project has no categorized data.<p>";
 	} else { 
 		doc_droplist_count($group_id, $language_id);
 		print "<hr>";
@@ -47,11 +47,13 @@ if ($group_id) {
 				."and stateid ='1' "
 				."and language_id = ".$language_id."";
 				
-				//state 1 == 'active'
-				if ($usermem == true) {
-					$query .= " or stateid = '5' "
-						 ." and doc_group = '".$row['doc_group']."' ";
-				} //state 5 == 'private' 
+			//state 1 == 'active'
+			if ($usermem == true) {
+				$query .= " or stateid = '5' "
+					." and doc_group = '".$row['doc_group']."' ";
+			} //state 5 == 'private'
+			
+			$query .= " order by title"; 
 
 			$subresult = db_query($query); 
 
