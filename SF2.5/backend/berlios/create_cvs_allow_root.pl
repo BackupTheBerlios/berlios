@@ -12,16 +12,18 @@ require("include.pl");  # Include all the predefined functions and variables
 
 my @allow_root = ();
 my @group_dump = open_array_file($config{'group_dump'});
-my ($groupname, $status, $groupid, $userlist);
+my ($groupname, $status, $groupid, $userlist, $use_cvs);
 
 print("\nCreating CVS allow root config file for Projects/Groups\n");
 while ($ln = shift(@group_dump)) {
   chop($ln);
-  ($groupname, $status, $groupid, $userlist) = split(":", $ln);
+  ($groupname, $status, $groupid, $userlist, $use_cvs) = split(":", $ln);
   if ($status eq "A") {
-	$rootent = $config{'cvsroot'}."/".$groupname."\n";
-	push(@allow_root, $rootent);
-	print("$groupname root dir: $rootent");
+    if ($use_cvs) {
+      $rootent = $config{'cvsroot'}."/".$groupname."\n";
+      push(@allow_root, $rootent);
+      print("$groupname root dir: $rootent");
+    }
   }
 }
 

@@ -12,16 +12,18 @@ require("include.pl");  # Include all the predefined functions and variables
 
 my @cvsroot = ("\%CVSROOT = (\n");
 my @group_dump = open_array_file($config{'group_dump'});
-my ($groupname, $status, $groupid, $userlist);
+my ($groupname, $status, $groupid, $userlist $use_cvs);
 
 print("\nCreating CVSWEB root config file for Projects/Groups\n");
 while ($ln = shift(@group_dump)) {
   chop($ln);
-  ($groupname, $status, $groupid, $userlist) = split(":", $ln);
+  ($groupname, $status, $groupid, $userlist, $use_cvs) = split(":", $ln);
   if ($status eq "A") {
-	$rootent = "\"".$groupname."\" => \"".$config{'cvsroot'}."/".$groupname."\",\n";
-	push(@cvsroot, $rootent);
-	print($rootent);
+    if ($use_cvs) {
+      $rootent = "\"".$groupname."\" => \"".$config{'cvsroot'}."/".$groupname."\",\n";
+      push(@cvsroot, $rootent);
+      print($rootent);
+    }
   }
 }
 push(@cvsroot, ");\n");

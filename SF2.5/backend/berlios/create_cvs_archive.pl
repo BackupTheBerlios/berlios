@@ -16,9 +16,9 @@ my ($groupname, $status, $groupid, $userlist);
 print("\nCreating CVS Archives for Projects/Groups\n");
 while ($ln = shift(@group_dump)) {
   chop($ln);
-  ($groupname, $status, $groupid, $userlist) = split(":", $ln);
+  ($groupname, $status, $groupid, $userlist, $use_cvs) = split(":", $ln);
   $dir = $config{'cvsroot'}."/".$groupname;
-#  print ("Group: ".$groupname.":".$status.":".$groupid.":".$userlist."\n");
+#  print ("Group: ".$groupname.":".$status.":".$groupid.":".$userlist.":".$use_cvs."\n");
   if (!opendir(DIR, $dir)) {
     if ($status eq "A") {
       $cvsinit = "cvs -d ".$dir." init";
@@ -40,6 +40,11 @@ while ($ln = shift(@group_dump)) {
     $chmod = "chmod 2775 ".$dir."/CVSROOT";
     print("$chmod\n");
     system($chmod);
+    if (! $use_cvs) {
+        $chmod = "chmod -R o-rwx ".$dir;
+        print("$chmod\n");
+        system($chmod);
+    }
     $chmod = "chmod 666 ".$dir."/CVSROOT/history";
     print("$chmod\n");
     system($chmod);
