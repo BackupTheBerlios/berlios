@@ -4,11 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editimages.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: editimages.php,v 1.3 2003/11/26 14:56:30 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
 
+if ($group_id) {
 session_require(array('group'=>$group_id,'admin_flags'=>'A'));
 
 if ($submit) {
@@ -84,5 +85,9 @@ for ($i=0; $i<$rows; $i++) {
 echo '</TABLE>';
 
 project_admin_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>
