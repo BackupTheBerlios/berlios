@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	      
-// $Id: Layout.class,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: Layout.class,v 1.3 2004/02/08 15:51:13 helix Exp $
 
 
 /*
@@ -247,7 +247,7 @@ For privacy
 policy information, please see the <a href="/tos/privacy.php" class="legallink"
 ><font color="#cccccc"><?php echo $sys_default_name ?> Privacy Policy</font></a>.
 Content owned by Fraunhofer FOKUS is copyright 
-2000-2003 Fraunhofer FOKUS. All rights reserved.
+2000-2004 Fraunhofer FOKUS. All rights reserved.
 <br>&nbsp;
 </font></SPAN>
 </center>
@@ -394,6 +394,9 @@ echo html_blankimage(5,100);
 	<td align="left" valign="top" bgcolor="<?php echo $this->COLOR_CONTENT_BACK; ?>" width="99%">
 	<BR>
 <?php
+            if ( file_exists( $GLOBALS['sys_urlroot'].'include/adsense.php' ) ) {
+              include( $GLOBALS['sys_urlroot'].'include/adsense.php' );
+            }
 	}
 
 	function footer($params) {
