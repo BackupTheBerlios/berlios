@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.6 2002/05/13 23:42:37 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.7 2002/05/13 23:48:43 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -34,49 +34,6 @@
       <br>The Open Source Mediator
 
       <!-- logo at right -->
-      <map name="BerliOSPie_Navigate">
-      <!-- central circle -->
-      <area shape="circle" coords="30,30,6" href="goals.php.es" 
-       alt="BerliOS">
-
-      <!-- Informations platform Wedge -->
-      <area shape="poly" coords="9,30,10,25,12,20,15,16, 19,12,27,24,25,27,24,30" 
-       href="info_plat.php.es" alt="Plataforma de Información">
-
-      <!-- Vermittlung von Ideen Wedge -->
-      <area shape="poly" coords="20,12,24,10,29,9,34,9, 38,11,40,12,33,24,30,24, 29,24,27,24" 
-       href="proj_spon.php.es" alt="Patrocinio de Proyectos">
-
-      <!-- Entwicklungs plattform Wedge -->
-      <area shape="poly" coords="33,24,34,25,35,26,36,29,36,29, 41,30,43,29,45,30,51,30,50,25, 49,21,47,18,44,15,41,12,40,12" 
-       href="supp_deve.php.es" alt="Apoyando el desarrollo de Open Source">
-
-      <!-- Vermittlung von Known-how OS-Software Wedge -->
-      <area shape="poly" coords="37,30,51,30,50,35,48,40,46,44, 42,47,40,48,33,36,35,34,36,32, 37,30" 
-       href="exis_solu.php.es" alt="Soluciones existentes">
-
-      <!-- Presentation platform wedge -->
-      <area shape="poly" coords="27,36,29,36,31,36,33,36,40,48, 36,50,30,51,24,50,19,48" 
-       href="pres_plat.php.es" alt="Presentación de la plataforma">
-
-      <!-- Vermittlung von Know-how Dienstleistungen wedge -->
-      <area shape="poly" coords="24,30,24,32,25,34,25,34, 27,36,19,48,16,46,13,43, 11,39,10,35,9,30" 
-       href="know_hows.php.es" alt="Saber Hacer">
-
-      <!-- Anwender outer wedge -->
-      <area shape="poly" coords="19,48,23,50,29,51,32,51,36,50, 40,49,40,48,45,56,39,58,34,60, 27,60,20,58,15,56" 
-       href="manufacturer.php.es" alt="Proveedores de Servicios e Industria">
-
-      <!-- Entwickler outer wedge -->
-      <area shape="poly" 
-       coords="0,30,1,24,3,17,6,13, 9,9,11,7,14,5,15,4, 20,12,16,15,13,19,11,22, 10,25,9,29,9,30"
-       href="users.php.es" alt="Usuarios">
-
-     <!-- Dienstleister and hersteller outer wedge -->
-     <area shape="poly" 
-      coords="51,30,60,30,59,25,58,20, 56,15,53,11,51,8,48,6, 45,4,40,12,44,14,46,16, 47,18,49,21,50,24" 
-      href="developers.php.es" alt="Desarrolladores">
-     </map
     </td>
     <td valign="middle">
       <table border="0">
