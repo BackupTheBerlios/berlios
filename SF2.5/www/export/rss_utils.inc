@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_utils.inc,v 1.2 2003/11/13 11:29:22 helix Exp $
+// $Id: rss_utils.inc,v 1.3 2004/06/09 10:58:11 helix Exp $
 
 function rss_setscheme() {
 	if ($GLOBALS['scheme'] == "netscape") {
@@ -33,7 +33,7 @@ function rss_dump_project_result_set ($res,$title,$desription='',$callback=0) {
         if (!$desription) $desription=$title;
 	// ## one time output
 	print " <channel>\n";
-	print "  <copyright>Copyright 2000-2003 Fraunhofer FOKUS</copyright>\n";
+	print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
 	print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
 	print "  <description>$desription</description>\n";
 	print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
