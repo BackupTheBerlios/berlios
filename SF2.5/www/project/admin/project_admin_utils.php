@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_admin_utils.php,v 1.5 2005/02/15 11:43:29 helix Exp $
+// $Id: project_admin_utils.php,v 1.6 2005/02/24 17:46:17 helix Exp $
 
 /*
 
@@ -21,6 +21,7 @@ function project_admin_header($params) {
 	$project=&group_get_object($group_id);
 	$is_admin=$project->userIsAdmin();
 
+	if ($project->isProject()) {
 	echo '
 	<P><B>
 	<A HREF="/project/admin/?group_id='.$group_id.'">Admin</A> | ';
@@ -40,6 +41,7 @@ function project_admin_header($params) {
 	<A HREF="/project/admin/vhost.php?group_id='.$group_id.'">Virtual Host</A> | 
     <A HREF="/project/admin/donation_admin.php?group_id='.$group_id.'">Donation</A></B>
 	<P>';
+	}
 }
 
 /*
