@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
+// $Id: index.php,v 1.4 2004/02/19 12:34:00 helix Exp $
 
 require('pre.php');
 require('../patch_utils.php');
@@ -18,7 +18,7 @@ if ($group_id && user_ismember($group_id,'C2')) {
 
 		if ($patch_cat) {
 
-			$sql="INSERT INTO patch_category VALUES ('', '$group_id','$cat_name')";
+			$sql="INSERT INTO patch_category (group_id, category_name) VALUES ('$group_id','$cat_name')";
 			$result=db_query($sql);
 			if (!$result) {
 				$feedback .= ' Error inserting value ';
