@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: features_boxes.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: features_boxes.php,v 1.3 2005/02/24 17:31:01 helix Exp $
 
 
 function show_features_boxes() {
@@ -29,14 +29,13 @@ function show_features_boxes() {
  *	depends on $foundry being set globally with the current foundry object
  */
 function foundry_features_boxes() {
-	GLOBAL $HTML;
+	GLOBAL $HTML,$Language;
 //	$comma_sep_groups=$GLOBALS['foundry']->getProjectsCommaSep();
-
 	$group_id=$GLOBALS['foundry']->getGroupID();
-
-	$return .= $HTML->box1_top('Most Active',0);
+	$return .= $HTML->box1_top($Language->MOST_ACTIVE_THIS_WEEK,0);
 	$return .= foundry_active_projects($group_id);
-	$return .= $HTML->box1_middle('Top Downloads');
+//	$return .= $HTML->box1_middle('Top Downloads');
+        $return .= $HTML->box1_middle($Language->TOP_PROJECT_DOWNLOADS);
 	$return .= foundry_top_downloads($GLOBALS['foundry']->getGroupID());
 	$return .= $HTML->box1_middle('Featured Projects');
 	$return .= foundry_featured_projects($GLOBALS['foundry']->getGroupID());
@@ -106,7 +105,7 @@ function foundry_top_downloads($foundry_id) {
 		groups.group_name,
 		groups.unix_group_name,
 		frs_dlstats_group_agg.downloads 
-		FROM frs_dlstats_group_agg,groups WHERE day='20001115' 
+		FROM frs_dlstats_group_agg,groups WHERE day='$yesterday' 
 		AND frs_dlstats_group_agg.group_id=groups.group_id 
 		AND EXISTS (SELECT project_id FROM foundry_projects 
 			WHERE frs_dlstats_group_agg.group_id=foundry_projects.project_id 
@@ -120,9 +119,10 @@ function foundry_top_downloads($foundry_id) {
 		// print each one
 		while ($row_topdown = db_fetch_array($res_topdown)) {
 			if ($row_topdown['downloads'] > 0) 
-				$return .= "<BR><A href=\"/projects/$row_topdown[unix_group_name]/\">"
-				. "$row_topdown[group_name]</A> ($row_topdown[downloads])\n";
+				$return .= "<A href=\"/projects/$row_topdown[unix_group_name]/\">"
+				. "$row_topdown[group_name]</A> ($row_topdown[downloads])<br>\n";
 		}
+		$return .= '<P align="center"><A href="/top/">[ More ]</A>';
 	}
 	
 	return $return; 
