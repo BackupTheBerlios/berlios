@@ -4,7 +4,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
 <link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: index.php.es,v 1.6 2002/05/13 23:34:48 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.7 2002/05/13 23:37:15 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 </head>
 <body bgcolor="#FFFFFF">
@@ -74,7 +74,10 @@ require("include/site_menubar.html.es");
             </center>
             
             <p>El objetivo de BerliOS es proporcionar apoyo a los diferentes grupos de inter&eacute;s en el &aacute;rea del software libre (también conocido como Open Source). Nuestra finalidad es la de llevar a cabo una funci&oacute;n neutral de mediaci&oacute;n. Los grupos a los que BerliOS va dirigido son por una parte desarrolladores y usuarios de software libre (también conocido como Open Source) y en la otra compañ&iacute;as que proveen soluciones comerciales para sistemas operativos y aplicaciones Open Source, as&iacute; como soporte y otros servicios relacionados.
-            
+
+<?php
+require("include/site_validated.html");
+?>            
             <p>
           <td>
             &nbsp;
