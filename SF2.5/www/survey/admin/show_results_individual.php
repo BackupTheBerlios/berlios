@@ -4,18 +4,20 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results_individual.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: show_results_individual.php,v 1.3 2003/11/27 15:05:42 helix Exp $
 
 require('pre.php');
-require($DOCUMENT_ROOT.'/survey/survey_utils.php');
+require('../survey_utils.php');
 $is_admin_page='y';
-survey_header(array('title'=>'Results'));
+
+if ($group_id && $survey_id) {
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
-        echo "<H1>Permission Denied</H1>";
-        survey_footer(array());
+	exit_permission_denied();
 	exit;
 }
+
+survey_header(array('title'=>'Results'));
 
 ?>
 
@@ -67,9 +69,9 @@ for ($i=0; $i<$count; $i++) {
 		Build the questions on the HTML form
 	*/
 
-	$sql="select questions.question_type,questions.question,questions.question_id,responses.response ".
-		"from questions,responses where questions.question_id='".$quest_array[$i]."' and ".
-		"questions.question_id=responses.question_id and responses.customer_id=$customer_id AND responses.survey_id=$survey_id";
+	$sql="SELECT survey_questions.question_type,survey_questions.question,survey_questions.question_id,survey_responses.response ".
+		"FROM survey_questions,survey_responses WHERE survey_questions.question_id='".$quest_array[$i]."' AND ".
+		"survey_questions.question_id=survey_responses.question_id AND survey_responses.survey_id=$survey_id";
 
 	$result=db_query($sql);
 
@@ -79,23 +81,25 @@ for ($i=0; $i<$count; $i++) {
 */
 	if (!$result || db_numrows($result) < 1) {
 
-		#$result=db_query("select * from responses where question_id='".$quest_array[$i]."' and survey_id=$survey_id AND customer_id=$customer_id");
+		$result=db_query("select * from responses where question_id='".$quest_array[$i]."' and survey_id=$survey_id AND customer_id=$customer_id");
 
-		#echo "\n\n<!-- falling back 1 -->";
+		echo "\n\n<!-- falling back 1 -->";
 	
-		#if (!$result || db_numrows($result) < 1) {
-		#	echo "\n\n<!-- falling back 2 -->";
+		if (!$result || db_numrows($result) < 1) {
+			echo "\n\n<!-- falling back 2 -->";
 			$result=db_query("select * from survey_questions where question_id='".$quest_array[$i]."'");
 			$not_found=1;
-		#} else {
-                #	$not_found=0;
-		#}
+		} else {
+                	$not_found=0;
+		}
 
 	} else {
 		$not_found=0;
 	}
 
-		#echo "\n\nnotfound: '$not_found'";
+	if ($not_found) {
+	  echo "\n\nnotfound: '$not_found'";
+	}
 
 	$question_type=db_result($result, 0, "question_type");
 
@@ -116,7 +120,7 @@ for ($i=0; $i<$count; $i++) {
 		*/
 
 		if (($question_type != $last_question_type) && (($question_type == "1") || ($question_type == "3"))) {
-			echo "&nbsp;<P>";
+			echo "&nbsp;<BR>";
 		}
 
 		echo $q_num."&nbsp;&nbsp;&nbsp;&nbsp;<BR></TD>\n<TD>";
@@ -134,7 +138,7 @@ for ($i=0; $i<$count; $i++) {
 		# Show the 1-5 markers only if this is the first in a series
 
 		if ($question_type != $last_question_type) {
-			echo "\n<B>1 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5</B>\n";
+			echo "\n<B>&nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3 &nbsp&nbsp; 4 &nbsp;&nbsp; 5</B>\n";
                         echo "\n<BR>";
 
 		}
@@ -243,5 +247,9 @@ echo "\n\n</TABLE>";
 <?php
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: survey_utils.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: survey_utils.php,v 1.3 2003/11/27 15:05:42 helix Exp $
 
 /*
 	Survey System
@@ -43,4 +43,34 @@ function survey_footer($params) {
 	site_project_footer($params);
 }
 
+function ShowResultsEditSurvey($result) {
+        global $group_id,$PHP_SELF;
+        $rows  =  db_NumRows($result);
+        $cols  =  db_NumFields($result);
+        echo "<h3>$rows Found</h3>";
+
+        $title_arr=array();
+        $title_arr[]='Survey ID';
+        $title_arr[]='Group ID';
+        $title_arr[]='Survey Title';
+        $title_arr[]='Survey Questions';
+        $title_arr[]='Is Active';
+
+        echo html_build_list_table_top ($title_arr);
+
+        for ($j=0; $j<$rows; $j++)  {
+
+                echo "<tr BGCOLOR=\"". html_get_alt_row_color($j) ."\">\n";
+
+                echo "<TD><A HREF=\"edit_survey.php?group_id=$group_id&survey_id
+=".
+                        db_result($result,$j,0)."\">".sprintf("%06d",db_result($result,$j,0))."</A></TD>";
+                for ($i=1; $i<$cols; $i++)  {
+                        printf("<TD>%s</TD>\n",db_result($result,$j,$i));
+                }
+
+                echo "</tr>";
+        }
+        echo "</table>"; //</TD></TR></TABLE>";
+}
 ?>

@@ -4,19 +4,21 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results_comments.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: show_results_comments.php,v 1.3 2003/11/27 15:05:42 helix Exp $
 
 require('pre.php');
 require('HTML_Graphs.php');
-require($DOCUMENT_ROOT.'/survey/survey_utils.php');
+require('../survey_utils.php');
 $is_admin_page='y';
-survey_header(array('title'=>'Survey Aggregate Results'));
+
+if ($group_id && $survey_id && $question_id) {
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
-	echo "<H1>Permission Denied</H1>";
-	survey_footer(array());
+	exit_permission_denied();
 	exit;
 }
+
+survey_header(array('title'=>'Survey Aggregate Results'));
 
 Function  ShowResultComments($result) {
 	global $survey_id;
@@ -25,28 +27,18 @@ Function  ShowResultComments($result) {
 	$cols  =  db_numfields($result);
 	echo "<h3>$rows Found</h3>";
 
-	echo /*"<TABLE BGCOLOR=\"NAVY\"><TR><TD BGCOLOR=\"NAVY\">*/ "<table border=0>\n";
-	/*  Create  the  headers  */
-	echo "<tr BGCOLOR=\"$GLOBALS[COLOR_MENUBARBACK]\">\n";
+        $title_arr=array();
+        $title_arr[]='User ID';
+        $title_arr[]='Response';
 
-	for($i  =  0;  $i  <  $cols;  $i++)  {
-		printf( "<th><FONT COLOR=\"WHITE\"><B>%s</th>\n",  db_fieldname($result,$i));
-	}
-	echo "</tr>";
+        echo html_build_list_table_top ($title_arr);
 
-	for($j  =  0;  $j  <  $rows;  $j++)  {
-		if ($j%2==0) {
-			$row_bg="#FFFFFF";
-		} else {
-			$row_bg="$GLOBALS[COLOR_LTBACK1]";
+        for($j=0; $j<$rows; $j++)  {
+
+                echo "<tr BGCOLOR=\"". html_get_alt_row_color($j) ."\">\n";
+		for($i=0; $i<$cols; $i++)  {
+		    printf("<TD>%s</TD>\n",db_result($result,$j,$i));
 		}
-
-		echo "<tr BGCOLOR=\"$row_bg\">\n";
-
-		for ($i = 0; $i < $cols; $i++) {
-			printf("<TD>%s</TD>\n",db_result($result,$j,$i));
-		}
-
 		echo "</tr>";
 	}
 	echo "</table>"; //</TD></TR></TABLE>";
@@ -57,10 +49,14 @@ $result=db_query($sql);
 echo "<h2>Question: ".db_result($result,0,"question")."</H2>";
 echo "<P>";
 
-$sql="SELECT DISTINCT response FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$question_id' AND group_id='$group_id'";
+$sql="SELECT user_id,response FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$question_id' AND group_id='$group_id'";
 $result=db_query($sql);
 ShowResultComments($result);
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>

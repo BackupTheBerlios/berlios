@@ -4,19 +4,21 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results_aggregate.php,v 1.3 2003/11/26 14:41:06 helix Exp $
+// $Id: show_results_aggregate.php,v 1.4 2003/11/27 15:05:42 helix Exp $
 
 require('pre.php');
 require('HTML_Graphs.php');
-require($DOCUMENT_ROOT.'/survey/survey_utils.php');
+require('../survey_utils.php');
 $is_admin_page='y';
-survey_header(array('title'=>'Survey Aggregate Results'));
+
+if ($group_id && $survey_id) {
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
-	echo "<H1>Permission Denied</H1>";
-	survey_footer(array());
+	exit_permission_denied();
 	exit;
 }
+
+survey_header(array('title'=>'Survey Aggregate Results'));
 
 //$result=db_query($sql);
 
@@ -244,5 +246,9 @@ for ($i=0; $i<$count; $i++) {
 echo "\n\n</TABLE>";
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>

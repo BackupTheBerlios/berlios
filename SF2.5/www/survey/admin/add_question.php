@@ -4,18 +4,20 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: add_question.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: add_question.php,v 1.3 2003/11/27 15:05:42 helix Exp $
 
 require('pre.php');
-require($DOCUMENT_ROOT.'/survey/survey_utils.php');
+require('../survey_utils.php');
 $is_admin_page='y';
-survey_header(array('title'=>'Add A Question'));
+
+if ($group_id) {
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
-	echo "<H1>Permission Denied</H1>";
-	survey_footer(array());
+	exit_permission_denied();
 	exit;
 }
+
+survey_header(array('title'=>'Add A Question'));
 
 if ($post_changes) {
 	$sql="INSERT INTO survey_questions (group_id,question,question_type) VALUES ('$group_id','".htmlspecialchars($question)."','$question_type')";
@@ -70,5 +72,9 @@ echo html_build_select_box($result,'question_type','xzxz',false);
 <?php
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>

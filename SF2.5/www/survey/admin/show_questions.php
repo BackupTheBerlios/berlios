@@ -4,23 +4,24 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_questions.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: show_questions.php,v 1.3 2003/11/27 15:05:42 helix Exp $
 
 require('pre.php');
-require($DOCUMENT_ROOT.'/survey/survey_utils.php');
+require('../survey_utils.php');
 $is_admin_page='y';
 
-$HTML->header(array('title'=>'Survey Questions'));
+if ($group_id) {
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
-	echo "<H1>Permission Denied</H1>";
-	survey_footer(array());
+	exit_permission_denied();
 	exit;
 }
 
+survey_header(array('title'=>'Survey Questions'));
+
 ?>
 
-<H2>Existing Questions:</H2>
+<H2>Existing Questions</H2>
 <P>
 You may use any of these questions on your surveys.
 <P>
@@ -34,20 +35,20 @@ Function  ShowResultsEditQuestion($result) {
 	$cols  =  db_numfields($result);
 	echo "<h3>$rows Found</h3>";
 
-	echo /*"<TABLE BGCOLOR=\"NAVY\"><TR><TD BGCOLOR=\"NAVY\">*/ "<table border=0>\n";
-	/*  Create  the  headers  */
-	echo "<tr BGCOLOR=\"$GLOBALS[COLOR_MENUBARBACK]\">\n";
-	for($i=0; $i<$cols; $i++)  {
-		printf( "<th><FONT COLOR=\"WHITE\"><B>%s</th>\n",  db_fieldname($result,$i));
-	}
-	echo( "</tr>");
-	for($j  =  0;  $j  <  $rows;  $j++)  {
+        $title_arr=array();
+        $title_arr[]='Question ID';
+        $title_arr[]='Question';
+        $title_arr[]='Type';
+
+        echo html_build_list_table_top ($title_arr);
+
+	for($j=0; $j<$rows; $j++)  {
 
 		echo( "<tr BGCOLOR=\"". html_get_alt_row_color($j) ."\">\n");
 
-		echo "<TD><A HREF=\"edit_question.php?group_id=$group_id&question_id=".db_result($result,$j,"question_id")."\">".db_result($result,$j,"question_id")."</A></TD>\n";
+		echo "<TD><A HREF=\"edit_question.php?group_id=$group_id&question_id=".db_result($result,$j,"question_id")."\">".sprintf("%06d",db_result($result,$j,"question_id"))."</A></TD>\n";
 
-		for($i  =  1;  $i  <  $cols;  $i++)  {
+		for($i=1; $i<$cols; $i++)  {
 			printf("<TD>%s</TD>\n",db_result($result,$j,$i));
 		}
 
@@ -68,6 +69,10 @@ $result=db_query($sql);
 
 ShowResultsEditQuestion($result);
 
-$HTML->footer(array());
+survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>
