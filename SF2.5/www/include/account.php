@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: account.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: account.php,v 1.3 2003/11/20 10:32:42 helix Exp $
 //
 // adduser.php - All the forms and functions to manage unix users
 //
@@ -85,7 +85,7 @@ function account_register_new($unix_name,$realname,$password1,$password2,$email,
 			. "Enjoy the site.\n\n"
 			. " -- the ".$GLOBALS['sys_default_name']." staff\n";
 			
-		mail($email,$GLOBALS['sys_default_name']." Account Registration",$message,"From: noreply@".$GLOBALS['HTTP_HOST']);
+		mail($email,$GLOBALS['sys_default_name']." Account Registration",$message,"From: noreply@".$GLOBALS['sys_default_domain']);
 		
 		return $user_id;
 	}       

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: lostpw-confirm.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: lostpw-confirm.php,v 1.3 2003/11/20 10:32:42 helix Exp $
 
 require ('pre.php');    
 
@@ -24,7 +24,9 @@ $message = "Someone (presumably you) on the $sys_default_name site requested a\n
 	. "https://$GLOBALS[HTTP_HOST]/account/lostlogin.php?confirm_hash=$confirm_hash\n\n"
 	. " -- the $sys_default_name staff\n";
 
-mail ($row_user['email'],$sys_default_name." Verification",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
+// echo "<p>mail (".$row_user['email'].",$sys_default_name.' Verification',$message,'From: noreply@".$GLOBALS[sys_default_domain]."')\n";
+
+mail ($row_user['email'],$sys_default_name." Verification",$message,"From: noreply@$GLOBALS[sys_default_domain]");
 
 $HTML->header(array('title'=>"Lost Password Confirmation"));
 

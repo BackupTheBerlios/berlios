@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: proj_email.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: proj_email.php,v 1.3 2003/11/20 10:32:42 helix Exp $
 
 function send_new_project_email($group_id) {
 
@@ -69,7 +69,7 @@ if there is anything we can do to help you.
 
  -- the '.$GLOBALS['sys_default_name'].' crew';
 	
-	mail($row_admins['email'],$GLOBALS['sys_default_name']." Project Approved",$message,"From: noreply@$GLOBALS[HTTP_HOST]");
+	mail($row_admins['email'],$GLOBALS['sys_default_name']." Project Approved",$message,"From: noreply@$GLOBALS[sys_default_domain]");
 
 }
 

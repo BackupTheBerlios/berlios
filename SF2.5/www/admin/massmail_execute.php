@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: massmail_execute.php,v 1.3 2003/11/19 16:02:27 helix Exp $
+// $Id: massmail_execute.php,v 1.4 2003/11/20 10:32:42 helix Exp $
 
 require ('pre.php');
 session_require(array('group'=>1,'admin_flags'=>'A'));
@@ -81,11 +81,11 @@ for ($i=0; $i<$rows; $i++) {
 	if ($i % 25 == 0) {
 		echo "\nUser id: ".db_result($res_mail,$i,'user_id');
 		//spawn sendmail for 25 addresses at a time
-		$body = "To: noreply@$HTTP_HOST".
+		$body = "To: noreply@$sys_default_domain".
 			"\nBCC: $tolist".
 			"\nSubject: ". stripslashes($mail_subject).
 			"\n\n". stripslashes($mail_message);
-		exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
+		exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$sys_default_domain -t -i >& /dev/null &");
 		usleep(500000);
 		print "\nsending to $tolist";
 		$tolist='';
@@ -95,11 +95,11 @@ for ($i=0; $i<$rows; $i++) {
 
 //send the last of the messages.
 //spawn sendmail for 25 addresses at a time
-$body = "To: noreply@$HTTP_HOST".
+$body = "To: noreply@$sys_default_domain".
 "\nBCC: $tolist".
 "\nSubject: ". stripslashes($mail_subject).
 "\n\n". stripslashes($mail_message);
-exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
+exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$sys_default_domain -t -i >& /dev/null &");
 usleep(500000);
 print "\nsending to $tolist";
 $tolist='';

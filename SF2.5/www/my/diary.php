@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: diary.php,v 1.3 2003/11/19 16:02:28 helix Exp $
+// $Id: diary.php,v 1.4 2003/11/20 10:32:42 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -53,7 +53,7 @@ if (user_isloggedin()) {
 						"\nTo stop monitoring this user, login to ".$GLOBALS['sys_default_name']." and visit: ".
 						"\nhttp://$GLOBALS[sys_default_host]/developer/monitor.php?user=". user_getid();
 
-						exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[HTTP_HOST] -t -i >& /dev/null &");
+						exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[sys_default_domain] -t -i >& /dev/null &");
 
 						$feedback .= " email sent - ($rows) people monitoring ";
 

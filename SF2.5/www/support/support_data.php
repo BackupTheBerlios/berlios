@@ -510,13 +510,13 @@ function mail_followup($support_id,$more_addresses=false) {
 				"\n\n----------------------------------------------------------------------";
 			}       
 			$body .= "\nYou can respond by visiting: ".
-			"\nhttp://$GLOBALS[HTTP_HOST]/support/?func=detailsupport&support_id=".
+			"\nhttp://$GLOBALS[sys_default_domain]/support/?func=detailsupport&support_id=".
 				db_result($result,0,'support_id')."&group_id=".db_result($result,0,'group_id');
 		}	       
 		
 		//attach the headers to the body
 		
-		$body = "To: noreply@$GLOBALS[HTTP_HOST]".
+		$body = "To: noreply@$GLOBALS[sys_default_domain]".
 			"\nBCC: $emails".
 			"\nSubject: $subject".
 			$body;
@@ -524,7 +524,7 @@ function mail_followup($support_id,$more_addresses=false) {
 			Send the email
 		*/
 		exec ("/bin/echo \"". util_prep_string_for_sendmail($body)
-			."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[HTTP_HOST] -t &");
+			."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[sys_default_domain] -t &");
 		$feedback .= " Support Request Update Emailed ";
 		
 	} else {
