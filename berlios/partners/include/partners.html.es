@@ -28,8 +28,8 @@
   </tr>
   <tr>
     <td colspan="2">
-      &nbsp;<
-    td>
+      &nbsp;
+    <td>
   </tr>
   <tr align="left">
     <td align="left" width="20%">
@@ -68,7 +68,7 @@
     <td colspan="2">&nbsp;<td>
   </tr>
   <tr align="left">
-    <td align="left" colspan="2">
+    <td align="left">
       <a href="http://www.mendelson-e-c.de/" target="_blank">
       <img src="../partners/images/mec-logo.gif " border="0" width="214" height="112" alt="Mendelson-e-c"></a>
     </td>
