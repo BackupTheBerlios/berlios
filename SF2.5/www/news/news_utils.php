@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: news_utils.php,v 1.3 2004/01/13 13:15:24 helix Exp $
+// $Id: news_utils.php,v 1.4 2004/03/01 21:12:48 helix Exp $
 
 /*
 	News System
@@ -90,7 +90,7 @@ function news_show_latest($group_id='',$limit=10,$show_summaries=true,$allow_sub
                         if (!$limit) {
 				$return .= '
 					<li><A HREF="//'.$GLOBALS['sys_default_host'].'/forum/forum.php?forum_id='. db_result($result,$i,'forum_id') .'"><B>'. db_result($result,$i,'summary') . '</B></A>';
-                        	$return .= ' &nbsp; <I>'.date($sys_datefmt,db_result($result,$i,'date')).'</A></I><br>';
+                        	$return .= ' &nbsp; <I>'.date($sys_datefmt,db_result($result,$i,'date')).'</I><br>';
                         }
                         else {
 				$return .= '
@@ -100,7 +100,7 @@ function news_show_latest($group_id='',$limit=10,$show_summaries=true,$allow_sub
 					<BR>&nbsp;';
                         	$return .= '
                                 &nbsp;&nbsp;&nbsp;<I>'. db_result($result,$i,'user_name') .' - '.
-					date($sys_datefmt,db_result($result,$i,'date')) .' <A HREF="/projects/'. strtolower(db_result($result,$i,'unix_group_name')) .'">'. $proj_name . '</A></I>
+					date($sys_datefmt,db_result($result,$i,'date')) .' '. $proj_name . '</I>
 				'. $summ_txt .'<HR width="100%" size="1" noshade>';
 			}
 
