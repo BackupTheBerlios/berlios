@@ -67,7 +67,7 @@
 <table border=0><tr><td>
 <a href="index.php.en">
 <img 
-SRC="<?php echo $top_level; ?>/images/berlios_pie_nav.jpg" ALT="FOKUS" 
+SRC="<?php echo $top_level; ?>/images/berlios_pie_nav.jpg" ALT="Navigate Pie" 
 HSPACE=10 BORDER=0 height=60 width=60 usemap="#BerliOSPie_Navigate" align=Right></a>
 </td>
 <td>
