@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/05/26 09:31:16 helix Exp $
+// $Id: index.php,v 1.4 2004/06/14 07:56:26 helix Exp $
 
 require('pre.php');
 require('../mail_utils.php');
@@ -24,7 +24,7 @@ if ($group_id && user_ismember($group_id,'A')) {
 			$new_list_name=strtolower(group_getunixname($group_id).'-'.$list_name);
 
 			//see if that's a valid email address
-			if (validate_email($new_list_name.'@lists.sourceforge.net')) {
+			if (validate_email($new_list_name.'@'.$GLOBALS['sys_lists_host'])) {
 
 				$result=db_query("SELECT * FROM mail_group_list WHERE lower(list_name)='$new_list_name'");
 
@@ -96,13 +96,40 @@ if ($group_id && user_ismember($group_id,'A')) {
 			} else {
 				$feedback .= " Status Updated Successfully ";
 			}
+		} else if ($resend) {
+			/*
+				Resend mailing list information
+			*/
+		        // get email addr
+                        $res_email = db_query("SELECT email FROM users WHERE user_id='".user_getid()."'");
+                        if (db_numrows($res_email) < 1) {
+                                exit_error("Invalid userid","Does not compute.");
+                        }
+                        $row_email = db_fetch_array($res_email);
+
+                        // mail password to admin
+                        $message = "A mailing list exists on ".$GLOBALS['sys_default_name']."\n"
+                                . "and you are the list administrator.\n\n"
+                                . "This list is: $list_name@" .$GLOBALS['sys_lists_host'] ."\n\n"
+                                . "Your mailing list info is at:\n"
+                                . "http://".$GLOBALS['sys_lists_host']."/mailman/listinfo/$list_name\n\n"
+                                . "List administration can be found at:\n"
+                                . "http://".$GLOBALS['sys_lists_host']."/mailman/admin/$list_name\n\n"
+                                . "Your initial list password is: $password\n"
+                                . "You are encouraged to change this password as soon as possible.\n\n"
+                                . "Thank you for registering your project with ".$GLOBALS['sys_default_name'].".\n\n"
+                                . " -- the ".$GLOBALS['sys_default_name']." staff\n";
+
+                        mail ($row_email['email'],$GLOBALS['sys_default_name']." New Mailing List",$message,"From: admin@$GLOBALS[sys_default_host]");
+
+                        $feedback .= " Email resent with details to: $row_email[email] ";	
 		}
 
 	} 
 
 	if ($add_list) {
 		/*
-			Show the form for adding forums
+			Show the form for adding lists
 		*/
 		mail_header(array('title'=>'Add a Mailing List'));
 
@@ -140,11 +167,11 @@ if ($group_id && user_ismember($group_id,'A')) {
 
 	} else if ($change_status) {
 		/*
-			Change a forum to public/private
+			Change a list to public/private
 		*/
 		mail_header(array('title'=>'Update Mailing Lists'));
 
-		$sql="SELECT list_name,group_list_id,is_public,description ".
+		$sql="SELECT list_name,password,group_list_id,is_public,description ".
 			"FROM mail_group_list ".
 			"WHERE group_id='$group_id'";
 		$result=db_query($sql);
@@ -191,7 +218,8 @@ if ($group_id && user_ismember($group_id,'A')) {
 						<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Update">
 					</TD>
 					<TD><A href="http://'. $GLOBALS['sys_lists_host'] .'/mailman/admin/'
-					.db_result($result,$i,'list_name').'">[Administrate this list in GNU Mailman]</A>
+					.db_result($result,$i,'list_name').'">[Administrate this list in GNU Mailman]</A><br>
+					<a href="'.$PHPSELF.'?group_id='.$group_id.'&list_name='.db_result($result,$i,'list_name').'&password='.db_result($result,$i,'password').'&post_changes=y&resend=y">[Resend Mailing List Information]</a>
 				       </TD></TR>
 				       <TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD COLSPAN="4">
 				       		<B>Description:</B><BR>
