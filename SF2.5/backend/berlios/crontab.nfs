@@ -5,4 +5,4 @@
 #
 # four times a day every 6 hours
 #
-05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.nfs
+00 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.nfs

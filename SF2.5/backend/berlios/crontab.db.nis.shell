@@ -26,4 +26,8 @@
 # daily at 00:05
 #
 05 00 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.daily.shell
-
+#
+# flush hosts daily at 23:30
+# (set correct password!)
+#
+30 23 * * * /usr/bin/mysqladmin --user=root --password=pwd flush-hosts

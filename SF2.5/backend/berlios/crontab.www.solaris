@@ -17,7 +17,7 @@
 #
 # four times a day every 6 hours
 #
-05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.www > /tmp/6hour 2>&1
+15 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.www > /tmp/6hour 2>&1
 #
 # at the end of every week (before Mon 00:00:00)
 #
@@ -65,17 +65,17 @@
 #
 # daily creation of project metric
 #
-05 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_metric.php -o /var/log/httpd/devel25/project_metric.log -O /var/log/httpd/devel25/project_metric.output
+20 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_metric.php -o /var/log/httpd/devel25/project_metric.log -O /var/log/httpd/devel25/project_metric.output
 #
 #
 # daily creation of project weekly metric
 #
-10 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_weekly_metric.php -o /var/log/httpd/devel25/project_weekly_metric.log -O /var/log/httpd/devel25/project_weekly_metric.output
+25 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_weekly_metric.php -o /var/log/httpd/devel25/project_weekly_metric.log -O /var/log/httpd/devel25/project_weekly_metric.output
 #
 #
 # daily aggregating of the numbers
 #
-15 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/site_stats.php -o /var/log/httpd/devel25/site_stats.log -O /var/log/httpd/devel25/site_stats.output
+30 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/site_stats.php -o /var/log/httpd/devel25/site_stats.log -O /var/log/httpd/devel25/site_stats.output
 #
 #
 # the cvs_history calculations are still "broken" and need to be implented in
