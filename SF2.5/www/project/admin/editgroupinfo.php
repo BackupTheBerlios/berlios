@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editgroupinfo.php,v 1.3 2004/01/13 13:15:25 helix Exp $
+// $Id: editgroupinfo.php,v 1.4 2004/04/02 11:28:01 helix Exp $
 
 require ('pre.php');
 require ('vars.php');
@@ -47,11 +47,17 @@ if ($Update) {
 	if (!$use_cvs) {
 		$use_cvs=0;
 	}
+	if (!$use_svn) {
+	  $use_svn=0;
+	}
 	if (!$use_news) {
 		$use_news=0;
 	}
 	if (!$use_support) {
 		$use_support=0;
+	}
+	if (!$use_feature) {
+	  $use_feature=0;
 	}
 	if (!$use_docman) {
 		$use_docman=0;
@@ -68,6 +74,9 @@ if ($Update) {
 	}
 	if (!$use_wiki) {
 		$use_wiki=0;
+	}
+	if (!$use_donation) {
+		$use_donation=0;
 	}
 // 2003-02-25 end by helix
 	if (!$send_all_bugs) {
@@ -104,7 +113,7 @@ if ($Update) {
 		$form_group_name='Invalid Group Name';
 	}
 	if (!$form_homepage) {
-		$form_homepage='http://sourceforge.net';
+		$form_homepage='http://www.berlios.de';
 	}
 // 2003-02-25 by helix
 	$result=db_query('UPDATE groups SET '
@@ -120,20 +129,25 @@ if ($Update) {
 		."use_pm='$use_pm',"
 		."use_pm_depend_box='$use_pm_depend',"
 		."use_cvs='$use_cvs',"
+        ."use_svn='$use_svn',"
 		."use_news='$use_news',"
 		."use_support='$use_support',"
+        ."use_feature='$use_feature',"
 		."use_docman='$use_docman',"
 		."use_files='$use_files',"
 		."use_ftp='$use_ftp',"
 		."use_screenshots='$use_screenshots',"
 		."use_wiki='$use_wiki',"
+		."use_donation='$use_donation',"
 		."new_bug_address='$new_bug_address',"
 		."new_patch_address='$new_patch_address',"
 		."new_support_address='$new_support_address',"
+		."new_feature_address='$new_feature_address',"
 		."new_task_address='$new_task_address',"
 		."send_all_bugs='$send_all_bugs', "
 		."send_all_patches='$send_all_patches', "
 		."send_all_support='$send_all_support', "
+		."send_all_feature='$send_all_feature', "
 		."send_all_tasks='$send_all_tasks' "
 		."WHERE group_id=$group_id");
 
@@ -190,13 +204,16 @@ echo '
 	<B>Use Project/Task Manager:</B> <INPUT TYPE="CHECKBOX" NAME="use_pm" VALUE="1"'.( ($row_grp['use_pm']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Task Dependency List:</B> <INPUT TYPE="CHECKBOX" NAME="use_pm_depend" VALUE="1"'.( ($row_grp['use_pm_depend_box']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use CVS:</B> <INPUT TYPE="CHECKBOX" NAME="use_cvs" VALUE="1"'.( ($row_grp['use_cvs']==1) ? ' CHECKED' : '' ).'><BR>
+        <B>Use SVN:</B> <INPUT TYPE="CHECKBOX" NAME="use_svn" VALUE="1"'.( ($row_grp['use_svn']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use News:</B> <INPUT TYPE="CHECKBOX" NAME="use_news" VALUE="1"'.( ($row_grp['use_news']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Doc Mgr:</B> <INPUT TYPE="CHECKBOX" NAME="use_docman" VALUE="1"'.( ($row_grp['use_docman']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Support:</B> <INPUT TYPE="CHECKBOX" NAME="use_support" VALUE="1"'.( ($row_grp['use_support']==1) ? ' CHECKED' : '' ).'><BR>
+        <B>Use Feature Requests:</B> <INPUT TYPE="CHECKBOX" NAME="use_feature" VALUE="1"'.( ($row_grp['use_feature']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use File Releases:</B> <INPUT TYPE="CHECKBOX" NAME="use_files" VALUE="1"'.( ($row_grp['use_files']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use FTP:</B> <INPUT TYPE="CHECKBOX" NAME="use_ftp" VALUE="1"'.( ($row_grp['use_ftp']==1) ? ' CHECKED' : '' ).'><BR>
 	<B>Use Screenshots:</B> <INPUT TYPE="CHECKBOX" NAME="use_screenshots" VALUE="1"'.( ($row_grp['use_screenshots']==1) ? ' CHECKED' : '' ).'><BR>
-        <B>Use Wiki:</B> <INPUT TYPE="CHECKBOX" NAME="use_wiki" VALUE="1"'.( ($row_grp['use_wiki']==1) ? ' CHECKED' : '' ).'>';
+    <B>Use Wiki:</B> <INPUT TYPE="CHECKBOX" NAME="use_wiki" VALUE="1"'.( ($row_grp['use_wiki']==1) ? ' CHECKED' : '' ).'><BR>
+	<B>Use Donation:</B> <INPUT TYPE="CHECKBOX" NAME="use_donation" VALUE="1"'.( ($row_grp['use_donation']==1) ? ' CHECKED' : '' ).'>';
 echo '
 	<P><B>If you wish, you can provide default email addresses to which new submissions will be sent.</B><BR>
 	<B>New Bugs:</B><BR><INPUT TYPE="TEXT" NAME="new_bug_address" VALUE="'.$row_grp['new_bug_address'].'" SIZE="25" MAXLENGTH="250"> 
@@ -205,6 +222,8 @@ echo '
 	(send on all updates) <INPUT TYPE="CHECKBOX" NAME="send_all_patches" VALUE="1" '. (($row_grp['send_all_patches'])?'CHECKED':'') .'><BR>
 	<B>New Support Requests:</B><BR><INPUT TYPE="TEXT" NAME="new_support_address" VALUE="'.$row_grp['new_support_address'].'" SIZE="25" MAXLENGTH="250">
 	(send on all updates) <INPUT TYPE="CHECKBOX" NAME="send_all_support" VALUE="1" '. (($row_grp['send_all_support'])?'CHECKED':'') .'><BR>
+	<B>New Feature Requests:</B><BR><INPUT TYPE="TEXT" NAME="new_feature_address" VALUE="'.$row_grp['new_feature_address'].'" SIZE="25" MAXLENGTH="250">
+	(send on all updates) <INPUT TYPE="CHECKBOX" NAME="send_all_feature" VALUE="1" '. (($row_grp['send_all_feature'])?'CHECKED':'') .'><BR>
 	<B>New Task Assignments:</B><BR><INPUT TYPE="TEXT" NAME="new_task_address" VALUE="'.$row_grp['new_task_address'].'" SIZE="25" MAXLENGTH="250">
 	(send on all updates) <INPUT TYPE="CHECKBOX" NAME="send_all_tasks" VALUE="1" '. (($row_grp['send_all_tasks'])?'CHECKED':'') .'><BR>';
 

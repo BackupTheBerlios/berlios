@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_admin_utils.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: project_admin_utils.php,v 1.3 2004/04/02 11:28:01 helix Exp $
 
 /*
 
@@ -37,8 +37,8 @@ function project_admin_header($params) {
 	<A HREF="/people/?group_id='.$group_id.'">Edit Jobs</A> |
 	<A HREF="/project/admin/editimages.php?group_id='.$group_id.'">Screenshots</A> |
 	<A HREF="/project/admin/mydatabase.php?group_id='.$group_id.'">Database</A> |
-	<A HREF="/project/admin/vhost.php?group_id='.$group_id.'">Virtual Host</A>
-	</B>
+	<A HREF="/project/admin/vhost.php?group_id='.$group_id.'">Virtual Host</A> | 
+    <A HREF="/project/admin/donation_admin.php?group_id='.$group_id.'">Donation</A></B>
 	<P>';
 }
 

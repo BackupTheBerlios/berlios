@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
+// $Id: index.php,v 1.4 2004/04/02 11:28:01 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -159,14 +159,16 @@ $HTML->box1_top('Tool Admin');
 
 echo '
 <BR>
-<A HREF="/docman/admin/?group_id='.$group_id.'">DocManager Admin</A><BR>
+<A HREF="/forum/admin/?group_id='.$group_id.'">Forum Admin</A><BR>
 <A HREF="/bugs/admin/?group_id='.$group_id.'">Bug Admin</A><BR>
+<A HREF="/support/admin/?group_id='.$group_id.'">Support Manager Admin</A><BR>
+<A HREF="/feature/admin/?group_id='.$group_id.'">Feature Requests Admin</A><BR>
 <A HREF="/patch/admin/?group_id='.$group_id.'">Patch Admin</A><BR>
 <A HREF="/mail/admin/?group_id='.$group_id.'">Mail Admin</A><BR>
-<A HREF="/news/admin/?group_id='.$group_id.'">News Admin</A><BR>
 <A HREF="/pm/admin/?group_id='.$group_id.'">Task Manager Admin</A><BR>
-<A HREF="/support/admin/?group_id='.$group_id.'">Support Manager Admin</A><BR>
-<A HREF="/forum/admin/?group_id='.$group_id.'">Forum Admin</A><BR>
+<A HREF="/docman/admin/?group_id='.$group_id.'">DocManager Admin</A><BR>
+<A HREF="/news/admin/?group_id='.$group_id.'">News Admin</A><BR>
+<A HREF="/project/admin/donation_admin.php?group_id='.$group_id.'">Donation Admin</A><BR>
 ';
 
 $HTML->box1_bottom(); 
