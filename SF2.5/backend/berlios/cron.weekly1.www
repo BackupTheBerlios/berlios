@@ -24,6 +24,16 @@ echo "BerliOS tasks to be executed at the beginning of every week on WWW server"
 /usr/local/httpd/SF2.5/backend/shell/webalizer_new.sh
 
 #
+#   Create .htaccess in /home/groups/<projectname>/usage
+#
+/usr/local/httpd/SF2.5/backend/berlios/create_htaccess_usage.pl
+
+#
+#   Create .htaccess in /home/groups/<projectname>/vhost/<vhost>/htdocs/usage
+#
+/usr/local/httpd/SF2.5/backend/berlios/create_htaccess_vhost_usage.pl
+
+#
 #   Remove portal log files older than 14 days
 #
 /usr/local/httpd/SF2.5/backend/shell/remove_portal_log.sh
