@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.en,v 1.12 2002/05/14 10:51:09 grex Exp $ -->
+<!-- $Id: site_menubar.html.en,v 1.13 2002/05/14 11:06:26 grex Exp $ -->
 
 <?php
  if ( !isset( $top_level ) ) {
@@ -80,8 +80,8 @@
       <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
       <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
-     <p><a href="<?php echo $top_level; ?>index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a>
-     <p><a href="<?php echo $top_level; ?>index.php.es"><img src="<?php echo $top_level; ?>/images/esflag.png" border="0"></a>
+     <p><a href="<?php echo $top_level; ?>index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0" alt="de"></a>
+     <p><a href="<?php echo $top_level; ?>index.php.es"><img src="<?php echo $top_level; ?>/images/esflag.png" border="0" alt="es"></a>
     </td>
   </tr>
 </table>

@@ -39,7 +39,7 @@
 <!-- end top strip -->
 
 <!-- top title -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%" valign="center" >
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top" bgcolor="#FFCC33">
     <td>
       <a href="index.php.de"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" border="0" height="61" width="238" alt="BerliOS"></a>
