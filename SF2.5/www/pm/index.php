@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: index.php,v 1.3 2003/11/24 10:39:25 helix Exp $
 
 require('pre.php');
 require('../pm/pm_utils.php');
@@ -46,15 +46,14 @@ if ($group_id) {
 		echo '
 		<A HREF="/pm/task.php?group_project_id='.db_result($result, $j, 'group_project_id').
 		'&group_id='.$group_id.'&func=browse">' .
-		html_image("images/ic/index.png","15","13",array("BORDER"=>"0")) . ' &nbsp;'.
+		html_image("images/ic/index.png","15","13",array("BORDER"=>"0")) . '&nbsp;'.
 		db_result($result, $j, 'project_name').'</A><BR>'.
 		db_result($result, $j, 'description').'<P>';
 	}
+	pm_footer(array());
 
 } else {
-	pm_header(array('title'=>'Choose a Group First'));
-	echo '<H1>Error - choose a group first</H1>';
+	exit_no_group();
 }
-pm_footer(array()); 
 
 ?>

@@ -4,13 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: index.php,v 1.3 2003/11/24 10:44:13 helix Exp $
 
 require('pre.php');
 require('../mail/mail_utils.php');
 
 if ($group_id) {
-
 	mail_header(array('title'=>'Mailing Lists for '.group_getname($group_id)));
 	
 	if (user_isloggedin() && user_ismember($group_id)) {
@@ -55,7 +54,7 @@ if ($group_id) {
                         echo '/mailman/private/';
 
 		echo db_result($result, $j, 'list_name').'">' . 
-		html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")) . ' &nbsp; '.
+		html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")) . '&nbsp;'.
 		db_result($result, $j, 'list_name').' Archives</A>'; 
 		echo ' (go to <A HREF="https://'.$GLOBALS['sys_lists_host'].'/mailman/listinfo/'.
 			db_result($result, $j, 'list_name').'">Subscribe/Unsubscribe/Preferences</A>)<BR>';
@@ -63,12 +62,10 @@ if ($group_id) {
 	}
 	echo '</TD></TR></TABLE>';
 
+	mail_footer(array());
+
 } else {
-	mail_header(array('title'=>'Choose a Group First'));
-	require('../mail/mail_nav.php');
-	echo '
-		<H1>Error - choose a group first</H1>';
+	exit_no_group();
 }
-mail_footer(array()); 
 
 ?>
