@@ -35,48 +35,53 @@ sind einerseits die Entwickler und Anwender von Open-Source-Software und
 andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
 Anwendungen sowie Support-Firmen.
 
-
 <map name="BerliOSPie">
 <!-- central circle -->
-<area shape="circle" coords="193,190,31" href="http://www.berlios.de/" 
+<area shape="circle" coords="225,225,45" 
+      href="http://www.berlios.de/" 
       alt="BerliOS">
 
 <!-- Informations platform Wedge -->
-<area shape="poly" coords="88,190,103,137,147,99,177,163,166,174,162,190" 
-      href="http://sourcewell.berlios.de" alt="SourceWell">
+<area shape="poly" coords="70,226,74,185,87,153,109,120,146,90,201,184,187,201,179,223" 
+      href="http://docwell.berlios.de" 
+      alt="DocWell">
 <!-- Vermittlung von Ideen Wedge -->
-<area shape="poly" coords="147,99,193,86,245,99,208,163,193,159,177,163" 
-      href="http://sourceagency.berlios.de" alt="SourceAgency">
+<area shape="poly" coords="147,89,181,75,217,69,256,71,286,80,304,89,248,182,229,179,215,179,201,184" 
+      href="http://sourceagency.berlios.de" 
+      alt="SourceAgency">
 <!-- Entwicklungs plattform Wedge -->
-<area shape="poly" coords="245,99,282,136,297,190,224,190,219,175,208,163" 
-      href="http://developer.berlios.de" alt="Developer">
+<area shape="poly" coords="249,182,257,189,264,197,273,216,272,221,311,225,322,216,339,226,380,224,377,188,367,160,351,133,333,113,307,92,303,90" 
+      href="http://developer.berlios.de" 
+      alt="Developer">
 <!-- Vermittlung von Known-how OS-Software Wedge -->
-<area shape="poly" coords="297,190,281,245,245,281,208,217,220,205,224,190" 
-      href="http://sourcelines.berlios.de" alt="SourceLines">
+<area shape="poly" coords="275,222,380,225,378,265,364,299,344,327,317,355,304,361,249,268,266,253,273,239,278,223" 
+      href="http://sourcelines.berlios.de" 
+      alt="SourceLines">
 <!-- Presentation platform wedge -->
-<area shape="poly" coords="245,281,193,295,140,280,177,217,192,220,208,217" 
-      href="http://sourcebiz.berlios.de" alt="SourceBiz">
+<area shape="poly" coords="201,267,221,272,234,271,248,268,303,361,271,375,223,382,183,376,145,363" 
+      href="http://sourcewell.berlios.de" 
+      alt="SourceWell">
 <!-- Vermittlung von Know-how Dienstleistungen wedge -->
-<area shape="poly" coords="140,280,100,238,88,190,162,190,166,203,177,217" 
-      href="http://news.berlios.de" alt="News">
+<area shape="poly" coords="179,225,183,242,185,252,190,258,200,267,146,362,124,347,99,321,82,291,73,264,68,225" 
+      href="http://news.berlios.de" 
+      alt="News">
 
-<!-- Anwender outer wedge -->
-<area shape="poly" coords="88,190,43,190,49,146,79,92,118,60,141,99,103,137" 
-      href="http://user.berlios.de" alt="Anwender">
-<!-- Entwickler outer wedge -->
+<area shape="poly" coords="146,363,173,374,215,382,238,382,274,376,300,365,303,361,337,420,293,439,256,449,203,449,154,438,114,421" 
+      href="http://sourcebiz.berlios.de" 
+      alt="Dienstleister und Hersteller">
 <area shape="poly" 
-      coords="245,99,267,60,299,83,334,139,343,190,297,190,282,136" 
-      href="http://developer.berlios.de" alt="Entwickler">
-<!-- Dienstleister and hersteller outer wedge -->
+      coords="0,225,5,177,23,126,42,94,64,68,86,51,105,36,113,30,147,90,118,113,96,140,84,162,75,186,70,219,69,226" 
+      href="http://user.berlios.de/index.php.en" 
+      alt="Anwender">
 <area shape="poly" 
-      coords="117,320,140,280,193,295,245,281,268,320,229,336,164,337" 
-      href="http://sourcebiz.berlios.de" alt="Dienstleister und Hersteller">
-
+      coords="380,226,450,226,447,188,437,151,422,113,401,82,380,63,361,46,339,32,303,90,327,105,343,121,355,137,366,157,373,179" 
+      href="http://devcounter.berlios.de" 
+      alt="Entwickler">
 </map>
 
 <center>
-<img src="images/berlios_pie.png" width="387" height="377" alt="BerliOS Pie"
-     usemap="#BerliOSPie" border="0">
+<img src="images/berlios_small_pie.jpg" width="451" height="451" 
+     alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
 
 
