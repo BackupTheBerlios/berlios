@@ -8,7 +8,7 @@ require("include/partners.html.en");
 ?>
 
 <?php
-require($top_level."include/site_footer.html");
+require($top_level."include/site_footer.php");
 ?>
 
 </body>

@@ -3,7 +3,7 @@ $top_level = "../";
 require($top_level."include/site_header.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.7 2003/02/10 21:28:52 helix Exp $ -->
+<!-- $Id: index.php.es,v 1.8 2004/02/27 14:56:45 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Contacto</h2>
@@ -21,7 +21,7 @@ require($top_level."include/site_header.html.es");
 <br>Internet: <a href="http://www.berlios.de/">http://www.berlios.de/index.php.es</a>
 
 <?php
-require($top_level."include/site_footer.html");
+require($top_level."include/site_footer.php");
 ?>
 
 </body>

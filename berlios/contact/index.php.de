@@ -18,7 +18,7 @@ require($top_level."include/site_header.html.de");
 <br>Internet: <a href="http://www.berlios.de/">http://www.berlios.de/</a>
 
 <?php
-require($top_level."include/site_footer.html");
+require($top_level."include/site_footer.php");
 ?>
 
 </body>
