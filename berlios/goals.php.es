@@ -2,7 +2,7 @@
 require("include/site_header.html.es");
 ?>
 
-<!-- $Id: goals.php.es,v 1.4 2002/05/14 00:49:36 grex Exp $ -->
+<!-- $Id: goals.php.es,v 1.5 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Objetivos de BerliOS</h2>
@@ -43,7 +43,7 @@ y están descritos más detalladamente siguiendo los enlaces en la parte izquierda
 
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -1,74 +1,77 @@
 <?php
-	$ua = "$HTTP_USER_AGENT";
-	$fsn = "10pt";
-	$h1 = "14pt";
-	$h2 = "12pt";
-	$h3 = "10pt";
-	$h4 = "9pt";
-	$h5 = "8pt";
-	$h6 = "8pt";
-	if (ereg("X11", "$ua")) {
-		$fsn = "12pt";
-                $h1 = "16pt";
-                $h2 = "14pt";
-                $h3 = "12pt";
-                $h4 = "10pt";
-                $h5 = "8pt";
-                $h6 = "6pt";
-	}
-	if (ereg("Gecko", "$ua")) {
-		$fsn = "10pt";
-                $h1 = "14pt";
-                $h2 = "12pt";
-                $h3 = "10pt";
-                $h4 = "9pt";
-                $h5 = "8pt";
-                $h6 = "8pt";
-	}
+$th_body_bgcolor = "#FFFFFF";
+$th_font_family = "verdana,arial,helv,helvetica,sans-serif";
+$th_tt_font_family = "courier,sans-serif";
+$th_font_color = "#333333";
+$th_hover_font_color = "#FF0000";
+
+$th_nav_bgcolor = "#FFCC33";
+$th_navstrip_bgcolor = "#7B7B7B";
+$th_nav_font_color = "#333333";
+$th_navstrip_font_color = "#FFFFFF";
+
+$th_box_frame_color = "#CCCCCC";
+$th_box_frame_width = "1";
+$th_box_title_bgcolor = "#CCCCCC";
+$th_box_body_bgcolor = "#FFFFFF";
+$th_box_title_align = "left";
+$th_box_body_align = "left";
+$th_box_title_font_color = "#000000";
+$th_box_body_font_color = "#333333";
+$th_box_error_font_color = "#FF2020";
+
+$th_strip_frame_color = "#CCCCCC";
+$th_strip_frame_width = "1";
+$th_strip_title_bgcolor = "#CCCCCC";
+$th_strip_body_bgcolor = "";
+$th_strip_title_align = "center";
+$th_strip_body_align = "";
+$th_strip_title_font_color = "#000000";
+$th_strip_body_font_color = "";
+
+$fsn = "12px";
+$fss = "11px";
+$h1 = "16px";
+$h2 = "14px";
+$h3 = "12px";
+$h4 = "10px";
+$h5 = "8px";
+$h6 = "8px";
 ?>
-BODY { background-color: #FFFFFF }
+BODY { background-color: #FFFFFF; margin: 0; }
 
-OL,UL,P,BODY,TD,TR,TH,FORM { font-family: verdana,arial,helvetica,sans-serif; font-size:<?php echo $fsn ?>; color: #333333; }
+OL,UL,P,BODY,TD,TR,TH,FORM,TEXTAREA,INPUT { font-family: <?php echo $th_font_family; ?>; font-size:<?php echo $fsn; ?>; color: <?php echo $th_font_color; ?> }
 
-H1 { font-size: <?php echo $h1; ?> font-family: verdana,arial,helvetica,sans-serif; }
-H2 { font-size: <?php echo $h2; ?>; font-family: verdana,arial,helvetica,sans-serif; }
-H3 { font-size: <?php echo $h3; ?>; font-family: verdana,arial,helvetica,sans-serif; }
-H4 { font-size: <?php echo $h4; ?>; font-family: verdana,arial,helvetica,sans-serif; }
-H5 { font-size: <?php echo $h5; ?>; font-family: verdana,arial,helvetica,sans-serif; }
-H6 { font-size: <?php echo $h6; ?>; font-family: verdana,arial,helvetica,sans-serif; }
+H1 { font-size: <?php echo $h1; ?>; font-family: <?php echo $th_font_family; ?> }
+H2 { font-size: <?php echo $h2; ?>; font-family: <?php echo $th_font_family; ?> }
+H3 { font-size: <?php echo $h3; ?>; font-family: <?php echo $th_font_family; ?> }
+H4 { font-size: <?php echo $h4; ?>; font-family: <?php echo $th_font_family; ?> }
+H5 { font-size: <?php echo $h5; ?>; font-family: <?php echo $th_font_family; ?> }
+H6 { font-size: <?php echo $h6; ?>; font-family: <?php echo $th_font_family; ?> }
 
-PRE,TT { font-family: courier,sans-serif }
+PRE,TT { font-family: <?php echo $th_tt_font_family; ?> }
 
-SPAN.center { text-align: center }
-SPAN.boxspace { font-size: 2pt; }
-SPAN.osdn {font-size: xx-small; font-family: verdana,arial,helvetica,sans-serif;}
-SPAN.search {font-size: xx-small; font-family:  verdana,arial,helvetica,sans-serif;}
-SPAN.slogan {font-size: large; font-weight: bold; font-family: verdana,arial,helvetica,sans-serif;}
-SPAN.footer {font-size: xx-small; font-family: verdana,arial,helvetica,sans-serif;}
+.maintitlebar { color: <?php echo $th_navstrip_font_color; ?> }
+A.maintitlebar { color: <?php echo $th_navstrip_font_color; ?> }
+A.maintitlebar:visited { color: <?php echo $th_navstrip_font_color; ?> }
 
-.maintitlebar { color: #FFFFFF }
-A.maintitlebar { color: #FFFFFF }
-A.maintitlebar:visited { color: #FFFFFF }
+.menus { color: <?php echo $th_nav_font_color; ?>; text-decoration: none }
+.menus:visited { color: <?php echo $th_font_color; ?>; text-decoration: none }
+.menus:hover { text-decoration: underline; }
 
-A.sortbutton { color: #FFFFFF; text-decoration: underline; }
-A.sortbutton:visited { color: #FFFFFF; text-decoration: underline; }
+A:link { text-decoration: none }
+A:visited { text-decoration: none }
+A:active { text-decoration: none }
+A:hover { text-decoration: underline; }
 
-.menus { color: #000000; text-decoration: none; }
-.menus:visited { color: #000000; text-decoration: none; }
+.title { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $h2; ?>; }
 
-A:link { text-decoration:none }
-A:visited { text-decoration:none }
-A:active { text-decoration:none }
-A:hover { text-decoration:underline; color:#FF0000 }
+.small { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fss; ?>; }
+.newsind { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fss; ?>; text-indent: -9px; margin-left: 9px; padding-bottom: 2px;}
 
-.tabs { color: #000000; }
-.tabs:visited { color: #000000; }
-.tabs:hover { color:#FF0000; }
-.tabselect { color: #000000; font-weight: bold; }
-.tabselect:visited { font-weight: bold;}
-.tabselect:hover { color:#FF0000; font-weight: bold; }
+A.small:link { text-decoration:none; font-size: <?php echo $fss; ?> }
+A.small:visited { text-decoration:none; font-size: <?php echo $fss; ?> }
+A.small:active { text-decoration:none; font-size: <?php echo $fss; ?> }
+A.small:hover { text-decoration:underline; font-size: <?php echo $fss; ?> }
 
-.titlebar { text-decoration:none; color:#000000; font-family: Helvetica,verdana,arial,helvetica,sans-serif; font-size: <?php echo $fsn ?>; font-weight: bold; }
-.develtitle { color:#000000; font-weight: bold; }
-.legallink { color:#000000; font-weight: bold; }
-
+.titlebar { text-decoration: none; color: <?php echo $th_navstrip_font_color; ?>; font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fsn; ?>; font-weight: bold }

@@ -1,5 +1,8 @@
 <?php
 require("include/site_header.html.en");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
 <h2>Developers</h2>
@@ -35,7 +38,7 @@ Open Source License must be used.
 portal, which offers both online negotiation and discussion making support.
 
 <p>Developers are also able to announce their project latest releases at
-the <a href="http://sorcewell.berlios.de" target="_blank">SourceWell</a>
+the <a href="http://sourcewell.berlios.de" target="_blank">SourceWell</a>
 portal. SourceWell is similar to <a href="http://freshmeat.net" 
 target="_blank">FreshMeat</a> and provides an announcement services for latest
 releases of OSS. It is not limited to software developed using the BerliOS
@@ -46,20 +49,20 @@ platform.
 themselves and provide a description of their skills. This repository is then
 viewable for sponsors how many use it to contact developers directly.
 
-<p>BerliOS Portals:
+<h3>BerliOS Portals</h3>
 <ul>
-<li> Developer <a
-href="http://developer.berlios.de">http://developer.berlios.de</a>
-<li> SourceAgency <a
-href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
-<li> DevCounter <a
-href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
-<li> SourceWell <a
-href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+<li><a
+href="http://developer.berlios.de">Developer</a> - Joint coordinated Software Development
+<li><a
+href="http://sourceagency.berlios.de">SourceAgency</a> - Project and Ideas Exchange
+<li><a
+href="http://devcounter.berlios.de">DevCounter</a> - Software Developer Directory
+<li><a
+href="http://sourcewell.berlios.de">SourceWell</a> - Software Announcement and Retrieval
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -1,8 +1,11 @@
 <?php
 require("include/site_header.html.en");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: supp_deve.php.en,v 1.6 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: supp_deve.php.en,v 1.7 2004/03/02 12:07:35 helix Exp $ -->
 
 <h2>Aiding Open Source Development</h2>
 
@@ -21,24 +24,19 @@ mailing lists, bug tracking, document and patch management, etc.
 further area where BerliOS provides aids. These include a Wiki and Forum
 portals, along with mailing lists and personal email addresses.
 
-<p><a href="http://wiki.berlios.de">Wiki</a> portal which is intended as a
+<p><a href="http://openfacts.berlios.de">OpenFacts</a> portal which is intended as a
 place where a project can describe project wide rules which are fixed. Wiki
 encapsulates the spirit of the Open Source community, which makes it an ideal
 tool for OS development.
 
-<p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
-service where messages may be commented and replied to. Forum is intended to
-allow discussion relating to specific projects or Open Source in general.
-
-<p>BerliOS Portals:
+<h3>BerliOS Portals</h3>
 <ul>
 <li> Developer <a href="http://developer.berlios.de">http://developer.berlios.de</a>
-<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
-<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+<li> OpenFacts <a href="http://openfacts.berlios.de">http://openfacts.berlios.de</a>
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -1,65 +1,50 @@
 <?php
 require("include/site_header.html.de");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<h2>Developers</h2>
+<h2>Entwickler</h2>
 
-<p>A server-based infrastructure, the <a href="http://developer.berlios.de" 
-target="_blank">Developer</a> portal provides developers of Open Source 
-Software with various services for enabling joint coordinated software 
-development between people who living and work in different geographical 
-areas.
+<p>Das <a href="http://developer.berlios.de" target="_blank">Developer-Portal</a> unterstützt Entwickler bei der koordinierten Realisierung, Präsentation und Verbreitung von Freier bzw. Open-Source-Software und bietet im einzelnen folgende Dienste:
 
-<p>These services include:
 <ul>
-<li> Web space for projects specific websites
-<li> Discussion forums for developers and users of project code
-<li> Online bug and patch management
-<li> Project documentation management
-<li> Creation of mailing list 
-<li> Management of questionaires
-<li> CVS repository for versioning of code
-<li> FTP space for releasing software bundles
-<li> User management for restricting checkin access to CVS repository
+<li> Software-Repositorien mit Versionsverwaltung
+<li> Web-Server zur Projektpräsentation
+<li> FTP-Server zur Softwaredistribution
+<li> Datenbank als Basis für dynamische Web-Präsentationen
+<li> Mailing-Listen mit Archivierungsfunktion zur Unterstützung von Gruppenkommunikation 
+<li> Fehlerverfolgung
+<li> Umfragen und Bewertung
+<li> Projektverzeichnis mit Suchfunktionen
 </ul>
 
-<p>The goal is also to provide financial support for developers through
-sponsored projects. A developer has the possibility of being paid for their
-existing project or taking part in paid projects financed by companies. In
-both cases the resulting software will be Open Source Software (OSS). Specific
-licensing of software is left up to the individual projects, however an
-Open Source License must be used.
+<p>Ein weiteres Ziel von BerliOS ist die finanzielle Unterstützung von Entwicklern mittels der Ausschreibung von Projekten durch Unternehmenskonsortien. Ein Entwickler hat damit die Möglichkeit sich an der Realisierung von bedarfsorientierter Software zu beteiligen oder sich selbst um eine Finanzierung von eigenen Softwareentwicklungsprojekten zu bemühen. In beiden Fällen entsteht Open-Source-Software, wobei die Auswahl einer spezifischen Lizenz, den jeweiligen Projekten überlassen bleibt.
 
-<p>Project offers and ideas can be presented and viewed at the 
+<p>Projektausschreibungen und -Ideen können in der Projektbörse 
 <a href="http://sourceagency.berlios.de" target="_blank">SourceAgency</a>
-portal, which offers both online negotiation and discussion making support.
+präsentiert werden. Sie unterstützt die Bildung von Unternehmens- sowie Entwickler-Konsortien, die Diskussion und Festlegung von Projektinhalten, bis hin zur Durchführung und Überwachung des Projekts.
 
-<p>Developers are also able to announce their project latest releases at
-the <a href="http://sorcewell.berlios.de" target="_blank">SourceWell</a>
-portal. SourceWell is similar to <a href="http://freshmeat.net" 
-target="_blank">FreshMeat</a> and provides an announcement services for latest
-releases of OSS. It is not limited to software developed using the BerliOS
-platform.
+<p>Entwickler können ihre neuesten Softwarekomponenten bzw. Versionen im 
+<a href="http://sourcewell.berlios.de" target="_blank">SourceWell</a>-Portal
+ankündigen, wobei dieser Dienst nicht nur auf Komponenten beschränkt ist, die mit Hilfe der BerliOS-Plattform entwickelt wurden. 
 
-<p>BerliOS' <a href="http://devcounter.berlios.de" target="_blank"
->DevCounter</a> provides a service where OSS Developers can register
-themselves and provide a description of their skills. This repository is then
-viewable for sponsors how many use it to contact developers directly.
+<p>
+<a href="http://devcounter.berlios.de" target="_blank"
+>DevCounter</a> befragt Open-Source-Software-Entwickler nach ihren Kentnissen und Erfahrungen sowie der Mitarbeit an Open-Source-Projekten. Dieser Dienst unterstützt insbesondere die Bildung von Entwicklerkonsortien und erlaubt die zielgerichtete Suche nach Entwicklern mit definiertem Know-How.
 
-<p>BerliOS Portals:
+<h3>BerliOS-Portale</h3>
 <ul>
-<li> Developer <a
-href="http://developer.berlios.de">http://developer.berlios.de</a>
-<li> SourceAgency <a
-href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
-<li> DevCounter <a
-href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
-<li> SourceWell <a
-href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+<li><a
+href="http://developer.berlios.de">Developer</a> - Open-Source-Software-Entwicklung
+<li><a href="http://sourceagency.berlios.de">SourceAgency</a> - Projekt- und Ideen-Börse
+<li><a href="http://sourcewell.berlios.de">SourceWell</a> - Software-Ankündigung und -Katalog
+<li><a href="http://devcounter.berlios.de">DevCounter</a> - Software-Entwickler
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

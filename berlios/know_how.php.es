@@ -2,7 +2,7 @@
 require("include/site_header.html.es");
 ?>
 
-<!-- $Id: know_how.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: know_how.php.es,v 1.4 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Know-How sobre Software Libre (Open Source)</h2>
@@ -32,7 +32,7 @@ href="http://slashdot.org">SlashDot</a> y permite que usuarios registrados añada
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

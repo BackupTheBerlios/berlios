@@ -1,6 +1,6 @@
 <?php
 $th_body_bgcolor = "#FFFFFF";
-$th_font_family = "verdana,arial,helvetica,sans-serif";
+$th_font_family = "verdana,arial,helv,helvetica,sans-serif";
 $th_tt_font_family = "courier,sans-serif";
 $th_font_color = "#333333";
 $th_hover_font_color = "#FF0000";
@@ -38,7 +38,7 @@ $h4 = "10px";
 $h5 = "8px";
 $h6 = "8px";
 ?>
-BODY { background-color: #FFFFFF }
+BODY { background-color: #FFFFFF; margin: 0; }
 
 OL,UL,P,BODY,TD,TR,TH,FORM,TEXTAREA,INPUT { font-family: <?php echo $th_font_family; ?>; font-size:<?php echo $fsn; ?>; color: <?php echo $th_font_color; ?> }
 
@@ -57,20 +57,21 @@ A.maintitlebar:visited { color: <?php echo $th_navstrip_font_color; ?> }
 
 .menus { color: <?php echo $th_nav_font_color; ?>; text-decoration: none }
 .menus:visited { color: <?php echo $th_font_color; ?>; text-decoration: none }
-.menus:hover { text-decoration:underline; }
+.menus:hover { text-decoration: underline; }
 
-A:link { text-decoration:none }
-A:visited { text-decoration:none }
-A:active { text-decoration:none }
-A:hover { text-decoration:underline; }
+A:link { text-decoration: none }
+A:visited { text-decoration: none }
+A:active { text-decoration: none }
+A:hover { text-decoration: underline; }
 
 .title { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $h2; ?>; }
 
 .small { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fss; ?>; }
+.newsind { font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fss; ?>; text-indent: -9px; margin-left: 9px; padding-bottom: 2px;}
 
 A.small:link { text-decoration:none; font-size: <?php echo $fss; ?> }
 A.small:visited { text-decoration:none; font-size: <?php echo $fss; ?> }
 A.small:active { text-decoration:none; font-size: <?php echo $fss; ?> }
 A.small:hover { text-decoration:underline; font-size: <?php echo $fss; ?> }
 
-.titlebar { text-decoration:none; color: <?php echo $th_navstrip_font_color; ?>; font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fsn; ?>; font-weight: bold }
+.titlebar { text-decoration: none; color: <?php echo $th_navstrip_font_color; ?>; font-family: <?php echo $th_font_family; ?>; font-size: <?php echo $fsn; ?>; font-weight: bold }

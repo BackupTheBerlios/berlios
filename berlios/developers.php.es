@@ -1,5 +1,8 @@
 <?php
 require("include/site_header.html.es");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
 <!-- $Id -->
@@ -32,7 +35,7 @@ target="_blank">Developer</a> provee a los desarrolladores de software libre (ta
 
 <p><a href="http://devcounter.berlios.de" target="_blank">DevCounter</a> provee un servicio donde desarrolladores de software libre (también conocido como Open Source) puden registrarse y proveer una descripción de sus habilidades.
 
-<p>Portales de BerliOS:
+<h3>Portales de BerliOS</h3>
 <ul>
 <li> Developer <a
 href="http://developer.berlios.de">http://developer.berlios.de</a>
@@ -46,7 +49,7 @@ href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
 
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -46,7 +46,7 @@ and experience within the Open Source community.
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

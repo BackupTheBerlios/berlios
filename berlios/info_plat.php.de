@@ -1,47 +1,29 @@
 <?php
 require("include/site_header.html.de");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
+<h2>Informationsplattform</h2>
 
-<h2>Information Platform</h2>
+<p>BerliOS stellt Dokumentation zu FS/OSS und generelle Informationen über die Open-Source-Gemeinde zur Verfügung. Ein wichtiger Teil ist dabei die Bereitstellung der Dokumentation, die den Anwender in die Lage versetzt, FS/OSS einfach zu installieren, anzuwenden und bei Bedarf zu aktualisieren.
 
-<p>Part of the BerliOS project is to provide documentation and general
-information about the Open Source community and its going ons. A very
-important part of all Open Source projects is providing documentation allowing
-users to easily install, use and upgrade their Open Source Software.
+<p>Mit <a href="http://docswell.berlios.de" target="_blank">DocsWell</a> bietet BerliOS eine zentrale Stelle für die Durchführung von Online-Recherchen nach genereller Dokumentation über OSS. Das Portal enthält Bücher, Handbücher, Einführungen und Hinweise, sowie FAQ, Fachzeitschriften und Artikel.
 
-<p><a href="http://docswell.berlios.de">DocsWell</a> provides one central
-location for the announcement and retrieval of general documentation
-related to Open Source. Here you will find lists of HOWTOs, manuals, 
-guides, FAQs and books. Each entry may be downloaded directly from the site.
-Users may add new entries and update existing ones.
+<p>Der <a href="http://news.berlios.de" target="_blank">News-Dienst</a> von BerliOS präsentiert Neuigkeiten und Veranstaltungsheinweise rund um die deutschsprachige Open-Source-Gemeinde. 
 
-<p><a href="http://news.berlios.de">News</a> presents news about happenings
-within, about and around the Open Source community. News allows registered
-users to add and update news items. News is similar to <a
-href="http://slashdot.org">SlashDot</a> portal however is aimed mainly for the
-German speaking Open Source community.
-
-<p><a href="http://wiki.berlios.de">Wiki</a> provides an open communication
-portal based on the <a href="http://www.c2.com/cgi/wiki?WikiWikiWeb">Wiki
-concept</a> and is intended as an alternative to the mailing lists, forum,
-and email forms of communication.
-
-<p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
-service where messages may be commented and replied to. Forum is intended to
-allow discussion related to Open Source. Visitors are allowed to add messages 
-and reply to existing messages.
-
-<p>BerliOS Portals:
+<h3>BerliOS-Portale</h3>
 <ul>
-<li> DocsWell <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
-<li> News <a href="http://news.berlios.de">http://news.berlios.de</a>
-<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
-<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+<li><a href="http://sourcelines.berlios.de/" target="_blank">SourceLines</a> - Branchenspezifische Lösungen
+<li><a href="http://sourcewell.berlios.de/" target="_blank">SourceWell</a> - Software-Ankündigung und -Katalog
+<li><a href="http://docswell.berlios.de" target="_blank">DocsWell</a> - Dokumentationsankündigung und Recherche
+<li><a href="http://sourcebiz.berlios.de/" target="_blank">SourceBiz</a> - Software-Hersteller und Dienstleister
+<li><a href="http://news.berlios.de" target="_blank">News</a> - Neuigkeiten und Veranstaltungshinweise
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -2,7 +2,7 @@
 require("include/site_header.html.en");
 ?>
 
-<!-- $Id: exis_solu.php.en,v 1.6 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: exis_solu.php.en,v 1.7 2004/03/02 12:07:35 helix Exp $ -->
 
 <h2>Presentation of Existing Solutions</h2>
 
@@ -21,7 +21,7 @@ of Open Source Solutions and how the solution was implemented.
 
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

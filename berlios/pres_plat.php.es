@@ -1,8 +1,11 @@
 <?php
 require("include/site_header.html.es");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: pres_plat.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: pres_plat.php.es,v 1.4 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Presentación de la Plataforma</h2>
@@ -17,7 +20,7 @@ require("include/site_header.html.es");
 
 <p>El portal <a href="http://sourcelines.berlios.de">SourceLines</a> es un repositorio actualizado de soluciones de software libre (Open Source) y de descripciones de cómo fueron implementadas. SourceLines ofrece este servicio con usuarios potenciales de software libre (Open Source) en mente, de manera que puedan ver cómo otros usuarios usan software libre (Open Source) para solucionar sus problemas.
 
-<p>Portales BerliOS:
+<h3>Portales BerliOS</h3>
 <ul>
 <li> SourceBiz <a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
 <li> DevCounter <a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
@@ -26,7 +29,7 @@ require("include/site_header.html.es");
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

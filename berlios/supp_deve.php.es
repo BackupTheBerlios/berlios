@@ -1,8 +1,11 @@
 <?php
 require("include/site_header.html.es");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: supp_deve.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: supp_deve.php.es,v 1.4 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Ayudando al desarrollo de software libre (Open Source)</h2>
@@ -13,19 +16,16 @@ require("include/site_header.html.es");
 
 <p>La comunicación entre desarrolladores y entre desarrolladores y patrocinadores es otro área donde BerliOS quiere aportar soluciones. Éstas incluyen portales Wiki y foros, además de listas de correo y direcciones de correo electrónico personales.
 
-<p><a href="http://wiki.berlios.de">Wiki</a> es un portal que pretende ser un sitio donde un proyecto pueden definirse reglas para los proyectos. Wiki encapsula el espíritu de la comunidad de software libre (Open Source), lo que hace del mismo una herramienta ideal para el movimiento de software libre (Open Source).
+<p><a href="http://openfacts.berlios.de">OpenFacts</a> es un portal que pretende ser un sitio donde un proyecto pueden definirse reglas para los proyectos. Wiki encapsula el espíritu de la comunidad de software libre (Open Source), lo que hace del mismo una herramienta ideal para el movimiento de software libre (Open Source).
 
-<p><a href="http://forum.berlios.de">Forum</a> es un servicio de mensajería basado en hilos donde los mensajes pueden ser comentados y respondidos. Forum está pensado para permitir discusiones relacionadas con proyectos específicos o con el software libre (Open Source) en general.
-
-<p>Portales BerliOS:
+<h3>Portales BerliOS</h3>
 <ul>
 <li> Developer <a href="http://developer.berlios.de">http://developer.berlios.de</a>
-<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
-<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+<li> OpenFacts <a href="http://openfactsberlios.de">http://openfacts.berlios.de</a>
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

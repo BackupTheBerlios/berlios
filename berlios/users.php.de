@@ -1,56 +1,45 @@
 <?php
 require("include/site_header.html.de");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
+<h2>Anwender</h2>
 
-<h2>Users</h2>
+<p>Neben den privaten Anwendern von Freier bzw. Open-Source-Software (FS/OSS) sind besonders kleine und mittlere Unternehmen (KMU) sowie die &ouml;ffentliche Verwaltung und Einrichtungen die Zielgruppe von BerliOS. Bereits heute existieren für vielen Anwendungsbereiche durchg&auml;ngige FS/OSS-L&ouml;sungen, die in einem Produktionsumfeld einsetzbar sind. Die bei der Realisierung gewonnenen Erfahrungen und die sich daraus ergebenen Chancen und Risiken dienen als Beispiel für den Einsatz in anderen Unternehmen der gleichen Branche.
 
-<p>BerliOS' target user group are small and medium sized companies and
-Governmental Organisations and Departments. These are  partly end users
-and partly sponsors of Open Source projects. Because all software
-developed using the BerliOS platform must be Open Source, anybody is free
-to use and extend the created software.
+<p>Mit <a href="http://sourcelines.berlios.de/" target="_blank">SourceLines</a> ermöglicht BerliOS die Dokumentation von Lösungen und den Austausch von Erfahrungen zwischen Anwendern mit vergleichbaren Problemstellungen.
 
-<p>Target user groups are encouraged through <a href="http://forum.berlios.de" 
-target="_blank">discussion forums</a> and direct email
-communication with the <a href="mailto:berlios-contact@mail.berlios.de"
->BerliOS Team</a>, to identify missing Open Source software components in
-their particular field of endeavour. Users are then encourage to become
-sponsors and through the <a href="http://sourceagency.berlios.de" 
-target="_blank">SourceAgency</a> portal sponsor either existing projects or
-announce their own sponsored OS project.
+<p>Begleitend dazu werden Bedarfsanalysen im Dialog mit den Anwendern
+einzelner Branchen durchgef&uuml;hrt, wodurch fehlende Komponenten
+identifiziert werden, die den Einsatz von FS/OSS-L&ouml;sungen heute noch
+verhindern. Die Realisierung der fehlenden Komponenten werden dann von Unternehmenskonsortien in der Projekt- und Ideen-Börse (<a href="http://sourceagency.berlios.de" target="_blank">SourceAgency</a>) ausgeschrieben und die Entwicklung gemeinsam finanziert. Daneben können auch Entwicklergruppen Projektvorschläge erstellen, um damit potentielle Anwender für eine Finanzierung zu gewinnen.
 
-<p>A further focus is the provision of general information about the
-OSS community. Among other things this includes web-based documentation,
-repository for software (<a href="http://sourcewell.berlios.de/"
-target="_blank">SourceWell</a>), hardware and products, news and events (<a
-href="http://news.berlios.de/" target="_blank">News</a>) as well as
-search engines.
+<p>BerliOS stellt Dokumentation zu FS/OSS und generelle Informationen über die Open-Source-Gemeinde zur Verfügung. Ein wichtiger Teil ist dabei die Bereitstellung von Dokumentation, die den Anwender in die Lage versetzt, FS/OSS einfach zu installieren, anzuwenden und bei Bedarf zu aktualisieren.
 
-<p>BerliOS also aims to present existing Open Source solutions for 
-specific fields of endeavour, these are presented and documented using the <a
-href="http://sourcelines.berlios.de" target="_blank">SourceLines</a> portal.
-Discussion forums (<a href="http://forum.berlios.de/" target="_blank"
->Forum</a>) support the exchange of experiences between the users of OSS
-solutions. 
+<p>Die Broschüre "<a href="http://oss-broschuere.berlios.de/" target=_blank">Open-Source-Software</a>" richtet sich an mittelständische Unternehmen und Verwaltungen. Sie ist ein Wegweiser für potenzielle Anwender und soll vor allem über die Vorteile und Chancen, aber auch über Nachteile und Risiken von Open-Source-Software aufklären.
 
-<p>Finally, BerliOS offers a mirror service for the Open Source Software from
-all around the world.
+<p>Mit <a href="http://docswell.berlios.de" target="_blank">DocsWell</a> bietet BerliOS eine zentrale Stelle für die Durchführung von Online-Recherchen nach genereller Dokumentation über OSS. Das Portal enthält Bücher, Handbücher, Einführungen und Hinweise, sowie FAQ, Fachzeitschriften und Artikel.
 
-<p>BerliOS Portals:
+<p>Mit <a href="http://sourcewell.berlios.de" target="_blank">SourceWell</a> unterstützt BerliOS Anwender bei der Suche nach existierenden oder neu erschienenen Softwarekomponenten. Das Verzeichnis enthält Komponenten aus ca. 100 Kategorien.
+
+<p>Das <a href="http://sourcebiz.berlios.de" target="_blank">SourceBiz</a> Portal hilft Anwendern bei der Suche nach regionalen oder überregionalen Unternehmen, die auf der Basis von FS/OSS Produkte und Dienstleistungen anbieten.
+
+<p>Der <a href="http://news.berlios.de" target="_blank">News-Dienst</a> von BerliOS präsentiert Neuigkeiten und Veranstaltungshinweise rund um die deutschsprachige Open-Source-Gemeinde.
+
+<h3>BerliOS-Portale</h3>
 <ul>
-<li> SourceWell <a
-href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
-<li> SourceLines <a
-href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
-<li> SourceAgency <a
-href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
-<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
-<li> News <a href="http://news.berlios.de">http://news.berlios.de</a>
+<li><a href="http://sourcelines.berlios.de/" target="_blank">SourceLines</a> - Branchenspezifische Lösungen
+<li><a href="http://sourceagency.berlios.de/" target="_blank">SourceAgency</a> - Projekt- und Ideen-Börse
+<li><a href="http://sourcewell.berlios.de/" target="_blank">SourceWell</a> - Software-Ankündigung und -Katalog
+<li><a href="http://sourcebiz.berlios.de/" target="_blank">SourceBiz</a> - Software-Hersteller und Dienstleister
+<li><a href="http://news.berlios.de/" target="_blank">News</a> - Neuigkeiten und Veranstaltungshinweise 
+<li><a href="http://oss-broschuere.berlios.de/" target="_blank">OSS-Broschüre</a> - Ein Leitfaden für kleine und mittlere Unternehmen 
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

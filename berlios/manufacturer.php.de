@@ -1,40 +1,27 @@
 <?php
 require("include/site_header.html.de");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<h2>Service Provides and Manufacturers</h2>
+<h2>Hersteller und Dienstleister</h2>
 
-<p>BerliOS aims to encourage the work of manufacturers and service provides
-who provide consultancy and business opportunities for the Open Source
-Developers and Software. BerliOS allows company to advertise as Open Source
-companies using the <a href="http://sourcebiz.berlios.de/?lang=English"
-target="_blank">SourceBiz</a> portal. SourceBiz allows companies to describe
-their services and technical offerings.
+<p>Das <a href="http://sourcebiz.berlios.de/?lang=German" target="_blank">SourceBiz</a>-Portal unterstützt Hersteller und Dienstleister bei der Präsentation ihrer angebotenen Produkte und Dienste und hilft Anwendern bei der Suche nach regionalen oder überregionalen Unternehmen mit entsprechendem Fachwissen und Erfahrungen.
 
-<p><a href="http://sourceagency.berlios.de">SourceAgency</a> is aimed at
-companies that are wishing to support existing Open Source projects or to
-start their own sponsored project. SourceAgency provides a portal for
-negotiation between sponsors and developers, and supports decision making
-between sponsors.
+<p><a href="http://sourceagency.berlios.de">SourceAgency</a> richtet sich an Unternehmen, die existierende Open-Source-Entwicklungsprojekte finanziell unterstützen oder neue Entwicklungen initiieren wollen. SourceAgency unterstützt dabei die Abläufe, angefangen von der Vorstellung und Diskussion einer Projektidee, über die Suche nach weiteren finanziellen Beteiligungen und damit die Bildung von Unternehmenskonsortien, die Diskussion und Festlegung von Projektinhalten mit potentiellen Projektnehmern, die Auswahl der Projektnehmer, bis hin zur Durchführung und Überwachung des Projekts.
 
-<p>Manufacturers are encouraged to enter information about customer solutions
-they have provided in the <a href="http://sourcelines.berlios.de"
->SourceLines</a> portal. SourceLines provides a repository of existing
-Open Source solutions to provide potential Open Source users with information
-about what can be done with Open Source software.
+<p>Dienstleister sind weiterhin aufgefordert Informationen über ihre beispielhaften Kundenlösungen im Rahmen des <a href="http://sourcelines.berlios.de">SourceLines</a>-Portals bereitzustellen. "Best Practice"-Beispiele zeigen die Vielfältigkeit, der bereits heute existieren Lösungen und deren Übertragbarkeit für Unternehmen des gleichen Wirtschaftszweigs oder mit vergleichbaren Problemstellungen auf.
 
-<p>BerliOS Portals:
+<h3>BerliOS-Portale</h3>
 <ul>
-<li> SourceBiz <a
-href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
-<li> SourceLines <a
-href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
-<li> SourceAgency <a
-href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
+<li><a href="http://sourcebiz.berlios.de/" target="_blank">SourceBiz</a> - Software-Hersteller und Dienstleister
+<li><a href="http://sourceagency.berlios.de/" target="_blank">SourceAgency</a> - Projekt- und Ideen-Börse
+<li><a href="http://sourcelines.berlios.de/" target="_blank">SourceLines</a> - Branchenspezifische Lösungen
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -2,38 +2,29 @@
 require("include/site_header.html.de");
 ?>
 
-<b>Das BerliOS-Projekt</b>
-
-<p>BerliOS hat sich zum Ziel gesetzt die unterschiedlichen Interessengruppen
-im Umfeld der Open-Source-Software (OSS) zu unterst&uuml;tzen und dabei
-eine neutrale Vermittlerfunktion anzubieten. Die Zielgruppen von BerliOS
-sind einerseits die Entwickler und Anwender von Open-Source-Software und
-andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
-Anwendungen sowie Support-Firmen.
-
 <map name="BerliOSPie">
 <!-- central circle -->
-<area shape="circle" coords="225,225,45" href="goals.php.de" 
+<area shape="circle" coords="225,225,45" href="index.php.de" 
       alt="BerliOS">
 
 <!-- Informationsplattform -->
 <area shape="poly" coords="70,226,74,185,87,153,109,120,146,90,201,184,187,201,179,223" 
       href="info_plat.php.de" alt="Informationsplattform">
-<!-- Vermittlung von Ideen und Projekten -->
+<!-- Vermittlung von Ideen und Projekten
 <area shape="poly" coords="147,89,181,75,217,69,256,71,286,80,304,89,248,182,229,179,215,179,201,184" 
-      href="proj_spon.php.de" alt="Projektsponsoring">
+      href="proj_spon.php.de" alt="Projektsponsoring"> -->
 <!-- Entwicklungsplattform -->
 <area shape="poly" coords="249,182,257,189,264,197,273,216,272,221,311,225,322,216,339,226,380,224,377,188,367,160,351,133,333,113,307,92,303,90" 
       href="supp_deve.php.de" alt="Entwicklungsplattform">
-<!-- Vermittlung von Known-how OS-Software -->
+<!-- Vermittlung von Known-how OS-Software
 <area shape="poly" coords="275,222,380,225,378,265,364,299,344,327,317,355,304,361,249,268,266,253,273,239,278,223" 
-      href="exis_solu.php.de" alt="Lösungen">
+      href="exis_solu.php.de" alt="Lösungen"> -->
 <!-- Präsentationsplattform -->
 <area shape="poly" coords="201,267,221,272,234,271,248,268,303,361,271,375,223,382,183,376,145,363" 
       href="pres_plat.php.de" alt="Präsentationsplattform">
-<!-- Vermittlung von Know-how Dienstleistungen -->
+<!-- Vermittlung von Know-how Dienstleistungen
 <area shape="poly" coords="179,225,183,242,185,252,190,258,200,267,146,362,124,347,99,321,82,291,73,264,68,225" 
-      href="know_hows.php.de" alt="Know How">
+      href="know_how.php.de" alt="Know How"> -->
 
 <!-- Hersteller und Dienstleister -->
 <area shape="poly" coords="146,363,173,374,215,382,238,382,274,376,300,365,303,361,337,420,293,439,256,449,203,449,154,438,114,421" 
@@ -50,73 +41,46 @@ Anwendungen sowie Support-Firmen.
       href="developers.php.de" alt="Entwickler">
 </map>
 
+<?php
+if ( file_exists("include/adsense.php") ) {
+	include("include/adsense.php");
+}
+?>
+<p>
 <center>
-<img src="images/berlios_small_pie.jpg" width="400" height="400" 
+<img src="images/berlios_small_pie.jpg" width="451" height="451" 
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
 
-<p><b>Anwender</b>
+<p><b>Das BerliOS-Projekt</b>
 
-<p>Neben den privaten Anwendern von Open-Source-Software sind besonders kleine
-und mittelst&auml;ndische Unternehmen (KMU) sowie die &ouml;ffentliche Verwaltung wichtige
-Zielgruppen, die BerliOS ansprechen wird. Es soll aufgezeigt werden, in
-welchen Anwendungsbereichen bereits heute durchg&auml;ngige OSS-L&ouml;sungen
-verf&uuml;gbar und in einem Produktionsumfeld einsetzbar sind.
+<p>BerliOS hat sich zum Ziel gesetzt die unterschiedlichen Interessengruppen
+im Umfeld der Open-Source-Software (OSS) zu unterst&uuml;tzen und dabei
+eine neutrale Vermittlerfunktion anzubieten. Die Zielgruppen von BerliOS
+sind einerseits die <a href="developers.php.de">Entwickler</a> und <a href="users.php.de">Anwender</a> von
+Open-Source-Software und andererseits <a href="manufacturer.php.de">kommerzielle Hersteller</a> von OSS-Betriebsystemen und
+Anwendungen sowie <a href="manufacturer.php.de">Support-Firmen</a>.
 
-<p>Begleitend dazu werden Bedarfsanalysen im Dialog mit den Anwendern
-einzelner Branchen durchgef&uuml;hrt, wodurch fehlende Komponenten
-identifiziert werden, die den Einsatz von OSS-L&ouml;sungen heute noch
-verhindern.
-Die Realisierung der fehlenden Komponenten soll dann angesto&szlig;en werden,
-indem entweder Software-H&auml;user angesprochen werden oder sich freie
-Entwicklergruppen aus der OSS-Szene bilden und entsprechende Komponenten
-erstellen.
-
-<p>Ein weiterer Schwerpunkt wird die allgemeine Information &uuml;ber die
-OSS-Szene sein. Dazu geh&ouml;ren unter anderem die Web-basierte Dokumentation,
-Software- (<a href="http://sourcewell.berlios.de/?lang=German" target="_blank">SourceWell</a>), Hardware- und Produkt-Datenbanken, News und Veranstaltungskalender (<a href="http://news.berlios.de/" target="_blank">BerliOS News</a>)
-sowie eine Suchmaschine.
-Weiterhin sollen branchenspezifische L&ouml;sungen exemplarisch vorgestellt
-und dokumentiert werden. Diskussionsforen (<a href="http://forum.berlios.de/" target="_blank">BerliOS Forum</a>) unterst&uuml;tzen dabei den Austausch
-von Erfahrungen, die Anwender beim Einsatz von OSS-L&ouml;sungen gewonnen
-haben. Schliesslich werden
-die wichtigsten Web-/FTP-Server gespiegelt, um die weltweit entwickelte Open-Source-Software und deren Dokumentation im nationalen Bereich umfassend und
-schnell anbieten zu k&ouml;nnen.
-
-<p align=right><a href="http://user.berlios.de/index.php.de"><b>mehr...</b></a>
-
-<p><b>Entwickler</b>
-
-<p>Den Entwicklern von Open-Source-Software wird eine zentrale
-Infrastruktur (<a href="http://developer.berlios.de" target="_blank">BerliOS Developer</a>) bereitgestellt, die eine gemeinsame koordinierte
-Software-Entwicklung unterst&uuml;tzt, wobei die einzelnen Entwickler an
-unterschiedlichen geographischen Orten leben und arbeiten k&ouml;nnen.
-
-<p>F&uuml;r freie OSS-Entwicklergruppen sollen Anreize durch eine Open-Source
-Software-B&ouml;rse geschaffen werden, damit mehr auf die Erfordernisse
-f&uuml;r den Einsatz im Gesch&auml;ftsumfeld eingegangen wird.
-In dieser OSS-B&ouml;rse
-bieten einzelne Unternehmen, Interessengruppen oder die &ouml;ffentliche Hand
-eine Summe f&uuml;r eine ben&ouml;tigte OSS-L&ouml;sung, die diejenigen
-Entwickler erhalten, die entsprechende Komponenten liefern.
-
-<p>Aber auch die Motivation f&uuml;r Software-H&auml;user zur Entwicklung von
-kommerziellen Produkten ergibt sich durch das Aufzeigen eines potentiellen
-Marktes, der sich aus den branchenspezifischen Bedarfsanalysen ableiten
-l&auml;&szlig;t.
-
-<p align=right><a href="http://developer.berlios.de/"><b>mehr...</b></a>
-
-<p><b>Hersteller &amp; Support</b>
-
-<p>Durch den verst&auml;rkten Einsatz von Open-Source-Software in Firmen wird auch die Nachfrage nach professioneller Beratung, technischem Support und Schulung verst&auml;rken. Dies wird in der Zukunft neue hochwertige Arbeitspl&auml;tze in einem neuen dynmischen Wirtschaftszweig schaffen. Gesch&auml;ftsfelder werden sich insbesondere f&uuml;r IT-Spezialisten und junge Unternehmen er&ouml;ffnen, die Expertise im Open-Source-Bereich besitzen und technische Support-Dienstleistungen anbieten. BerliOS will seinen Beitrag zu dieser Entwicklung leisten, indem es als Drehscheibe f&uuml;r Informationen (<a href="http://sourcebiz.berlios.de/?lang=German" target="_blank">SourceBiz</a>) dient und die Funktion eines Clearinghauses zwischen Anwendern und Anbietern von Open-Source-Dienstleistungen
-&uuml;bernimmt. 
-
-<p align=right><a href="http://sourcebiz.berlios.de/?lang=German"><b>mehr...</b></a>
-
+<p><b>Suchen</b>
+<form action="search.php">
+<input TYPE="submit" NAME="Search" VALUE="Suche">
+<input TYPE="text" SIZE="20" NAME="search" VALUE="">
+in <select name="category">
+<option value="news">News
+<option value="document">Dokumentation
+<option value="developer">Software-Entwickler
+<option value="project member">Projektmitarbeiter
+<option value="solution">Lösungen
+<option value="software">Software-Komponenten
+<option value="project">Projekte
+<option value="sponsored project">Geförderte Projekte
+<option value="enterprise">Unternehmen
+</select>
+</form>
 
 <?php
-require("include/site_footer.html");
+//require("include/developer_news.php");
+require("include/site_footer.php");
 ?>
 
 </body>

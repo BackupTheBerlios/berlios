@@ -1,5 +1,8 @@
 <?php
 require("include/site_header.html.en");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
 <h2>Users</h2>
@@ -10,8 +13,8 @@ and partly sponsors of Open Source projects. Because all software
 developed using the BerliOS platform must be Open Source, anybody is free
 to use and extend the created software.
 
-<p>Target user groups are encouraged through <a href="http://forum.berlios.de" 
-target="_blank">discussion forums</a> and direct email
+<p>Target user groups are encouraged through 
+direct email
 communication with the <a href="mailto:berlios-contact@mail.berlios.de"
 >BerliOS Team</a>, to identify missing Open Source software components in
 their particular field of endeavour. Users are then encourage to become
@@ -29,27 +32,24 @@ search engines.
 <p>BerliOS also aims to present existing Open Source solutions for 
 specific fields of endeavour, these are presented and documented using the <a
 href="http://sourcelines.berlios.de" target="_blank">SourceLines</a> portal.
-Discussion forums (<a href="http://forum.berlios.de/" target="_blank"
->Forum</a>) support the exchange of experiences between the users of OSS
-solutions. 
 
 <p>Finally, BerliOS offers a mirror service for the Open Source Software from
 all around the world.
 
-<p>BerliOS Portals:
+<h3>BerliOS Portals</h3>
 <ul>
-<li> SourceWell <a
-href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
-<li> SourceLines <a
-href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
-<li> SourceAgency <a
-href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
-<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
-<li> News <a href="http://news.berlios.de">http://news.berlios.de</a>
+<li><a
+href="http://sourcewell.berlios.de">SourceWell</a> - Software Announcement and Retrieval
+<li><a
+href="http://sourcelines.berlios.de">SourceLines</a> - Solutions for specific fields of endeavour
+<li><a
+href="http://sourceagency.berlios.de">SourceAgency</a> - Project and Ideas Exchange
+<li><a href="http://news.berlios.de">News</a> - News and Events about the Comunity
+<li><a href="http://oss-broschuere.berlios.de">OSS Broschure</a> - A Guide for Small and Medium Enterprises
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -1,8 +1,11 @@
 <?php
 require("include/site_header.html.en");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: pres_plat.php.en,v 1.6 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: pres_plat.php.en,v 1.7 2004/03/02 12:07:35 helix Exp $ -->
 
 <h2>Presentation Platform</h2>
 
@@ -35,7 +38,7 @@ these were implemented. SourceLines provides a service for potential Open
 Source users to see how existing OS users implemented and use Open Source
 Software to solve their problems.
 
-<p>BerliOS Portals:
+<h3>BerliOS Portals</h3>
 <ul>
 <li> SourceBiz <a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
 <li> DevCounter <a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
@@ -44,7 +47,7 @@ Software to solve their problems.
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

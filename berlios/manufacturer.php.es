@@ -1,8 +1,11 @@
 <?php
 require("include/site_header.html.es");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: manufacturer.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: manufacturer.php.es,v 1.4 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Proveedores de servicios e Industria</h2>
@@ -13,7 +16,7 @@ require("include/site_header.html.es");
 
 <p>Se invita a la industria a introducir información sobre soluciones a clientes que hayan creado en el portal <a href="http://sourcelines.berlios.de">SourceLines</a>. SourceLines tiene un repositorio de soluciones de software libre (Open Source) ya existentes que permitirá que usuarios potenciales de software libre obtengan información sobre lo que se puede hacer con software libre (Open Source).
 
-<p>Portales BerliOS:
+<h3>Portales BerliOS</h3>
 <ul>
 <li> SourceBiz <a
 href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
@@ -24,7 +27,7 @@ href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

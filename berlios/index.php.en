@@ -2,41 +2,29 @@
 require("include/site_header.html.en");
 ?>
 
-<b>The BerliOS project</b>
-
-<p>The goal of BerliOS is to provide support for different interest groups 
-in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
-mediator function. The target groups of BerliOS are on one hand the 
-developers and users of Open Source Software and on the other hand commercial 
-manufacturers of OSS operating systems and applications as well as support 
-companies.
-
-
-<!--  <center><h2>The BerliOS Pie</h2></center> -->
-
 <map name="BerliOSPie">
 <!-- central circle -->
-<area shape="circle" coords="225,225,45" href="goals.php.en" 
+<area shape="circle" coords="225,225,45" href="index.php.en" 
       alt="BerliOS">
 
 <!-- Informations platform Wedge -->
 <area shape="poly" coords="70,226,74,185,87,153,109,120,146,90,201,184,187,201,179,223" 
       href="info_plat.php.en" alt="Information Platform">
-<!-- Vermittlung von Ideen Wedge -->
+<!-- Vermittlung von Ideen Wedge
 <area shape="poly" coords="147,89,181,75,217,69,256,71,286,80,304,89,248,182,229,179,215,179,201,184" 
-      href="proj_spon.php.en" alt="Project Sponsoring">
+      href="proj_spon.php.en" alt="Project Sponsoring"> -->
 <!-- Entwicklungs plattform Wedge -->
 <area shape="poly" coords="249,182,257,189,264,197,273,216,272,221,311,225,322,216,339,226,380,224,377,188,367,160,351,133,333,113,307,92,303,90" 
       href="supp_deve.php.en" alt="Supporting OS Development">
-<!-- Vermittlung von Known-how OS-Software Wedge -->
+<!-- Vermittlung von Known-how OS-Software Wedge
 <area shape="poly" coords="275,222,380,225,378,265,364,299,344,327,317,355,304,361,249,268,266,253,273,239,278,223" 
-      href="exis_solu.php.en" alt="Existing Solutions">
+      href="exis_solu.php.en" alt="Existing Solutions"> -->
 <!-- Presentation platform wedge -->
 <area shape="poly" coords="201,267,221,272,234,271,248,268,303,361,271,375,223,382,183,376,145,363" 
       href="pres_plat.php.en" alt="Presentation Platform">
-<!-- Vermittlung von Know-how Dienstleistungen wedge -->
+<!-- Vermittlung von Know-how Dienstleistungen wedge
 <area shape="poly" coords="179,225,183,242,185,252,190,258,200,267,146,362,124,347,99,321,82,291,73,264,68,225" 
-      href="know_hows.php.en" alt="Know How">
+      href="know_how.php.en" alt="Know How"> -->
 
 <!-- Anwender outer wedge -->
 <area shape="poly" coords="146,363,173,374,215,382,238,382,274,376,300,365,303,361,337,420,293,439,256,449,203,449,154,438,114,421" 
@@ -53,13 +41,47 @@ companies.
       href="developers.php.en" alt="Developrs">
 </map>
 
+<?php
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
+?>
+<p>
 <center>
-<img src="images/berlios_small_pie_e.jpg" width="400" height="400" 
+<img src="images/berlios_small_pie_e.jpg" width="451" height="451" 
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
 
+<p><b>The BerliOS project</b>
+
+<p>The goal of BerliOS is to provide support for different interest groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. The target groups of BerliOS are on one hand the 
+<a href="developers.php.en">developers</a> and
+<a href="users.php.en">users</a> of Open Source Software and on the other
+hand <a href="manufacturer.php.en">commercial manufacturers</a> of
+OSS operating systems and applications as well as
+<a href="manufacturer.php.en">support companies</a>.
+
+<p><b>Search</b>
+<form action="search.php">
+<input TYPE="submit" NAME="Search" VALUE="Seach">
+<input TYPE="text" SIZE="20" NAME="search" VALUE="">
+in <select name="category">
+<option value="news">News
+<option value="document">Documentation
+<option value="developer">Software Developer
+<option value="project member">Project Member
+<option value="solution">Solutions
+<option value="software">Software Components
+<option value="project">Projects
+<option value="sponsored project">Sponsored Projects
+<option value="enterprise">Enterprises
+</select>
+</form>
+
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

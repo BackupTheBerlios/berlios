@@ -1,10 +1,13 @@
 <?php
 require("include/site_header.html.en");
+if ( file_exists("include/adsense.php") ) {
+        include("include/adsense.php");
+}
 ?>
 
-<!-- $Id: manufacturer.php.en,v 1.5 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: manufacturer.php.en,v 1.6 2004/03/02 12:07:35 helix Exp $ -->
 
-<h2>Service Provides and Manufacturers</h2>
+<h2>Manufacturers and Service Providers</h2>
 
 <p>BerliOS aims to encourage the work of manufacturers and service provides
 who provide consultancy and business opportunities for the Open Source
@@ -25,7 +28,7 @@ they have provided in the <a href="http://sourcelines.berlios.de"
 Open Source solutions to provide potential Open Source users with information
 about what can be done with Open Source software.
 
-<p>BerliOS Portals:
+<h3>BerliOS Portals</h3>
 <ul>
 <li> SourceBiz <a
 href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
@@ -36,7 +39,7 @@ href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>

@@ -2,7 +2,7 @@
 require("include/site_header.html.es");
 ?>
 
-<!-- $Id: exis_solu.php.es,v 1.3 2002/05/14 00:29:20 grex Exp $ -->
+<!-- $Id: exis_solu.php.es,v 1.4 2004/03/02 12:07:35 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Presentación de Soluciones Existentes</h2>
@@ -16,7 +16,7 @@ require("include/site_header.html.es");
 </ul>
 
 <?php
-require("include/site_footer.html");
+require("include/site_footer.php");
 ?>
 
 </body>
