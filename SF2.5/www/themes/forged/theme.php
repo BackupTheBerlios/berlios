@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: theme.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: theme.php,v 1.3 2004/08/03 10:50:04 helix Exp $
 
 // Make sure '/etc/local.inc' is required in pre.php!
 
@@ -312,7 +312,7 @@ function theme_menuhtml_bottom() {
 }
 
 function theme_menu_entry($link, $title) {
-	print "\t".'<font face="arial, helvetica" size="2"><A class="menus" href="'.$link.'">'.$title.'</A> &nbsp;<img src="'.$GLOBALS['sys_themeimgroot'].'point1.png" alt=" " width="7" height="7"></font><br>';
+	print "\t".'<font face="arial, helvetica" size="2"><A class="menus" href="'.$link.'">'.$title.'</A>&nbsp;<img src="'.$GLOBALS['sys_themeimgroot'].'point1.png" alt=" " width="7" height="7"></font><br>';
 }
 
 function theme_tab_entry($url='http://localhost/', $icon='', $title='Home', $selected=0) {
