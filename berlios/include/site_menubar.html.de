@@ -8,31 +8,90 @@
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
 <td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">BerliOS</font></span></td>
+<span class="titlebar"><font color="#FFFFFF">Zielgruppe</font></span></td>
 </tr>
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td><a href="<?php echo $top_level; ?>/index.php.de" class="menus">Home</a>
+<td>
 
-<p><a href="http://user.berlios.de/index.php.de" class="menus">Anwender</a>
-<br><a href="http://developer.berlios.de/index.php" class="menus">Entwickler</a>
-<br><a href="http://sourcebiz.berlios.de/?lang=German" class="menus">Hersteller &amp; Support</a>
+<p><a href="users.php.de" class="menus">Anwender</a>
+<br><a href="developers.php.de" class="menus">Entwickler</a>
+<br><a href="manufacturer.php.de" class="menus">Hersteller &amp;<br>Dienstleister</a>
 
-<p><a href="http://news.berlios.de/" class="menus">News</a>
-<br><a href="http://forum.berlios.de/" class="menus">Diskussionsforum</a>
-<br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
-<br><a href="http://developer.berlios.de/" class="menus">Developer</a>
-
-<p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a></td>
+</td>
 </tr>
 </table>
-<!-- end BerliOS menu -->
-<!-- Search menu -->
+<p>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Plattform</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<p><a href="info_plat.php.de" class="menus">Information</a>
+<br><a href="supp_deve.php.de" class="menus">Software-Entwicklung</a>
+<br><a href="pres_plat.php.de" class="menus">Präsentation</a>
+</td>
+</tr>
+</table>
+<p>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Vermittlungsfunktion</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<p><a href="goals.php.de" class="menus">Ziele</a>
+<br><a href="proj_spon.php.de" class="menus">Projektsponsoring</a>
+<br><a href="exis_solu.php.de" class="menus">Lösungen</a>
+<br><a href="know_how.php.de" class="menus">Know How</a>
+</td>
+</tr>
+</table>
+<p>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" 
+height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Portal</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<p><a href="<?php echo $top_level; ?>/index.php.de" class="menus">Home</a>
+<br><a href="http://news.berlios.de/"          class="menus">News</a>
+<br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
+<br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
+<br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
+<br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
+<br><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
+<br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
+<br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
+<br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
+<br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
+
+<p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a></td>
+</td>
+</tr>
+</table>
+<!-- end BerliOS menu --></td>
+
+<!-- Search menu --></td>
 <!--
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
 <td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Suche</font></span></td>
+<span class="titlebar"><font color="#FFFFFF">Search</font></span></td>
 </tr>
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
@@ -40,7 +99,7 @@
 <center>
 <font size="-1">
 <form action="/cgi-bin/webglimpse/export/http"><input TYPE="hidden" NAME="localcopy" VALUE="n"><input TYPE="hidden" NAME="lines" checked VALUE="on"><input TYPE="text" SIZE="15" NAME="query" VALUE="">
-<p><input TYPE="submit" NAME="Search" VALUE="Suche">
+<p><input TYPE="submit" NAME="Search" VALUE="Search">
 </form>
 </font>
 </center>
@@ -48,7 +107,6 @@
 </tr>
 </table>
 -->
-<!-- end Search menu -->
-</td>
+<!-- end Search menu --></td>
 
-<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="/images/blank.gif" BORDER=0 height=1 width=10></td>
+<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="<?php echo $top_level; ?>/images/blank.gif" BORDER=0 height=1 width=10></td>
