@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: support_utils.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: support_utils.php,v 1.3 2003/11/27 15:08:21 helix Exp $
 
 /*
 
@@ -123,7 +123,7 @@ function show_supportlist ($result,$offset,$set='open') {
 			'<TD NOWRAP>'.
 			($IS_SUPPORT_ADMIN?'<INPUT TYPE="CHECKBOX" NAME="support_id[]" VALUE="'.
 			db_result($result, $i, 'support_id') .'"> ':'').
-	                db_result($result, $i, 'support_id') .
+	                sprintf("%06d",db_result($result, $i, 'support_id')) .
         	        '</TD>'.
 			'<TD><A HREF="'.$PHP_SELF.'?func=detailsupport&support_id='. 
 			db_result($result, $i, 'support_id').
