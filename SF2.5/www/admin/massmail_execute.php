@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: massmail_execute.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: massmail_execute.php,v 1.3 2003/11/19 16:02:27 helix Exp $
 
 require ('pre.php');
 session_require(array('group'=>1,'admin_flags'=>'A'));
@@ -85,7 +85,7 @@ for ($i=0; $i<$rows; $i++) {
 			"\nBCC: $tolist".
 			"\nSubject: ". stripslashes($mail_subject).
 			"\n\n". stripslashes($mail_message);
-		exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
+		exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
 		usleep(500000);
 		print "\nsending to $tolist";
 		$tolist='';
@@ -99,7 +99,7 @@ $body = "To: noreply@$HTTP_HOST".
 "\nBCC: $tolist".
 "\nSubject: ". stripslashes($mail_subject).
 "\n\n". stripslashes($mail_message);
-exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
+exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$HTTP_HOST -t -i >& /dev/null &");
 usleep(500000);
 print "\nsending to $tolist";
 $tolist='';

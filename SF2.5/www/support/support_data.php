@@ -524,7 +524,7 @@ function mail_followup($support_id,$more_addresses=false) {
 			Send the email
 		*/
 		exec ("/bin/echo \"". util_prep_string_for_sendmail($body)
-			."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t &");
+			."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[HTTP_HOST] -t &");
 		$feedback .= " Support Request Update Emailed ";
 		
 	} else {

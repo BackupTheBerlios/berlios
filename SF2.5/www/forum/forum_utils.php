@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: forum_utils.php,v 1.3 2003/11/19 16:02:28 helix Exp $
 
 /*
 
@@ -644,9 +644,9 @@ function handle_monitoring($forum_id,$msg_id) {
 				"\nTo stop monitoring this forum, login to ".$GLOBALS['sys_default_name']." and visit: ".
 				"\nhttp://$GLOBALS[sys_default_host]/forum/monitor.php?forum_id=$forum_id";
 
-// echo "<pre>/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t</pre>";
+// echo "<pre>/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[HTTP_HOST] -t</pre>";
 
-			exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | /usr/sbin/sendmail -fnoreply@$GLOBALS[HTTP_HOST] -t &");
+			exec ("/bin/echo \"". util_prep_string_for_sendmail($body) ."\" | $GLOBALS[sys_sendmail_path] -fnoreply@$GLOBALS[HTTP_HOST] -t &");
 
 			$feedback .= ' email sent - people monitoring ';
 		} else {
