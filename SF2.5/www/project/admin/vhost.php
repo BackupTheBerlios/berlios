@@ -7,7 +7,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: vhost.php,v 1.1 2003/11/13 11:29:26 helix Exp $
+  * @version   $Id: vhost.php,v 1.2 2004/01/08 10:41:37 helix Exp $
   *
   */
 
@@ -92,7 +92,7 @@ project_admin_header(array('title'=>'Editing Virtual Host Info','group'=>$group_
 <b><u>Add New Virtual Host</u></b>
 <p>
 To add a new virtual host - simply point a <b>CNAME</b> for <i>yourhost.org</i> at
-<b>usw-pr-vhost.<?php echo $GLOBALS['sys_default_domain']; ?></b>. <?php echo $GLOBALS['sys_default_name']; ?> does not currently host mail (i.e. cannot be an MX)
+<b>www.<?php echo $GLOBALS['sys_default_domain']; ?></b>. <?php echo $GLOBALS['sys_default_name']; ?> does not currently host mail (i.e. cannot be an MX)
 or DNS</b>.  
 <p>
 Clicking on "create" will schedule the creation of the Virtual Host.  This will be
