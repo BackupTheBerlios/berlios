@@ -1,7 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="Author" content="BerliOS">
@@ -13,10 +12,10 @@
    $top_level = "./";
  }
 ?>
-   <link rel="stylesheet" href="<?php echo $top_level; ?>berlios.css" type="text/css">
-   <link rel="shortcut icon" href="<?php echo $top_level; ?>berlios.ico">
+   <link rel="STYLESHEET" href="<?php echo $top_level; ?>berlios.css" type="text/css">
+   <link rel="SHORTCUT ICON" href="<?php echo $top_level; ?>favicon.ico">
 </head>
-<body bgcolor="#FFFFFF">
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
 
 <!-- top strip -->
 <table border="0" cellspacing="0" cellpadding="2" width="100%" bgcolor="#7B7B7B" >
@@ -43,29 +42,74 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top" bgcolor="#FFCC33">
     <td bgcolor="#FFFFFF">
-      <a href="index.php.es"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" hspace="5" vspace="5" border="0" height="61" width="238" alt="BerliOS"></a>
+      <a href="index.php.es"><img src="<?php echo $top_level; ?>images/berliOS_logo.png" hspace="5" vspace="5" border="0" height="61" width="238" alt="BerliOS"></a>
     </td>
     <td width="10" bgcolor="#FFCC33">
-      <img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
+      <img src="<?php echo $top_level; ?>images/blank.gif" border="0" height="1" width="10" alt="">
     </td>
     <td valign="middle" width="99%">
       <b><font size="+1">BerliOS</font></b>
       <br>The Open Source Mediator
 
-      <!-- logo at right -->
-    </td>
+<!-- navigation pie -->
+<map name="BerliOSPie_Navigate">
+<!-- central circle -->
+<area shape="circle" coords="30,30,6" href="index.php.es" 
+      alt="BerliOS">
+
+<!-- Informationsplattform -->
+<area shape="poly" coords="9,30,10,25,12,20,15,16, 19,12,27,24,25,27,24,30" 
+      href="info_plat.php.es" alt="Informationsplattform">
+<!-- Vermittlung von Ideen und Projekten
+<area shape="poly" coords="20,12,24,10,29,9,34,9, 38,11,40,12,33,24,30,24, 29,24,27,24" 
+      href="proj_spon.html" alt="Projektsponsoring"> -->
+<!-- Entwicklungsplattform -->
+<area shape="poly" coords="33,24,34,25,35,26,36,29,36,29, 41,30,43,29,45,30,51,30,50,25, 49,21,47,18,44,15,41,12,40,12" 
+      href="supp_deve.php.es" alt="Entwicklungsplattform">
+<!-- Vermittlung von Known-how OS-Software
+<area shape="poly" coords="37,30,51,30,50,35,48,40,46,44, 42,47,40,48,33,36,35,34,36,32, 37,30" 
+      href="exis_solu.php.es" alt="Existing Solutions"> -->
+<!-- Presentation platform wedge -->
+<area shape="poly" coords="27,36,29,36,31,36,33,36,40,48, 36,50,30,51,24,50,19,48" 
+      href="pres_plat.php.es" alt="Presentation Platform">
+<!-- Vermittlung von Know-how Dienstleistungen wedge
+<area shape="poly" coords="24,30,24,32,25,34,25,34, 27,36,19,48,16,46,13,43, 11,39,10,35,9,30" 
+      href="know_how.html" alt="Know How"> -->
+
+<!-- Hersteller und Dienstleister -->
+<area shape="poly" coords="19,48,23,50,29,51,32,51,36,50, 40,49,40,48,45,56,39,58,34,60, 27,60,20,58,15,56" 
+      href="manufacturer.php.es" 
+      alt="Hersteller und Dienstleister">
+<!-- Anwender -->
+<area shape="poly" 
+      coords="0,30,1,24,3,17,6,13, 9,9,11,7,14,5,15,4, 20,12,16,15,13,19,11,22, 10,25,9,29,9,30" 
+      href="users.php.es" 
+      alt="Anwender">
+<!-- Entwickler -->
+<area shape="poly" 
+      coords="51,30,60,30,59,25,58,20, 56,15,53,11,51,8,48,6, 45,4,40,12,44,14,46,16, 47,18,49,21,50,24" 
+      href="developers.php.es" alt="Entwickler">
+</map>
+
+<td VALIGN=middle>
+<a href="index.php.es">
+<img 
+SRC="<?php echo $top_level; ?>images/berlios_pie_nav.jpg" ALT="Navigate Pie" 
+HSPACE=10 BORDER=0 height=60 width=60 usemap="#BerliOSPie_Navigate" align=Right></a>
+</td>
+<!-- end navigation pie -->
+
+    <!-- logo at right -->
     <td valign="middle">
-      <a href="http://www.fokus.gmd.de/" target="_blank"><img 
-       src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" 
+      <a href="http://www.fokus.fraunhofer.de/" target="_blank"><img 
+       src="<?php echo $top_level; ?>images/logo_fokus.png" alt="FOKUS" 
        hspace="10" border="0" height="60" width="60" align="right"></a>
     </td>
+    <!-- end logo at right -->
   </tr>
-<!-- end logo at right -->
 
   <tr>
-    <td colspan="4" bgcolor="#7B7B7B">
-      <img src="<?php echo $top_level; ?>/images/blank.gif" height="2" width="2" alt="">
-    </td>
+    <td colspan="5" bgcolor="#7B7B7B"><img src="<?php echo $top_level; ?>images/blank.gif" height="2" width="0" alt=""></td>
   </tr>
 </table>
 <!-- end top title -->

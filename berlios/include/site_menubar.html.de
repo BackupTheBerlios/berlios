@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.de,v 1.8 2002/05/14 11:11:24 grex Exp $ -->
+<!-- $Id: site_menubar.html.de,v 1.9 2003/02/10 21:25:04 helix Exp $ -->
 
 <?php
  if ( !isset( $top_level ) ) {
@@ -6,7 +6,7 @@
  }
 ?>
 <td bgcolor="#FFCC33">
-<!-- BerliOS menu -->
+<!-- Audience menu -->
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
   <tr bgcolor="#7B7B7B">
     <td align="center">
@@ -24,27 +24,28 @@
 </table>
 <p>
 
+<!-- Platform menu -->
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
   <tr bgcolor="#7B7B7B">
     <td align=center>
-      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Plattform</font></span>
     </td>
   </tr>
   <tr align="right" bgcolor="#FFCC33">
     <td>
       <p><a href="<?php echo $top_level; ?>info_plat.php.de" class="menus">Information</a>
-      <br><a href="<?php echo $top_level; ?>supp_deve.php.de" class="menus">Software-Entwicklung</a>
+      <br><a href="<?php echo $top_level; ?>supp_deve.php.de" class="menus">Entwicklung</a>
       <br><a href="<?php echo $top_level; ?>pres_plat.php.de" class="menus">Präsentation</a>
     </td>
   </tr>
 </table>
 <p>
 
+<!-- Mediator menu -->
+<!--
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B">
   <tr bgcolor="#7B7B7B">
     <td align="center">
-      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Vermittlungsfunktion</font></span>
     </td>
   </tr>
@@ -58,26 +59,29 @@
   </tr>
 </table>
 <p>
+-->
 
+<!-- Portal menu -->
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B">
   <tr bgcolor="#7B7B7B">
     <td align="center">
-      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
       <span class="titlebar"><font color="#FFFFFF">Portal</font></span>
     </td>
   </tr>
   <tr align="right" bgcolor="#FFCC33">
     <td>
       <p><a href="<?php echo $top_level; ?>/index.php.de" class="menus">Home</a>
-      <br><a href="http://news.berlios.de/"          class="menus">News</a>
+      <br><a href="http://news.berlios.de/"         class="menus">News</a>
       <br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
       <br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
       <br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
       <br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
       <br><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
+      <br><a href="http://oss-broschuere.berlios.de/" class="menus">OSS-Broschüre</a>
       <br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
       <br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
-      <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
+      <br><a href="http://openfacts.berlios.de/"    class="menus">OpenFacts</a>
+      <br><a href="http://docswell.berlios.de/"     class="menus">DocsWell</a>
       <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
       <p><a href="<?php echo $top_level; ?>index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0" alt="en"></a>
@@ -85,7 +89,9 @@
     </td>
   </tr>
 </table>
-<!-- end BerliOS menu --></td>
+<p align="center"><a href="http://developer.berlios.de"><img src="http://developer.berlios.de/bslogot.php?group_id=1&type=1" width="124" height="32" border="0" hspace="3" vspace="3" alt="BerliOS Logo"></a>
+<!-- End menubar -->
+</td>
 
 <td width="10" bgcolor="#FFFFFF">
   <img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
