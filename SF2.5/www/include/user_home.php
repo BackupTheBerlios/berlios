@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: user_home.php,v 1.3 2004/04/02 10:55:08 helix Exp $
+// $Id: user_home.php,v 1.4 2005/02/24 17:43:19 helix Exp $
 
 /*
 
@@ -79,7 +79,7 @@ $HTML->header(array('title'=>'Developer Profile'));
       <p><a href="/developer/donations.php?user_id='.$user_id.'">View Donations</a></p>
     ';
 
-	echo $HTML->box1_middle('Diary And Notes');
+	echo $HTML->box1_middle('Diary And Notes',false,false);
  
 	/*
 
@@ -95,23 +95,17 @@ $HTML->header(array('title'=>'Developer Profile'));
 	<P>
 	<A HREF="/developer/monitor.php?diary_user='. $user_id .'">'. html_image("images/ic/check.png",'15','13',array(),0) .'Monitor This Diary</A>';
 
-	?>
-</TD></TR>
-
-<TR><TD COLSPAN=2>
-	<H4>Project Info</H4>
-	<P>
-<?php
+	echo $HTML->box1_middle('Projects',false,false);
+ 
 	// now get listing of groups for that user
 	$res_cat = db_query("SELECT groups.group_name, "
 	. "groups.unix_group_name, "
 	. "groups.group_id, "
+	. "groups.type, "
 	. "user_group.admin_flags, "
 	. "user_group.bug_flags FROM "
 	. "groups,user_group WHERE user_group.user_id='$user_id' AND "
-	// We don't need to block out foundries from displaying.
-	//. "groups.group_id=user_group.group_id AND groups.is_public='1' AND groups.status='A' AND groups.type='1'");
-	. "groups.group_id=user_group.group_id AND groups.is_public='1' AND groups.status='A'");
+	. "groups.group_id=user_group.group_id AND groups.is_public='1' AND groups.status='A' AND groups.type='1'");
 
 // see if there were any groups
 if (db_numrows($res_cat) < 1) {
@@ -122,6 +116,31 @@ if (db_numrows($res_cat) < 1) {
 	print "<p>This developer is a member of the following groups:<BR>&nbsp;";
 	while ($row_cat = db_fetch_array($res_cat)) {
 		print ("<BR>" . "<A href=\"/projects/$row_cat[unix_group_name]/\">$row_cat[group_name]</A>\n");
+	}
+	print "</ul>";
+} // end if groups
+
+	echo $HTML->box1_middle('Foundries',false,false);
+
+	// now get listing of groups for that user
+	$res_cat = db_query("SELECT groups.group_name, "
+	. "groups.unix_group_name, "
+	. "groups.group_id, "
+	. "groups.type, "
+	. "user_group.admin_flags, "
+	. "user_group.bug_flags FROM "
+	. "groups,user_group WHERE user_group.user_id='$user_id' AND "
+	. "groups.group_id=user_group.group_id AND groups.is_public='1' AND groups.status='A' AND groups.type='2'");
+
+// see if there were any groups
+if (db_numrows($res_cat) < 1) {
+	?>
+	<p>This developer is not a member of any foundries.
+	<?php
+} else { // endif no groups
+	print "<p>This developer is a member of the following foundries:<BR>&nbsp;";
+	while ($row_cat = db_fetch_array($res_cat)) {
+		print ("<BR>" . "<A href=\"/foundry/$row_cat[unix_group_name]/\">$row_cat[group_name]</A>\n");
 	}
 	print "</ul>";
 } // end if groups
@@ -171,8 +190,9 @@ if (user_isloggedin()) {
 	<INPUT TYPE="HIDDEN" NAME="touser" VALUE="<?php echo $user_id; ?>">
 
 	<B>Your Email Address:</B><BR>
-	<B><?php echo user_getname().'@'.$GLOBALS['sys_users_host']; ?></B>
-	<INPUT TYPE="HIDDEN" NAME="email" VALUE="<?php echo user_getname().'@'.$GLOBALS['sys_users_host']; ?>">
+	<?php $from_email = user_getname().'@'.$GLOBALS['sys_users_host']; ?>
+	<B><?php echo $from_email; ?></B>
+	<INPUT TYPE="HIDDEN" NAME="email" VALUE="<?php echo $from_email; ?>">
 	<P>
 	<B>Your Name:</B><BR>
 	<B><?php 
