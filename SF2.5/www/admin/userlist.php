@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userlist.php,v 1.4 2005/02/11 12:54:58 helix Exp $
+// $Id: userlist.php,v 1.5 2005/02/16 12:16:19 helix Exp $
 
 require "pre.php";    
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -22,9 +22,13 @@ function show_users_list ($result,$status,$search) {
 	}
 	print "</b>\n";
 
-	if ( $search != "" ) {
-	  print "<br>Users Beginning with: <b>$search</b>";
+	print "<br>Users Beginning with: <b>";
+	if ( $search == "" ) {
+	  print "All";
+	} else {
+	  print $search ;
 	}
+	print "</b>\n";
 	
 	echo '<p>Key:
 		<b>Active</b>
@@ -105,14 +109,20 @@ if (!$group_id) {
 	print "<b>All Groups</b>";
 	print "\n";
 
-	if ($user_name_search) {
+	if ($user_id) {
+	  $result = db_query("SELECT user_name,user_id,realname,email,status FROM users WHERE user_id='$user_id'");
+	  $status = "";
+	  $user_name_search = "";
+	} else {
+	  if ($user_name_search) {
 		if ($status) $where_status = "AND status='$status'";
 		else $where_status = "";
 		$result = db_query("SELECT user_name,user_id,realname,email,status FROM users WHERE user_name ILIKE '$user_name_search%' $where_status ORDER BY user_name");
-	} else {
+	  } else {
 		if ($status) $where_status = "WHERE status='$status'";
-                else $where_status = "";
+		else $where_status = "";
 		$result = db_query("SELECT user_name,user_id,realname,email,status FROM users $where_status ORDER BY user_name");
+	  }
 	}
 	show_users_list ($result,$status,$user_name_search);
 } else {
