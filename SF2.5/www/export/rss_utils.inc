@@ -4,10 +4,10 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_utils.inc,v 1.5 2005/02/07 14:02:00 helix Exp $
+// $Id: rss_utils.inc,v 1.6 2005/02/24 18:08:32 helix Exp $
 
 function rss_setscheme() {
-	if ($GLOBALS['scheme'] == "netscape") {
+    if ($GLOBALS['scheme'] == "netscape") {
 		$GLOBALS['description_maxlen'] = 500;
 		$GLOBALS['description_notnull'] = 1;
 	}
@@ -30,30 +30,37 @@ function rss_description ($in) {
 // callback is optional function name which should be called for each project
 // row and which result will be appended to description element
 function rss_dump_project_result_set ($res,$title,$desription='',$callback=0) {
-        if (!$desription) $desription=$title;
+    if (!$desription) $desription=$title;
 	// ## one time output
 	print " <channel>\n";
-        print "  <title>$title</title>\n";
-        print "  <description>$desription</description>\n";
-        print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
-        print "  <language>en-us</language>\n";
+	print "  <title>$title</title>\n";
+	print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
+	print "  <description>$desription</description>\n";
+	print "  <language>en-us</language>\n";
 	print "  <copyright>Copyright 2000-".date("Y")." Fraunhofer FOKUS</copyright>\n";
-	print "  <pubDate>".gmdate('D, d M Y G:i:s',time())." GMT</pubDate>\n";
 	print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
+	print "  <pubDate>".gmdate('D, d M Y G:i:s',time())." GMT</pubDate>\n";
+	print "  <image>\n";
+	print "    <url>http://$GLOBALS[sys_default_host]/images/berliOS_small_logo.png</url>\n";
+	print "    <title>BerliOS Developer</title>\n";
+	print "    <link>http://$GLOBALS[sys_default_host]</link>\n";
+	print "    <width>124</width>\n";
+	print "    <heigth>32</heigth>\n";
+	print "  </image>\n";
 
 	// ## item outputs
 	while ($row = db_fetch_array($res)) {
-                if ($callback) {
-                	$addendum=$callback($row);
-                }
-		print "  <item>\n";
-		print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
-		print "   <link>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</link>\n";
-		print "   <description>";
-		print ereg_replace(" *\r*\n *"," ",rss_description($row[short_description]));
-                print $addendum;
-		print "</description>\n";
-		print "  </item>\n";
+	  if ($callback) {
+		$addendum=$callback($row);
+	  }
+	  print "  <item>\n";
+	  print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
+	  print "   <link>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</link>\n";
+	  print "   <description>";
+	  print ereg_replace(" *\r*\n *"," ",rss_description($row[short_description]));
+	  print $addendum;
+	  print "</description>\n";
+	  print "  </item>\n";
 	}
 	// ## end output
 	print " </channel>\n";
@@ -62,32 +69,42 @@ function rss_dump_project_result_set ($res,$title,$desription='',$callback=0) {
 // callback is optional function name which should be called for each project
 // row and which result will be appended to description element
 function rss20_dump_project_result_set ($res,$title,$desription='',$callback=0) {
-        if (!$desription) $desription=$title;
+    if (!$desription) $desription=$title;
 	// ## one time output
 	print " <channel>\n";
-        print "  <title>$title</title>\n";
-        print "  <description>$desription</description>\n";
-        print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
-        print "  <language>en-us</language>\n";
+	print "  <title>$title</title>\n";
+	print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
+	print "  <description>$desription</description>\n";
+	print "  <language>en-us</language>\n";
 	print "  <copyright>Copyright 2000-".date("Y")." Fraunhofer FOKUS</copyright>\n";
-	print "  <pubDate>".gmdate('D, d M Y G:i:s',time())." GMT</pubDate>\n";
 	print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
+	print "  <pubDate>".gmdate('D, d M Y G:i:s',time())." GMT</pubDate>\n";
+	print "  <docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
+	print "  <image>\n";
+	print "    <url>http://$GLOBALS[sys_default_host]/images/berliOS_small_logo.png</url>\n";
+	print "    <title>BerliOS Developer</title>\n";
+	print "    <link>http://$GLOBALS[sys_default_host]</link>\n";
+	print "    <width>124</width>\n";
+	print "    <heigth>32</heigth>\n";
+	print "  </image>\n";
 
 	// ## item outputs
 	while ($row = db_fetch_array($res)) {
-                if ($callback) {
-                	$addendum=$callback($row);
-                }
-		print "  <item>\n";
-		print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
-		print "   <link>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</link>\n";
-		print "   <description>";
-		print ereg_replace(" *\r*\n *"," ",rss_description($row[short_description]));
-                print $addendum;
-		print "</description>\n";
-		print "   <pubDate>".gmdate('D, d M Y G:i:s',$row[date])." GMT</pubDate>\n";
-		print "   <guid>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</guid>\n";
-		print "  </item>\n";
+	  if ($callback) {
+		$addendum=$callback($row);
+	  } else {
+		$addendum="";
+	  } 
+	  print "  <item>\n";
+	  print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
+	  print "   <link>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</link>\n";
+	  print "   <description>";
+	  print ereg_replace(" *\r*\n *"," ",rss_description($row[short_description]));
+	  print $addendum;
+	  print "</description>\n";
+	  print "   <pubDate>".gmdate('D, d M Y G:i:s',$row[register_time])." GMT</pubDate>\n";
+	  print "   <guid>http://$GLOBALS[sys_default_host]/projects/$row[unix_group_name]/</guid>\n";
+	  print "  </item>\n";
 	}
 	// ## end output
 	print " </channel>\n";
