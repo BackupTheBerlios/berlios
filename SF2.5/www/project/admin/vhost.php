@@ -7,7 +7,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: vhost.php,v 1.5 2004/05/27 15:48:07 helix Exp $
+  * @version   $Id: vhost.php,v 1.6 2004/05/28 09:15:47 helix Exp $
   *
   */
 
@@ -209,7 +209,7 @@ if (db_numrows($res_db) > 0) {
 	while ($row_db = db_fetch_array($res_db)) {
 
 		print '	<tr>
-			<td>'.$row_db['vhost_name'].'</td>
+			<td><a href="http://'.$row_db['vhost_name'].'">'.$row_db['vhost_name'].'</a></td>
                         <td>'.$row_db['docdir'].'</td>
                         <td>'.$row_db['cgidir'].'</td>
                         <td>'.$row_db['logdir'].'</td>
