@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: snippet_caching.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: snippet_caching.php,v 1.3 2004/10/11 15:09:08 helix Exp $
 
 function snippet_mainpage() {
 	global $SCRIPT_LANGUAGE,$SCRIPT_CATEGORY;
@@ -31,7 +31,7 @@ function snippet_mainpage() {
 
 	</TD></TR>
 
-	<TR><TD>
+	<TR><TD valign="top">
 	<B>Browse by Language:</B>
 	<P>';
 
@@ -46,7 +46,7 @@ function snippet_mainpage() {
 
 	$return .= 	
 	'</TD>
-	<TD>
+	<TD valign="top">
 	<B>Browse by Category:</B>
 	<P>';
 
