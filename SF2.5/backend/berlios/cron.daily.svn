@@ -30,6 +30,13 @@ echo "BerliOS tasks to be executed every day on SVN server"
 #./cvs_history_days_parse.pl
 
 #
+# Remove SVN unused dblogs for every Project/Group
+# based on infos available from /home/dummy/dumps25/group_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./remove_svn_unused_dblogs.pl
+
+#
 # Create SVN dumps for every Project/Group
 # (/usr/local/httpd/htdocs/svndumps/<projectname>-repos.gz)
 # based on infos available from /home/dummy/dumps25/group_dump
