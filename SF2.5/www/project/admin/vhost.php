@@ -7,7 +7,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: vhost.php,v 1.4 2004/05/25 15:18:33 helix Exp $
+  * @version   $Id: vhost.php,v 1.5 2004/05/27 15:48:07 helix Exp $
   *
   */
 
@@ -45,7 +45,10 @@ if ($createvhost) {
 	if (valid_hostname($vhost_name)) {
 
 		$res = db_query("
-			SELECT vhost_name FROM prweb_vhost WHERE vhost_name='$vhost_name'
+			SELECT vhost_name FROM prweb_vhost
+			WHERE vhost_name='$vhost_name'
+			AND  ( docdir='$docdir'
+			OR ( docdir!='$docdir' AND state='1' ))
 		");
 
 		if ($res && db_numrows($res) < 1) {
@@ -90,11 +93,53 @@ if ($deletevhost) {
 	");
 
 	if (!$res || db_affected_rows($res) < 1) {
-		$feedback .= "Could not delete Virtual Host entry:".db_error();
+		$feedback .= "Could not update Virtual Host entry:".db_error();
 	} else {
 		$feedback .= "Virtual Host deleted";	
 		$group->addHistory('Virtual Host '.$row_vh['vhost_name'].' Removed','');
 
+	}
+
+}
+
+if ($undeletevhost) {
+
+        //schedule for undeletion
+
+        $res =  db_query("
+                SELECT *
+                FROM prweb_vhost
+                WHERE vhostid='$vhostid'
+        ");
+
+        $row = db_fetch_array($res);
+
+	$res_vh = db_query("
+		SELECT vhost_name
+		FROM prweb_vhost
+		WHERE vhost_name='".$row['vhost_name']."'
+		AND vhostid!='$vhostid'
+		AND state='1'
+	");
+
+	if ($res_vh && db_numrows($res_vh) < 1) {
+
+        	$res_up = db_query("
+			UPDATE prweb_vhost
+			SET state='1'
+			WHERE vhostid='$vhostid'
+			AND group_id='$group_id'
+		");
+
+		if (!$res_up || db_affected_rows($res_up) < 1) {
+			$feedback .= "Could not update Virtual Host entry:".db_error();
+		} else {
+			$feedback .= "Virtual Host undeleted";
+			$group->addHistory('Virtual Host '.$row['vhost_name'].' Undeleted','');
+
+		}
+	} else {
+                $feedback .= "Virtual Hostname already in use - ".$row['vhost_name'];
 	}
 
 }
@@ -158,7 +203,7 @@ if (db_numrows($res_db) > 0) {
         $title[]='Cgi Directory';
         $title[]='Log Directory';
 	$title[]='State';
-       	$title[]='Operations';
+       	$title[]='Operation';
 	echo html_build_list_table_top($title);
 
 	while ($row_db = db_fetch_array($res_db)) {
@@ -171,19 +216,19 @@ if (db_numrows($res_db) > 0) {
 		';
 		if ($row_db['state'] == '1') {
 			print '
-                        <td>Active</td>';
+                        <td>Active</td>
+                        <td>[&nbsp;<b><a href="'.$PHP_SELF.'?group_id='.$group_id.'&vhostid='.$row_db['vhostid'].'&deletevhost=1">Delete</a></b>&nbsp;]
+                        </td></tr>';
 		} elseif ($row_db['state'] == '2') {
 			print '
-                        <td>Deleted</td>';
+                        <td>Deleted</td>
+			<td>[&nbsp;<b><a href="'.$PHP_SELF.'?group_id='.$group_id.'&vhostid='.$row_db['vhostid'].'&undeletevhost=1">Undelete</a></b>&nbsp;]
+			</td></tr>';
 		} else {
 			print '
-                        <td>Unknown</td>';
+                        <td>Unknown</td>
+			<td></td></tr>';
 		}
-		print '
-			<td>[ <b><a href="'.$PHP_SELF.'?group_id='.$group_id.'&vhostid='.$row_db['vhostid'].'&deletevhost=1">Delete</a> </b>]
-			</tr>	
-		';
-			 
 	}
 	print ' </table>';
 
