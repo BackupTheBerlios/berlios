@@ -19,12 +19,14 @@ while ($ln = shift(@group_dump)) {
   ($groupname, $status, $groupid, $userlist) = split(":", $ln);
   $groupid += $config{'first_project_gid'};
   if ($status eq "A") {
-	$pwdent = "/usr/sbin/useradd -c \"Project ".$groupname." at BerliOS\" -d ".$config{'project_home'}."/".$groupname." -g ".$groupname." -s ".$config{'noshell'}." -u ".$groupid." ".$groupname;
+    $pwdent = "/usr/sbin/useradd -c \"Project ".$groupname." at BerliOS\" -d ".$config{'project_home'}."/".$groupname." -g ".$groupname." -s ".$config{'noshell'}." -u ".$groupid." ".$groupname;
+    print("$pwdent\n");
+    system($pwdent);
   } elsif ($status eq "D") {
-	$pwdent = "/usr/sbin/userdel ".$groupname;
+    $pwdent = "/usr/sbin/userdel ".$groupname;
+    print("$pwdent\n");
+    system($pwdent);
   }
-	print("$pwdent\n");
-	system($pwdent);
 }
 
 print ("Done\n");
