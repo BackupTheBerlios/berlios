@@ -4,13 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_bsprojects.php,v 1.1 2003/11/13 11:29:22 helix Exp $
+// $Id: rss_bsprojects.php,v 1.2 2004/11/17 16:52:33 helix Exp $
 
 // ## export SourceForge project list in RSS
 
 include "pre.php";
 include "rss_utils.inc";
-header("Content-Type: text/plain");
+header("Content-Type: text/xml");
 print '<?xml version="1.0"?>
 <!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
 <rss version="0.91">

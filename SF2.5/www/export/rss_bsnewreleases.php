@@ -2,7 +2,7 @@
 // ## export sf front page news in RSS
 include "pre.php";
 include "rss_utils.inc";
-header("Content-Type: text/plain");
+header("Content-Type: text/xml");
 print '<?xml version="1.0"?>
 <!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
 <rss version="0.91">
@@ -53,7 +53,7 @@ while ($row = db_fetch_array($res)) {
 	if (!$G_RELEASE["$row[group_id]"]) {
 		print "  <item>\n";
 		print "   <title>".htmlspecialchars($row[group_name])."</title>\n";
-		print "   <link>http://$GLOBALS[sys_default_host]/project/showfiles.php?group_id=$row[group_id]&release_id=$row[filerelease_id]</link>\n";
+		print "   <link>http://$GLOBALS[sys_default_host]/project/showfiles.php?group_id=$row[group_id]&amp;release_id=$row[filerelease_id]</link>\n";
 		print "   <description>".rss_description($row[short_description])."</description>\n";
 		print "  </item>\n";
 		$outputtotal++;
