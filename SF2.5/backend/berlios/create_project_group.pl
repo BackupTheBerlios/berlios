@@ -26,6 +26,9 @@ while ($ln = shift(@group_dump)) {
 	push(@group, $grpent);
 	print("$grpent");
   }
+  if ($status eq "D") {
+        @group = grep(!/^$groupname:/, @group);
+  }
 }
 
 write_array_file($config{'sysgroup'}, @group);
