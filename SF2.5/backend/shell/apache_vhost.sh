@@ -18,9 +18,6 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 	for k in `cd /home/groups/$i/vhost ; ls | grep -v lost+found | grep -v quota.group | grep -v 'ftp$'` ; do
 		echo "  VHost: $k"
 
-		if [ ! -d /home/groups/$i/vhost/$k ] ; then
-                        mkdir	/home/groups/$i/vhost/$k
-                fi
                 chown -h $i:$i	/home/groups/$i/vhost/$k
                 chmod 0555	/home/groups/$i/vhost/$k
 
@@ -56,16 +53,16 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 		# Linux does not have a POSIX find....
 
 		find /home/groups/$i/vhost/$k/cgi-bin/. /home/groups/$i/vhost/$k/htdocs/. ! -group $i -print0 | xargs -0 chgrp -h $i /tmp/.xxzzy
-		find /home/groups/$i/vhost/$k/htdocs/. -type f ! -perm -0060 -print0 | xargs -0 chmod g+rw /tmp/.xxzzy
-		find /home/groups/$i/vhost/$k/htdocs/. -type d ! -perm -2070 -print0 | xargs -0 chmod g+rwxs /tmp/.xxzzy
+		find /home/groups/$i/vhost/$k/htdocs/. -name usage -prune -o -type f ! -perm -0060 -print0 | xargs -0 chmod g+rw /tmp/.xxzzy
+		find /home/groups/$i/vhost/$k/htdocs/. -name usage -prune -o -type d ! -perm -2070 -print0 | xargs -0 chmod g+rwxs /tmp/.xxzzy
 
 		else
 
 		# For any other OS assume a POSIX find
 
 		find /home/groups/$i/vhost/$k/cgi-bin/. /home/groups/$i/vhost/$k/htdocs/. ! -group $i -exec chgrp -h $i {} \;
-		find /home/groups/$i/vhost/$k/htdocs/. -type f ! -perm -0060 -exec chmod g+rw {} \;
-		find /home/groups/$i/vhost/$k/htdocs/. -type d ! -perm -2070 -exec chmod g+rwxs {} \;
+		find /home/groups/$i/vhost/$k/htdocs/. -name usage -prune -o -type f ! -perm -0060 -exec chmod g+rw {} \;
+		find /home/groups/$i/vhost/$k/htdocs/. -name usage -prune -o -type d ! -perm -2070 -exec chmod g+rwxs {} \;
 
 		fi
 

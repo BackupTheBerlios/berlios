@@ -12,6 +12,9 @@ echo "Checking Project Web Directories: "
 for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v '^ftp$'` ; do
 	echo "Project: $i"
 
+	chown -h $i:$i  /home/groups/$i
+	chmod 0555      /home/groups/$i
+
 	if [ ! -d /home/groups/$i/log ] ; then
 		mkdir	/home/groups/$i/log
 	fi
@@ -44,16 +47,16 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 	# Linux does not have a POSIX find....
 
 	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -print0 | xargs -0 chgrp -h $i /tmp/.xxzzy
-	find /home/groups/$i/htdocs/. -type f ! -perm -0060 -print0 | xargs -0 chmod g+rw /tmp/.xxzzy
-	find /home/groups/$i/htdocs/. -type d ! -perm -2070 -print0 | xargs -0 chmod g+rwxs /tmp/.xxzzy
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type f ! -perm -0060 -print0 | xargs -0 chmod g+rw /tmp/.xxzzy
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type d ! -perm -2070 -print0 | xargs -0 chmod g+rwxs /tmp/.xxzzy
 
 	else
 
 	# For any other OS assume a POSIX find
 
 	find /home/groups/$i/cgi-bin/. /home/groups/$i/htdocs/. ! -group $i -exec chgrp -h $i {} \;
-	find /home/groups/$i/htdocs/. -type f ! -perm -0060 -exec chmod g+rw {} \;
-	find /home/groups/$i/htdocs/. -type d ! -perm -2070 -exec chmod g+rwxs {} \;
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type f ! -perm -0060 -exec chmod g+rw {} \;
+	find /home/groups/$i/htdocs/. -name usage -prune -o -type d ! -perm -2070 -exec chmod g+rwxs {} \;
 
 	fi
 
