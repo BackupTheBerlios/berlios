@@ -71,12 +71,12 @@ cd /usr/local/httpd/SF2.5/backend/berlios
 ./create_user_authdb.pl
 
 #
-# Create authorized keys2 in user ssh directory
-# (/home/users/<user>/.ssh/autherized_keys2)
+# Create authorized keys in user ssh directory
+# (/home/users/<user>/.ssh/autherized_keys)
 # !!! Previously done on SHELL server !!!
 #
 cd /usr/local/httpd/SF2.5/utils
-./ssh2_create.pl
+./ssh_create.pl
 
 date				>> /tmp/6hour.ready
 echo ""

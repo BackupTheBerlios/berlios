@@ -62,12 +62,12 @@ ntpdate 193.174.154.5
 #/usr/local/httpd/SF2.5/backend/shell/apache_vhost.sh
 
 #
-# Create authorized keys2 in user ssh directory
-# (/home/users/<user>/.ssh/autherized_keys2)
+# Create authorized keys in user ssh directory
+# (/home/users/<user>/.ssh/autherized_keys)
 # !!! Previously executed on SHELL server !!!
 #
 #cd /usr/local/httpd/SF2.5/utils
-#./ssh2_create.pl
+#./ssh_create.pl
 
 echo ""
 echo "Done."
