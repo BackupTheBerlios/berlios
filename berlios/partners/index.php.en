@@ -4,7 +4,7 @@ require($top_level."include/site_header.html.en");
 ?>
 
 <?php
-require($top_level."include/partners.html.en");
+require("include/partners.html.en");
 ?>
 
 

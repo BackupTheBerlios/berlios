@@ -3,12 +3,19 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
-   <link rel="stylesheet" href="berlios.css" type="text/css">
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="Author" content="BerliOS">
    <meta name="Description" content="Durch den verst&auml;rkten Einsatz von Open-Source-Software in Firmen wird auch die Nachfrage nach professioneller Beratung, technischem Support und Schulung verst&auml;rken.">
    <meta name="KeyWords" content="Open Source, freie Software, Entwicklung, GPL, freie Lizensen, Anwendungen, Projekte">
-   <link rel="shortcut icon" href="berlios.ico">
+
+<?php
+ if ( !isset( $top_level ) ) {
+   $top_level = ".";
+ }
+?>
+
+   <link rel="stylesheet" href="<?php echo $top_level; ?>berlios.css" type="text/css">
+   <link rel="shortcut icon" href="<?php echo $top_level; ?>berlios.ico">
 </head>
 <body bgcolor="#FFFFFF">
 
@@ -63,7 +70,7 @@
   <tr valign="top">
 
 <?php
-require("include/site_menubar.html.de");
+require($top_level."include/site_menubar.html.de");
 ?>
 
     <!-- content -->

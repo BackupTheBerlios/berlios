@@ -1,115 +1,91 @@
-<!-- $Id: site_menubar.html.en,v 1.11 2002/05/13 21:52:40 grex Exp $ -->
+<!-- $Id: site_menubar.html.en,v 1.12 2002/05/14 10:51:09 grex Exp $ -->
 
 <?php
  if ( !isset( $top_level ) ) {
    $top_level = ".";
  }
 ?>
-<td BGCOLOR="#FFCC33">
+<td bgcolor="#FFCC33">
 <!-- BerliOS menu -->
-<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
-<tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Audience</font></span></td>
-</tr>
-
-<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td>
-
-<!--  <a href="<?php echo $top_level; ?>/index.php.en" class="menus">Home</a> -->
-
-<p><a href="users.php.en" class="menus">Users</a>
-<br><a href="developers.php.en" class="menus">Developers</a>
-<br><a href="manufacturer.php.en" class="menus">Manufacturer &amp;<br>Support</a>
-
-</td>
-</tr>
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
+  <tr bgcolor="#000000">
+    <td align="center">
+      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
+      <span class="titlebar"><font color="#FFFFFF">Audience</font></span>
+    </td>
+  </tr>
+  <tr align="right" bgcolor="#FFCC33">
+    <td>
+      <p><a href="<?php echo $top_level; ?>users.php.en" class="menus">Users</a>
+      <br><a href="<?php echo $top_level; ?>developers.php.en" class="menus">Developers</a>
+      <br><a href="<?php echo $top_level; ?>manufacturer.php.en" class="menus">Manufacturer &amp;<br>Support</a>
+    </td>
+  </tr>
 </table>
 <p>
 
-<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
-<tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Platform</font></span></td>
-</tr>
-
-<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td>
-
-<p><a href="info_plat.php.en" class="menus">Information Platform</a>
-<br><a href="supp_deve.php.en" class="menus">OS Development</a>
-<br><a href="pres_plat.php.en" class="menus">Presentation Platform</a>
-</td>
-</tr>
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
+  <tr bgcolor="#000000">
+    <td align="center">
+      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
+      <span class="titlebar"><font color="#FFFFFF">Platform</font></span>
+    </td>
+  </tr>
+  <tr align="right" bgcolor="#FFCC33">
+    <td>
+      <p><a href="<?php echo $top_level; ?>info_plat.php.en" class="menus">Information Platform</a>
+      <br><a href="<?php echo $top_level; ?>supp_deve.php.en" class="menus">OS Development</a>
+     <br><a href="<?php echo $top_level; ?>pres_plat.php.en" class="menus">Presentation Platform</a>
+    </td>
+  </tr>
 </table>
 <p>
 
-<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
-<tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Mediator</font></span></td>
-</tr>
-
-<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td>
-
-<p><a href="goals.php.en" class="menus">Goals</a>
-<br><a href="proj_spon.php.en" class="menus">Project Sponsoring</a>
-<br><a href="exis_solu.php.en" class="menus">Existing Solutions</a>
-<br><a href="know_hows.php.en" class="menus">OS Know How</a>
-</td>
-</tr>
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000">
+  <tr bgcolor="#000000">
+    <td align="center">
+      <img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
+      <span class="titlebar"><font color="#FFFFFF">Mediator</font></span>
+    </td>
+  </tr>
+  <tr align="right" bgcolor="#FFCC33">
+    <td>
+      <p><a href="<?php echo $top_level; ?>goals.php.en" class="menus">Goals</a>
+      <br><a href="<?php echo $top_level; ?>proj_spon.php.en" class="menus">Project Sponsoring</a>
+      <br><a href="<?php echo $top_level; ?>exis_solu.php.en" class="menus">Existing Solutions</a>
+      <br><a href="<?php echo $top_level; ?>know_hows.php.en" class="menus">OS Know How</a>
+    </td>
+  </tr>
 </table>
 <p>
+
 <!-- BerliOS menu -->
-<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
-<tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" 
-height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Portals</font></span></td>
-</tr>
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
+  <tr bgcolor="#000000">
+    <td align="center">
+      <img src="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
+     <span class="titlebar"><font color="#FFFFFF">Portals</font></span>
+    </td>
+  </tr>
+  <tr align="right" bgcolor="#FFCC33">
+    <td>
+      <p><a href="http://news.berlios.de/"          class="menus">News</a>
+      <br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
+      <br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
+      <br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
+      <br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
+      <br><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
+      <br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
+      <br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
+      <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
+      <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
-<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td>
-
-<p><a href="http://news.berlios.de/"          class="menus">News</a>
-<br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
-<br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
-<br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
-<br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
-<br><a href="http://sourceagency.berlios.de/" class="menus">SourceAgency</a>
-<br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
-<br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
-<br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
-<br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
-
-<p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a>
-<p><a href="index.php.es"><img src="<?php echo $top_level; ?>/images/esflag.png" border="0"></a>
-</td>
-</td>
-</tr>
+     <p><a href="<?php echo $top_level; ?>index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a>
+     <p><a href="<?php echo $top_level; ?>index.php.es"><img src="<?php echo $top_level; ?>/images/esflag.png" border="0"></a>
+    </td>
+  </tr>
 </table>
 
-<!--
-<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
-<tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
-<span class="titlebar"><font color="#FFFFFF">Search</font></span></td>
-</tr>
-
-<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td>
-<center>
-<font size="-1">
-<form action="/cgi-bin/webglimpse/export/http"><input TYPE="hidden" NAME="localcopy" VALUE="n"><input TYPE="hidden" NAME="lines" checked VALUE="on"><input TYPE="text" SIZE="15" NAME="query" VALUE="">
-<p><input TYPE="submit" NAME="Search" VALUE="Search">
-</form>
-</font>
-</center>
+<td width="10" bgcolor="#FFFFFF">
+<img src="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt="">
 </td>
-</tr>
-</table>
--->
-<!-- end Search menu --></td>
-
-<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="<?php echo $top_level; ?>/images/blank.gif" BORDER=0 height=1 width=10></td>
