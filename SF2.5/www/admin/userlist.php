@@ -4,38 +4,54 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userlist.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: userlist.php,v 1.3 2005/02/11 11:01:08 helix Exp $
 
 require "pre.php";    
-session_require(array('group'=>'1','admin_flags'=>'A'));
-$HTML->header(array('title'=>'Alexandria: User List'));
+require($DOCUMENT_ROOT.'/admin/admin_utils.php');
 
-function show_users_list ($result,$status) {
-	echo '<P>Key:
-		<B>Active</B>
-		<I>Deleted</I>
+session_require(array('group'=>'1','admin_flags'=>'A'));
+
+site_admin_header(array('title'=>"User List"));
+
+function show_users_list ($result,$status,$search) {
+	print "<br>Status: <b>";
+	if ( $status == "") {
+	  print "All";
+	} else {
+	  print $status;
+	}
+	print "</b>\n";
+
+	if ( $search != "" ) {
+	  print "<br>Users Beginning with: <b>$search</b>";
+	}
+	
+	echo '<p>Key:
+		<b>Active</b>
+		<i>Deleted</i>
 		Suspended
 		(*)Pending
-		<P>
-		<TABLE width=100% cellspacing=0 cellpadding=0 BORDER="1">';
+		<p>
+		<table width="100%" cellspacing="0" cellpadding="1" border="1">
+		<tr><th>UserName</th><th>User\'s Name</th><th>eMail</th><th>DevProfile</th><th colspan=\"4\">Set to Status</th></tr>';
 
 	while ($usr = db_fetch_array($result)) {
-		print "\n<TR><TD><a href=\"useredit.php?user_id=$usr[user_id]\">";
-		if ($usr[status] == 'A') print "<B>";
-		if ($usr[status] == 'D') print "<I>";
+		print "\n<tr><td><a href=\"useredit.php?user_id=$usr[user_id]\">";
+		if ($usr[status] == 'A') print "<b>";
+		if ($usr[status] == 'D') print "<i>";
 		if ($usr[status] == 'P') print "*";
-		print "$usr[user_name]</A>";
-		if ($usr[status] == 'A') print "</B></TD>";
-		if ($usr[status] == 'D') print "</I></TD>";
-		if ($usr[status] == 'S') print "</TD>";
-		if ($usr[status] == 'P') print "</TD>";
-		print "\n<TD><A HREF=\"/developer/?form_dev=$usr[user_id]\">[DevProfile]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=activate&user_id=$usr[user_id]&status=$status\">[Activate]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=delete&user_id=$usr[user_id]&status=$status\">[Delete]</A></TD>";
-		print "\n<TD><A HREF=\"userlist.php?action=suspend&user_id=$usr[user_id]&status=$status\">[Suspend]</A></TD>";
-		print "</TR>";
+		print "$usr[user_name]";
+		if ($usr[status] == 'A') print "</b>";
+		if ($usr[status] == 'D') print "</i>";
+		print "</a></td><td>$usr[realname]</td></td><td>$usr[email]</td>\n";
+		print "\n<td><a href=\"/developer/?form_dev=$usr[user_id]\">[DevProfile]</a></td>";
+		print "\n<td><a href=\"userlist.php?action=activate&user_id=$usr[user_id]&status=$status&user_name_search=$search\">[Activate]</a></td>";
+		print "\n<td><a href=\"userlist.php?action=delete&user_id=$usr[user_id]&status=$status&user_name_search=$search\">[Delete]</a></td>";
+		print "\n<td><a href=\"userlist.php?action=suspend&user_id=$usr[user_id]&status=$status&user_name_search=$search\">[Suspend]</a></td>";
+		print "\n<td><a href=\"userlist.php?action=pending&user_id=$usr[user_id]&status=$status&user_name_search=$search\">[Pending]</a></td>";
+		print "</tr>";
 	}
-	print "</TABLE>";
+	print "</table>";
 
 }
 
@@ -46,7 +62,7 @@ function show_users_list ($result,$status) {
 */
 if ($action=='delete') {
 	db_query("UPDATE users SET status='D' WHERE user_id='$user_id'");
-	echo '<H2>User Updated to DELETE Status</H2>';
+	echo '<h2><font color="red">User updated to DELETE Status</font></h2>';
 }
 
 /*
@@ -54,7 +70,7 @@ if ($action=='delete') {
 */
 if ($action=='activate') {
 	db_query("UPDATE users SET status='A' WHERE user_id='$user_id'");
-	echo '<H2>User Updated to ACTIVE status</H2>';
+	echo '<h2><font color="red">User updated to ACTIVE status</font></h2>';
 }
 
 /*
@@ -62,7 +78,15 @@ if ($action=='activate') {
 */
 if ($action=='suspend') {
 	db_query("UPDATE users SET status='S' WHERE user_id='$user_id'");
-	echo '<H2>User Updated to SUSPEND Status</H2>';
+	echo '<h2><font color="red">User updated to SUSPEND Status</font></h2>';
+}
+
+/*
+        Set their account to pending
+*/
+if ($action=='pending') {
+        db_query("UPDATE users SET status='P' WHERE user_id='$user_id'");
+        echo '<h2><font color="red">User updated to PENDING Status</font></h2>';
 }
 
 /*
@@ -75,36 +99,35 @@ if ($action=='add_to_group') {
 /*
 	Show list of users
 */
-print "<p>Alexandria user List for Group: ";
+print "<p>User List for Group: ";
 if (!$group_id) {
 	print "<b>All Groups</b>";
-	print "\n<p>";
-	
+	print "\n";
+
 	if ($user_name_search) {
 		if ($status) $where_status = "AND status='$status'";
 		else $where_status = "";
-		$result = db_query("SELECT user_name,user_id,status FROM users WHERE user_name ILIKE '$user_name_search%' $where_status ORDER BY user_name");
+		$result = db_query("SELECT user_name,user_id,realname,email,status FROM users WHERE user_name ILIKE '$user_name_search%' $where_status ORDER BY user_name");
 	} else {
 		if ($status) $where_status = "WHERE status='$status'";
                 else $where_status = "";
-		$result = db_query("SELECT user_name,user_id,status FROM users $where_status ORDER BY user_name");
+		$result = db_query("SELECT user_name,user_id,realname,email,status FROM users $where_status ORDER BY user_name");
 	}
-	show_users_list ($result,$status);
+	show_users_list ($result,$status,$user_name_search);
 } else {
 	/*
 		Show list for one group
 	*/
 	print "<b>" . group_getname($group_id) . "</b>";
-	
-	print "\n<p>";
+	print "\n";
 
 	if ($status) $where_status = "AND status='$status'";
         else $where_status = "";
-	$result = db_query("SELECT users.user_id AS user_id,users.user_name AS user_name,users.status AS status "
+	$result = db_query("SELECT users.user_id AS user_id,users.user_name AS user_name,users.realname AS realname,users.email AS email,users.status AS status "
 		. "FROM users,user_group "
 		. "WHERE users.user_id=user_group.user_id AND "
 		. "user_group.group_id=$group_id $where_status ORDER BY users.user_name");
-	show_users_list ($result,$status);
+	show_users_list ($result,$status,$user_name_search);
 
 	/*
         	Show a form so a user can be added to this group
