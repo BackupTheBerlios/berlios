@@ -13,25 +13,37 @@ for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep
 	echo "Project: $i"
 
 	if [ -d /home/groups/$i/vhost ] ; then
+        chown -h $i:$i	/home/groups/$i/vhost
+        chmod 0555	/home/groups/$i/vhost
 	for k in `cd /home/groups/$i/vhost ; ls | grep -v lost+found | grep -v quota.group | grep -v 'ftp$'` ; do
 		echo "  VHost: $k"
+
+		if [ ! -d /home/groups/$i/vhost/$k ] ; then
+                        mkdir	/home/groups/$i/vhost/$k
+                fi
+                chown -h $i:$i	/home/groups/$i/vhost/$k
+                chmod 0555	/home/groups/$i/vhost/$k
+
 		if [ ! -d /home/groups/$i/vhost/$k/log ] ; then
-			mkdir		/home/groups/$i/vhost/$k/log
+			mkdir	/home/groups/$i/vhost/$k/log
 		fi
-		chown -h $i:$i		/home/groups/$i/vhost/$k/log
-		chmod    2755		/home/groups/$i/vhost/$k/log
+		chown -h $i:$i	/home/groups/$i/vhost/$k/log
+		chmod 0755	/home/groups/$i/vhost/$k/log
+		chmod g+s	/home/groups/$i/vhost/$k/log
 
 		if [ ! -d /home/groups/$i/vhost/$k/cgi-bin ] ; then
-			mkdir		/home/groups/$i/vhost/$k/cgi-bin
+			mkdir	/home/groups/$i/vhost/$k/cgi-bin
 		fi
-		chown -h $i:$i		/home/groups/$i/vhost/$k/cgi-bin
-		chmod    2575		/home/groups/$i/vhost/$k/cgi-bin
+		chown -h $i:$i	/home/groups/$i/vhost/$k/cgi-bin
+		chmod 0575	/home/groups/$i/vhost/$k/cgi-bin
+		chmod g+s	/home/groups/$i/vhost/$k/cgi-bin
 
 		if [ ! -d /home/groups/$i/vhost/$k/htdocs ] ; then
-			mkdir		/home/groups/$i/vhost/$k/htdocs
+			mkdir	/home/groups/$i/vhost/$k/htdocs
 		fi
-		chown -h $i:$i		/home/groups/$i/vhost/$k/htdocs
-		chmod    2575		/home/groups/$i/vhost/$k/htdocs
+		chown -h $i:$i	/home/groups/$i/vhost/$k/htdocs
+		chmod 0575	/home/groups/$i/vhost/$k/htdocs
+		chmod g+s	/home/groups/$i/vhost/$k/htdocs
 
 		if [ "`ls /home/groups/$i/vhost/$k/htdocs/`" = "" ] ; then
 			cp /usr/local/httpd/SF2.5/backend/berlios/default_page.php /home/groups/$i/vhost/$k/htdocs/index.php
