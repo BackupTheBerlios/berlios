@@ -34,7 +34,7 @@ while ($ln = shift(@group_dump)) {
                 system($rmcmd);
 
 	} elsif ($status eq "D") {
-		$filecmd = "rm ".$config{'svn_dumps'}."/$groupname-repos.gz";
+		$filecmd = "su -c \"rm ".$config{'svn_dumps'}."/$groupname-repos.gz\" - dummy";
 		print("\n$filecmd\n");
 		system("$filecmd");
 	}
