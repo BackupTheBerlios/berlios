@@ -4,18 +4,19 @@
 # Copyright 1999-2000 (c) The SourceForge Crew
 # http://sourceforge.net
 #
-# $Id: include.pl,v 1.1 2003/11/12 16:09:04 helix Exp $
+# $Id: include.pl,v 1.2 2004/04/21 10:24:24 helix Exp $
 #
 
 ########################
 # global configuration #
 ########################
-$config{'database_include'} 	= '/etc/local.inc';		# database include file
-$config{'lock_file'}		= '/tmp/sf-backend';		# lockfile location
-$config{'log_file'}		= '/home/dummy/backend.log';	# logfile location
-$config{'group_dir_prefix'} 	= '/home/groups';		# prefix for group directories
+$config{'database_include'} 	= '/etc/sourceforge/local25.inc';		# database include file
+$config{'lock_file'}		= '/tmp/sf-backend25';		# lockfile location
+$config{'log_file'}		= '/home/dummy/backend25.log';	# logfile location
+$config{'group_dir_prefix'} 	= '/home/groups';               # prefix for group directories
 $config{'user_dir_prefix'} 	= '/home/users';		# prefix for user directories
-$config{'database_dump_dir'}	= '/home/dummy/dumps';		# where are the database dumps kept
+$config{'database_dump_dir'}	= '/home/dummy/dumps25';		# where are the database dumps kept
+$config{'www_ip_addr'}          = '195.37.77.138';		# ip-addr of web server
 $config{'delete_tar_dir'}	= '/tmp';			# place to stick tarballs of deleted accounts/groups
 $config{'dummy_uid'}		= getpwnam('dummy');		# userid of the dummy user
 $config{'days_since_epoch'} 	= int(time()/3600/24);		# number of days since the epoch

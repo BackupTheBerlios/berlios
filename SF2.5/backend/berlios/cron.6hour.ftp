@@ -25,7 +25,7 @@ cd /usr/local/httpd/SF2.5/backend/berlios
 #
 # Remove file older than 7 days from ftp/incoming
 #
-find /usr/local/ftp/incoming -atime +7 -exec rm {} \; 
+find /usr/local/ftp/incoming -atime +7 -exec rm {} \;
 
 #
 # Create rsyncd.conf and restart rsyncd 

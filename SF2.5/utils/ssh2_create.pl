@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ssh2_create.pl,v 1.1 2003/11/13 11:01:41 helix Exp $
+# $Id: ssh2_create.pl,v 1.2 2004/04/21 10:26:38 helix Exp $
 #
 # ssh2_create.pl - Dumps SSH2 authorized_keys into users homedirs on the cvs server.
 #
@@ -26,13 +26,16 @@ while ($ln = pop(@ssh_key_file)) {
 
 	if (! -d $ssh_dir) {
 		mkdir $ssh_dir, 0700;
+	} else {
+	        system("chmod 0700 $ssh_dir");
+		print("chmod 0700 $ssh_dir\n");
 	}
 
 	print("Writing authorized_keys2 for $username:\n");
 
 	write_array_file("$ssh_dir/authorized_keys2", @user_authorized_keys);
-	system("chown $username:$username ~$username");
-        print("chown $username:$username ~$username\n");
+#	system("chown $username:$username ~$username");
+#	print("chown $username:$username ~$username\n");
 	system("chown $username:$username $ssh_dir");
 	print("chown $username:$username $ssh_dir\n");
 	system("chmod 0600 $ssh_dir/authorized_keys2");

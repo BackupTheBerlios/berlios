@@ -21,9 +21,10 @@ echo "BerliOS tasks to be executed every day on Shell server"
 #
 # Create authorized keys2 in user ssh directory
 # (/home/users/<user>/.ssh/autherized_keys2)
+# !!! Is done on NFS server !!!
 #
-cd /usr/local/httpd/SF2.5/utils
-./ssh2_create.pl
+#cd /usr/local/httpd/SF2.5/utils
+#./ssh2_create.pl
 
 echo ""
 echo "Done."
