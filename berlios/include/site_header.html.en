@@ -1,11 +1,16 @@
+<?php
+ if ( !isset( $top_level ) ) {
+   $top_level = ".";
+ }
+?>
 <!-- top strip -->
 <table BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#000000" >
 <tr>
 <td><span class=maintitlebar>&nbsp; 
-<b><a href="http://www.berlios.de/index.php.en" class="maintitlebar">Home</a></b> |
-<b><a href="/about/index.php.en" class="maintitlebar">About us</a></b> |
-<b><a href="/partners/index.php.en" class="maintitlebar">Partners</a></b> |
-<b><a href="/contact/index.php.en" class="maintitlebar">Contact</a></b></span></td>
+<b><a href="<?php echo $top_level; ?>/index.php.en" class="maintitlebar">Home</a></b> |
+<b><a href="<?php echo $top_level; ?>/about/index.php.en" class="maintitlebar">About us</a></b> |
+<b><a href="<?php echo $top_level; ?>/partners/index.php.en" class="maintitlebar">Partners</a></b> |
+<b><a href="<?php echo $top_level; ?>/contact/index.php.en" class="maintitlebar">Contact</a></b></span></td>
 </tr>
 </table>
 <!-- end top strip -->
@@ -13,19 +18,22 @@
 <!-- top title -->
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" valign="center" >
 <tr VALIGN=TOP BGCOLOR="#FFCC33">
-<td><a href="http://www.berlios.de/index.php.en"><img src="/images/berlios.jpg" BORDER=0 height=104 width=238></a></td>
-<td WIDTH="10" BGCOLOR="#FFCC33"><img SRC="/images/blank.gif" BORDER=0 height=1 width=10></td>
+<td><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/berlios.jpg" BORDER=0 height=104 width=238></a></td>
+<td WIDTH="10" BGCOLOR="#FFCC33"><img SRC="<?php echo $top_level; ?>/images/blank.gif" BORDER=0 height=1 width=10></td>
 <td VALIGN=middle WIDTH="99%"><b><font size=+1>BerliOS</font></b>
 <br>The Open Source Mediator</td>
 
 <!-- logo at right -->
 <td VALIGN=middle>
-<a href="http://www.fokus.gmd.de/" TARGET="_blank"><img SRC="/images/logo_fokus.png" ALT="FOKUS" HSPACE=10 BORDER=0 height=60 width=60 align=RIGHT></a></td>
+<a href="http://www.fokus.gmd.de/" TARGET="_blank"><img 
+SRC="<?php echo $top_level; ?>/images/logo_fokus.png" ALT="FOKUS" 
+HSPACE=10 BORDER=0 height=60 width=60 align=RIGHT></a></td>
 </tr>
 <!-- end logo at right -->
 
 <tr>
-<td COLSPAN="4" BGCOLOR="#000000"><img SRC="/images/blank.gif" height=2 width=2></td>
+<td COLSPAN="4" BGCOLOR="#000000"><img 
+SRC="<?php echo $top_level; ?>/images/blank.gif" height=2 width=2></td>
 </tr>
 </table>
 <!-- end top title -->

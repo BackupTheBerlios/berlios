@@ -1,20 +1,25 @@
+<?php
+ if ( !isset( $top_level ) ) {
+   $top_level = ".";
+ }
+?>
 <td BGCOLOR="#FFCC33">
 <!-- BerliOS menu -->
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="/images/blank.gif" height="1" width="135" border=0><br>
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
 <span class="titlebar"><font color="#FFFFFF">BerliOS</font></span></td>
 </tr>
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
-<td><a href="/index.php.en" class="menus">Home</a>
+<td><a href="<?php echo $top_level; ?>/index.php.en" class="menus">Home</a>
 <br><a href="http://news.berlios.de/" class="menus">News</a>
 <br><a href="http://forum.berlios.de/" class="menus">Discussion Forum</a>
 <br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
 <br><a href="http://user.berlios.de/index.php.en" class="menus">User</a>
 <br><a href="http://developer.berlios.de/index.php" class="menus">Developer</a>
 <br><a href="http://sourcebiz.berlios.de/index.php3?lang=English" class="menus">Manufacturer &amp; Support</a>
-<p><a href="index.php.de"><img src="/images/deflag.png" border="0"></a></td>
+<p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a></td>
 </tr>
 </table>
 <!-- end BerliOS menu -->
@@ -22,7 +27,7 @@
 <!--
 <table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
 <tr BGCOLOR="#000000">
-<td ALIGN=CENTER><img SRC="/images/blank.gif" height="1" width="135" border=0><br>
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
 <span class="titlebar"><font color="#FFFFFF">Search</font></span></td>
 </tr>
 
@@ -41,4 +46,4 @@
 -->
 <!-- end Search menu --></td>
 
-<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="/images/blank.gif" BORDER=0 height=1 width=10></td>
+<td WIDTH="10" BGCOLOR="#FFFFFF"><img SRC="<?php echo $top_level; ?>/images/blank.gif" BORDER=0 height=1 width=10></td>

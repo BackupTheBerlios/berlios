@@ -9,6 +9,7 @@
 <body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
 
 <?php
+$top_level = "..";
 require("../include/site_header.html.de");
 ?>
 
@@ -17,6 +18,7 @@ require("../include/site_header.html.de");
 <tr VALIGN=TOP>
 
 <?php
+$top_level = "..";
 require("../include/site_menubar.html.de");
 ?>
 
