@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: projectname.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: projectname.php,v 1.3 2004/10/11 15:03:49 helix Exp $
 
 require "pre.php";    // Initial db and session library, opens session
 session_require(array('isloggedin'=>'1'));
@@ -55,7 +55,7 @@ $HTML->header(array('title'=>'Project Name'));
 There are two types of names that will be associated with this project.
 
 <P>The "Full Name" is descriptive, has no real name restrictions (except
-a 40 character limit), and
+a 30 character limit), and
 can be changed. The "Unix Name" has several restrictions because it is
 used in so many places around the site. They are:
 
