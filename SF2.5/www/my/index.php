@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: index.php,v 1.3 2003/11/26 14:44:14 helix Exp $
 
 require ('pre.php');
 require ('vote_function.php');
@@ -142,15 +142,16 @@ if (user_isloggedin() || $sf_user_hash) {
 		</TD></TR>';
 		echo db_error();
 	} else {
+		$k = 0;
 		for ($i=0; $i<$rows; $i++) {
 			if (db_result($result,$i,'group_id') != $last_group) {
 				echo '
-				<TR bgcolor="'. html_get_alt_row_color($i) .'"><TD COLSPAN="2"><B><A HREF="/forum/?group_id='.
+				<TR bgcolor="'. html_get_alt_row_color($k++) .'"><TD COLSPAN="2"><B><A HREF="/forum/?group_id='.
 					db_result($result,$i,'group_id').'">'.
 					db_result($result,$i,'group_name').'</A></TD></TR>';
 			}
 			echo '
-			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE"><A HREF="/forum/monitor.php?forum_id='.
+			<TR BGCOLOR="'. html_get_alt_row_color($k++) .'"><TD ALIGN="MIDDLE"><A HREF="/forum/monitor.php?forum_id='.
 				db_result($result,$i,'group_forum_id').
 				'"><IMG SRC="/images/ic/trash.png" HEIGHT="16" WIDTH="16" '.
 				'BORDER=0"></A></TD><TD WIDTH="99%"><A HREF="/forum/forum.php?forum_id='.
@@ -189,15 +190,16 @@ if (user_isloggedin() || $sf_user_hash) {
 		</TD></TR>';
 		echo db_error();
 	} else {
+		$k = 0;
 		for ($i=0; $i<$rows; $i++) {
 			if (db_result($result,$i,'group_id') != $last_group) {
 				echo '
-				<TR bgcolor="'. html_get_alt_row_color($i) .'"><TD COLSPAN="2"><B><A HREF="/project/?group_id='.
+				<TR bgcolor="'. html_get_alt_row_color($k++) .'"><TD COLSPAN="2"><B><A HREF="/project/?group_id='.
 				db_result($result,$i,'group_id').'">'.
 				db_result($result,$i,'group_name').'</A></TD></TR>';
 			}
 			echo '
-			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ALIGN="MIDDLE"><A HREF="/project/filemodule_monitor.php?filemodule_id='.
+			<TR BGCOLOR="'. html_get_alt_row_color($k++) .'"><TD ALIGN="MIDDLE"><A HREF="/project/filemodule_monitor.php?filemodule_id='.
 			db_result($result,$i,'filemodule_id').
 			'"><IMG SRC="/images/ic/trash.png" HEIGHT="16" WIDTH="16" '.
 			'BORDER=0"></A></TD><TD WIDTH="99%"><A HREF="/project/filelist.php?group_id='.
