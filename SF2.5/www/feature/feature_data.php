@@ -6,7 +6,7 @@
 function feature_data_get_categories ($group_id) {
 	global $feature_data_categories;
 	if (!$feature_data_categories["$group_id"]) {
-		$sql="select feature_category_id,category_name from feature_category WHERE group_id='$group_id'";
+		$sql="select feature_category_id,category_name from feature_category WHERE group_id='$group_id' ORDER BY category_name";
 		$feature_data_categories["$group_id"]=db_query($sql);
 	}
 	return $feature_data_categories["$group_id"];
