@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
+   <title>BerliOS - Der Open-Source-Mediator</title>
+<link rel="stylesheet" href="berlios.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<?php
+require("include/site_header.html.de");
+?>
+
+<!-- content -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+
+<?php
+require("include/site_menubar.html.de");
+?>
+
+<!-- content -->
+<td WIDTH="99%">
+<p>&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+<td WIDTH="65%">
+
+<h2>Aiding Open Source Development</h2>
+
+<p>Part of the BerliOS platform is  assisting Open Source development
+through online services such version control, mailing lists, bug tracking,
+among other features. BerliOS intends to support all aspects of OS
+development.
+
+<p>The main portal for this is <a href="http://developer.berlios.de"
+>Developer</a> site. Developer is based on version 1 of the 
+<a href="http://sourceforge.net">SourceForge</a> portal and provides 
+services such as version management,
+mailing lists, bug tracking, document and patch management, etc.
+
+<p>Communication amongst developers and between developers and sponsors is a
+further area where BerliOS provides aids. These include a Wiki and Forum
+portals, along with mailing lists and personal email addresses.
+
+<p><a href="http://wiki.berlios.de">Wiki</a> portal which is intended as a
+place where a project can describe project wide rules which are fixed. Wiki
+encapsulates the spirit of the Open Source community, which makes it an ideal
+tool for OS development.
+
+<p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
+service where messages may be commented and replied to. Forum is intended to
+allow discussion relating to specific projects or Open Source in general.
+
+<p>BerliOS Portals:
+<ul>
+<li> Developer <a href="http://developer.berlios.de">http://developer.berlios.de</a>
+<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
+<li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
+</ul>
+
+<p></td>
+
+<td WIDTH="35%">
+
+<!-- recent news -->
+<?php
+require("include/news.php");
+?>
+
+</td>
+</tr>
+</table>
+<!-- end content -->
+</td>
+
+<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
+</tr>
+</table>
+
+<?php
+require("include/site_footer.html");
+?>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
+   <title>BerliOS - Der Open-Source-Mediator</title>
+<link rel="stylesheet" href="berlios.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<?php
+require("include/site_header.html.de");
+?>
+
+<!-- content -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+
+<?php
+require("include/site_menubar.html.de");
+?>
+
+<!-- content -->
+<td WIDTH="99%">
+<p>&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+<td WIDTH="65%">
+
+<h2>Project Sponsorship</h2>
+
+<p>BerliOS encourages the outsourcing of Open Source projects by providing
+portals 
+for the announcement of projects, the negotiation of goals and requirements of
+projects, and the distributed Open Source implementation of projects.
+
+<p><a href="http://sourceagency.berlios.de">SourceAgency</a> provides a place
+where potential sponsors may announce their project needs and discuss these
+with other potential sponsors and developers. Developers can also announce
+their projects, requesting and potentially obtaining financial sponsorship.
+
+<p>Once project negotiations are complete, developers may use the <a 
+href="http://developer.berlios.de">Developer</a> portal to implement the
+solution for the sponsor. <a href="http://developer.berlios.de">Developer</a>
+provides versioning repositories, bug tracking, mailing lists and other
+features to support Open Source development.
+
+<p>BerliOS also provides two other portals where potential developers and
+sponsors can present themselves. <a href="http://sourcebiz.berlios.de"
+>SourceBiz</a> allows Open Source companies to enter and have displayed a
+short description of themselves. Descriptions contain information about the
+company does and contact persons to contact the company.
+
+<p><a href="http://devcounter.berlios.de"
+>DevCounter</a> provides the same service but for developers. DevCounter 
+allows developers to enter a short description of themselves, which in turn
+may be read by potential sponsors looking for developers to for their
+projects. Descriptions include experience relating to development languages
+and experience within the Open Source community.
+
+<p>BerliOS Portals:
+<ul>
+<li> SourceAgency 
+<a href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
+<li> SourceBiz 
+<a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
+<li> DevCounter 
+<a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
+<li> Developer 
+<a href="http://developer.berlios.de">http://developer.berlios.de</a>
+</ul>
+
+<p></td>
+
+<td WIDTH="35%">
+
+<!-- recent news -->
+<?php
+require("include/news.php");
+?>
+
+</td>
+</tr>
+</table>
+<!-- end content -->
+</td>
+
+<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
+</tr>
+</table>
+
+<?php
+require("include/site_footer.html");
+?>
+
+</body>
+</html>

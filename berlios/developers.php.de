@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
+   <title>BerliOS - Der Open-Source-Mediator</title>
+<link rel="stylesheet" href="berlios.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<?php
+require("include/site_header.html.de");
+?>
+
+<!-- content -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+
+<?php
+require("include/site_menubar.html.de");
+?>
+
+<!-- content -->
+<td WIDTH="99%">
+<p>&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr VALIGN=TOP>
+<td WIDTH="65%">
+
+<h2>Developers</h2>
+
+<p>A server-based infrastructure, the <a href="http://developer.berlios.de" 
+target="_blank">Developer</a> portal provides developers of Open Source 
+Software with various services for enabling joint coordinated software 
+development between people who living and work in different geographical 
+areas.
+
+<p>These services include:
+<ul>
+<li> Web space for projects specific websites
+<li> Discussion forums for developers and users of project code
+<li> Online bug and patch management
+<li> Project documentation management
+<li> Creation of mailing list 
+<li> Management of questionaires
+<li> CVS repository for versioning of code
+<li> FTP space for releasing software bundles
+<li> User management for restricting checkin access to CVS repository
+</ul>
+
+<p>The goal is also to provide financial support for developers through
+sponsored projects. A developer has the possibility of being paid for their
+existing project or taking part in paid projects financed by companies. In
+both cases the resulting software will be Open Source Software (OSS). Specific
+licensing of software is left up to the individual projects, however an
+Open Source License must be used.
+
+<p>Project offers and ideas can be presented and viewed at the 
+<a href="http://sourceagency.berlios.de" target="_blank">SourceAgency</a>
+portal, which offers both online negotiation and discussion making support.
+
+<p>Developers are also able to announce their project latest releases at
+the <a href="http://sorcewell.berlios.de" target="_blank">SourceWell</a>
+portal. SourceWell is similar to <a href="http://freshmeat.net" 
+target="_blank">FreshMeat</a> and provides an announcement services for latest
+releases of OSS. It is not limited to software developed using the BerliOS
+platform.
+
+<p>BerliOS' <a href="http://devcounter.berlios.de" target="_blank"
+>DevCounter</a> provides a service where OSS Developers can register
+themselves and provide a description of their skills. This repository is then
+viewable for sponsors how many use it to contact developers directly.
+
+<p>BerliOS Portals:
+<ul>
+<li> Developer <a
+href="http://developer.berlios.de">http://developer.berlios.de</a>
+<li> SourceAgency <a
+href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
+<li> DevCounter <a
+href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
+<li> SourceWell <a
+href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+</ul>
+
+<p></td>
+
+<td WIDTH="35%">
+
+<!-- recent news -->
+<?php
+require("include/news.php");
+?>
+
+</td>
+</tr>
+</table>
+<!-- end content -->
+</td>
+
+<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
+</tr>
+</table>
+
+<?php
+require("include/site_footer.html");
+?>
+
+</body>
+</html>
