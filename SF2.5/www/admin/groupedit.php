@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: groupedit.php,v 1.3 2004/11/12 12:09:30 helix Exp $
+// $Id: groupedit.php,v 1.4 2005/02/11 12:54:58 helix Exp $
 
 require "pre.php";    
 require "vars.php";
@@ -97,24 +97,22 @@ $row_grp = db_fetch_array($res_grp);
 
 site_admin_header(array('title'=>"Editing Group"));
 
-echo '<H2>'.$row_grp['group_name'].'</H2>' ;?>
+echo '<h2>Group: '.$row_grp['group_name'].'</h2>' ;?>
 
-<p>
-<?php print "<A href=\"/project/admin/?group_id=$group_id\"><H3>[Project Admin]</H3></A>"; ?></b>
+<?php print "<h3><A href=\"/project/admin/?group_id=$group_id\">[Group Admin]</A>"; ?>
 
-<P>
-<A href="userlist.php?group_id=<?php print $group_id; ?>"><H3>[View/Edit Group Members]</H3></A>
+<br><A href="userlist.php?group_id=<?php print $group_id; ?>">[View/Edit Group Members]</A></h3>
 
 <p>
 <FORM action="<?php echo $PHP_SELF; ?>" method="POST">
-<B>Group Type:</B>
+Group Type:
 <?php
 
 echo show_group_type_box('group_type',$row_grp['type']);
 
 ?>
 
-<B>Status</B>
+Status:
 <SELECT name="form_status">
 <OPTION <?php if ($row_grp['status'] == "I") print "selected "; ?> value="I">Incomplete</OPTION>
 <OPTION <?php if ($row_grp['status'] == "A") print "selected "; ?> value="A">Active
@@ -123,13 +121,13 @@ echo show_group_type_box('group_type',$row_grp['type']);
 <OPTION <?php if ($row_grp['status'] == "D") print "selected "; ?> value="D">Deleted
 </SELECT>
 
-<B>Public?</B>
+Public:
 <SELECT name="form_public">
 <OPTION <?php if ($row_grp['is_public'] == 1) print "selected "; ?> value="1">Yes
 <OPTION <?php if ($row_grp['is_public'] == 0) print "selected "; ?> value="0">No
 </SELECT>
 
-<P><B>License</B>
+<p>License:
 <SELECT name="form_license">
 <OPTION value="none">N/A
 <OPTION value="other">Other
@@ -143,26 +141,29 @@ echo show_group_type_box('group_type',$row_grp['type']);
 </SELECT>
 
 <INPUT type="hidden" name="group_id" value="<?php print $group_id; ?>">
-<BR>Home Box: <INPUT type="text" name="form_box" value="<?php print $row_grp['unix_box']; ?>">
-<BR>HTTP Domain: <INPUT size=40 type="text" name="form_domain" value="<?php print $row_grp['http_domain']; ?>">
-<BR><INPUT type="submit" name="Update" value="Update">
+<p>Home Box: <INPUT type="text" name="form_box" value="<?php print $row_grp['unix_box']; ?>">
+<p>HTTP Domain: <INPUT size=40 type="text" name="form_domain" value="<?php print $row_grp['http_domain']; ?>">
+<p><INPUT type="submit" name="Update" value="Update">
 </FORM>
 
-<P><A href="newprojectmail.php?group_id=<?php print $group_id; ?>">Send New Project Instruction Email</A>
+<p><a href="newprojectmail.php?group_id=<?php print $group_id; ?>">[Send New Group Instruction Email]</a>
 
 <?php
 
 // ########################## OTHER INFO
 
-print "<HR><P><B>Other Information</B>";
-print "<P>Unix Group Name: $row_grp[unix_group_name]";
+print "<hr><h3>Other Information</h3>";
 
-print "<P>Submitted Description:</P> <blockquote>$row_grp[register_purpose]</blockquote>";
+print "<p>Registered: ".date($sys_datefmt, $row_grp['register_time']);
 
-print "<P>License Other: </P> <blockquote>$row_grp[license_other]</blockquote>";
+print "<p>Unix Group Name: $row_grp[unix_group_name]";
+
+print "<p>Submitted Description:</p> <blockquote>$row_grp[register_purpose]</blockquote>";
+
+print "<p>License Other: </p> <blockquote>$row_grp[license_other]</blockquote>";
 
 echo '
-<P>'.show_grouphistory ($group_id);
+<p>'.show_grouphistory ($group_id);
 
 site_admin_footer(array());
 

@@ -12,7 +12,7 @@ session_require(array('group'=>'1','admin_flags'=>'A'));
 
 site_admin_header(array('title'=>"User/Group Maintenance"));
 
-print "<p><b>User/Group Maintenance</b>\n";
+print "<h2>User/Group Maintenance</h2>\n";
 
 if ($search == "") {
 

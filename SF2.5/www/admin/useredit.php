@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: useredit.php,v 1.3 2004/06/14 07:48:43 helix Exp $
+// $Id: useredit.php,v 1.4 2005/02/11 12:54:58 helix Exp $
 
 /*
 
@@ -33,7 +33,7 @@ if ($action=="update_user") {
 }
 
 
-site_admin_header(array('title'=>'Alexandria: Admin: User Info'));
+site_admin_header(array('title'=>'User Info'));
 
 
 // get users info
@@ -41,21 +41,23 @@ $res_user = db_query("SELECT * FROM users WHERE user_id=$user_id");
 $row_user = db_fetch_array($res_user);
 
 ?>
-<p>
-Alexandria User Edit for user: <b><?php print $user_id . ": " . user_getname($user_id); ?></b>
-<p>
-Unix Account Info:
+<h2>User: <?php print user_getname($user_id) ?></h2>
+<p>User ID: <?php print $user_id ?>
+<br>Status: <?php print $row_user['status'] ?>
+<br>Registered: <?php print date($sys_datefmt, $row_user['add_date']) ?>
+
+<h3>Unix Account Info</h3>
 <FORM method="post" action="<?php echo $PHP_SELF; ?>">
 <INPUT type="hidden" name="action" value="update_user">
 <INPUT type="hidden" name="user_id" value="<?php print $user_id; ?>">
 
-<P>
+<p>
 Shell:
 <SELECT name="shell">
 <?php account_shellselects($row_user[shell]); ?>
 </SELECT>
 
-<P>
+<p>
 Unix Account Status:
 <SELECT name="unix_status">
 <OPTION <?php echo ($row_user['unix_status'] == 'N') ? 'selected ' : ''; ?>value="N">No Unix Account
@@ -64,7 +66,7 @@ Unix Account Status:
 <OPTION <?php echo ($row_user['unix_status'] == 'D') ? 'selected ' : ''; ?>value="D">Deleted
 </SELECT>
 
-<P>
+<p>
 Email:
 <INPUT TYPE="TEXT" NAME="email" VALUE="<?php echo $row_user[email]; ?>" SIZE="25" MAXLENGTH="55">
 
@@ -82,10 +84,10 @@ group.
 <input type="submit" value="Update">
 </FORM>
 
-<HR>
+<hr>
 
 <p>
-<H2>Current Groups:</H2>
+<h3>Current Groups:</h3>
 
 <?php
 /*

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: approve-pending.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: approve-pending.php,v 1.3 2005/02/11 12:54:58 helix Exp $
 
 
 
@@ -120,7 +120,7 @@ site_admin_header(array('title'=>'Approving Pending Projects'));
 $res_grp = db_query("SELECT * FROM groups WHERE status='P'");
 
 if (db_numrows($res_grp) < 1) {
-	print "<h1>None Found</h1>";
+	print "<h2>None Found</h2>";
 	print "<p>No Pending Projects to Approve</p>";
 	site_admin_footer(array());
 	exit;

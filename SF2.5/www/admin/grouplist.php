@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: grouplist.php,v 1.3 2005/02/11 11:01:38 helix Exp $
+// $Id: grouplist.php,v 1.4 2005/02/11 12:54:58 helix Exp $
 
 require "pre.php";    
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -18,6 +18,7 @@ if (!$form_catroot) {
 	$form_catroot = 1;
 }
 
+print "<h2>Group List</h2>\n";
 // print "<p><a href=\"groupedit-add.php\">[Add Group]</a>";
 print "<p>Group List for Category: ";
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userlist.php,v 1.3 2005/02/11 11:01:08 helix Exp $
+// $Id: userlist.php,v 1.4 2005/02/11 12:54:58 helix Exp $
 
 require "pre.php";    
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -99,6 +99,7 @@ if ($action=='add_to_group') {
 /*
 	Show list of users
 */
+print "<h2>User List</h2>\n";
 print "<p>User List for Group: ";
 if (!$group_id) {
 	print "<b>All Groups</b>";
