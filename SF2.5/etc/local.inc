@@ -62,6 +62,9 @@ $sys_lists_host = "lists.company.com";
 $sys_dns1_host = "ns1.company.com";
 $sys_dns2_host = "ns2.company.com";
 
+// sendmail path
+$sys_sendmail_path = '/usr/lib/sendmail';
+
 // Part II - Databases, html/php/other paths
 //server to use for updates and reads
 $sys_dbhost="localhost";
