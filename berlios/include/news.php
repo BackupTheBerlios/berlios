@@ -1,6 +1,7 @@
 <?php
 
 global $top_level;
+require($top_level."include/cache.php");
 
 function rssfail ($error) {
     $boxstuff = "Error - $error";
@@ -37,55 +38,65 @@ function newsbox ($title, $url, $content) {
     <br>";
 }
 
-$cache_dir = "/home/groups/berlios/htdocs/berlios/cache/";
+$cache_dir = "/var/cache/berlios/";
 $time = 60 * 60; // 60 min
+$entries = 5;
 
+$boxstuff = "";
 $boxtitle = "BerliOS News";
 $boxurl = "http://news.berlios.de/";
 $back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."BerliOS_News.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
+$boxstuff = "";
+$boxtitle = "Developer News";
+$boxurl = "http://developer.berlios.de/";
+$back_url = $boxurl."export/rss_sfnews.php";
+$cache_file = $cache_dir."DeveloperNews.backend";
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
+newsbox($boxtitle, $boxurl, $boxstuff);
+
+$boxstuff = "";
 $boxtitle = "SourceWell";
 $boxurl = "http://sourcewell.berlios.de/";
 $back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."SourceWell.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
+$boxstuff = "";
 $boxtitle = "DocsWell";
 $boxurl = "http://docswell.berlios.de/";
 $back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."DocsWell.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
+$boxstuff = "";
 $boxtitle = "SourceLines";
 $boxurl = "http://sourcelines.berlios.de/";
 $back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."SourceLines.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
+$entries = 12;
+$boxstuff = "";
 $boxtitle = "DevCounter";
 $boxurl = "http://devcounter.berlios.de/";
 $back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."DevCounter.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
+$boxstuff = "";
 $boxtitle = "SourceBiz";
 $boxurl = "http://sourcebiz.berlios.de/";
-$back_url = $boxurl."backend.php3";
+$back_url = $boxurl."backend.php";
 $cache_file = $cache_dir."SourceBiz.backend";
-include($top_level."include/backend2newslist.php");
+$boxstuff = cache_display($cache_file,$back_url,$time,$entries);
 newsbox($boxtitle, $boxurl, $boxstuff);
-$boxstuff = "";
 
 ?>
