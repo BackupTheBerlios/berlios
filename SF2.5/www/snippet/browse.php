@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: browse.php,v 1.3 2003/11/27 15:09:51 helix Exp $
 
 require ('pre.php');
 require ('../snippet/snippet_utils.php');
@@ -69,7 +69,7 @@ if ((!$result || $rows < 1) && (!$result2 || $rows2 < 1)) {
 		echo '
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ROWSPAN="2"><A HREF="/snippet/detail.php?type=package&id='.
 			db_result($result2,$i,'snippet_package_id').'"><B>'.
-			db_result($result2,$i,'snippet_package_id').'</B></A></TD><TD><B>'.
+			sprintf("%06d",db_result($result2,$i,'snippet_package_id')).'</B></A></TD><TD><B>'.
 			db_result($result2,$i,'name').'</TD><TD>'.
 			db_result($result2,$i,'user_name').'</TD></TR>';
 		echo '
@@ -89,7 +89,7 @@ if ((!$result || $rows < 1) && (!$result2 || $rows2 < 1)) {
 		echo '
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD ROWSPAN="2"><A HREF="/snippet/detail.php?type=snippet&id='.
 			db_result($result,$i,'snippet_id').'"><B>'.
-			db_result($result,$i,'snippet_id').'</B></A></TD><TD><B>'.
+			sprintf("%06d",db_result($result,$i,'snippet_id')).'</B></A></TD><TD><B>'.
 			db_result($result,$i,'name').'</TD><TD>'.
 			db_result($result,$i,'user_name').'</TD></TR>';
 		echo '

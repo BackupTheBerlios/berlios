@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: bug_utils.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: bug_utils.php,v 1.3 2003/11/27 15:15:16 helix Exp $
 
 /*
 
@@ -204,7 +204,7 @@ function show_buglist ($result,$offset,$set='open') {
 		<TR BGCOLOR="'. get_priority_color(db_result($result, $i, 'priority')) .'">'.
 		'<TD NOWRAP>'.
 		($IS_BUG_ADMIN?'<INPUT TYPE="CHECKBOX" NAME="bug_id[]" VALUE="'. db_result($result, $i, 'bug_id') .'"> ':'').
-		db_result($result, $i, 'bug_id') .
+		sprintf("%06d",db_result($result, $i, 'bug_id')) .
 		'</TD>'.
 		'<TD><A HREF="/bugs/?func=detailbug&bug_id='. db_result($result, $i, 'bug_id') .
                 '&group_id='. db_result($result, $i, 'group_id') .'">'. db_result($result, $i, 'summary') .'</A></TD>'.

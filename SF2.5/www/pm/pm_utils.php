@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: pm_utils.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: pm_utils.php,v 1.3 2003/11/27 15:11:00 helix Exp $
 
 /*
 
@@ -238,7 +238,7 @@ function pm_show_tasklist ($result,$offset,$set='open') {
 			'&project_task_id='.db_result($result, $i, 'project_task_id').
 			'&group_id='.$group_id.
 			'&group_project_id='.db_result($result, $i, 'group_project_id').'">'.
-			db_result($result, $i, 'project_task_id').'</A></TD>'.
+			sprintf("%06d",db_result($result, $i, 'project_task_id')).'</A></TD>'.
 			'<TD>'.db_result($result, $i, 'summary').'</TD>'.
 			'<TD>'.date('Y-m-d',db_result($result, $i, 'start_date')).'</TD>'.
 			'<TD>'. (($now>db_result($result, $i, 'end_date'))?'<B>* ':'&nbsp; ') . date('Y-m-d',db_result($result, $i, 'end_date')).'</TD>'.

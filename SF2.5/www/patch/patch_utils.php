@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: patch_utils.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: patch_utils.php,v 1.3 2003/11/27 15:11:59 helix Exp $
 
 /*
 
@@ -113,7 +113,7 @@ function show_patchlist ($result,$offset,$set='open') {
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'">'.
 			'<TD NOWRAP>'.
 			($IS_PATCH_ADMIN?'<INPUT TYPE="CHECKBOX" NAME="patch_id[]" VALUE="'. db_result($result, $i, 'patch_id') .'"> ':'').
-			db_result($result, $i, 'patch_id').
+			sprintf("%06d",db_result($result, $i, 'patch_id')).
 			'</TD>'.
 			'<TD><A HREF="'.$PHP_SELF.'?func=detailpatch&patch_id='.db_result($result, $i, 'patch_id').
 			'&group_id='.db_result($result, $i, 'group_id').'">'.

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: detail.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: detail.php,v 1.3 2003/11/27 15:09:51 helix Exp $
 
 require ('pre.php');
 require ('../snippet/snippet_utils.php');
@@ -62,10 +62,10 @@ if ($type=='snippet') {
 
 		for ($i=0; $i<$rows; $i++) {
 			echo '
-				<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD>'.db_result($result,$i,'snippet_version_id').
+				<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD>'.sprintf("%06d",db_result($result,$i,'snippet_version_id')).
 				'</TD><TD><A HREF="/snippet/download.php?type=snippet&id='.
 				db_result($result,$i,'snippet_version_id').'"><B>'.
-				db_result($result,$i,'version').'</B></A></TD><TD>'. 
+				sprintf("%06d",db_result($result,$i,'version')).'</B></A></TD><TD>'. 
 				date($sys_datefmt,db_result($result,$i,'date')).'</TD><TD>'.
 				db_result($result,$i,'user_name').'</TD><TD ALIGN="MIDDLE"><A HREF="/snippet/delete.php?type=snippet&snippet_version_id='.
 				db_result($result,$i,'snippet_version_id').
@@ -159,7 +159,7 @@ if ($type=='snippet') {
 			echo '
 			<TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD><A HREF="/snippet/detail.php?type=packagever&id='.
 				db_result($result,$i,'snippet_package_version_id').'"><B>'.
-				db_result($result,$i,'version').'</B></A></TD><TD>'.
+				sprintf("%06d",db_result($result,$i,'version')).'</B></A></TD><TD>'.
 				date($sys_datefmt,db_result($result,$i,'date')).'</TD><TD>'.
 				db_result($result,$i,'user_name').
 				'</TD><TD ALIGN="MIDDLE"><A HREF="/snippet/add_snippet_to_package.php?snippet_package_version_id='.
