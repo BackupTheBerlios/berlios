@@ -24,7 +24,7 @@ if [ ! -f /etc/apache/httpd.conf.save4maintenance ] ; then
 	sleep 20
 	/etc/init.d/apache start
 else
-	echo "Web Server aready started for Maintenance"
+	echo "Web Server already started for Maintenance"
 fi
 
 echo "Done"

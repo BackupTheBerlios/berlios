@@ -24,7 +24,7 @@ if [ -f /etc/apache/httpd.conf.save4maintenance ] ; then
 	sleep 20
 	/etc/init.d/apache start
 else
-	echo "Web Server aready started for Production"
+	echo "Web Server already started for Production"
 fi
 
 echo "Done"
