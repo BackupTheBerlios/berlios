@@ -29,7 +29,7 @@ while ($ln = shift(@group_dump)) {
   if ($status eq "D") {
     $remove = "rm -r ".$dir;
     print("$remove\n");
-	system($remove);
+    system($remove);
   } elsif ($status eq "A") {
     $chown = "chown -R ".$groupname.":".$groupname." ".$dir;
     print("$chown\n");
