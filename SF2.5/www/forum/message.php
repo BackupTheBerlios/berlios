@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: message.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: message.php,v 1.3 2003/11/19 09:53:18 helix Exp $
 
 require('pre.php');
 require('vote_function.php');
@@ -51,7 +51,9 @@ if ($msg_id) {
 	echo "BY: ".db_result($result,0, "user_name")."<BR>";
 	echo "DATE: ".date($sys_datefmt,db_result($result,0, "date"))."<BR>";
 	echo "SUBJECT: ". db_result($result,0, "subject")."<P>";
-	echo util_make_links(nl2br(db_result($result,0, 'body')));
+// correct making links with anchor tag - helix 2003-11-19
+//	echo util_make_links(nl2br(db_result($result,0, 'body')));
+	echo nl2br(util_make_links(db_result($result,0, 'body')));
 	echo "</TD></TR></TABLE>";
 
 	/*
