@@ -1,15 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- $Id: know_how.php.en,v 1.1 2002/05/14 00:08:15 grex Exp $ -->
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
-   <title>BerliOS - Der Open-Source-Mediator</title>
+   <title>BerliOS - The Open Source Mediator</title>
 <link rel="stylesheet" href="berlios.css" type="text/css">
 </head>
 <body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
 
 <?php
-require("include/site_header.html.de");
+require("include/site_header.html.en");
 ?>
 
 <!-- content -->
@@ -17,7 +19,7 @@ require("include/site_header.html.de");
 <tr VALIGN=TOP>
 
 <?php
-require("include/site_menubar.html.de");
+require("include/site_menubar.html.en");
 ?>
 
 <!-- content -->
@@ -75,7 +77,6 @@ Source know-how.
 <li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
 <li> SourceLines <a href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
 </ul>
-
 
 <?php
 require("include/site_footer.html");

@@ -137,29 +137,7 @@ l&auml;&szlig;t.
 &uuml;bernimmt. 
 
 <p align=right><a href="http://sourcebiz.berlios.de/?lang=German"><b>mehr...</b></a>
-<br>&nbsp;
-</td>
 
-<td>
-&nbsp;
-</td>
-
-<td WIDTH="35%">
-
-<!-- recent news -->
-<?php
-require("include/news.php");
-?>
-
-</td>
-</tr>
-</table>
-<!-- end content -->
-</td>
-
-<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
-</tr>
-</table>
 
 <?php
 require("include/site_footer.html");

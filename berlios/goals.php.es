@@ -1,4 +1,4 @@
-<!-- $Id: goals.php.es,v 1.1 2002/05/13 21:50:07 grex Exp $ -->
+<!-- $Id: goals.php.es,v 1.2 2002/05/14 00:08:15 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
@@ -66,24 +66,6 @@ y están descritos más detalladamente siguiendo los enlaces en la parte izquierda
 
 <p>BerliOS es una aplicación puramente basada en web que soporta la metodología del desarrollo de software libre (Open Source). Está escrito en PHP, usa MySQL como base de datos y Apache como servidor web.
 
-<p>
-</td>
-<td WIDTH="35%">
-
-<!-- recent news -->
-<?php
-require("include/news.php");
-?>
-
-</td>
-</tr>
-</table>
-<!-- end content -->
-</td>
-
-<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
-</tr>
-</table>
 
 <?php
 require("include/site_footer.html");

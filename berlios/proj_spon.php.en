@@ -1,4 +1,4 @@
-<!-- $Id: proj_spon.php.en,v 1.4 2002/01/07 06:39:40 riessen Exp $ -->
+<!-- $Id: proj_spon.php.en,v 1.5 2002/05/14 00:08:15 grex Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -71,25 +71,6 @@ and experience within the Open Source community.
 <li> Developer 
 <a href="http://developer.berlios.de">http://developer.berlios.de</a>
 </ul>
-
-<p></td>
-
-<td WIDTH="35%">
-
-<!-- recent news -->
-<?php
-require("include/news.php");
-?>
-
-</td>
-</tr>
-</table>
-<!-- end content -->
-</td>
-
-<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
-</tr>
-</table>
 
 <?php
 require("include/site_footer.html");

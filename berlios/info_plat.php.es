@@ -1,4 +1,4 @@
-<!-- $Id: info_plat.php.es,v 1.1 2002/05/13 21:50:07 grex Exp $ -->
+<!-- $Id: info_plat.php.es,v 1.2 2002/05/14 00:08:15 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
@@ -50,25 +50,6 @@ href="http://slashdot.org">SlashDot</a> y permite que usuarios registrados añada
 <li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
 <li> Forum <a href="http://forum.berlios.de">http://forum.berlios.de</a>
 </ul>
-
-<p></td>
-
-<td WIDTH="35%">
-
-<!-- recent news -->
-<?php
-require("include/news.php");
-?>
-
-</td>
-</tr>
-</table>
-<!-- end content -->
-</td>
-
-<td WIDTH="5" BGCOLOR="#FFFFFF"><img SRC="images/blank.gif" BORDER=0 height=1 width=5></td>
-</tr>
-</table>
 
 <?php
 require("include/site_footer.html");
