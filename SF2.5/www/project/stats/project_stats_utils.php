@@ -262,7 +262,7 @@ function stats_project_monthly( $group_id, $span = 4 ) {
 			print	'<TR bgcolor="' . html_get_alt_row_color($i) . '">'
 				. '<TD>' . gmstrftime("%B %Y", mktime(0,0,1,substr($row["month"],4,2),1,substr($row["month"],0,4)) ) . '</TD>'
 				. '<TD>' . sprintf("%d", $row["group_ranking"]) . " ( " . sprintf("%0.2f", $row["group_metric"]) . ' ) </TD>'
-				. '<TD align="right">' . number_format( $row["page_views)"] ) . '</TD>'
+				. '<TD align="right">' . number_format( $row["page_views"] ) . '</TD>'
 				. '<TD align="right">' . number_format( $row["downloads"] ) . '</TD>'
 				. '<TD align="right">&nbsp;&nbsp;' . $row["bugs_opened"] . " ( " . $row["bugs_closed"] . ' )</TD>'
 				. '<TD align="right">&nbsp;&nbsp;' . $row["support_opened"] . " ( " . $row["support_closed"] . ' )</TD>'
