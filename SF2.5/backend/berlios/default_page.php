@@ -29,7 +29,7 @@
 
 <!-- logo at right -->
 <td VALIGN=middle>
-<a href="http://www.fokus.fhg.de/" TARGET="_blank"><img SRC="http://developer.berlios.de/images/logo_fokus.png" ALT="FOKUS" HSPACE=10 BORDER=0 height=60 width=60 align=RIGHT></a></td>
+<a href="http://www.fokus.fraunhofer.de/" TARGET="_blank"><img SRC="http://developer.berlios.de/images/logo_fokus.png" ALT="FOKUS" HSPACE=10 BORDER=0 height=60 width=60 align=RIGHT></a></td>
 </tr>
 <!-- end logo at right -->
 
@@ -40,7 +40,11 @@
 <!-- end top title -->
 
 <!-- content -->
-<p>&nbsp;
+<p>
+<?php
+include("/home/groups/berlios/htdocs/berlios/include/adsense.php");
+?>
+<p>
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
 <tr VALIGN=TOP>
 <td align=center>
@@ -61,8 +65,8 @@
 <table BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#7B7B7B" >
 <tr>
 <td ALIGN=CENTER><span class="titlebar"><font color="#FFFFFF">Copyright
-&copy;2000-2003 <a href="http://www.fokus.fhg.de/" class="maintitlebar" TARGET="_blank">
-FOKUS</a>.</font></span></td>
+&copy; 2000-<?php echo date("Y"); ?> <a href="http://www.fokus.fraunhofer.de/" class="maintitlebar" TARGET="_blank">
+FOKUS</a></font></span></td>
 </tr>
 </table>
 <!-- end footer -->
