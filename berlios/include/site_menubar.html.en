@@ -34,12 +34,26 @@
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
 <td>
 
-<p><a href="goals.php.en" class="menus">Goals</a>
-<br><a href="info_plat.php.en" class="menus">Information Platform</a>
-<br><a href="proj_spon.php.en" class="menus">Project Sponsoring</a>
+<p><a href="info_plat.php.en" class="menus">Information Platform</a>
 <br><a href="supp_deve.php.en" class="menus">OS Development</a>
-<br><a href="exis_solu.php.en" class="menus">Existing Solutions</a>
 <br><a href="pres_plat.php.en" class="menus">Presentation Platform</a>
+</td>
+</tr>
+</table>
+<p>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=3 WIDTH="100%" BGCOLOR="#000000" >
+<tr BGCOLOR="#000000">
+<td ALIGN=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border=0><br>
+<span class="titlebar"><font color="#FFFFFF">Mediator</font></span></td>
+</tr>
+
+<tr ALIGN=RIGHT BGCOLOR="#FFCC33">
+<td>
+
+<p><a href="goals.php.en" class="menus">Goals</a>
+<br><a href="proj_spon.php.en" class="menus">Project Sponsoring</a>
+<br><a href="exis_solu.php.en" class="menus">Existing Solutions</a>
 <br><a href="know_hows.php.en" class="menus">OS Know How</a>
 </td>
 </tr>
