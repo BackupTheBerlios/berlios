@@ -4,9 +4,10 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: memberlist.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: memberlist.php,v 1.3 2005/02/15 11:46:11 helix Exp $
 
-require "pre.php";    
+require "pre.php";
+require "donate.php"; 
 
 if ((!$group_id) && $form_grp) 
 	$group_id=$form_grp;
@@ -23,7 +24,7 @@ $query =  "SELECT users.user_name AS user_name,users.user_id AS user_id,"
 	. "user_group.admin_flags AS admin_flags, people_job_category.name AS role "
 	. "FROM users,user_group,people_job_category "
 	. "WHERE users.user_id=user_group.user_id AND user_group.group_id=$group_id "
-        . "AND user_group.member_role=people_job_category.category_id "
+    . "AND user_group.member_role=people_job_category.category_id "
 	. "AND users.status='A' "
 	. "ORDER BY users.user_name";
 
@@ -41,12 +42,12 @@ $res_memb = db_query($query);
 while ( $row_memb=db_fetch_array($res_memb) ) {
 	print "\t<tr>\n";
 	print "\t\t";
-	if ( $row_memb[admin_flags]=='A' ) {
+	if ( stristr($row_memb['admin_flags'],'A') ) {
 		print "\t\t<td><b><A href=\"/users/$row_memb[user_name]/\">$row_memb[realname]</A></b></td>\n";
 	} else {
 		print "\t\t<td>$row_memb[realname]</td>\n";
 	}
-	print "\t\t<td align=\"middle\"><A href=\"/users/$row_memb[user_name]/\">$row_memb[user_name]</A></td>\n";
+	print "\t\t<td align=\"middle\"><A href=\"/users/$row_memb[user_name]/\">$row_memb[user_name]</A>".is_project_donor($row_memb[user_id]).is_user_donor($row_memb[user_id]).req_user_donate($row_memb[user_id])."</td>\n";
 	print "\t\t<td align=\"middle\">$row_memb[role]</td>\n";
 	print "\t\t<td align=\"middle\"><A href=\"/sendmessage.php?touser=".$row_memb['user_id'].
 		"\">".$row_memb['user_name']." at ".$GLOBALS['sys_users_host']."</td>\n";
