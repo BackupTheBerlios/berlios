@@ -5,10 +5,10 @@ require($top_level."include/site_header.html.de");
 
 <h2>Kontakt</h2>
 
-<p>Sie k&ouml;nnen das <a href="mailto:berlios-contact@mail.berlios.de">BerliOS-Team</a> direkt &uuml;ber E-Mail erreichen oder wenden Sie sich bitte an die folgende Adresse:
+<p>Sie k&ouml;nnen das <a href="http://developer.berlios.de/staff.php">BerliOS-Team</a> direkt &uuml;ber <a href="mailto:berlios-contact@mail.berlios.de">E-Mail</a> erreichen oder wenden Sie sich bitte an die folgende Adresse:
 
-<p>GMD FOKUS
-<br>Forschungsinstitut f&uuml;r Offene Kommunikationssysteme
+<p><b>FOKUS
+<br>Fraunhofer Institut f&uuml;r Offene Kommunikationssysteme</b>
 <br>Kaiserin-Augusta-Allee 31
 <br>10589 Berlin
 <br>Deutschland

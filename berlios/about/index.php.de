@@ -3,10 +3,6 @@ $top_level = "../";
 require($top_level."include/site_header.html.de");
 ?>
 
-<?php
-require($top_level."include/site_menubar.html.de");
-?>
-
 <h2>&Uuml;ber uns</h2>
 
 <p><b>Ziele</b>
@@ -20,7 +16,7 @@ Anwendungen sowie Support-Firmen.
 
 <p><b>Das Team</b>
 
-<p>Das BerliOS-Team besteht zur Zeit aus einigen wenigen Mitarbeitern von GMD FOKUS.
+<p>Das <a href="http://developer.berlios.de/staff.php">BerliOS-Team</a> besteht zur Zeit aus einigen wenigen Mitarbeitern von <a href="http://www.fokus.fraunhofer.de/">FOKUS</a>.
 
 <p><b>Danksagung</b>
 

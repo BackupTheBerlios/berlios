@@ -3,15 +3,15 @@ $top_level = "../";
 require($top_level."include/site_header.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.6 2002/05/14 10:27:11 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.7 2003/02/10 21:28:52 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Contacto</h2>
 
-<p>Puede contactar al <a href="mailto:berlios-contact@mail.berlios.de">equipo de BerliOS</a> directamente a través de correo electrónico o en la siguiente dirección:
+<p>Puede contactar al <a href="http://developer.berlios.de/staff.php">equipo de BerliOS</a> directamente a <a href="mailto:berlios-contact@mail.berlios.de">través de correo electrónico</a> o en la siguiente dirección:
 
-<p>Fraunhofer FOKUS
-<br>Research Institute for Open Communication Systems
+<p><b>FOKUS
+<br>Fraunhofer Institute for Open Communication Systems</b>
 <br>Kaiserin-Augusta-Allee 31
 <br>D-10589 Berlín
 <br>Alemania Federal
