@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	      
-// $Id: Layout.class,v 1.6 2004/04/09 13:10:53 helix Exp $
+// $Id: Layout.class,v 1.7 2004/08/03 10:29:41 helix Exp $
 
 
 /*
@@ -64,7 +64,8 @@ class Layout extends Error {
 		'FTP' => 'images/ic/ftp.png',
 		'Screenshots' => 'images/ic/frame_image.png',
 		'Wiki' => 'images/ic/manual.png',
-		'Donation' => 'images/ic/manual.png'
+		'Donation' => 'images/ic/manual.png',
+		'Admin' => 'images/ic/manual.png'
 		);
 
 	var $bgpri = array();
@@ -92,16 +93,16 @@ class Layout extends Error {
 		if (browser_is_windows() && browser_is_ie()) {
 
 			//ie needs smaller fonts
-			$this->FONTSIZE='10px';
-			$this->FONTSIZE_SMALLER='9px';
-			$this->FONTSIZE_SMALLEST='8px';
+			$this->FONTSIZE='12px';
+			$this->FONTSIZE_SMALLER='10px';
+			$this->FONTSIZE_SMALLEST='9px';
 
 		} else if (browser_is_windows()) {
 
 			//netscape on wintel
-			$this->FONTSIZE='10px';
-			$this->FONTSIZE_SMALLER='9px';
-			$this->FONTSIZE_SMALLEST='8px';
+			$this->FONTSIZE='12px';
+			$this->FONTSIZE_SMALLER='10px';
+			$this->FONTSIZE_SMALLEST='9px';
 
 		} else if (browser_is_mac()){
 
@@ -459,7 +460,7 @@ echo html_blankimage(5,100);
 	}
 
 	function menu_entry($link, $title) {
-		print "\t".'<A class="menus" href="'.$link.'">'.$title.'</A> &nbsp;' . html_image($this->imgroot . "point1.png","7","7",array()) . '<br>';
+		print "\t".'<A class="menus" href="'.$link.'">'.$title.'</A>&nbsp;' . html_image($this->imgroot . "point1.png","7","7",array()) . '<br>';
 	}
 
 	/*!     @function tab_entry
@@ -649,7 +650,7 @@ echo html_blankimage(5,100);
 
 		// Project Admin
 		$this->tab_entry('/project/admin/?group_id='.$group, $this->icons['Admin'],
-			$Language->GROUP_SHORT_ADMIN, $toptab == 'Admin');
+			$Language->GROUP_SHORT_ADMIN, $toptab == 'admin');
 
 		// 2003-02-21 end by helix
 
