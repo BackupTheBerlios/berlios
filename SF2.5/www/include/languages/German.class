@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: German.class,v 1.5 2004/04/02 10:55:08 helix Exp $
+// $Id: German.class,v 1.6 2005/02/24 17:49:22 helix Exp $
 
 /*
 
@@ -39,36 +39,39 @@ class German extends BaseLanguage {
 		$this->LOGIN='Einloggen (SSL)';
 		$this->NEW_USER='Neuer Benutzer (SSL)';
 		$this->NEW_PROJECT='Neues Projekt';
-		$this->ACCOUNT_MAINTENANCE='Accountverwaltung';
+		$this->ACCOUNT_MAINTENANCE='Zugangsverwaltung';
 		$this->CHANGE_MY_THEME='Theme &auml;ndern';
-		$this->MY_PERSONAL_PAGE='Personalisierte Seite';
+		$this->MY_PERSONAL_PAGE='Persönliche Seite';
 		$this->BOOKMARK_PAGE='Lesezeichen';
-		$this->PROJECT_SUMMARY='Projekt&uuml;bersicht';
-		$this->PROJECT_ADMIN='Projektadministrator';
-		$this->FOUNDRY_SUMMARY='Foundry-&Uuml;bersicht';
-		$this->FOUNDRY_ADMIN='Foundry-Administration';
+		$this->PROJECT_SUMMARY='&Uuml;bersicht';
+		$this->PROJECT_ADMIN='Verwaltung';
+		$this->FOUNDRY_SUMMARY='&Uuml;bersicht';
+		$this->MAILING_LISTS='Mailinglisten';
+		$this->NEWS='Neuigkeiten';
+		$this->FOUNDRY_ADMIN='Verwaltung';
 		$this->SOFTWARE_MAP='Softwarekarte';
 		$this->NEW_RELEASES='Neue Releases';
 		$this->OTHER_SITE_MIRRORS='Mirrors';
-		$this->CODE_SNIPPET_LIBRARY='Codeschnipsel-Sammlung';
+		$this->CODE_SNIPPET_LIBRARY='Codeschnipsel Sammlung';
 		$this->DOCUMENTATION='Dokumentation';
 		$this->DISCUSSION_FORUMS='Diskussionsforen';
 		$this->SUBMIT_BUGS = 'Fehler melden';
-		$this->REQUEST_SUPPORT = 'Support anfragen';
-                $this->REQUEST_FEATURE = 'Erweiterungen anfragen';
+		$this->REQUEST_SUPPORT = 'Unterstützung anfragen';
+        $this->REQUEST_FEATURE = 'Erweiterungen anfragen';
 		$this->PROJECT_HELP_WANTED='Projekthilfe gesucht';
 		$this->TOP_PROJECTS='Top-Projekte';
 		$this->COMPILE_FARM='Compile-Farm';
 		$this->CONTACT_US='Kontakt '.$GLOBALS['sys_default_name'];
 		$this->ABOUT_SOURCEFORGE='&Uuml;ber '.$GLOBALS['sys_default_name'];
+		$this->ABOUT_FOUNDRIES='&Uuml;ber Foundries';
 
 		//tool short names as in HTML_TABS()
-		$this->GROUP_SHORT_SUMMARY='&Uuml;berblick';
+		$this->GROUP_SHORT_SUMMARY='&Uuml;bersicht';
 		$this->GROUP_SHORT_HOMEPAGE='Homepage';
 		$this->GROUP_SHORT_FORUM='Foren';
 		$this->GROUP_SHORT_BUGS='Fehler';
-		$this->GROUP_SHORT_SUPPORT='Support';
-                $this->GROUP_SHORT_FEATURE='Erweiterungen';
+		$this->GROUP_SHORT_SUPPORT='Unterstützung';
+        $this->GROUP_SHORT_FEATURE='Erweiterungen';
 		$this->GROUP_SHORT_PATCH='Patches';
 		$this->GROUP_SHORT_MAIL='Mailinglisten';
 		$this->GROUP_SHORT_PM='Aufgaben';
@@ -76,10 +79,12 @@ class German extends BaseLanguage {
 		$this->GROUP_SHORT_SURVEY='Umfragen';
 		$this->GROUP_SHORT_NEWS='Neuigkeiten';
 		$this->GROUP_SHORT_CVS='CVS';
-                $this->GROUP_SHORT_SVN='SVN';
+        $this->GROUP_SHORT_SVN='SVN';
 		$this->GROUP_SHORT_FILES='Dateien';
 		// 2003-04-05 helix
 		$this->GROUP_SHORT_SCREENSHOTS='Bildschirmphotos';
+		$this->GROUP_SHORT_MEMBERLIST='Mitglieder';
+		$this->GROUP_SHORT_ADMIN='Verwaltung';
 
 		//tool long names for summary page
 		$this->LATEST_FILE_RELEASES='Letzte Dateireleases';
@@ -98,19 +103,20 @@ class German extends BaseLanguage {
 		$this->GROUP_LONG_HOMEPAGE='Projekthomepage';
 		$this->GROUP_LONG_FORUM='&Ouml;ffentliche Foren';
 		$this->GROUP_LONG_BUGS='Fehlerverfolgung';
-		$this->GROUP_LONG_SUPPORT='Support-Verwaltung';
+		$this->GROUP_LONG_SUPPORT='Unterstützungsverwaltung';
 		$this->GROUP_LONG_PATCH='Patch-Verwaltung';
 		$this->GROUP_LONG_MAIL='Mailinglisten';
-		$this->GROUP_LONG_PM='Aufgaben-Verwaltung';
-		$this->GROUP_LONG_DOCMAN='DocManager: Projekt-Dokumentation';
+		$this->GROUP_LONG_PM='Aufgabenverwaltung';
+		$this->GROUP_LONG_DOCMAN='DocManager: Projektdokumentation';
 		$this->GROUP_LONG_SURVEY='Umfragen';
-		$this->GROUP_LONG_NEWS='Letzte Neuigkeiten';	
+		$this->GROUP_LONG_NEWS='Letzte Neuigkeiten';
 		$this->GROUP_LONG_CVS='CVS-Baum';
-                $this->GROUP_LONG_SVN='SVN-Baum';
+        $this->GROUP_LONG_SVN='SVN-Baum';
 		$this->GROUP_LONG_FTP='Anonymer FTP-Zugriff';
 		// 2003-04-05 helix
 		$this->GROUP_LONG_SCREENSHOTS='Bildschirmphotos';
 		$this->GROUP_LONG_WIKI='OpenFacts-Wiki-Seiten';
+		$this->GROUP_LONG_ADMIN='Projektadministration';
 
 		// neue strings für die homepage, hinzugefügt 1. 10.
 		$this->BREAKING_DOWN_BARRIERS='Förderung von Open-Source-Entwicklung';
