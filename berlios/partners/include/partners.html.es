@@ -5,7 +5,7 @@
 <table border="0" cellspacing="4" cellpadding="0" width="100%">
   <tr align="left">
     <td align="left" width="20%">
-      <a href="http://www.hewlett-packard.de/" target="_blank" alt="">
+      <a href="http://www.hewlett-packard.de/" target="_blank">
       <img src="../partners/images/hplogo.gif" border="0" alt="Hewlett-Packard"></a>
     </td>
     <td align="left" width="80%">
@@ -46,7 +46,7 @@
   <tr align="left">
     <td align="left" width="20%">
       <a href="http://www.linux-ag.com/" target="_blank">
-        <img src="../partners/images/linuxag.gif" border="0" width="140" height="268" alt="Linux AG"></a>
+        <img src="../partners/images/linuxag.gif" border="0" width="140" height="68" alt="Linux AG"></a>
     </td>
     <td align="left" width="80%">
       Linux Information Systems AG
