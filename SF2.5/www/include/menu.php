@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: menu.php,v 1.5 2004/03/16 15:02:40 helix Exp $
+// $Id: menu.php,v 1.6 2005/02/24 17:42:04 helix Exp $
 
 /* The correct theme.php must be included by this point -- Geoffrey */
 
@@ -97,11 +97,11 @@ function menu_foundry_links() {
 		$HTML->menu_entry('/about_foundries.php', $Language->ABOUT_FOUNDRIES);
 		echo '<P>
 ';
-		$HTML->menu_entry('/foundry/3d/', '3D');
-		$HTML->menu_entry('/foundry/games/', 'Games');
-		$HTML->menu_entry('/foundry/java/', 'Java');
-		$HTML->menu_entry('/foundry/printing/', 'Printing');
-		$HTML->menu_entry('/foundry/storage/', 'Storage');
+		$HTML->menu_entry('/foundry/egovernment/', 'E-Government');
+//		$HTML->menu_entry('/foundry/games/', 'Games');
+//		$HTML->menu_entry('/foundry/java/', 'Java');
+//		$HTML->menu_entry('/foundry/printing/', 'Printing');
+//		$HTML->menu_entry('/foundry/storage/', 'Storage');
 	$HTML->menuhtml_bottom();
 }
 
@@ -130,6 +130,9 @@ function menu_foundry($grp) {
 	$unix_name=strtolower(group_getunixname($grp));
 	$HTML->menuhtml_top('Foundry: ' . group_getname($grp));
 		$HTML->menu_entry('/foundry/'. $unix_name .'/',$Language->FOUNDRY_SUMMARY);
+		        $HTML->menu_entry('/forum/?group_id='. $grp,$Language->DISCUSSION_FORUMS);
+		        $HTML->menu_entry('/mail/?group_id='. $grp,$Language->MAILING_LISTS);
+				$HTML->menu_entry('/news/?group_id='.$grp,$Language->NEWS);
 		print '<P>';
 		$HTML->menu_entry('/foundry/'. $unix_name .'/admin/', $Language->FOUNDRY_ADMIN);
 	$HTML->menuhtml_bottom();
@@ -146,7 +149,7 @@ function menu_foundry_guides($grp) {
 	}
 	$HTML->menuhtml_top('Foundry Guides');
 
-	echo html_dbimage($foundry->getGuideImageID()).'<BR>';
+	echo html_dbimage($foundry->getGuideImageID());
 
 	$sql = "SELECT users.realname,users.user_id,users.user_name ".
 		"FROM users,user_group ".
@@ -271,7 +274,7 @@ function menu_print_sidebar($params) {
 	}
 
 	//Foundry Links
-	//echo menu_foundry_links();
+	echo menu_foundry_links();
 
 	if (!user_isloggedin()) {
 		echo menu_language_box();
