@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.es,v 1.8 2003/02/10 21:25:04 helix Exp $ -->
+<!-- $Id: site_menubar.html.es,v 1.9 2004/02/27 14:42:13 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -76,7 +76,6 @@
         <tr align="right" bgcolor="#FFCC33">
           <td>
             <p><a href="http://news.berlios.de/"          class="menus">News</a>
-            <br><a href="http://forum.berlios.de/"        class="menus">Forum</a>
             <br><a href="http://sourcebiz.berlios.de/"    class="menus">SourceBiz</a>
             <br><a href="http://sourcewell.berlios.de/"   class="menus">SourceWell</a>
             <br><a href="http://sourcelines.berlios.de/"  class="menus">SourceLines</a>
@@ -86,14 +85,13 @@
             <br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
             <br><a href="http://openfacts.berlios.de/"    class="menus">OpenFacts</a>
             <br><a href="http://docswell.berlios.de/"     class="menus">DocsWell</a>
-            <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
       
             <p><a href="<?php echo $top_level; ?>index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0" alt="de"></a>
             <p><a href="<?php echo $top_level; ?>index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0" alt="en"></a>
           </td>
         </tr>
       </table>
-      <p align="center"><a href="http://developer.berlios.de"><img src="http://developer.berlios.de/bslogot.php?group_id=1&type=1" width="124" height="32" border="0" hspace="3" vspace="3" alt="BerliOS Logo"></a>
+      <p align="center"><a href="http://developer.berlios.de"><img src="http://developer.berlios.de/bslogo.php?group_id=1&type=1" width="124" height="32" border="0" hspace="3" vspace="3" alt="BerliOS Logo"><br><b>Developer</b></a>
       <!-- End menubar -->
     </td>
     <td width="10" bgcolor="#FFFFFF"><img SRC="<?php echo $top_level; ?>/images/blank.gif" border="0" height="1" width="10" alt=""></td>

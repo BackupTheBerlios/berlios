@@ -9,7 +9,7 @@
 
 <?php
  if ( !isset( $top_level ) ) {
-   $top_level = "./";
+   $top_level = "";
  }
 ?>
 
