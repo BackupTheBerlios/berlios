@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.7 2002/05/13 23:48:43 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.8 2002/05/13 23:49:38 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -38,11 +38,6 @@
     <td valign="middle">
       <table border="0">
         <tr>
-          <td>
-            <a href="index.php.es">
-            <img src="<?php echo $top_level; ?>/images/berlios_pie_nav.jpg" ALT="Navigate Pie" 
-             hspace="10" border="0" height="60" width="60" usemap="#BerliOSPie_Navigate" align="right"></a>
-          </td>
           <td>
             <a href="http://www.fokus.gmd.de/" target="_blank"><img 
              src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" 
