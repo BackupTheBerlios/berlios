@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.5 2004/04/21 13:57:16 helix Exp $
+// $Id: index.php,v 1.6 2004/05/05 09:32:16 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -81,9 +81,9 @@ Homepage Link: <B>'. db_result($res_grp,0,'homepage') .'</B>
 <H4>Showing The '.$sys_default_name.' Logo:</H4>
 <P>
 '.
-htmlspecialchars('<A href="http://'.$sys_default_host.'"> 
-<IMG src="http://'.$sys_default_host.'/bslogo.php?group_id='. $group_id .'" width="124" height="32"
-border="0" alt="'.$sys_default_name.' Logo"></A>');
+htmlspecialchars('<a href="http://'.$sys_default_host.'" title="BerliOS Developer"> 
+<img src="http://'.$sys_default_host.'/bslogo.php?group_id='. $group_id .'" width="124px" height="32px"
+border="0" alt="'.$sys_default_name.' Logo"></a>');
 
 echo '<P>'.html_image('images/berliOS_small_logo.png','124','32',array(),0);
 
