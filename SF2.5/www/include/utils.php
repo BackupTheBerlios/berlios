@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: utils.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: utils.php,v 1.3 2004/03/16 15:02:40 helix Exp $
 
 function util_prep_string_for_sendmail($body) {
 	//$body=str_replace("\\","\\\\",$body);
@@ -129,7 +129,7 @@ function util_make_links ($data='') {
 	$lines = split("\n",$data);
 	while ( list ($key,$line) = each ($lines)) {
 		$line = eregi_replace("([ \t]|^)www\."," http://www.",$line);
-		$text = eregi_replace("([[:alnum:]]+)://([^[:space:]]*)([[:alnum:]>#?/&=])", "<a href=\"\\1://\\2\\3\" target=\"_blank\" target=\"_new\">\\1://\\2\\3</a>", $line);
+		$text = eregi_replace("([[:alnum:]]+)://([^[:space:]]*)([[:alnum:]>#?/&=])", "<a href=\"\\1://\\2\\3\" target=\"_new\">\\1://\\2\\3</a>", $line);
 		$text = eregi_replace("(([a-z0-9_]|\\-|\\.)+@([^[:space:]]*)([[:alnum:]-]))", "<a href=\"mailto:\\1\" target=\"_new\">\\1</a>", $text);
 		$newText .= $text;
 	}

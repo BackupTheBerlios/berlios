@@ -28,6 +28,20 @@ function project_get_open_support_count($group_id) {
 	return $count;
 }
 
+function project_get_total_feature_count($group_id) {
+        $res = db_query("SELECT count(*) AS count FROM feature WHERE group_id=$group_id");
+        $count=db_result($res,0,'count');
+        db_free_result($res);
+        return $count;
+}
+
+function project_get_open_feature_count($group_id) {
+        $res = db_query("SELECT count(*) AS count FROM feature WHERE group_id=$group_id AND feature_status_id='1'");
+        $count=db_result($res,0,'count');
+        db_free_result($res);
+        return $count;
+}
+
 function project_get_total_patch_count($group_id) {
 	$res = db_query("SELECT count(*) AS count FROM patch WHERE group_id=$group_id");
 	$count=db_result($res,0,'count');
@@ -148,6 +162,22 @@ function project_summary($group_id,$mode,$no_table) {
 			$return .= " open requests, <B>". project_get_total_support_count($group_id) ."</B> total )";
 		}
 	}
+
+        // ##################### Feature Request
+
+        if ($project->usesFeature()) {
+                $return .= '
+
+                        <HR SIZE="1" NoShade>';
+                $return .= '<A href="http://'.$GLOBALS['sys_default_host'].'/feature/?group_id='.$group_id.'">';
+                $return .= html_image("images/ic/support16b.jpg","20","20",array("BORDER"=>"0","ALT"=>"Feature Requests"));
+                $return .= '&nbsp;Feature&nbsp;Requests</A>';
+
+                if ($mode != 'compact') {
+                        $return .= " ( <B>". project_get_open_feature_count($group_id) ."</B>";
+                        $return .= " open requests, <B>". project_get_total_feature_count($group_id) ."</B> total )";
+                }
+        }
 
 	// ##################### Doc Manager
 

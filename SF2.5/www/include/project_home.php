@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_home.php,v 1.3 2004/02/08 15:50:30 helix Exp $
+// $Id: project_home.php,v 1.4 2004/03/16 15:02:40 helix Exp $
 
 require ('vote_function.php');
 require ('vars.php');
@@ -128,6 +128,20 @@ print '
 </TABLE>
 <P>
 ';
+
+// 2004-02-12 by helix
+
+$res_donate = db_query("SELECT * FROM group_donate WHERE group_id='$group_id'");
+if ($res_donate && db_numrows($res_donate) > 0) {
+  echo '
+<p><table cellspacing="1" cellpadding="5" width="100%" border="0" bgcolor="#FFFFFF">
+<tr><td valign="top"><a href="/donate/projects.php?group_id='.$group_id.'"><img src="/images/x-click-but7.gif" align="top" border="0" width="72" height="29" alt="[Donate to '.$project->getPublicName().']"></a></td>
+<td valign="top">Do you like "'.$project->getPublicName().'" and what we do for the Open Source community? Consider supporting the project so that we can spend more time to develop Open Source software. Besides doing a good deed for the community, you\'ll also be listed on the <a href="/donate/contributors.php?group_id='.$group_id.'">project\'s contributors page</a>.</td>
+</tr></table>
+';
+}
+
+// 2004-02-12 by helix (end)
 
 // 2003-07-16 by Masato
 
@@ -285,6 +299,18 @@ if ($project->usesSupport()) {
 	print " open requests, <B>". project_get_total_support_count($group_id) ."</B> total )";
 }
 
+// ##################### Feature Requests
+
+if ($project->usesFeature()) {
+        print '
+                <HR SIZE="1" NoShade>
+                <A href="/feature/?group_id='.$group_id.'">';
+        print html_image("images/ic/support16b.jpg",'20','20',array('alt'=>$Language->GROUP_SHORT_FEATURE));
+        print '&nbsp;'.$Language->GROUP_LONG_FEATURE.'</A>';
+        print " ( <B>". project_get_open_feature_count($group_id) ."</B>";
+        print " open requests, <B>". project_get_total_feature_count($group_id) ."</B> total )";
+}
+
 // ##################### Doc Manager
 
 if ($project->usesDocman()) {
@@ -367,6 +393,27 @@ if ($project->usesCVS()) {
 
 }
 
+// ######################### SVN
+
+if ($project->usesSVN()) {
+        print '<HR SIZE="1" NoShade><A href="/svn/?group_id='.$group_id.'">';
+        print html_image("images/ic/cvs16b.png",'20','20',array('alt'=>$Language->GROUP_SHORT_SVN));
+        print " ".$Language->GROUP_LONG_SVN."</A>";
+//        $sql = "SELECT SUM(cvs_commits) AS commits,SUM(cvs_adds) AS adds from stats_project where group_id='$group_id'";
+//        $result = db_query($sql);
+//        $cvs_commit_num=db_result($result,0,0);
+//        $cvs_add_num=db_result($result,0,1);
+//        if (!$cvs_commit_num) $cvs_commit_num=0;
+//        if (!$cvs_add_num) $cvs_add_num=0;
+//        echo ' ( <B>'.$cvs_commit_num.'</B> commits, <B>'.$cvs_add_num.'</B> adds )';
+//        if ($cvs_commit_num || $cvs_add_num) {
+                echo '<br> &nbsp; - <a href="http://'.$sys_svn_host
+                     .'/viewcvs/'.$project->getUnixName()
+                     .'">Browse SVN</a>';
+//        }
+
+}
+
 // ######################## AnonFTP 
 
 // 2003-02-21 helix
@@ -391,16 +438,9 @@ if ($project->usesScreenshots()) {
 // ######################## Wiki
 
 if ($project->usesWiki()) {
-        print '<HR SIZE="1" NoShade>';
+        print '<HR SIZE="1" NoShade><A href="/wiki/?group_id='.$group_id.'">';
         print html_image("images/ic/manual16b.png",'20','20',array('alt'=>$Language->GROUP_LONG_WIKI));
-	print $Language->GROUP_LONG_WIKI;
-        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index-en.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
-	print "English</A>";
-        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
-        print "Deutsch</A>";
-        print "<br> &nbsp; - <A href=\"http://openfacts.berlios.de/index-es.phtml?title=". ereg_replace(" ","_",$project->getPublicName()) ."\">";
-        print "Español</A>";
-
+	print " ".$Language->GROUP_LONG_WIKI."</A>";
 }
 
 $HTML->box1_bottom();

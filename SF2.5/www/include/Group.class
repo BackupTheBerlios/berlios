@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //		  
-// $Id: Group.class,v 1.3 2004/01/08 10:38:24 helix Exp $
+// $Id: Group.class,v 1.4 2004/03/16 15:02:40 helix Exp $
 
 /**
  *
@@ -602,7 +602,7 @@ class Group extends Error {
 	 *
 	 *	@returns true/false
 	 */	 
-	function updateUser($user_id,$admin_flags='',$bug_flags=1,$forum_flags=0,$project_flags=1,$patch_flags=1,$support_flags=1,$doc_flags=0,$cvs_flags=1,$release_flags=1,$member_role=100) {
+	function updateUser($user_id,$admin_flags='',$bug_flags=1,$forum_flags=0,$project_flags=1,$patch_flags=1,$support_flags=1,$feature_flags=1,$doc_flags=0,$cvs_flags=1,$release_flags=1,$member_role=100) {
 		if (!$this->userIsAdmin()) {
 			$this->setError('You Are Not An Admin For This Group');
 			return false;
@@ -653,6 +653,7 @@ class Group extends Error {
 			."doc_flags='$doc_flags', "
 			."patch_flags='$patch_flags', "
 			."support_flags='$support_flags', "
+			."feature_flags='$feature_flags', "
 			."cvs_flags='$cvs_flags', "
 			."release_flags='$release_flags', "
 			."member_role='$member_role' "

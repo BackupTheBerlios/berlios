@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: BaseLanguage.class,v 1.3 2003/12/03 12:09:43 helix Exp $
+// $Id: BaseLanguage.class,v 1.4 2004/03/16 15:02:40 helix Exp $
 
 
 /*
@@ -68,6 +68,7 @@ class BaseLanguage {
 	var $DISCUSSION_FORUMS='Discussion Forums';
 	var $SUBMIT_BUGS = 'Submit Bugs';
 	var $REQUEST_SUPPORT = 'Request Support';
+        var $REQUEST_FEATURE = 'Request Features';
 	var $PROJECT_HELP_WANTED='Project Help Wanted';
 	var $TOP_PROJECTS='Top Projects';
 	var $COMPILE_FARM='Compile Farm';
@@ -85,6 +86,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_FORUM='Forums';
 	var $GROUP_SHORT_BUGS='Bugs';
 	var $GROUP_SHORT_SUPPORT='Support';
+        var $GROUP_SHORT_FEATURE='Features';
 	var $GROUP_SHORT_PATCH='Patches';
 	var $GROUP_SHORT_MAIL='Lists';
 	var $GROUP_SHORT_PM='Tasks';
@@ -92,6 +94,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_SURVEY='Surveys';
 	var $GROUP_SHORT_NEWS='News';
 	var $GROUP_SHORT_CVS='CVS';
+        var $GROUP_SHORT_SVN='SVN';
 	var $GROUP_SHORT_FILES='Files';
 	// 2003-02-21 helix
 	var $GROUP_SHORT_FTP='FTP';
@@ -119,6 +122,7 @@ class BaseLanguage {
 	var $GROUP_LONG_FORUM='Public Forums';
 	var $GROUP_LONG_BUGS='Bug Tracking';
 	var $GROUP_LONG_SUPPORT='Tech Support Manager';
+        var $GROUP_LONG_FEATURE='Feature Requests';
 	var $GROUP_LONG_PATCH='Patch Manager';
 	var $GROUP_LONG_MAIL='Mailing Lists';
 	var $GROUP_LONG_PM='Task Manager';
@@ -126,6 +130,7 @@ class BaseLanguage {
 	var $GROUP_LONG_SURVEY='Surveys';
 	var $GROUP_LONG_NEWS='Latest News';	
 	var $GROUP_LONG_CVS='CVS Repository';
+        var $GROUP_LONG_SVN='SVN Repository';
 	var $GROUP_LONG_FTP='Anonymous FTP Space';
 	// 2003-02-21 helix
 	var $GROUP_LONG_SCREENSHOTS='Screenshots';
@@ -149,16 +154,13 @@ class BaseLanguage {
 //content manager is ready
 
 	var $HOME_PAGE_ABOUT_BLURB='
-
 BerliOS Developer is a <B>free service to
 <A href="http://www.opensource.org">Open Source</A> developers</B> offering
-easy access to the best in CVS, mailing lists, bug tracking, message boards/forums,
+easy access to the best in CVS/SVN, mailing lists, bug tracking, message boards/forums,
 task management, site hosting, permanent file archival, full backups,
 and total web-based administration. 
 <A href="/docman/index.php?group_id=2">[ more ]</A>
 <!-- <A href="/docman/display_doc.php?docid=756&group_id=1">[ FAQ ]</A> -->
-<BR>
-&nbsp;
 <P>
 <B>Site Feedback and Participation</B>
 <P>
@@ -168,8 +170,6 @@ site user</A>. This will allow you to participate fully in all we have to
 offer. You may of course browse the site without registering, but will
 not have access to participate fully.
 <P>
-&nbsp;
-<BR>
 <B>Set Up Your Own Project</B>
 <P>
 <A href="/account/register.php">Register as a site user</A>,

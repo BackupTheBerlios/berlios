@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: Project.class,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: Project.class,v 1.3 2004/03/16 15:02:40 helix Exp $
 
 
 /*
@@ -74,6 +74,10 @@ class Project extends Group {
 		return $this->project_data_array['use_support'];
 	}
 
+        function usesFeature() {
+                return $this->project_data_array['use_feature'];
+        }
+
 	function usesPatch() {
 		return $this->project_data_array['use_patch'];
 	}
@@ -102,6 +106,10 @@ class Project extends Group {
 	function usesWiki() {
                 return $this->project_data_array['use_wiki'];
         }
+
+	function usesSVN() {
+                return $this->project_data_array['use_svn'];
+        }
 	// 2003-02-01 end helix 
 
 
@@ -116,6 +124,10 @@ class Project extends Group {
 	function getNewSupportAddress() {
 		return $this->project_data_array['new_support_address'];
 	}
+
+        function getNewFeatureAddress() {
+                return $this->project_data_array['new_feature_address'];
+        }
 
 	function getNewPatchAddress() {
 		return $this->project_data_array['new_patch_address'];
@@ -140,6 +152,10 @@ class Project extends Group {
 		return $this->project_data_array['send_all_support'];
 	}
 
+	function sendAllFeatureUpdates() {
+		return $this->project_data_array['send_all_feature'];
+	}
+
 	function sendAllPatchUpdates() {
 		return $this->project_data_array['send_all_patches'];
 	}
@@ -162,6 +178,9 @@ class Project extends Group {
 	function userIsSupportAdmin() {
 		return $this->userIsMember('support_flags',2);
 	}
+        function userIsFeatureAdmin() {
+                return $this->userIsMember('feature_flags',2);
+        }
 	function userIsPatchAdmin() {
 		return $this->userIsMember('patch_flags',2);
 	}

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: menu.php,v 1.4 2004/02/03 08:59:19 helix Exp $
+// $Id: menu.php,v 1.5 2004/03/16 15:02:40 helix Exp $
 
 /* The correct theme.php must be included by this point -- Geoffrey */
 
@@ -80,6 +80,7 @@ function menu_sourceforge() {
 		$HTML->menu_entry('/forum/?group_id=1',$Language->DISCUSSION_FORUMS);
                 $HTML->menu_entry('/bugs/?group_id=1',$Language->SUBMIT_BUGS);
                 $HTML->menu_entry('/support/?group_id=1',$Language->REQUEST_SUPPORT);
+                $HTML->menu_entry('/feature/?group_id=1',$Language->REQUEST_FEATURE);
 		$HTML->menu_entry('/people/',$Language->PROJECT_HELP_WANTED);
 		$HTML->menu_entry('/top/',$Language->TOP_PROJECTS);
 //		print '<P>';
@@ -118,6 +119,7 @@ function menu_project($grp) {
                 $HTML->menu_entry('/forum/?group_id='. $grp,$Language->DISCUSSION_FORUMS);
                 $HTML->menu_entry('/bugs/?group_id='. $grp,$Language->SUBMIT_BUGS);
                 $HTML->menu_entry('/support/?group_id='. $grp,$Language->REQUEST_SUPPORT);
+                $HTML->menu_entry('/feature/?group_id='. $grp,$Language->REQUEST_FEATURE);
 		print '<P>';
 		$HTML->menu_entry('/project/admin/?group_id='.$grp,$Language->PROJECT_ADMIN);
 	$HTML->menuhtml_bottom();
