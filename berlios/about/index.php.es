@@ -1,9 +1,9 @@
 <?php
-$top_level = "..";
-require("../include/site_header.html.es");
+$top_level = "../";
+require($top_level."include/site_header.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.2 2002/05/14 10:11:56 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.3 2002/05/14 10:51:09 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>About us</h2>
@@ -20,7 +20,7 @@ require("../include/site_header.html.es");
 <br>Les debemos un montón de gracias a los miembros del equipo de BerliOS que han ayudado durante la fase de planificación, así como a nuestros <a href="../partners/index.php.es">colaboradores</a> por su generoso patrocinio.
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>

@@ -10,7 +10,7 @@
 
 <?php
  if ( !isset( $top_level ) ) {
-   $top_level = ".";
+   $top_level = "./";
  }
 ?>
    <link rel="stylesheet" href="<?php echo $top_level; ?>berlios.css" type="text/css">

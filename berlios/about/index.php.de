@@ -1,11 +1,10 @@
 <?php
-$top_level = "..";
-require("../include/site_header.html.de");
+$top_level = "../";
+require($top_level."include/site_header.html.de");
 ?>
 
 <?php
-$top_level = "..";
-require("../include/site_menubar.html.de");
+require($top_level."include/site_menubar.html.de");
 ?>
 
 <h2>&Uuml;ber uns</h2>
@@ -30,7 +29,7 @@ uns bei der Planung und dem Aufbau der Infrastuktur helfen, sowie bei den
 <a href="../partners/index.php.de">Firmen und Institutionen</a>, die uns gro&szlig;z&uuml;gig unterst&uuml;tzen.
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>

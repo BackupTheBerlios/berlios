@@ -1,6 +1,6 @@
 <?php
-$top_level = "..";
-require("../include/site_header.html.en");
+$top_level = "../";
+require($top_level."include/site_header.html.en");
 ?>
 
 <h2>Contact</h2>
@@ -19,7 +19,7 @@ directly via email, or use the following address:
 <br>Internet: <a href="http://www.berlios.de/">http://www.berlios.de/</a>
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>
