@@ -89,6 +89,8 @@ function display_docs($style,$group_id) {
 		$title_arr=array();
 		$title_arr[]='Document ID';
 		$title_arr[]='Name';
+		$title_arr[]='Type';
+		$title_arr[]='Filename';
 		$title_arr[]='Create Date';
                 $title_arr[]='Update Date';
 
@@ -99,6 +101,8 @@ function display_docs($style,$group_id) {
 			print 	"<tr bgcolor=\"".html_get_alt_row_color($i)."\">"
 				."<td>".$row['docid']."</td>"
 				."<td><a href=\"index.php?docid=".$row['docid']."&mode=docedit&group_id=".$group_id."\">".$row['title']."</a></td>"
+				."<td>".$row['type']."</td>"
+				."<td>".$row['filename']."</td>"
 				."<td>".date($sys_datefmt,$row['createdate'])."</td>"
 				."<td>".date($sys_datefmt,$row['updatedate'])."</td>"
 				."</tr>";

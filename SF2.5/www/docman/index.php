@@ -41,7 +41,7 @@ if ($group_id) {
 		print "<hr>";
 		// get the groupings and display them with their members.
 		while ($row = db_fetch_array($result)) {
-			$query = "select description, docid, title, doc_group "
+			$query = "select description, docid, title, doc_group, type, filename "
 				."from doc_data "
 				."where doc_group = '".$row['doc_group']."' "
 				."and stateid ='1' "
@@ -59,7 +59,10 @@ if ($group_id) {
 				print "<p><b>".$row['groupname']."</b>\n<ul>\n";
 				while ($subrow = db_fetch_array($subresult)) {
 					print "<li><a href=\"display_doc.php?docid=".$subrow['docid']."&group_id=".$group_id."\">".$subrow['title']."</a>".
-					"<BR><i>Description:</i> ".$subrow['description']; 
+					"<BR><i>Description:</i> ".$subrow['description'].
+					  "<BR><i>Type:</i> ".$subrow['type'];
+					if ($subrow['filename'])
+					  print "<BR><i>Filename:</i> ".$subrow['filename'];
 				}
 				print "</ul>\n\n";
 

@@ -1,5 +1,4 @@
 <?php
-
 //
 // SourceForge: Breaking Down the Barriers to Open Source Development
 // Copyright 1999-2000 (c) The SourceForge Crew
@@ -51,7 +50,7 @@ function main_page($group_id) {
 
 		echo '
 	
-			<form name="editdata" action="index.php?mode=docdoedit&group_id='.$group_id.'" method="POST">
+			<form name="editdata" action="index.php?mode=docdoedit&group_id='.$group_id.'" method="POST" enctype="multipart/form-data">
 
 			<table border="0" width="75%">
 
@@ -76,33 +75,55 @@ function main_page($group_id) {
 		echo html_get_language_popup($Language,'language_id',$row['language_id']);
 
 		echo	'
+            <tr>
+                    <th>Type:</th>
+                    <td><input type="hidden" name="type" value="'.$row['type'].'">'.$row['type'].'</td>
+            </tr>';
 
+		if ($row['filename']) {
+		  echo '
+            <tr>
+                    <th>Filename:</th>
+                    <td><input type="hidden" name="filename" value="'.$row['filename'].'">'.$row['filename'].' (<a href="../display_doc.php?docid='.$docid.'&group_id='.$group_id.'">View Document</a>)</td>
+            </tr>';
+		}
+
+		echo '
 			<tr>
-			        <th>Document Information (in html format):</th>
-			        <td><textarea cols="60" rows="10" name="data">'.$row['data'].'</textarea></td>
+			<th> <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                 <input type="checkbox" name="upload_instead" value="1"> <B>Upload File:</B></th>
+			<td> <input type="file" name="uploaded_data" size="30"></td>
 			</tr>
 
 			<tr>
-			        <th>Group doc belongs in:</th>
-        			<td>';
+			<th>OR Document Information (in html format):</th>
+			<td><textarea cols="60" rows="10" name="data">';
+
+		if ($row['type'] == "text/html") {
+		  echo $row['data'];
+		}
+		echo '</textarea></td>
+			</tr>
+
+			<tr>
+			<th>Group doc belongs in:</th>
+        	<td>';
 
 		display_groups_option($group_id,$row['doc_group']);
 
-		echo '			</td>
+		echo '	</td>
 				</tr>
 
 				<tr>
-				        <th>State:</th>
-				        <td>';
+				<th>State:</th>
+				<td>';
 
 		$res_states=db_query("select * from doc_states;");
 		echo html_build_select_box ($res_states, 'stateid', $row['stateid']);
 
 		echo '
-       				</td>
+       		</td>
 			</tr>
-
-
 
 		</table>
 
@@ -174,21 +195,60 @@ function main_page($group_id) {
 		
 		$result = db_query($query);
 	
-		if (db_numrows($result) == 1) {	
+		if (db_numrows($result) == 1) {
 
-			$query = "update doc_data "
-				."set title = '".htmlspecialchars($title)."', "
-				."data = '".htmlspecialchars($data)."', "
-				."updatedate = '".time()."', "
-				."doc_group = '".$doc_group."', "
-				."stateid = '".$stateid."', "
-				."language_id = '".$language_id."', "
-				."description = '".htmlspecialchars($description)."' "
-				."where docid = '".$docid."'"; 
+		  if ($upload_instead) {
+	  
+			$filename = $_FILES['uploaded_data']['name'];
+			$type = $_FILES['uploaded_data']['type'];
+			$size = $_FILES['uploaded_data']['size'];
+			$tmp_name = $_FILES['uploaded_data']['tmp_name'];
+			$error = $_FILES['uploaded_data']['error'];
+			// print "<p>$filename<br>$type<br>$size<br>$tmp_name<br>$error\n";
+
+			if ($error == UPLOAD_ERR_INI_SIZE) {
+			  $feedback .= ' ERROR - The uploaded file exceeds the maximal allowed size';
+			  exit_error('Missing Info',$feedback.' - Please click back and fix the error.');
+			} elseif ($error == UPLOAD_ERR_FORM_SIZE) {
+			  $feedback .= ' ERROR - The uploaded file exceeds the maximal allowed size';
+			  exit_error('Missing Info',$feedback.' - Please click back and fix the error.');
+			} elseif ($error == UPLOAD_ERR_PARTIAL) {
+			  $feedback .= ' ERROR - The uploaded file was only partially uploaded';
+			  exit_error('Missing Info',$feedback.' - Please click back and try again.');
+			}
+			
+			$datab = pg_escape_bytea(fread( fopen($tmp_name, 'r'), $size));
+			$data = "";
+
+			$feedback .= ' Document Uploaded ';
+		  } else {
+			if ($type == "text/html" || $data != "") {
+			  $data = htmlspecialchars($data);
+			  $datab = "";
+			  $type = "text/html";
+			  $filename = "";
+			}
+		  }
+
+		  $query = "update doc_data "
+			."set title = '".htmlspecialchars($title)."', ";
+
+		  if ($datab != "") $query .= "datab = '".$datab."', ";
+
+		  $query .= "updatedate = '".time()."', "
+			."type = '".$type."', "
+			."filename = '".$filename."', "
+			."data = '".$data."', "
+			."doc_group = '".$doc_group."', "
+			."stateid = '".$stateid."', "
+			."language_id = '".$language_id."', "
+			."description = '".htmlspecialchars($description)."' "
+			."where docid = '".$docid."'"; 
 		
-			db_query($query);
-			$feedback .= "Document \" ".htmlspecialchars($title)." \" updated";
-			main_page($group_id);
+		  db_query($query);
+		  // print "<p>$query\n";
+		  $feedback .= "Document \" ".htmlspecialchars($title)." \" updated";
+		  main_page($group_id);
 
 		} else {
 
