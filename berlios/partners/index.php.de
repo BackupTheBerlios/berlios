@@ -1,14 +1,14 @@
 <?php
-$top_level = "..";
-require("../include/site_header.html.de");
+$top_level = "../";
+require($top_level."include/site_header.html.de");
 ?>
 
 <?php
-require("include/partners.html.de");
+require($top_level."include/partners.html.de");
 ?>
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>

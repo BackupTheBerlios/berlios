@@ -1,17 +1,17 @@
 <?php
-$top_level = "..";
-require("../include/site_menubar.html.es");
+$top_level = "../";
+require($top_level."include/site_menubar.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.2 2002/05/14 10:10:36 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.3 2002/05/14 10:51:09 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
-require("include/partners.html.es");
+require($top_level."include/partners.html.es");
 ?>
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>

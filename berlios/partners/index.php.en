@@ -1,15 +1,15 @@
 <?php
-$top_level = "..";
-require("../include/site_header.html.en");
+$top_level = "../";
+require($top_level."include/site_header.html.en");
 ?>
 
 <?php
-require("include/partners.html.en");
+require($top_level."include/partners.html.en");
 ?>
 
 
 <?php
-require("../include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>
