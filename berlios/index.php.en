@@ -1,31 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
-<html>
-<head>
-   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-   <meta name="GENERATOR" content="Mozilla/4.71 [en] (X11; I; SunOS 5.6 sun4m) [Netscape]">
-   <title>BerliOS - The Open Source Mediator</title>
-<link rel="stylesheet" href="berlios.css" type="text/css">
-</head>
-<body bgcolor="#FFFFFF" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
-
 <?php
 require("include/site_header.html.en");
 ?>
 
-<!-- content -->
-<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
-<tr VALIGN=TOP>
+<b>The BerliOS project</b>
 
-<?php
-require("include/site_menubar.html.en");
-?>
+<p>The goal of BerliOS is to provide support for different interest groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. The target groups of BerliOS are on one hand the 
+developers and users of Open Source Software and on the other hand commercial 
+manufacturers of OSS operating systems and applications as well as support 
+companies.
 
-<!-- content -->
-<td WIDTH="99%">
-<p>&nbsp;
-<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
-<tr VALIGN=TOP>
-<td WIDTH="65%">
+
 <!--  <center><h2>The BerliOS Pie</h2></center> -->
 
 <map name="BerliOSPie">
@@ -71,13 +57,6 @@ require("include/site_menubar.html.en");
 <img src="images/berlios_small_pie_e.jpg" width="451" height="451" 
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
-
-<p>The goal of BerliOS is to provide support for different interest groups 
-in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
-mediator function. The target groups of BerliOS are on one hand the 
-developers and users of Open Source Software and on the other hand commercial 
-manufacturers of OSS operating systems and applications as well as support 
-companies.
 
 <?php
 require("include/site_footer.html");

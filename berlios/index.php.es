@@ -2,23 +2,8 @@
 require("include/site_header.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.13 2002/05/14 00:16:22 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.14 2002/05/14 00:29:20 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
-
-<!-- content -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr valign="top">
-
-<?php
-require("include/site_menubar.html.es");
-?>
-
-    <!-- content -->
-    <td width="99%">
-      <p>&nbsp;
-      <table border="0" cellspacing="0" cellpadding="0" width="100%">
-        <tr valign="top">
-          <td width="65%">
 
             <b>El proyecto BerliOS</b>
 
