@@ -115,7 +115,7 @@ OSDN navbar
 
 	}
 	print '</td>
-		<td valign="center" align="right" bgcolor="#ffce31" WIDTH="20%"><a href="http://www.fokus.fhg.de">' . html_image("images/logo_fokus.png","60","60",array("hspace"=>"5","vspace"=>"5","border"=>"0","alt"=>" Fraunhofer FOKUS ")) . '</a>
+		<td valign="center" align="right" bgcolor="#ffce31" WIDTH="20%"><a href="http://www.fokus.fraunhofer.de">' . html_image("images/logo_fokus.png","60","60",array("hspace"=>"5","vspace"=>"5","border"=>"0","alt"=>" Fraunhofer FOKUS ")) . '</a>
 	</td>
 	</tr>
 </table>
