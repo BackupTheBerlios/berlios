@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: menu.php,v 1.3 2003/12/03 12:09:43 helix Exp $
+// $Id: menu.php,v 1.4 2004/02/03 08:59:19 helix Exp $
 
 /* The correct theme.php must be included by this point -- Geoffrey */
 
@@ -115,6 +115,9 @@ function menu_project($grp) {
 	GLOBAL $HTML, $Language;
 	$HTML->menuhtml_top('Project: ' . group_getname($grp));
 		$HTML->menu_entry('/projects/'. group_getunixname($grp) .'/',$Language->PROJECT_SUMMARY);
+                $HTML->menu_entry('/forum/?group_id='. $grp,$Language->DISCUSSION_FORUMS);
+                $HTML->menu_entry('/bugs/?group_id='. $grp,$Language->SUBMIT_BUGS);
+                $HTML->menu_entry('/support/?group_id='. $grp,$Language->REQUEST_SUPPORT);
 		print '<P>';
 		$HTML->menu_entry('/project/admin/?group_id='.$grp,$Language->PROJECT_ADMIN);
 	$HTML->menuhtml_bottom();
