@@ -4,7 +4,7 @@
 # Copyright 1999-2000 (c) The SourceForge Crew
 # http://sourceforge.net
 #
-# $Id: DatabaseDump.pl,v 1.4 2004/05/25 15:31:07 helix Exp $
+# $Id: DatabaseDump.pl,v 1.5 2004/05/26 09:24:56 helix Exp $
 #
 use DBI;
 use Sys::Hostname;
@@ -203,34 +203,36 @@ $query = "SELECT * FROM prweb_vhost";
 $c = $dbh->prepare($query);
 $c->execute();
 
-while(my ($vhostid,$vhost_name,$docdir,$cgidir,$logdir,$group_id) = $c->fetchrow()) {
-	push @tmp_array, "\n\n### Virtual Host entries for: $vhost_name\n\n";
-	push @tmp_array, "<VirtualHost $config{'www_ip_addr'}:80>\n";
-	push @tmp_array, "    DocumentRoot \"$docdir\"\n";
-	push @tmp_array, "    CustomLog ${logdir}combined.log combined\n";
-	push @tmp_array, "    ErrorLog ${logdir}error.log\n";
-	push @tmp_array, "    ScriptAlias /cgi-bin/ \"$cgidir\"\n";
-	push @tmp_array, "    ServerName $vhost_name\n";
-	push @tmp_array, "</VirtualHost>\n";
+while(my ($vhostid,$vhost_name,$docdir,$cgidir,$logdir,$group_id,$state) = $c->fetchrow()) {
+	if ( $state eq "1" ) { 
+		push @tmp_array, "\n\n### Virtual Host entries for: $vhost_name\n\n";
+		push @tmp_array, "<VirtualHost $config{'www_ip_addr'}:80>\n";
+		push @tmp_array, "    DocumentRoot \"$docdir\"\n";
+		push @tmp_array, "    CustomLog ${logdir}combined.log combined\n";
+		push @tmp_array, "    ErrorLog ${logdir}error.log\n";
+		push @tmp_array, "    ScriptAlias /cgi-bin/ \"$cgidir\"\n";
+		push @tmp_array, "    ServerName $vhost_name\n";
+		push @tmp_array, "</VirtualHost>\n";
 
-        push @tmp_array, "<VirtualHost $config{'www_ip_addr'}:443>\n";
-	push @tmp_array, "    DocumentRoot \"$docdir\"\n";
-	push @tmp_array, "    CustomLog ${logdir}combined.log combined\n";
-	push @tmp_array, "    ErrorLog ${logdir}error.log\n";
-	push @tmp_array, "    ScriptAlias /cgi-bin/ \"$cgidir\"\n";
-	push @tmp_array, "    ServerName $vhost_name\n";
-        push @tmp_array, "    SSLEngine on\n";
-        push @tmp_array, "    SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL\n";
-##	push @tmp_array, "    SSLCertificateFile /etc/httpd/ssl.crt/server.crt\n";
-##	push @tmp_array, "    SSLCertificateKeyFile /etc/httpd/ssl.key/server.key\n";
-        push @tmp_array, "    <Files ~ \"\\.(cgi|shtml|phtml|php3?)\$\">\n";
-        push @tmp_array, "        SSLOptions +StdEnvVars\n";
-        push @tmp_array, "    </Files>\n";
-        push @tmp_array, "    <Directory \"$cgidir\">\n";
-        push @tmp_array, "        SSLOptions +StdEnvVars\n";
-        push @tmp_array, "    </Directory>\n";
-        push @tmp_array, "    SetEnvIf User-Agent \".*MSIE.*\" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0\n";
-        push @tmp_array, "</VirtualHost>\n";
+		push @tmp_array, "<VirtualHost $config{'www_ip_addr'}:443>\n";
+		push @tmp_array, "    DocumentRoot \"$docdir\"\n";
+		push @tmp_array, "    CustomLog ${logdir}combined.log combined\n";
+		push @tmp_array, "    ErrorLog ${logdir}error.log\n";
+		push @tmp_array, "    ScriptAlias /cgi-bin/ \"$cgidir\"\n";
+		push @tmp_array, "    ServerName $vhost_name\n";
+        	push @tmp_array, "    SSLEngine on\n";
+        	push @tmp_array, "    SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL\n";
+##		push @tmp_array, "    SSLCertificateFile /etc/httpd/ssl.crt/server.crt\n";
+##		push @tmp_array, "    SSLCertificateKeyFile /etc/httpd/ssl.key/server.key\n";
+        	push @tmp_array, "    <Files ~ \"\\.(cgi|shtml|phtml|php3?)\$\">\n";
+        	push @tmp_array, "        SSLOptions +StdEnvVars\n";
+        	push @tmp_array, "    </Files>\n";
+        	push @tmp_array, "    <Directory \"$cgidir\">\n";
+        	push @tmp_array, "        SSLOptions +StdEnvVars\n";
+        	push @tmp_array, "    </Directory>\n";
+        	push @tmp_array, "    SetEnvIf User-Agent \".*MSIE.*\" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0\n";
+        	push @tmp_array, "</VirtualHost>\n";
+	}
 }
 
 &done("vhost.conf", @tmp_array);
