@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2004/06/08 07:58:39 helix Exp $
+// $Id: index.php,v 1.4 2004/06/09 10:57:15 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Exports Available"));
@@ -29,13 +29,12 @@ XML Exports
 
 <h4>News Data</h4>
 <p>
-All links below require <tt>?group_id=</tt> parameter with id of specific
-group.
+You will get Project News or New Project Releases of a specific project, if an additional <tt>?group_id=</tt> parameter with id of  project is defined within the Links below.
 <UL>
-<LI><A href="rss_bsnews.php"><?php print $GLOBALS[sys_default_name] ?> Front Page/Project News</A>
+<LI><A href="rss_bsnews.php"><?php print $GLOBALS[sys_default_name] ?> Front Page News/Project News</A>
 (<A href="http://my.netscape.com/publish/formats/rss-spec-0.91.html">RSS 0.91</A>,
 <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
-<LI><A href="rss_bsnewreleases.php"><?php print $GLOBALS[sys_default_name] ?> New Releases</A>
+<LI><A href="rss_bsnewreleases.php"><?php print $GLOBALS[sys_default_name] ?> New Releases/New Project Releases</A>
 (<A href="http://my.netscape.com/publish/formats/rss-spec-0.91.html">RSS 0.91</A>,
 <A href="http://my.netscape.com/publish/formats/rss-0.91.dtd">&lt;rss-0.91.dtd&gt;</A>)
 </UL>
