@@ -42,25 +42,25 @@ function newsbox ($title, $content) {
 
 $boxtitle = "BerliOS News";
 $back_url = "http://news.berlios.de/backend.php";
-include($toplevel."include/backend2newslist.php");
+include($top_level."include/backend2newslist.php");
 newsbox($boxtitle, $boxstuff);
 $boxstuff = "";
 
 $boxtitle = "SourceBiz";
 $back_url = "http://sourcebiz.berlios.de/backend.php3";
-include($toplevel."include/backend2newslist.php");
+include($top_level."include/backend2newslist.php");
 newsbox($boxtitle, $boxstuff);
 $boxstuff = "";
 
 $boxtitle = "SourceWell";
 $back_url = "http://sourcewell.berlios.de/backend.php3";
-include($toplevel."include/backend2newslist.php");
+include($top_level."include/backend2newslist.php");
 newsbox($boxtitle, $boxstuff);
 $boxstuff = "";
 
 $boxtitle = "DocsWell";
 $back_url = "http://docswell.berlios.de/backend.php";
-include($toplevel."include/backend2newslist.php");
+include($top_level."include/backend2newslist.php");
 newsbox($boxtitle, $boxstuff);
 $boxstuff = "";
 

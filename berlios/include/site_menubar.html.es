@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.es,v 1.5 2002/05/13 23:51:40 grex Exp $ -->
+<!-- $Id: site_menubar.html.es,v 1.6 2002/05/14 10:30:44 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -18,9 +18,9 @@
       
         <tr align="right" bgcolor="#FFCC33">
           <td>
-            <p><a href="users.php.es" class="menus">Usuarios</a>
-            <br><a href="developers.php.es" class="menus">Desarrolladores</a>
-            <br><a href="manufacturer.php.es" class="menus">Industria &amp;<br>Proveedores Servicios</a>
+            <p><a href="<?php echo $top_level; ?>users.php.es" class="menus">Usuarios</a>
+            <br><a href="<?php echo $top_level; ?>developers.php.es" class="menus">Desarrolladores</a>
+            <br><a href="<?php echo $top_level; ?>manufacturer.php.es" class="menus">Industria &amp;<br>Proveedores Servicios</a>
           </td>
         </tr>
       </table>
@@ -35,9 +35,9 @@
       
         <tr align="right" bgcolor="#FFCC33">
           <td>
-            <p><a href="info_plat.php.es" class="menus">Plataforma de Información</a>
-            <br><a href="supp_deve.php.es" class="menus">Desarrollo de Open Source</a>
-            <br><a href="pres_plat.php.es" class="menus">Presentación de la Plataforma</a>
+            <p><a href="<?php echo $top_level; ?>info_plat.php.es" class="menus">Plataforma de Información</a>
+            <br><a href="<?php echo $top_level; ?>supp_deve.php.es" class="menus">Desarrollo de Open Source</a>
+            <br><a href="<?php echo $top_level; ?>pres_plat.php.es" class="menus">Presentación de la Plataforma</a>
           </td>
         </tr>
       </table>
@@ -52,10 +52,10 @@
       
         <tr align="right" bgcolor="#FFCC33">
           <td>
-            <p><a href="goals.php.es" class="menus">Objetivos</a>
-            <br><a href="proj_spon.php.es" class="menus">Patrocinio de Proyectos</a>
-            <br><a href="exis_solu.php.es" class="menus">Soluciones Existentes</a>
-            <br><a href="know_hows.php.es" class="menus">Know How</a>
+            <p><a href="<?php echo $top_level; ?>goals.php.es" class="menus">Objetivos</a>
+            <br><a href="<?php echo $top_level; ?>proj_spon.php.es" class="menus">Patrocinio de Proyectos</a>
+            <br><a href="<?php echo $top_level; ?>exis_solu.php.es" class="menus">Soluciones Existentes</a>
+            <br><a href="<?php echo $top_level; ?>know_hows.php.es" class="menus">Know How</a>
           </td>
         </tr>
       </table>
@@ -83,8 +83,8 @@
             <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
             <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
       
-            <p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0" alt="de"></a>
-            <p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0" alt="en"></a>
+            <p><a href="<?php echo $top_level; ?>index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0" alt="de"></a>
+            <p><a href="<?php echo $top_level; ?>index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0" alt="en"></a>
           </td>
         </tr>
       </table>

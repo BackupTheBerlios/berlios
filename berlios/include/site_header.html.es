@@ -9,7 +9,6 @@
    <meta name="KeyWords" content="Open Source, software libre, desarrollo, GPL, licencias libres, aplicaciones, proyectos">
 
 <?php
- global $top_level;
  if ( !isset( $top_level ) ) {
    $top_level = ".";
  }
