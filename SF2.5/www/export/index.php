@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.5 2005/02/07 13:26:16 helix Exp $
+// $Id: index.php,v 1.6 2005/02/10 16:03:41 helix Exp $
 
 require "pre.php";    
 $HTML->header(array(title=>"Exports Available"));
@@ -25,8 +25,7 @@ XML Exports
 <LI><A href="rss20_bsprojects.php"><?php print $GLOBALS[sys_default_name] ?> Full Project Listing</A>
 (<A href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</A>)
 <LI><A href="trove_tree.php"><?php print $GLOBALS[sys_default_name] ?> Trove Categories Tree</A>
-(<A href="http://www.w3.org/XML">XML</A>,
-<A href="trove_tree_0.1.dtd">&lt;trove_tree_0.1.dtd&gt;</A>)
+(<A href="http://www.w3.org/XML">XML</A>, <A href="trove_tree_0.1.dtd">&lt;trove_tree_0.1.dtd&gt;</A>)
 </UL>
 
 <h4>News Data</h4>
@@ -57,13 +56,15 @@ project property, require project admin privilege.
 
 <UL>
 <LI><A href="nitf_bsforums.php">Project Forums</A>
-(<A href="bs_forum_0.1.dtd.txt">&lt;bs_forum_0.1.dtd&gt;</A>)
+(<A href="http://www.w3.org/XML">XML</A>, <A href="bs_forum_0.1.dtd.txt">&lt;bs_forum_0.1.dtd&gt;</A>)
 <LI><A href="bug_dump.php">Project Bugs</A>
-(<A href="bs_bugs_0.1.dtd.txt">&lt;bs_bugs_0.1.dtd&gt;</A>)
+(<A href="http://www.w3.org/XML">XML</A>, <A href="bs_bugs_0.1.dtd.txt">&lt;bs_bugs_0.1.dtd&gt;</A>)
 <LI><A href="support_dump.php">Project Support</A>
-(<A href="bs_support_0.1.dtd.txt">&lt;bs_support_0.1.dtd&gt;</A>)
+(<A href="http://www.w3.org/XML">XML</A>, <A href="bs_support_0.1.dtd.txt">&lt;bs_support_0.1.dtd&gt;</A>)
 <LI><A href="patch_dump.php">Project Patches</A>
-(<A href="bs_patches_0.1.dtd.txt">&lt;bs_patches_0.1.dtd&gt;</A>)
+(<A href="http://www.w3.org/XML">XML</A>, <A href="bs_patches_0.1.dtd.txt">&lt;bs_patches_0.1.dtd&gt;</A>)
+<LI><A href="task_dump.php">Project Tasks</A>
+(<A href="http://www.w3.org/XML">XML</A>, <A href="bs_tasks_0.1.dtd.txt">&lt;bs_tasks_0.1.dtd&gt;</A>)
 </UL>
 
 <h3>
