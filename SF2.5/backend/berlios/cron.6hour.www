@@ -32,6 +32,15 @@ cd /usr/local/httpd/SF2.5/backend/berlios
 ./create_project_homedir.pl
 /usr/local/httpd/SF2.5/backend/shell/apache.sh
 
+#   Create group/project vhost home directories
+#   (/home/groups/<projectname>/vhost/<vhost>)
+#   based on infos available in /home/dummy/dumps25/vhost_dump
+#   !!! This is executed on NFS server !!!
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_project_vhostdir.pl
+/usr/local/httpd/SF2.5/backend/shell/apache_vhost.sh
+
 #   Set virtual host entries for Apache server and restart it
 #
 echo ""

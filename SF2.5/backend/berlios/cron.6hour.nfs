@@ -48,17 +48,26 @@ ntpdate 193.174.154.5
 #   based on infos available in /home/dummy/dumps25/group_dump
 #   !!! Previously executed on WWW server !!!
 #
-cd /usr/local/httpd/SF2.5/backend/berlios
-./create_project_homedir.pl
-/usr/local/httpd/SF2.5/backend/shell/apache.sh
+#cd /usr/local/httpd/SF2.5/backend/berlios
+#./create_project_homedir.pl
+#/usr/local/httpd/SF2.5/backend/shell/apache.sh
+
+#   Create group/project vhost home directories
+#   (/home/groups/<projectname>/vhost/<vhost>)
+#   based on infos available in /home/dummy/dumps25/vhost_dump
+#   !!! Previously executed on WWW server !!!
+#
+#cd /usr/local/httpd/SF2.5/backend/berlios
+#./create_project_vhostdir.pl
+#/usr/local/httpd/SF2.5/backend/shell/apache_vhost.sh
 
 #
 # Create authorized keys2 in user ssh directory
 # (/home/users/<user>/.ssh/autherized_keys2)
 # !!! Previously executed on SHELL server !!!
 #
-cd /usr/local/httpd/SF2.5/utils
-./ssh2_create.pl
+#cd /usr/local/httpd/SF2.5/utils
+#./ssh2_create.pl
 
 echo ""
 echo "Done."
