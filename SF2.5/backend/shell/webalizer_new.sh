@@ -5,7 +5,7 @@ PATH=$PATH:/opt/csw/bin
 echo ""
 echo "Create project usage directories for Webalizer: "
 
-for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp` ; do
+for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp$` ; do
 	if [ ! -d /home/groups/$i/htdocs/usage ] ; then
 		mkdir /home/groups/$i/htdocs/usage
 		chown $i:$i /home/groups/$i/htdocs/usage
