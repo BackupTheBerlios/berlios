@@ -4,14 +4,16 @@
 // Copyright 2000-2004 (c) The BerliOS Crew
 // http://www.berlios.de
 //
-// $Id: user_donations.php,v 1.1 2004/04/02 10:40:21 helix Exp $
+// $Id: user_donations.php,v 1.2 2005/02/11 11:09:08 helix Exp $
 
 require "pre.php";    
+require($DOCUMENT_ROOT.'/admin/admin_utils.php');
+
 session_require(array('group'=>'1','admin_flags'=>'A'));
-$HTML->header(array('title'=>'Alexandria: User Donations'));
+
+site_admin_header(array('title'=>"User Donations"));
 
 echo '<H2>List of User Donations</H2>';
-echo "<p><a href=\"/admin/\">Site Admin Home</a>\n";
 
 // Administrative functions for Donations
 
@@ -80,7 +82,7 @@ if (!$res || db_numrows($res) < 1) {
   echo "<p>Donations List in Status: <b>$status</b>\n";
 ?>
 <p>
-<table border="1">
+<table width="100%" cellspacing="0" cellpadding="1" border="1">
 <tr>
 <th><b>Login name</b></th>
 <th>User ID</th>
