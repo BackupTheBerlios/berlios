@@ -47,18 +47,11 @@ while ($ln = shift(@vhost_dump)) {
 #       system("find $logdir -type d | xargs chmod g+s");
         print("chown -h $gid:$gid $logdir\n");
         system("chown -h $gid:$gid $logdir");
-    } elsif ( $status eq "2" ) {
-        if ( -d $docdir ) {
+    } elsif ( $state eq "2" ) {
+        $docdir=~s/\/htdocs\///;
+	if ( -d $docdir ) {
             print("rm -rf $docdir\n");
             system("rm -rf $docdir");
-        }
-        if ( -d $cgidir ) {
-            print("rm -rf $cgidir\n");
-            system("rm -rf $cgidir");
-        }
-        if ( -d $logdir ) {
-            print("rm -rf $logdir\n");
-            system("rm -rf $logdir");
         }
     } 
 }
