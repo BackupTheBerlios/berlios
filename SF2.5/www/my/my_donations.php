@@ -4,7 +4,7 @@
 // Copyright 2000-2004 (c) The BerliOS Crew
 // http://developer.berlios.de
 //
-// $Id: my_donations.php,v 1.1 2004/04/02 11:20:48 helix Exp $
+// $Id: my_donations.php,v 1.2 2004/04/02 12:35:42 helix Exp $
 
 require ('pre.php');
 require ('donate.php');
@@ -38,7 +38,7 @@ if (user_isloggedin() || $sf_user_hash) {
 
 <h2>Donations from <?php print $G_SESSION->getUnixName(); ?></h2>
 
-<h3>Donations to projects</h3>
+<h3>My Donations to Projects</h3>
 
 <?php
 
@@ -80,7 +80,7 @@ if (user_isloggedin() || $sf_user_hash) {
 	}
 ?>
 
-<h3>Donations to developers</h3>
+<h3>My Donations to Developers</h3>
 
 <?php
 	$res=db_query("SELECT * FROM user_donors WHERE user_id='".user_getid()."'");
