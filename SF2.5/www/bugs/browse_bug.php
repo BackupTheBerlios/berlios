@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_bug.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: browse_bug.php,v 1.3 2004/01/09 15:46:06 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -15,7 +15,7 @@ if (!$offset || $offset < 0) {
 // Automatically discard invalid field names.
 //
 if ($order) {
-	if ($order=='bug_id' || $order=='summary' || $order=='date' || $order=='assigned_to_user' || $order=='submitted_by' || $order=='priority') {
+	if ($order=='bug_id' || $order=='summary' || $order=='category_id' || $order=='bug_group_id' || $order=='status_id' || $order=='date' || $order=='assigned_to_user' || $order=='submitted_by' || $order=='priority') {
 		if(user_isloggedin()) {
 			user_set_preference('bug_browse_order', $order);
 		}
@@ -29,8 +29,13 @@ if ($order) {
 }
 
 if ($order) {
+	if ($order != 'assigned_to_user' && $order != 'priority') {
+		$order_by_field = 'bug.';
+	} else {
+		$order_by_field = '';
+	}
 	//if ordering by priority OR closed date, sort DESC
-	$order_by = " ORDER BY $order ".((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
+	$order_by = " ORDER BY ".$order_by_field.$order.((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
 } else {
 	$order_by = " ORDER BY bug.group_id,bug.bug_id ";
 }
@@ -167,7 +172,7 @@ echo '<FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
 
 if ($set=='open') {
 	/*
-		For open or default, see if the user has a filer set up
+		For open or default, see if the user has a filter set up
 	*/
 	if (user_isloggedin()) {
 		$sql="SELECT sql_clause FROM bug_filter WHERE user_id='".user_getid()."' AND group_id='$group_id' AND is_active='1'";
@@ -176,14 +181,21 @@ if ($set=='open') {
 		$result=false;
 	}
 	if ($result && db_numrows($result) > 0) {
-		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
-			"user2.user_name AS assigned_to_user ".
-			"FROM bug,users,users user2 ".
+		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
+                        "user2.user_name AS assigned_to_user, ".
+			"bug_category.category_name, ".
+                        "bug_group.group_name, ".
+                        "bug_status.status_name ".
+			"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 			"WHERE (". stripslashes( db_result($result,0,'sql_clause') ) .") ".
 			"AND users.user_id=bug.submitted_by ".
-			"AND user2.user_id=bug.assigned_to ".
-			"AND group_id='$group_id'".
-"AND bug_id!='100'".
+                        "AND user2.user_id=bug.assigned_to ".
+                        "AND bug_category.bug_category_id=bug.category_id ".
+                        "AND bug_category.group_id='$group_id' ".
+                        "AND bug_group.bug_group_id=bug.bug_group_id ".
+                        "AND bug_group.group_id='$group_id' ".
+                        "AND bug_status.status_id=bug.status_id ".
+			"AND bug_id!='100'".
 			$order_by ; 
 
 		$statement="Using Your Filter";
@@ -192,14 +204,22 @@ if ($set=='open') {
 		/*
 			Just browse the bugs in this group
 		*/
-		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
-			"user2.user_name AS assigned_to_user ".
-			"FROM bug,users,users user2 ".
+		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
+                        "user2.user_name AS assigned_to_user, ".
+                        "bug_category.category_name, ".
+                        "bug_group.group_name, ".
+                        "bug_status.status_name ".
+			"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 			"WHERE users.user_id=bug.submitted_by ".
 			"AND bug.status_id <> '3' ".
-			"AND user2.user_id=bug.assigned_to ".
-			"AND group_id='$group_id'".
-"AND bug_id!='100'".
+                        "AND user2.user_id=bug.assigned_to ".
+                        "AND bug_category.bug_category_id=bug.category_id ".
+                        "AND bug_category.group_id='$group_id' ".
+                        "AND bug_group.bug_group_id=bug.bug_group_id ".
+                        "AND bug_group.group_id='$group_id' ".
+			"AND bug.group_id='$group_id' ".
+                        "AND bug_status.status_id=bug.status_id ".
+			"AND bug_id!='100'".
 			$order_by ;
 
 	}
@@ -208,18 +228,26 @@ if ($set=='open') {
 	/*
 		Use the query from the form post
 	*/
-	$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
-		"user2.user_name AS assigned_to_user ".
-		"FROM bug,users,users user2 ".
+	$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
+                "user2.user_name AS assigned_to_user, ".
+                "bug_category.category_name, ".
+                "bug_group.group_name, ".
+                "bug_status.status_name ".
+		"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 		"WHERE users.user_id=bug.submitted_by ".
 		" $status_str $assigned_str $bug_group_str $category_str ".
-		"AND user2.user_id=bug.assigned_to ".
-		"AND group_id='$group_id'".
-"AND bug_id!='100'".
+                "AND user2.user_id=bug.assigned_to ".
+                "AND bug_category.bug_category_id=bug.category_id ".
+                "AND bug_category.group_id='$group_id' ".
+                "AND bug_group.bug_group_id=bug.bug_group_id ".
+                "AND bug_group.group_id='$group_id' ".
+                "AND bug_status.status_id=bug.status_id ".
+		"AND bug.group_id='$group_id' ".
+		"AND bug_id!='100'".
 		$order_by ;
 
 }
-//echo "<p>$sql\n";
+// echo "<p>$sql\n";
 
 $result=db_query($sql,51,$offset);
 

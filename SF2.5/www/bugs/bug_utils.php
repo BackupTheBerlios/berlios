@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: bug_utils.php,v 1.3 2003/11/27 15:15:16 helix Exp $
+// $Id: bug_utils.php,v 1.4 2004/01/09 15:46:06 helix Exp $
 
 /*
 
@@ -183,6 +183,9 @@ function show_buglist ($result,$offset,$set='open') {
 	$title_arr=array();
 	$title_arr[]='Bug ID';
 	$title_arr[]='Summary';
+	$title_arr[]='Category';
+        $title_arr[]='Group';
+        $title_arr[]='Status';
 	$title_arr[]='Date';
 	$title_arr[]='Assigned To';
 	$title_arr[]='Submitted By';
@@ -190,6 +193,9 @@ function show_buglist ($result,$offset,$set='open') {
 	$links_arr=array();
 	$links_arr[]=$url.'bug_id';
 	$links_arr[]=$url.'summary';
+        $links_arr[]=$url.'category_id';
+        $links_arr[]=$url.'bug_group_id';
+        $links_arr[]=$url.'status_id';
 	$links_arr[]=$url.'date';
 	$links_arr[]=$url.'assigned_to_user';
 	$links_arr[]=$url.'submitted_by';
@@ -208,10 +214,12 @@ function show_buglist ($result,$offset,$set='open') {
 		'</TD>'.
 		'<TD><A HREF="/bugs/?func=detailbug&bug_id='. db_result($result, $i, 'bug_id') .
                 '&group_id='. db_result($result, $i, 'group_id') .'">'. db_result($result, $i, 'summary') .'</A></TD>'.
+                '<TD>'. db_result($result, $i, 'category_name') .'</TD>'.
+                '<TD>'. db_result($result, $i, 'group_name') .'</TD>'.
+                '<TD>'. db_result($result, $i, 'status_name') .'</TD>'.
 		'<TD>'. (($set != 'closed' && db_result($result, $i, 'date') < $then)?'<B>* ':'&nbsp; ') . date($sys_datefmt,db_result($result, $i, 'date')).'</TD>'.
 		'<TD>'. db_result($result, $i, 'assigned_to_user') .'</TD>'.
 		'<TD>'. db_result($result, $i, 'submitted_by') .'</TD></TR>';
-
 	}
 
 	/*
