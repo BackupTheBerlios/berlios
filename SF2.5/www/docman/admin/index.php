@@ -93,10 +93,11 @@ function main_page($group_id) {
 			<th> <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
                  <input type="checkbox" name="upload_instead" value="1"> <B>Upload File:</B></th>
 			<td> <input type="file" name="uploaded_data" size="30"></td>
+			<td class="example">(e.g. doc.pdf, doc.ps, doc.doc, etc.)</tr>
 			</tr>
 
 			<tr>
-			<th>OR Document Information (in html format):</th>
+			<th>OR Document Information (only in html format):</th>
 			<td><textarea cols="60" rows="10" name="data">';
 
 		if ($row['type'] == "text/html") {
