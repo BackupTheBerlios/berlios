@@ -1,9 +1,12 @@
 <?php
 $top_level = "../";
 require($top_level."include/site_header.html.es");
+if ( file_exists($top_level."include/adsense.php") ) {
+        include($top_level."include/adsense.php");
+}
 ?>
 
-<!-- $Id: index.php.es,v 1.5 2003/02/10 21:30:55 helix Exp $ -->
+<!-- $Id: index.php.es,v 1.6 2004/02/27 14:49:22 helix Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Sobre BerliOS</h2>
@@ -21,7 +24,7 @@ require($top_level."include/site_header.html.es");
 <p>Les debemos un montón de gracias a los miembros del equipo de BerliOS que han ayudado durante la fase de planificación, así como a nuestros <a href="../partners/index.php.es">colaboradores</a> por su generoso patrocinio.
 
 <?php
-require($top_level."include/site_footer.html");
+require($top_level."include/site_footer.php");
 ?>
 
 </body>

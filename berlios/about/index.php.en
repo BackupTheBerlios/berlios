@@ -1,6 +1,9 @@
 <?php
 $top_level = "../";
 require($top_level."include/site_header.html.en");
+if ( file_exists($top_level."include/adsense.php") ) {
+        include($top_level."include/adsense.php");
+}
 ?>
 
 <h2>About us</h2>
@@ -24,7 +27,7 @@ companies.
 <p>We owe a lot of thanks to the BerliOS team members that helps during the planing phase as well as our <a href="../partners/index.php.en">partners</a> for their generous sponsorship.
 
 <?php
-require($top_level."include/site_footer.html");
+require($top_level."include/site_footer.php");
 ?>
 
 </body>
