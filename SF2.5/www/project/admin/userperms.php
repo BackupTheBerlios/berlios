@@ -4,10 +4,11 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userperms.php,v 1.4 2004/04/02 11:27:27 helix Exp $
+// $Id: userperms.php,v 1.5 2004/04/21 13:57:16 helix Exp $
 
 require "pre.php";    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
+require ('donate.php');
 
 session_require(array('group'=>$group_id,'admin_flags'=>'A'));
 
@@ -140,7 +141,10 @@ if (!$res_dev || db_numrows($res_dev) < 1) {
 		$cur_color=html_get_alt_row_color($i);
 	print '
 	<TR valign="bottom" BGCOLOR="'. $cur_color .'">
-		<TD colspan="8"><b>'.$row_dev['user_name'].'</b></td>
+		<TD colspan="8"><b>'.$row_dev['user_name'].'</b>'.
+		is_project_donor($row_dev['user_id']).
+        is_user_donor($row_dev['user_id']).
+        req_user_donate($row_dev['user_id']).'</td>
 	</tr>
 
 	<tr bgcolor="'. $cur_color .'"><td>

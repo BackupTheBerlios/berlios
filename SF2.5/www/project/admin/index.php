@@ -4,11 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.4 2004/04/02 11:28:01 helix Exp $
+// $Id: index.php,v 1.5 2004/04/21 13:57:16 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
 require ('account.php');
+require ('donate.php');
 
 session_require(array('group'=>$group_id));
 
@@ -117,7 +118,9 @@ $res_memb = db_query("SELECT users.realname,users.user_id,users.user_name,user_g
 		'<INPUT TYPE="HIDDEN" NAME="rm_id" VALUE="'.$row_memb['user_id'].'">'.
 		'<INPUT TYPE="HIDDEN" NAME="group_id" VALUE="'. $group_id .'">'.
 		'<TR><TD ALIGN="MIDDLE">'.$button.'</TD></FORM>'.
-		'<TD><A href="/users/'.$row_memb['user_name'].'/">'.$row_memb['realname'].'</A></TD></TR>';
+		'<TD><A href="/users/'.$row_memb['user_name'].'/">'.$row_memb['realname'].'</A>'.
+		is_project_donor($row_memb['user_id']).is_user_donor($row_memb['user_id']).req_user_donate($row_memb['user_id']).
+		'</TD></TR>';
 	}
 	print '</TABLE>
 ';
