@@ -25,26 +25,43 @@ for i in berlios devel forum news wiki ; do
 done
 
 #
-# Rotate logging files for each project
+# Rotate logging files for every project
 #
 l=`date +%Y%W`.log
 for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp`; do
 	rm /home/groups/$i/log/2*.log
 	touch /home/groups/$i/log/$l
 	mv /home/groups/$i/log/combined.log /home/groups/$i/log/combined.$l
-	mv /home/groups/$i/log/error.log /home/groups/$i/log/error.$l
+#	mv /home/groups/$i/log/error.log /home/groups/$i/log/error.$l
 	# Create new logging file with wwwrun as owner.
 	# This is neccessary because of being root during file creation
 	# and malfunction (truncation) of apache during writing to
 	# file existing in an nfs-mounted directory.
 	touch /home/groups/$i/log/combined.log
 	chown wwwrun /home/groups/$i/log/combined.log
-	touch /home/groups/$i/log/error.log
-	chown wwwrun /home/groups/$i/log/error.log
+#	touch /home/groups/$i/log/error.log
+#	chown wwwrun /home/groups/$i/log/error.log
 #
-# Remove files older than 14 days from projects log directories
+# Rotate logging files for every vhost of project
 #
-	find /home/groups/$i/log -atime +14 -a -type f -exec rm {} \;
+	if [ -d /home/groups/$i/vhost ] ; then
+		for k in `cd /home/groups/$i/vhost ; ls` ; do
+			if [ -d /home/groups/$i/vhost/$k/log ] ; then
+				        rm /home/groups/$i/vhost/$k/log/2*.log
+        				touch /home/groups/$i/vhost/$k/log/$l
+        				mv /home/groups/$i/vhost/$k/log/combined.log /home/groups/$i/vhost/$k/log/combined.$l
+#       				mv /home/groups/$i/vhost/$k/log/error.log /home/groups/$i/vhost/$k/log/error.$l
+        				# Create new logging file with wwwrun as owner.
+        				# This is neccessary because of being root during file creation
+        				# and malfunction (truncation) of apache during writing to
+        				# file existing in an nfs-mounted directory.
+        				touch /home/groups/$i/vhost/$k/log/combined.log
+        				chown wwwrun /home/groups/$i/vhost/$k/log/combined.log
+#       				touch /home/groups/$i/vhost/$k/log/error.log
+#       				chown wwwrun /home/groups/$i/vhost/$k/log/error.log
+			fi
+		done
+	fi
 done
 
 echo ""
