@@ -1,7 +1,7 @@
 <?php
 //
 // BerliOS: Fostering Open Source Development
-// Copyright 2000-2004 (c) The BerliOS Crew
+// Copyright 2000-20040 (c) The BerliOS Crew
 // http://www.berlios.de
 //
 // $Id $
@@ -16,11 +16,11 @@ if ($group_id) {
 		<H2>Wikis for '.group_getname($group_id).'</H2>';
 
 	echo '<p>'.html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")).'&nbsp;'
-	.'<a href="http://openfacts.berlios.de/index-en.phtml?title='.group_getname($group_id).'">English</a>';
-	echo '<p>'.html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")).'&nbsp;'
-	.'<a href="http://openfacts.berlios.de/index.phtml?title='.group_getname($group_id).'">Deutsch</a>';
-	echo '<p>'. html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")).'&nbsp;'
-	.'<a href="http://openfacts.berlios.de/index-es.phtml?title='.group_getname($group_id).'">Español</a>';
+      .'<a href="http://openfacts.berlios.de/index-en.phtml?title='.group_getname($group_id).'">English</a>';
+    echo '<p>'.html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")).'&nbsp;'
+	  .'<a href="http://openfacts.berlios.de/index.phtml?title='.group_getname($group_id).'">Deutsch</a>';
+    echo '<p>'. html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")).'&nbsp;'
+	  .'<a href="http://openfacts.berlios.de/index-es.phtml?title='.group_getname($group_id).'">Español</a>';
 
 	wiki_footer(array());
 
