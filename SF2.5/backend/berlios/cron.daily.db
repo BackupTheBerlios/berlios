@@ -9,11 +9,13 @@ echo "BerliOS tasks to be executed every day on Database server"
 #
 # Make complete hot copy of BerliOS database files
 #
+#cd /usr/local/httpd/SF2.5/utils
 #./db_mysqlhotcopy.sh
 
 #
 # Make complete SQL dump of BerliOS databases
 #
+#cd /usr/local/httpd/SF2.5/utils
 #./db_mysqldump.sh
 
 echo ""
