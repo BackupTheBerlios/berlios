@@ -4,7 +4,7 @@
 # Copyright 1999-2000 (c) The SourceForge Crew
 # http://sourceforge.net
 #
-# $Id: DatabaseDump.pl,v 1.3 2004/05/13 13:23:58 helix Exp $
+# $Id: DatabaseDump.pl,v 1.4 2004/05/25 15:31:07 helix Exp $
 #
 use DBI;
 use Sys::Hostname;
@@ -15,7 +15,7 @@ require("include.pl");
 &open_log_file;
 
 # All of the files that we will be creating
-my @file_array = ("user_dump", "group_dump", "ssh_dump", "list_dump", "user.aliases", "access.conf", "vhost.conf", "mailman.aliases", "dns.zone", "dns_berlios_de", "rsyncd.conf");
+my @file_array = ("user_dump", "group_dump", "ssh_dump", "list_dump", "user.aliases", "access.conf", "vhost.conf", "vhost_dump", "mailman.aliases", "dns.zone", "dns_berlios_de", "rsyncd.conf");
 
 # Check to make sure that the environment is clean
 if (! -d $config{'database_dump_dir'}) {
@@ -204,7 +204,7 @@ $c = $dbh->prepare($query);
 $c->execute();
 
 while(my ($vhostid,$vhost_name,$docdir,$cgidir,$logdir,$group_id) = $c->fetchrow()) {
-    push @tmp_array, "\n\n### Virtual Host entries for: $vhost_name\n\n";
+	push @tmp_array, "\n\n### Virtual Host entries for: $vhost_name\n\n";
 	push @tmp_array, "<VirtualHost $config{'www_ip_addr'}:80>\n";
 	push @tmp_array, "    DocumentRoot \"$docdir\"\n";
 	push @tmp_array, "    CustomLog ${logdir}combined.log combined\n";
@@ -234,6 +234,21 @@ while(my ($vhostid,$vhost_name,$docdir,$cgidir,$logdir,$group_id) = $c->fetchrow
 }
 
 &done("vhost.conf", @tmp_array);
+undef @tmp_array;
+
+print("Dumping vhost_dump Data: ");
+
+$query = "SELECT vhost_name,docdir,cgidir,logdir,group_id,state FROM prweb_vhost";
+$c = $dbh->prepare($query);
+$c->execute();
+
+while(my ($vhost_name, $docdir, $cgidir, $logdir, $group_id, $state) = $c->fetchrow()) {
+	if ( grep(/vhost\/$vhost_name/, $docdir) ) {
+		push @tmp_array, "$docdir:$cgidir:$logdir:$group_id:$state\n";
+	}
+}
+
+&done("vhost_dump", @tmp_array);
 undef @tmp_array;
 
 ###################################
