@@ -4,10 +4,11 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: foundry_admin.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: foundry_admin.php,v 1.3 2005/02/24 17:34:42 helix Exp $
 
 
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
+require ('donate.php');
 
 //must be a project admin
 session_require(array('group'=>$group_id,'admin_flags'=>'A'));
@@ -87,8 +88,7 @@ if ($func) {
 	}
 }
 
-
-project_admin_header(array('title'=>"Project Admin: ".group_getname($group_id),'group'=>$group_id));
+project_admin_header(array('title'=>group_getname($group_id)." - Foundry Admin",'group'=>$group_id));
 
 /*
 
@@ -154,7 +154,9 @@ $res_memb = db_query("SELECT users.realname,users.user_id,users.user_name ".
 		<FORM ACTION="/foundry/'.$expl_pathinfo[2].'/admin/" METHOD="POST"><INPUT TYPE="HIDDEN" NAME="func" VALUE="rmuser">'.
 		'<INPUT TYPE="HIDDEN" NAME="rm_id" VALUE="'.$row_memb['user_id'].'">'.
 		'<TR><TD ALIGN="MIDDLE"><INPUT TYPE="IMAGE" NAME="DELETE" SRC="/images/ic/trash.png" HEIGHT="16" WIDTH="16" BORDER="0"></TD></FORM>'.
-		'<TD><A href="/users/'.$row_memb['user_name'].'/">'.$row_memb['realname'].'</A></TD></TR>';
+		'<TD><A href="/users/'.$row_memb['user_name'].'/">'.$row_memb['realname'].'</A>'.
+		is_project_donor($row_memb['user_id']).is_user_donor($row_memb['user_id']).req_user_donate($row_memb['user_id']).
+		'</TD></TR>';
 	}
 	print '</TABLE>
 ';
@@ -180,9 +182,10 @@ echo '</TD></TR>
 $HTML->box1_top('Tool Admin');
 
 echo '
+<A HREF="/forum/admin/?group_id='.$group_id.'">Forum Admin</A><BR>
+<A HREF="/mail/admin/?group_id='.$group_id.'">Mail Admin</A><BR>
 <A HREF="/news/submit.php?group_id='.$group_id.'">Submit Your News</A><BR>
 <A HREF="/foundry/'.$expl_pathinfo[2].'/admin/news/">Foundry-wide News Admin</A><BR>
-<A HREF="/forum/admin/?group_id='.$group_id.'">Forum Admin</A><BR>
 <A HREF="/foundry/'.$expl_pathinfo[2].'/admin/html/">Edit FreeForm HTML</A><BR>
 ';
 
@@ -190,7 +193,7 @@ $HTML->box1_bottom();
 
 echo '<P>';
 
-$HTML->box1_top('Tool Admin');
+$HTML->box1_top('Images &amp; Trove Categories Admin');
 
 $images_res=db_query("SELECT id,description FROM db_images WHERE group_id='$group_id'");
 
@@ -199,8 +202,8 @@ $images_res=db_query("SELECT id,description FROM db_images WHERE group_id='$grou
 echo '<FORM ACTION="/foundry/'.$expl_pathinfo[2].'/admin/" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME="func" VALUE="setfoundrydata">
 	<TABLE>
-	<TR><TD><B>Guide Image:</B></TD><TD>'. html_build_select_box ($images_res, 'guide_image_id', $foundry->getGuideImageID()  ,false) .'</TR>
-	<TR><TD><B>Logo Image:</B></TD><TD>'. html_build_select_box ($images_res, 'logo_image_id', $foundry->getLogoImageID()  ,false) .'</TD></TR>
+	<TR><TD><B>Guide Image:</B></TD><TD>'. html_build_select_box ($images_res, 'guide_image_id', $foundry->getGuideImageID()  ,true) .'</TR>
+	<TR><TD><B>Logo Image:</B></TD><TD>'. html_build_select_box ($images_res, 'logo_image_id', $foundry->getLogoImageID()  ,true) .'</TD></TR>
 	<TR><TD><B>Trove Categories:</B><BR>(must comma separate)</TD><TD><INPUT TYPE="TEXT" NAME="trove_categories" VALUE="'. $foundry->getTroveCategories() .'" SIZE="6"></TD></TR>
 	<TR><TD COLSPAN="2" ALIGN="CENTER"><INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Update"></TD></TR>
 	</TABLE>
