@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.1 2004/03/16 15:12:21 helix Exp $
+// $Id: index.php,v 1.2 2005/02/15 11:39:52 helix Exp $
 
 require ('pre.php');    
 
@@ -32,8 +32,7 @@ print '<TABLE width="100%"><TR valign="top"><TD width="65%">'."\n";
 // ######################## Service not yet provided
 
 print '
-<h2><font color="red">The Subversion Service is in Test Phase!<br>
-Please report <a href="http://developer.berlios.de/bugs/?group_id=1">Bugs</a>.</font></h2>';
+<p>For futher information about usage of Subversion see the <a href="/docman/display_doc.php?docid=394&group_id=2">Subversion (SVN) HowTo</a> of <a href="/docman/?group_id=2">Site Docs</a>.';
 
 // ######################## anonymous SVN instructions
 
@@ -76,13 +75,13 @@ if (db_numrows($res_svnhist) < 1) {
 	print '<P>This project has no SVN history.';
 } else {
 
-print '<P><B>Developer (30 day/Commits) (30 day/Adds)</B><BR>&nbsp;';
+	print '<P><B>Developer (30 day/Commits) (30 day/Adds)</B><BR>&nbsp;';
 
-while ($row_svnhist = db_fetch_array($res_svnhist)) {
-	print '<BR>'.$row_svnhist['user_name'].' ('.$row_svnhist['svn_commits_wk'].'/'
-		.$row_svnhist['svn_commits'].') ('.$row_svnhist['svn_adds_wk'].'/'
-		.$row_svnhist['svn_adds'].')';
-}
+	while ($row_svnhist = db_fetch_array($res_svnhist)) {
+		print '<BR>'.$row_svnhist['user_name'].' ('.$row_svnhist['svn_commits_wk'].'/'
+			.$row_svnhist['svn_commits'].') ('.$row_svnhist['svn_adds_wk'].'/'
+			.$row_svnhist['svn_adds'].')';
+	}
 
 } // ### else no svn history
 
