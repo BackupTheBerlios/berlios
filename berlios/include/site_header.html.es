@@ -3,14 +3,10 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
-   <link rel="stylesheet" href="berlios.css" type="text/css">
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="Author" content="BerliOS">
    <meta name="Description" content="El objetivo de BerliOS es proporcionar apoyo a los diferentes grupos de inter&eacute;s en el &aacute;rea del software libre (también conocido como Open Source).">
    <meta name="KeyWords" content="Open Source, software libre, desarrollo, GPL, licencias libres, aplicaciones, proyectos">
-   <link rel="shortcut icon" href="berlios.ico">
-</head>
-<body bgcolor="#FFFFFF">
 
 <?php
  global $top_level;
@@ -18,6 +14,10 @@
    $top_level = ".";
  }
 ?>
+   <link rel="stylesheet" href="<?php echo $top_level; ?>berlios.css" type="text/css">
+   <link rel="shortcut icon" href="<?php echo $top_level; ?>berlios.ico">
+</head>
+<body bgcolor="#FFFFFF">
 
 <!-- top strip -->
 <table border="0" cellspacing="0" cellpadding="2" width="100%" bgcolor="#000000" >

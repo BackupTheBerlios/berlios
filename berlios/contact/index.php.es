@@ -1,9 +1,9 @@
 <?php
-$top_level = '..';
-require($top_level."/include/site_header.html.es");
+$top_level = "../";
+require($top_level."include/site_header.html.es");
 ?>
 
-<!-- $Id: index.php.es,v 1.4 2002/05/14 10:17:25 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.6 2002/05/14 10:27:11 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <h2>Contacto</h2>
@@ -21,7 +21,7 @@ require($top_level."/include/site_header.html.es");
 <br>Internet: <a href="http://www.berlios.de/">http://www.berlios.de/index.php.es</a>
 
 <?php
-require($top_level."/include/site_footer.html");
+require($top_level."include/site_footer.html");
 ?>
 
 </body>
