@@ -65,7 +65,6 @@ height="1" width="135" border=0><br>
 <br><a href="http://devcounter.berlios.de/"   class="menus">DevCounter</a>
 <br><a href="http://developer.berlios.de/"    class="menus">Developer</a>
 <br><a href="http://docswell.berlios.de"      class="menus">DocsWell</a>
-<br><a href="http://user.berlios.de/"         class="menus">User</a>
 <br><a href="http://wiki.berlios.de/"         class="menus">Wiki</a>
 
 <p><a href="index.php.de"><img src="<?php echo $top_level; ?>/images/deflag.png" border="0"></a></td>
