@@ -19,7 +19,7 @@
   </tr>
   <tr align="left">
     <td align="left" width="20%">
-      <a href="http://www.t-nova.de/" target="_blank" alt="">
+      <a href="http://www.t-nova.de/" target="_blank">
       <img src="../partners/images/tnovalogo.gif" border="0" alt="T-Nova"></a>
     </td>
     <td align="left" width="80%">
@@ -68,7 +68,7 @@
     <td colspan="2">&nbsp;<td>
   </tr>
   <tr align="left">
-    <td align="left" colspan="2">
+    <td align="left">
       <a href="http://www.mendelson-e-c.de/" target="_blank">
       <img src="../partners/images/mec-logo.gif " border="0" width="214" height="112" alt="Mendelson-e-c"></a>
     </td>
