@@ -6,7 +6,7 @@
 function support_data_get_categories ($group_id) {
 	global $support_data_categories;
 	if (!$support_data_categories["$group_id"]) {
-		$sql="select support_category_id,category_name from support_category WHERE group_id='$group_id'";
+		$sql="select support_category_id,category_name from support_category WHERE group_id='$group_id' ORDER BY category_name";
 		$support_data_categories["$group_id"]=db_query($sql);
 	}
 	return $support_data_categories["$group_id"];
