@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: mod_support.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: mod_support.php,v 1.3 2003/11/24 11:05:05 helix Exp $
 
 support_header(array ('title'=>'Modify a Support Request'));
 
@@ -26,7 +26,7 @@ if (db_numrows($result) > 0) {
 	<TABLE WIDTH="100%">
 	<TR>
 		<TD><B>Submitted By:</B><BR>'.user_getname(db_result($result,0,'submitted_by')).'</TD>
-		<TD WIDTH="99%"><B>Group:</B><BR>'.group_getname($group_id).'</TD>
+		<TD><B>Group:</B><BR>'.group_getname($group_id).'</TD>
 	</TR>
 
 	<TR>
