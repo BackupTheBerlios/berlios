@@ -4,9 +4,9 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: rss_bsprojects.php,v 1.2 2004/11/17 16:52:33 helix Exp $
+// $Id: rss_bsprojects.php,v 1.3 2005/02/07 13:27:37 helix Exp $
 
-// ## export SourceForge project list in RSS
+// ## export BerliOS project list in RSS 0.91
 
 include "pre.php";
 include "rss_utils.inc";
