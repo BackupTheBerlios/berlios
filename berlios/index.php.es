@@ -4,7 +4,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>BerliOS - The Open Source Mediator</title>
 <link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: index.php.es,v 1.10 2002/05/13 23:55:42 grex Exp $ -->
+<!-- $Id: index.php.es,v 1.11 2002/05/13 23:58:01 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 </head>
 <body bgcolor="#FFFFFF">
@@ -77,31 +77,6 @@ require("include/site_menubar.html.es");
                  alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
             </center>
            
-<p>
-<?php
-require("include/site_validated.html");
-?>            
-          </td>
-          <td>
-            &nbsp;
-          </td>
-
-          <td width="35%">
-            <!-- recent news -->
-<?php
-require("include/news.php");
-?>
-          </td>
-        </tr>
-      </table>
-      <!-- end content -->
-    </td>
-    <td width="5" bgcolor="#FFFFFF">
-      <img SRC="images/blank.gif" border="0" height="1" width="5" alt="">
-    </td>
-  </tr>
-</table>
-
 <?php
 require("include/site_footer.html");
 ?>
