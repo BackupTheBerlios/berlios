@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results_aggregate.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: show_results_aggregate.php,v 1.3 2003/11/26 14:41:06 helix Exp $
 
 require('pre.php');
 require('HTML_Graphs.php');
@@ -74,7 +74,7 @@ for ($i=0; $i<$count; $i++) {
 		*/
 
 		if (($question_type != $last_question_type) && (($question_type == "1") || ($question_type == "3"))) {
-			echo "&nbsp;<P>";
+			echo "&nbsp;<br>";
 		}
 
 		echo $q_num."&nbsp;&nbsp;&nbsp;&nbsp;<BR></TD>\n<TD>";
@@ -91,7 +91,7 @@ for ($i=0; $i<$count; $i++) {
 		# Show the 1-5 markers only if this is the first in a series
 
 		if ($question_type != $last_question_type) {
-			echo "\n<B>1 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5</B>\n";
+			echo "\n<B>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</B>\n";
 			echo "<BR>";
 
 		}
@@ -99,11 +99,11 @@ for ($i=0; $i<$count; $i++) {
 		/*
 			Select the number of responses to this question
 		*/
-		$sql="SELECT count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND response IN (1,2,3,4,5) AND group_id='$group_id'";
+		$sql="SELECT count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id' AND response IN ('1','2','3','4','5')";
 
 		$result2=db_query($sql);
 		if (!$result2 || db_numrows($result2) < 1) {
-			echo "error";
+			echo "Database ";
 			echo db_error();
 		} else {
 			echo "<B>".db_result($result2, 0, 'count')."</B> Responses<BR>";
@@ -111,22 +111,23 @@ for ($i=0; $i<$count; $i++) {
 		/*
 			average
 		*/
-
+/* 2003-11-26 helix
 		$sql="SELECT avg(response) AS avg FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id'";
 
 		$result2=db_query($sql);
 		if (!$result2 || db_numrows($result2) < 1) {
-			echo "error";
+			echo "Database ";
 			echo db_error();
 		} else {
 			echo "<B>".db_result($result2, 0, 'avg')."</B> Average";
 		}
+*/
 
-		$sql="SELECT response,count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id' GROUP BY response";
+		$sql="SELECT response,count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id' AND response IN ('1','2','3','4','5') GROUP BY response";
 
 		$result2=db_query($sql);
 		if (!$result2 || db_numrows($result2) < 1) {
-			echo "error";
+			echo "Database ";
 			echo db_error();
 		} else {
 			GraphResult($result2,stripslashes(db_result($result, 0, "question")));
@@ -157,11 +158,11 @@ for ($i=0; $i<$count; $i++) {
 		/*
 			Select the count and average of responses to this question
 		*/
-		$sql="SELECT count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id' AND response IN (1,5)";
+		$sql="SELECT count(*) AS count FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id' AND response IN ('1','2','3','4','5')";
 
 		$result2=db_query($sql);
 		if (!$result2 || db_numrows($result2) < 1) {
-			echo "error";
+			echo "Database ";
 			echo db_error();
 		} else {
 			echo "<B>".db_result($result2, 0, 0)."</B> Responses<BR>";
@@ -169,14 +170,17 @@ for ($i=0; $i<$count; $i++) {
 		/*
 			average
 		*/
+/* 2003-11-26 helix
 		$sql="SELECT avg(response) AS avg FROM survey_responses WHERE survey_id='$survey_id' AND question_id='$quest_array[$i]' AND group_id='$group_id'";
 
 		$result2=db_query($sql);
 		if (!$result2 || db_numrows($result2) < 1) {
-			echo "error";
+			echo "Database ";
+                        echo db_error();
 		} else {
 			echo "<B>".db_result($result2, 0, 0)."</B> Average";
 		}
+*/
 
 		/*
 			Get the YES responses
