@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every day on
+# SVN server: svn.berlios.de
+#
+
+echo "BerliOS tasks to be executed every day on SVN server"
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Recurses through the /cvsroot directory tree and parses each projects
+# '~/CVSROOT/history' file, building agregate stats on the number of
+# checkouts, commits, and adds to each project for yesterday.
+#
+#cd /usr/local/httpd/SF2.5/utils/cvs1
+#./cvs_history_parse.pl
+
+#
+# Recurses through the /cvsroot directory tree and parses each projects
+# '~/CVSROOT/history' file, building agregate stats on the number of
+# checkouts, commits, and adds to each project over the past 30 days.
+#
+#cd /usr/local/httpd/SF2.5/utils/cvs1
+#./cvs_history_days_parse.pl
+
+#
+# Create SVN dumps for every Project/Group
+# (/usr/local/httpd/htdocs/svndumps/<projectname>-repos.gz)
+# based on infos available from /home/dummy/dumps25/group_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_svn_dumps.pl
+
+echo ""
+echo "Done."
