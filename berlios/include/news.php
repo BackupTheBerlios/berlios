@@ -2,35 +2,32 @@
 
 global $top_level;
 
-function rssfail ()
-  {
-   $boxstuff = "Fehler";
-  }
+function rssfail ($error) {
+    $boxstuff = "Error - $error";
+}
  
-function FixQuotes ($what = "") 
-  {
-   $what = ereg_replace("'","''",$what);
-    while (eregi("\\\\'", $what)) 
-      {
-       $what = ereg_replace("\\\\'","'",$what);
-      }
-   return $what;
-  }
+function FixQuotes ($what = "") {
+    $what = ereg_replace("'","''",$what);
+    while (eregi("\\\\'", $what)) {
+        $what = ereg_replace("\\\\'","'",$what);
+    }
+    return $what;
+}
 
-function newsbox ($title, $content) {
+function newsbox ($title, $url, $content) {
     echo "
-    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" bgcolor=\"#000000\">
+    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" bgcolor=\"#CCCCCC\">
       <tr>
         <td>
           <table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">
             <tr>
               <td colspan=\"1\" bgcolor=\"#CCCCCC\">
-                <font size=\"2\"><b>$title</b></font>
+                <center><b><a href=\"$url\">$title</a></b></center>
               </td>
             </tr>
             <tr>
               <td bgcolor=\"#FFFFFF\">
-                 <font size=\"2\">$content</font></font>
+                 $content
               </td>
             </tr>
           </table>
@@ -40,51 +37,55 @@ function newsbox ($title, $content) {
     <br>";
 }
 
-$boxtitle = "BerliOS News";
-$back_url = "http://news.berlios.de/backend.php";
-include($top_level."include/backend2newslist.php");
-newsbox($boxtitle, $boxstuff);
-$boxstuff = "";
+$cache_dir = "/home/groups/berlios/htdocs/berlios/cache/";
+$time = 60 * 60; // 60 min
 
-$boxtitle = "SourceBiz";
-$back_url = "http://sourcebiz.berlios.de/backend.php3";
+$boxtitle = "BerliOS News";
+$boxurl = "http://news.berlios.de/";
+$back_url = $boxurl."backend.php";
+$cache_file = $cache_dir."BerliOS_News.backend";
 include($top_level."include/backend2newslist.php");
-newsbox($boxtitle, $boxstuff);
+newsbox($boxtitle, $boxurl, $boxstuff);
 $boxstuff = "";
 
 $boxtitle = "SourceWell";
-$back_url = "http://sourcewell.berlios.de/backend.php3";
+$boxurl = "http://sourcewell.berlios.de/";
+$back_url = $boxurl."backend.php";
+$cache_file = $cache_dir."SourceWell.backend";
 include($top_level."include/backend2newslist.php");
-newsbox($boxtitle, $boxstuff);
+newsbox($boxtitle, $boxurl, $boxstuff);
 $boxstuff = "";
 
 $boxtitle = "DocsWell";
-$back_url = "http://docswell.berlios.de/backend.php";
+$boxurl = "http://docswell.berlios.de/";
+$back_url = $boxurl."backend.php";
+$cache_file = $cache_dir."DocsWell.backend";
 include($top_level."include/backend2newslist.php");
-newsbox($boxtitle, $boxstuff);
+newsbox($boxtitle, $boxurl, $boxstuff);
 $boxstuff = "";
 
-//$boxtitle = "Slashdot";
-//$cachefile = "/usr/local/httpd/htdocs.news/cache/Slashdot.cache";
-//include($cachefile);
-//newsbox($boxtitle, $boxstuff);
-//$boxstuff = "";
+$boxtitle = "SourceLines";
+$boxurl = "http://sourcelines.berlios.de/";
+$back_url = $boxurl."backend.php";
+$cache_file = $cache_dir."SourceLines.backend";
+include($top_level."include/backend2newslist.php");
+newsbox($boxtitle, $boxurl, $boxstuff);
+$boxstuff = "";
 
-//$boxtitle = "NewsForge";
-//$cachefile = "/usr/local/httpd/htdocs.news/cache/NewsForge.cache";
-//include($cachefile);
-//newsbox($boxtitle, $boxstuff);
-//$boxstuff = "";
+$boxtitle = "DevCounter";
+$boxurl = "http://devcounter.berlios.de/";
+$back_url = $boxurl."backend.php";
+$cache_file = $cache_dir."DevCounter.backend";
+include($top_level."include/backend2newslist.php");
+newsbox($boxtitle, $boxurl, $boxstuff);
+$boxstuff = "";
 
-//$boxtitle = "LinuxWeeklyNews";
-//$cachefile = "/usr/local/httpd/htdocs.news/cache/LinuxWeelyNews.cache";
-//include($cachefile);
-//newsbox($boxtitle, $boxstuff);
-//$boxstuff = "";
+$boxtitle = "SourceBiz";
+$boxurl = "http://sourcebiz.berlios.de/";
+$back_url = $boxurl."backend.php3";
+$cache_file = $cache_dir."SourceBiz.backend";
+include($top_level."include/backend2newslist.php");
+newsbox($boxtitle, $boxurl, $boxstuff);
+$boxstuff = "";
 
-//$boxtitle = "Freshmeat";
-//$cachefile = "/usr/local/httpd/htdocs.news/cache/Freshmeat.cache";
-//include($cachefile);
-//newsbox($boxtitle, $boxstuff);
-//$boxstuff = "";
 ?>
