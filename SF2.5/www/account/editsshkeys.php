@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editsshkeys.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: editsshkeys.php,v 1.3 2004/06/29 11:30:12 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -34,7 +34,7 @@ if (register_valid()) {
 } else { // not valid registration, or first time to page
 	site_user_header(array(title=>"Change Authorized Keys"));
 
-	?>
+?>
 	<p>
 	<b>CVS/SSH Shared Keys</b>
 	<P>
@@ -51,17 +51,17 @@ if (register_valid()) {
 	<BR><I>Important: Make sure there are no line breaks except between keys.
 	After submitting, verify that the number of keys in your file is what you expected.</I>
 	<br><TEXTAREA rows=10 cols=60 name="form_authorized_keys">
-	<?php
+<?php
 	$res_keys = db_query("SELECT authorized_keys FROM users WHERE user_id=".user_getid());
 	$row_keys = db_fetch_array($res_keys);
 	$authorized_keys = ereg_replace("###","\n",$row_keys[authorized_keys]);
 	print $authorized_keys;
-	?>
+?>
 	</TEXTAREA>
 	<p><input type="submit" name="Update" value="Update">
 	</form>
 
-	<?php
+<?php
 }
 site_user_footer(array());
 
