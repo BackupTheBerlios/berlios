@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: html.php,v 1.5 2004/06/14 08:01:42 helix Exp $
+// $Id: html.php,v 1.6 2005/02/24 17:40:32 helix Exp $
 
 // require("exit.php");
 
@@ -31,7 +31,7 @@ function html_blankimage($height,$width) {
 }
 
 function html_dbimage($id) {
-	if (!$id) {
+	if (!$id || $id == 100) {
 		return '';
 	}
 	$sql="SELECT width,height ".
@@ -372,7 +372,7 @@ function site_project_header($params) {
 	*/
 
 	$group_id=$params['group'];
-
+	
 	//get the project object 
 	$project=&project_get_object($group_id);
 
