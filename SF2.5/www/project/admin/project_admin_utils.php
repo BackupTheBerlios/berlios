@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: project_admin_utils.php,v 1.4 2004/04/21 15:02:46 helix Exp $
+// $Id: project_admin_utils.php,v 1.5 2005/02/15 11:43:29 helix Exp $
 
 /*
 
@@ -91,7 +91,7 @@ function frs_show_filetype_popup ($name='type_id', $checked_val="xzxz") {
 	*/
 	global $FRS_FILETYPE_RES;
 	if (!isset($FRS_FILETYPE_RES)) {
-		$FRS_FILETYPE_RES=db_query("SELECT * FROM frs_filetype");
+		$FRS_FILETYPE_RES=db_query("SELECT * FROM frs_filetype ORDER BY type_id");
 	}
 	return html_build_select_box ($FRS_FILETYPE_RES,$name,$checked_val,true,'Must Choose One');
 }
