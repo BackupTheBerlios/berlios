@@ -1,14 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-   <title>BerliOS - The Open Source Mediator</title>
-<link rel="stylesheet" href="berlios.css" type="text/css">
-<!-- $Id: index.php.es,v 1.11 2002/05/13 23:58:01 grex Exp $ -->
-<!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
-</head>
-<body bgcolor="#FFFFFF">
-
 <?php
 require("include/site_header.html.es");
 ?>
