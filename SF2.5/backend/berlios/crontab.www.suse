@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS Web Server:
+# www.berlios.de
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.www
+#
+# at the end of every week (before Mon 00:00:00)
+#
+30 23 * * 0 /usr/local/httpd/SF2.5/backend/berlios/cron.weekly0.www
+#
+# at the beginning of every week (after Mon 00:00:00)
+#
+30 0 * * 1 /usr/local/httpd/SF2.5/backend/berlios/cron.weekly1.www
+
+#
+# grab projects from trove map and put into foundry_projects table
+#
+#15 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/populate_foundries.php -o /var/log/httpd/devel25/populate_foundries.log -O /var/log/httpd/devel25/populate_foundries.output
+
+#
+# recalculate user popularity metric
+#
+25 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/calculate_user_metric.php -o /var/log/httpd/devel25/calculate_user_metric.log -O /var/log/httpd/devel25/calculate_user_metric.output
+
+#
+# daily recalculate of the sums under the trove map
+#
+30 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/db_trove_maint.php -o /var/log/httpd/devel25/db_trove_maint.log -O /var/log/httpd/devel25/db_trove_maint.output
+
+#
+# daily deletion of sessions, closing jobs, etc
+#
+35 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_cleanup.php -o /var/log/httpd/devel25/project_cleanup.log -O /var/log/httpd/devel25/project_cleanup.output
+
+#
+# daily crunching of survey data and other associated ratings
+#
+40 1 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/rating_stats.php -o /var/log/httpd/devel25/rating_stats.log -O /var/log/httpd/devel25/rating_stats.output
+
+#
+# VACUUM should be done after ALL OTHER JOBS
+#
+0 2 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/vacuum.php -o /var/log/httpd/devel25/vacuum.log -O /var/log/httpd/devel25/vacuum.output
+
+#
+# daily rotation of the activity_log
+#
+0 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/rotate_activity.php -o /var/log/httpd/devel25/rotate_activity.log -O /var/log/httpd/devel25/rotate_activity.output
+
+#
+# daily creation of project metric
+#
+05 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_metric.php -o /var/log/httpd/devel25/project_metric.log -O /var/log/httpd/devel25/project_metric.output
+
+#
+# daily creation of project weekly metric
+#
+10 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/project_weekly_metric.php -o /var/log/httpd/devel25/project_weekly_metric.log -O /var/log/httpd/devel25/project_weekly_metric.output
+
+#
+# daily aggregating of the numbers
+#
+15 0 * * * /usr/bin/wget http://developer.berlios.de/admin/cronjobs/site_stats.php -o /var/log/httpd/devel25/site_stats.log -O /var/log/httpd/devel25/site_stats.output
+
+#
+# the cvs_history calculations are still "broken" and need to be implented in
+# separate tables instead of updating the master groups table
+# temporary fix is to run daily instead of hourly
+#
+##50 0 * * * /root/bin/cron_db_cvs_history.sh
+
+#
+# recalc each project's ratings daily
+#
+##14 2 * * * 
+
+#
+# daily calc of the top groups
+#       (broken for months now)
+#27 1 * * * /root/bin/db_top_groups_calc.sh > /var/log/db_top_groups_calc
+
+#
+# twice daily database dump
+#
+##7 8,20 * * * /root/bin/db_dump.sh

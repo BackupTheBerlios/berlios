@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS Web Server:
+# www.berlios.de
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.www
+#
+# at the end of every week (before Mon 00:00:00)
+#
+30 23 * * Sun /usr/local/httpd/SF2.5/backend/berlios/cron.weekly0.www >/dev/null 2>&1
+#
+# at the beginning of every week (after Mon 00:00:00)
+#
+30 00 * * Mon /usr/local/httpd/SF2.5/backend/berlios/cron.weekly1.www >/dev/null 2>&1
+#
+# crontab entries for BerliOS FTP Server:
+# ftp.berlios.de
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.ftp
+#
+# crontab entries for BerliOS Shell Server:
+# shell.berlios.de
+#
+# daily at 00:05
+#
+05 00 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.daily.shell

@@ -1,11 +1,10 @@
-#!/usr/local/bin/php
 <?php
 //
 // SourceForge: Breaking Down the Barriers to Open Source Development
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: db_trove_maint.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: db_trove_maint.php,v 1.2 2003/11/13 10:47:33 helix Exp $
 
 /*
 
@@ -111,18 +110,98 @@ function get_trove_sub_projects($cat_id) {
 }
 
 //start the recursive function at the top of the trove tree
-get_trove_sub_projects(18);
 
 db_begin();
 db_query("DELETE FROM trove_treesums");
 echo db_error();
-//echo "<TABLE>";
+
+echo "<p>Topic\n";
+get_trove_sub_projects(1);
+
+echo "<TABLE>";
 while (list($k,$v) = each($sum_totals)) {
 	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
-//	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
 
 }
-//echo "</TABLE>";
+echo "</TABLE>";
+
+echo "<p>Development Status\n";
+get_trove_sub_projects(2);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>Environment\n";
+get_trove_sub_projects(3);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>Intended Audience\n";
+get_trove_sub_projects(4);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>License\n";
+get_trove_sub_projects(5);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>Natural Language\n";
+get_trove_sub_projects(129);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>Operating System\n";
+get_trove_sub_projects(6);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
+
+echo "<p>Programming Language\n";
+get_trove_sub_projects(7);
+
+echo "<TABLE>";
+while (list($k,$v) = each($sum_totals)) {
+	db_query("INSERT INTO trove_treesums (trove_cat_id,subprojects) VALUES ($k,$v)");
+	echo "<TR><TD>$k</TD><TD>$v</TD></TR>\n";
+
+}
+echo "</TABLE>";
 
 db_commit();
 echo "Done: ".db_error();

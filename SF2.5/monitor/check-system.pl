@@ -3,7 +3,7 @@
 # Perl Script to Check the SystemDaemon to see if things are
 # doing okay..
 #
-# $Id: check-system.pl,v 1.1 2003/11/12 16:09:04 helix Exp $
+# $Id: check-system.pl,v 1.2 2003/11/13 10:54:18 helix Exp $
 #
 
 use IO::Socket;

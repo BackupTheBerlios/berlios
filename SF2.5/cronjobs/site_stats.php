@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
 
 require ('squal_pre.php');
@@ -49,6 +48,6 @@ $sql = "INSERT INTO stats_agg_pages_by_day SELECT day, count(*) FROM activity_lo
 $rel = db_query($sql);
 
 db_commit();
-echo "Done: ".db_error();
+echo "<p>Done: ".db_error();
 
 ?>

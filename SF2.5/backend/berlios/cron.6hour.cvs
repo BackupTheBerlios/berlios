@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# CVS server: cvs.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on CVS server"
+
+# Prerequisite to be done on Web Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+cd /usr/local/httpd/SF2.5/backend/berlios
+
+#   Create CVS project quota
+#   based on infos available from /home/dummy/dumps25/group_dump
+#
+#   Later to be done on NFS server
+#
+#./create_cvs_project_quota.pl
+
+#   Create CVS Archive at /cvsroot/<projectname>
+#   based on infos available in /home/dummy/dumps25/group_dump
+#
+./create_cvs_archive.pl
+
+#   Create CVS accounts in /cvsroot/<projectname>/CVSROOT/passwd based on infos
+#   available in /home/dummy/dumps25/group_dump and user_dump
+#       <username>:<password>:<groupname>
+#
+./create_cvs_account.pl
+
+#   Create CVS readers/writers in /cvsroot/<projectname>/CVSROOT based on infos
+#   available in /home/dummy/dumps25/group_dump and user_dump:
+#     readers: anonymous
+#     writers: <username>
+#
+./create_cvs_permission.pl
+
+#   Create CVS allow root config file /etc/cvs-allow-root based on infos
+#   available in /home/dummy/dumps25/group_dump:
+#   (needed for pserver login)
+#
+./create_cvs_allow_root.pl
+
+#   Create CVSWEB root config file /etc/httpd/cvswebroot.conf based on infos
+#   available in /home/dummy/dumps25/group_dump:
+#   (only needed for CVSweb)
+#
+#./create_cvs_cvsweb_root.pl
+
+echo ""
+echo "Done."

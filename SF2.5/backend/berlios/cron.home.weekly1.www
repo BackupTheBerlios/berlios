@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed at the beginning of every week
+# (after Monday 00:00:00) on WWW server: www.berlios.de
+#
+
+echo "BerliOS tasks to be executed at the beginning of every week on WWW server"
+
+#
+#   Create usage statistics for each home directory using webalizer
+#
+/usr/local/httpd/SF2.5/backend/shell/webalizer_home_new.sh
+
+echo ""
+echo "Done."

@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed at the end of every week
+# (before Monday 00:00:00) on WWW server: www.berlios.de
+#
+
+echo "BerliOS tasks to be executed at the end of every week on WWW server"
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Rotate logging files for each portal
+#
+##for i in berlios devel forum news wiki ; do
+##	l=`date +%Y%W`_log
+##
+##	rm /var/log/httpd/$i/2*_log
+##	touch /var/log/httpd/$i/$l
+##	mv /var/log/httpd/$i/access_log /var/log/httpd/$i/access_$l
+##	mv /var/log/httpd/$i/error_log /var/log/httpd/$i/error_$l
+##done
+
+#
+# Rotate logging files for each project
+#
+l=`date +%Y%W`.log
+for i in `cd /home/groups ; ls | grep -v lost+found | grep -v quota.group | grep -v ^ftp`; do
+
+if [  -e /home/groups/$i/log/200301.log ] ; then
+
+	rm /home/groups/$i/log/2*.log
+	touch /home/groups/$i/log/$l
+	mv /home/groups/$i/log/combined.log /home/groups/$i/log/combined.$l
+	mv /home/groups/$i/log/error.log /home/groups/$i/log/error.$l
+	# Create new logging file with wwwrun as owner.
+	# This is neccessary because of being root during file creation
+	# and malfunction (truncation) of apache during writing to
+	# file existing in an nfs-mounted directory.
+	touch /home/groups/$i/log/combined.log
+	chown wwwrun /home/groups/$i/log/combined.log
+	touch /home/groups/$i/log/error.log
+	chown wwwrun /home/groups/$i/log/error.log
+
+fi
+
+done
+
+echo ""
+echo "Done."

@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS NIS Server:
+# nis.berlios.de
+#
+# four times a day every 6 hours
+#
+00 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.nis >/dev/null 2>&1

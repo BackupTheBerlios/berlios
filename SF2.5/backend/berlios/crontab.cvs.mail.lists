@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS CVS Server:
+# cvs.berlios.de
+# 
+# daily at 01:00
+#
+00 01  *  *  * /usr/local/httpd/SF2.5/backend/berlios/cron.daily.cvs
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.cvs
+#
+# crontab entries for BerliOS Mail Server:
+# mail.berlios.de
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.mail
+#
+# crontab entries for BerliOS Mailing Lists Server:
+# lists.berlios.de
+#
+# four times a day every 6 hours
+#
+15 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.lists

@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS Database Server:
+# db.berlios.de
+#
+# four times a day every 6 hours
+#
+05 0,6,12,18 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.6hour.db
+# 
+# daily at 01:05
+# after backend scripts has finished!!!
+#
+05 01  *  *  * /usr/local/httpd/SF2.5/backend/berlios/cron.daily.db

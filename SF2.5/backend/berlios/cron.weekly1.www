@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed at the beginning of every week
+# (after Monday 00:00:00) on WWW server: www.berlios.de
+#
+
+echo "BerliOS tasks to be executed at the beginning of every week on WWW server"
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+#   Create usage statistics for each portal using webalizer
+#
+/usr/local/httpd/SF2.5/backend/shell/webalizer_portal_new.sh
+
+#
+#   Create usage statistics for each project using webalizer
+#
+/usr/local/httpd/SF2.5/backend/shell/webalizer_new.sh
+
+echo ""
+echo "Done."

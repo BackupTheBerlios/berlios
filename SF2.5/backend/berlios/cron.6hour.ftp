@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# FTP server: ftp.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on FTP server"
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Tasks for new project/group:
+#   Create group/project home directories
+#   (/home/groups/ftp/pub/<projectname>)
+#   based on infos available in /home/dummy/dumps25/group_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_project_ftpdir.pl
+
+#
+# Remove file older than 7 days from ftp/incoming
+#
+find /usr/local/ftp/incoming -atime +7 -exec rm {} \; 
+
+#
+# Create rsyncd.conf and restart rsyncd 
+#
+echo ""
+echo "Create rsyncd.conf and force reload for rsyncd"
+cp /home/dummy/dumps25/rsyncd.conf /etc
+/etc/init.d/rsyncd restart 
+echo "Done"
+
+echo ""
+echo "Done."

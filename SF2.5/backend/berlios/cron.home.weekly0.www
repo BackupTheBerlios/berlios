@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed at the end of every week
+# (before Monday 00:00:00) on WWW server: www.berlios.de
+#
+
+echo "BerliOS tasks to be executed at the end of every week on WWW server"
+
+#
+# Rotate logging files for each project
+#
+logdir=/var/log/httpd
+l=`date +%Y%W`_log
+
+for i in berlios comm devel download forum news user ; do
+	echo ""
+	echo "Rotate log files for $i"
+	rm $logdir/$i/2*_log
+	touch $logdir/$i/$l
+	mv $logdir/$i/access_log $logdir/$i/access_$l
+	mv $logdir/$i/error_log $logdir/$i/error_$l
+done
+
+echo ""
+echo "Done."

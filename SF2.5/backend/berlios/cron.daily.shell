@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every day on
+# Shell server: shell.berlios.de
+#
+
+echo "BerliOS tasks to be executed every day on Shell server"
+
+#
+# Dumps authorized key from every user (/home/dummy/dumps25/ssh_dump)
+#
+#su -c "cd /usr/local/httpd/SF2.5/utils; ./ssh_dump.pl" - dummy
+
+#
+# Create authorized keys in user ssh directory
+# (/home/users/<user>/.ssh/autherized_keys)
+#
+#cd /usr/local/httpd/SF2.5/utils
+#./ssh_create.pl
+
+#
+# Create authorized keys2 in user ssh directory
+# (/home/users/<user>/.ssh/autherized_keys2)
+#
+cd /usr/local/httpd/SF2.5/utils
+./ssh2_create.pl
+
+echo ""
+echo "Done."

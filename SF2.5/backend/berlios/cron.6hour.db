@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# database server: db.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on Database server"
+
+#
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#   Create/manage projects databases
+#   based on infos available in BerliOS Developer Database (db_groups_list)
+#
+##cd /usr/local/httpd/SF2.5/utils
+##./mysql_create.pl
+
+echo ""
+echo "Done."

@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# crontab entries for freedb Server:
+# freedb.berlios.de
+#
+# daily ftp mirror (only root)
+#
+59 1 * * * /home/ftpadmin/mirror/mirror /home/ftpadmin/mirror.root.daily

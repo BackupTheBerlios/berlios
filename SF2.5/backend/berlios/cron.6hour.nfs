@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# NFS server: nfs.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on NFS server"
+
+#
+# Prerequisite to be done on NIS server:
+# dump user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios)
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Tasks for new user:
+#   Set user quota for user
+#   (2MB Soft, 4MB Hard, 1000 Files Soft, 4000 Files Hard)
+#   based on infos available in /home/dummy/dumps25/user_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_nfsuser_quota.pl
+
+#
+# Tasks for new project/group:
+#   Set group quota for project/group
+#   (100MB Soft, 125MB Hard, 10000 Files Soft, 15000 Files Hard)
+#   based on infos available in /home/dummy/dumps25/group_dump
+#
+./create_nfsproject_quota.pl
+
+#
+#   Set cvs quota for project/group
+#   (100MB Soft, 125MB Hard, 10000 Files Soft, 15000 Files Hard)
+#   based on infos available in /home/dummy/dumps25/group_dump
+#
+#./create_cvs_nfsproject_quota.pl
+
+#
+# set the date and time via NTP
+#
+ntpdate 193.174.154.5
+
+echo ""
+echo "Done."

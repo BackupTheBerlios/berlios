@@ -1,0 +1,103 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# NIS server: nis.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on NIS server"
+
+#
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Tasks for new user:
+#   Create user groupid in /etc/group based on infos
+#   available in /home/dummy/dumps25/user_dump
+#       <username>:gid: (gid=uid > 20000)
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_user_group.pl
+
+# Make the NIS databases
+echo ""
+echo "Make the NIS databases"
+cd /var/yp
+/usr/bin/make
+echo "Done"
+
+#   Create user account in /etc/passwd based on infos
+#   available in /home/dummy/dumps25/user_dump:
+#       username = username;
+#       com = "User <username> at BerliOS";
+#       uid = next available > 20000;
+#       gid = uid;
+#       password = unix_pw;
+#       shell = /bin/bash;
+#       dir = /home/users/<username>;
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_user_account.pl
+
+#
+# Tasks for new project/group:
+#   Create group/project groupid in /etc/group
+#   based on infos available in /home/dummy/dumps25/group_dump
+#       <projectname>::gid:list_of_users (gid=uid >=1000)
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_project_group.pl
+
+# Make the NIS databases
+echo ""
+echo "Make the NIS databases"
+cd /var/yp
+/usr/bin/make
+echo "Done"
+
+#   Create group/project account in /etc/passwd based on infos
+#   available in /home/dummy/dumps25/group_dump:
+#       username = groupname;
+#       com = "Project <groupname> at BerliOS";
+#       uid = next available > 1000;
+#       gid = uid;
+#       password = nopassword;
+#       shell = /bin/false;
+#       dir = /home/groups/<groupname>;
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_project_account.pl
+
+#
+# Tasks for new CVS project/group:
+#   Create group/project groupid in /etc/group
+#   based on infos available in /home/dummy/dumps25/group_dump
+#       cvs<projectname>:: cvs<projectname> (gid=uid > 10000)
+#cd /usr/local/httpd/SF2.5/backend/berlios
+#./create_cvs_project_group.pl
+
+#   Create CVS user account in /etc/passwd based on infos
+#   available in /home/dummy/dumps25/group_dump:
+#       username = cvs<projectname>;
+#       com = "CVS Account for Project <projectname> at BerliOS";
+#       uid = next available > 10000;
+#       gid = uid;
+#       password = nopassword;
+#       shell = /bin/false (nologin);
+#       dir = /cvsroot/<projectname>;
+#
+#cd /usr/local/httpd/SF2.5/backend/berlios
+#./create_cvs_user_account.pl
+
+# Make the NIS databases
+echo ""
+echo "Make the NIS databases"
+cd /var/yp
+/usr/bin/make
+echo "Done"
+
+echo ""
+echo "Done."

@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
         
 require ('squal_pre.php');
@@ -22,6 +21,6 @@ $rel = db_query($query);
 
 db_commit();
 
-echo "Done: ".db_error();
+echo "<p>Done: ".db_error();
 
 ?>

@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# Web server: www.berlios.de
+#
+if [ -f /tmp/6hour.lck ]; then
+	echo "Old update still busy"	>> /tmp/6hour.fail
+	date				>> /tmp/6hour.fail
+	echo "exiting..."		>> /tmp/6hour.fail
+	exit
+fi
+trap 'rm -f /tmp/6hour.lck; exit' 0 2 3 5 10 13 15
+
+echo "BerliOS tasks to be executed every 6 hours a day on Web server"
+
+: > /tmp/6hour.lck
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#   Create group/project home directories
+#   (/home/groups/<projectname>)
+#   based on infos available in /home/dummy/dumps25/group_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_project_homedir.pl
+/usr/local/httpd/SF2.5/backend/shell/apache.sh
+
+#   Set virtual host entries for Apache server and restart it
+#
+echo ""
+echo "Set Projects/Groups virtual host entries for Apache server"
+cp /home/dummy/dumps25/access.conf /etc/httpd
+cp /home/dummy/dumps25/vhost.conf /etc/httpd
+#
+# Apache is broken and won't restart
+/etc/init.d/apache stop
+sleep 10
+/etc/init.d/apache stop
+sleep 60
+/etc/init.d/apache start
+echo "Done"
+
+#   Create authentication database for protected htdocs 
+#   (/etc/httpd/passwd/passwd_authdb)
+#   based on infos available in /home/dummy/dumps25/user_dump
+#   and /home/dummy/dumps25/group_dump
+#
+cd /usr/local/httpd/SF2.5/backend/berlios
+./create_user_authdb.pl
+
+date				>> /tmp/6hour.ready
+echo ""
+echo "Done."

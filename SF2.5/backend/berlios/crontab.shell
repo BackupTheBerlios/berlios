@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# crontab entries for BerliOS Shell Server:
+# shell.berlios.de
+# but executed on db.berlios.de
+#
+# daily at 00:05
+#
+05 00 * * * /usr/local/httpd/SF2.5/backend/berlios/cron.daily.shell >/dev/null 2>&1

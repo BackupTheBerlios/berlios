@@ -1,11 +1,10 @@
-#!/usr/local/bin/php
 <?php
 //
 // SourceForge: Breaking Down the Barriers to Open Source Development
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: calculate_user_metric.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: calculate_user_metric.php,v 1.2 2003/11/13 10:47:33 helix Exp $
 
 //exit;
 
@@ -42,31 +41,32 @@ $threshhold='1.6';
 	exit_permission_denied();
 }*/
 
-echo '<BR>Starting... ';
+echo "<br>Starting... ";
 
 db_begin();
 
 for ($i=1; $i<9; $i++) {
-	echo '<BR>Starting round: '.$i;
+	echo "\n<br>Starting round: ".$i;
 
 	$j=($i-1);
 
 	/*
 		Set up an interim table to grab and average all trusted result
-	* /
-	$sql="DROP TABLE IF EXISTS user_metric_tmp1_$i;";
+	*/
+	$sql="DROP TABLE user_metric_tmp1_$i";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
-	echo db_error();
-*/	
+	echo "\n<br>".db_error();
+	
 	$sql="CREATE TABLE user_metric_tmp1_$i (
 		user_id int not null default 0, 
 		times_ranked float(8) null default 0,
 		avg_raters_importance float(8) not null default 0,
 		avg_rating float(8) not null default 0,
 		metric float(8) not null default 0);";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
-	echo '<P>'.$sql.'<P>';
-	echo db_error();
+	echo "\n<br>".db_error();
 
 	/*
 		Now grab/average trusted ratings into this table
@@ -81,10 +81,10 @@ for ($i=1; $i<9; $i++) {
 		GROUP BY user_ratings.user_id";
 
 	$res=db_query($sql);
+	print "\n<br>\n<br>\n".$sql;
 	if (!$res || db_affected_rows($res) < 1) {
-		echo "Error in round $i inserting average ratings: ";
-		echo '<P>'.$sql.'<P>';
-		echo db_error();
+		echo "\n<br>Error in round $i inserting average ratings: ";
+		echo "\n<br>".db_error();
 		exit;
 		
 	}
@@ -96,29 +96,31 @@ for ($i=1; $i<9; $i++) {
 	*/
 
 	$sql="UPDATE user_metric_tmp1_$i SET metric=(log(times_ranked)*avg_raters_importance*avg_rating);";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 	if (!$res || db_affected_rows($res) < 1) {
-		echo "Error in round $i calculating metric: ";
-		echo '<P>'.$sql.'<P>';
-		echo db_error();
+		echo "\n<br>Error in round $i calculating metric: ";
+		echo "\n<br>".db_error();
 		exit;
 		
 	}
 
 	$sql="DELETE FROM user_metric_tmp1_$i WHERE metric < $threshhold";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 	if (!$res || db_affected_rows($res) < 1) {
-                echo "Error in round $i deleting < threshhold ids: ";
-		echo '<P>'.$sql.'<P>';
-                echo db_error();
+                echo "\n<br>Error in round $i deleting < threshhold ids: ";
+		echo "\n<br>".db_error();
                 exit;
                 
         }
 /*
 	$sql="SELECT DISTINCT user_id FROM user_metric_tmp1_$i";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 	if (!$res || db_numrows($res) < 1) {
-		echo "Error in round $i getting unique user_ids: ".db_error();
+		echo "\n<br>Error in round $i getting unique user_ids: ";
+		echo "\n<br>"..db_error();
 		exit;
 		
 	}
@@ -139,9 +141,11 @@ for ($i=1; $i<9; $i++) {
 		"(SELECT DISTINCT user_id FROM user_metric_tmp1_$i ".
 		"WHERE user_metric_tmp1_$i.user_id=user_metric_tmp1_$i.user_id);";
 
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 /*	if (!$res || db_affected_rows($res) < 1) {
-		echo "Error in round $i carrying forward IDs: ".db_error();
+		echo "Error in round $i carrying forward IDs: ";
+		echo "\n<br>".db_error();
 		exit;
 		
 	}
@@ -155,8 +159,9 @@ for ($i=1; $i<9; $i++) {
 	echo '<BR>Starting Final Metric';
 /*
 	$sql="DROP TABLE IF EXISTS user_metric$i;";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
-	echo db_error();
+	echo "\n<br>".db_error();
 */
 	$sql="CREATE TABLE user_metric$i (
 		ranking serial,
@@ -168,9 +173,9 @@ for ($i=1; $i<9; $i++) {
 		percentile float(8) not null default 0,
 		importance_factor float(8) not null default 0);";
 
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
-	echo '<P>'.$sql.'<P>';
-	echo db_error();
+	echo "\n<br>".db_error();
 
 	/*
 		Insert the data in ranked order
@@ -180,22 +185,23 @@ for ($i=1; $i<9; $i++) {
 		SELECT user_id,times_ranked,avg_raters_importance,avg_rating,metric
 		FROM user_metric_tmp1_$i
 		ORDER BY metric DESC;";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 	if (!$res || db_affected_rows($res) < 1) {
 		echo "Error in round $i inserting final data: ";
-		echo '<P>'.$sql.'<P>';
-		echo db_error();
+		echo "\n<br>".db_error();
 		exit;
 	}
 
 	/*
 		Get the row count so we can calc the percentile below
 	*/
-	$res=db_query("SELECT COUNT(*) FROM user_metric$i");
+	$sql = "SELECT COUNT(*) FROM user_metric$i;";
+	$res=db_query($sql);
+	print "\n<br>\n<br>\n".$sql;
 	if (!$res || db_numrows($res) < 1) {
 		echo "Error in round $i getting row count: ";
-		echo '<P>'.$sql.'<P>';
-		echo db_error();
+		echo "\n<br>".db_error();
 		exit;
 	}
 
@@ -207,18 +213,23 @@ for ($i=1; $i<9; $i++) {
 	$sql="UPDATE user_metric$i SET
 		percentile=(100-(100*((ranking-1)/". db_result($res,0,0) ."))),
 		importance_factor=(1+((percentile/100)*.5));";
+	print "\n<br>\n<br>\n".$sql;
 	$res=db_query($sql);
 	if (!$res || db_affected_rows($res) < 1) {
 		echo "Error in round $i inserting final data: ";
-		echo '<P>'.$sql.'<P>';
-		echo db_error();
+		echo "\n<br>".db_error();
 		exit;
 	}
 }
 
-db_query("DELETE FROM user_metric;");
-db_query("INSERT INTO user_metric SELECT * FROM user_metric".($i-1).";");
-echo '<P>'.db_error().'<P>';
+$sql = "DELETE FROM user_metric;";
+print "\n<br>\n<br>\n".$sql;
+db_query($sql);
+echo "\n<br>".db_error();
+$sql = "INSERT INTO user_metric SELECT * FROM user_metric".($i-1).";";
+print "\n<br>\n<br>\n".$sql;
+db_query($sql);
+echo "\n<br>".db_error();
 
 db_commit();
 /*
@@ -227,16 +238,19 @@ db_commit();
 echo "<P>Cleaning up tables<P>";
 for ($i=1; $i<9; $i++) {
 	$sql="DROP TABLE user_metric_tmp1_$i;";
+	print "\n<br>\n<br>\n".$sql;
         $res=db_query($sql);
-        echo db_error();
+        echo "\n<br>".db_error();
 
 	$sql="DROP SEQUENCE user_metric".$i."_ranking_seq;";
+	print "\n<br>\n<br>\n".$sql;
         $res=db_query($sql);
-        echo db_error();
+        echo "\n<br>".db_error();
 
 	$sql="DROP TABLE user_metric$i;";
+	print "\n<br>\n<br>\n".$sql;
         $res=db_query($sql);
-        echo db_error();
+        echo "\n<br>".db_error();
 }
 
 echo '<BR>DONE: '.db_error();

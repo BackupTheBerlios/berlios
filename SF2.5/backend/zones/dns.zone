@@ -1,69 +1,83 @@
-@    IN    SOA    ns1.varesearch.com. hostmaster.sourceforge.net. (
-			2000010701	; serial number, in date form
+$TTL 86400
+@    IN    SOA    gaia.fokus.gmd.de. wasserroth.fokus.gmd.de. (
+			2003111202	; serial number, in date form
 			10800		; refresh 4 minutes
 			3600		; retry interval 2 minutes
 			604800		; expire
-			3600		; default ttl
+			86400		; default ttl
 )
 
 ;
 ; Name Servers
 ;
-                	IN      NS      ns1.varesearch.com.
-			IN      NS      ns2.varesearch.com.
-			IN	NS	ns1.sourceforge.net.
+			IN	NS	gaia.fokus.gmd.de.
+			IN	NS	helios.fokus.gmd.de.
+			IN	NS	deneb.dfn.de.
 
-mailhost		IN	A	127.0.0.1
 localhost		IN	A	127.0.0.1
+berlios.de.		IN	MX	9 mail.berlios.de.
 
-
-sourceforge.net.	IN      A       209.81.8.17
-	                IN      MX      10 mail1.sourceforge.net.
-			IN	MX	15 mail.urw.org.
 ;
 ; Host Names
 ;
 
-beta			IN	CNAME	sourceforge.net.	
-www             	IN      CNAME   sourceforge.net.
-mail1            	IN      A	209.81.8.35
-users			IN	CNAME	sourceforge.net.
-images			IN	A	209.81.8.36
-blink182		IN	A	209.81.8.38
-webdev			IN	A	209.81.8.39
-download		IN	A	209.81.8.41
+spider			IN	A	195.37.77.130
 
-shell1			IN	A	209.81.8.42
-			IN	MX	10 mail1.sourceforge.net.
+porcupine		IN	A	195.37.77.131
+pork			IN	A	195.37.77.132
 
-shell			IN	CNAME	shell1.sourceforge.net.
-cvs1	           	IN      A	209.81.8.43
-cvs			IN	CNAME	cvs1.sourceforge.net.
-mail1			IN	A	209.81.8.35
-			IN	MX	10 mail1.sourceforge.net.
-lists			IN	A	209.81.8.35
-			IN	MX	10 lists.sourceforge.net.
-ns1			IN	CNAME	mail1.sourceforge.net.
+kingfisher		IN	A	195.37.77.133
 
-;
-; Sourceforge Internal Servers (192.168.1.x)
-;
-backup.i		IN	A	192.168.1.12
-geocrawler.i		IN	A	192.168.1.45
-remission.i		IN	A	192.168.1.47
-underworld.i		IN	A	192.168.1.53
-web1.i			IN	A	192.168.1.100
-web2.i			IN	A	192.168.1.101
-fallover.i		IN	A	192.168.1.200
-police.i		IN	A	192.168.1.254
+horse			IN	A	195.37.77.134
+db2			IN	CNAME	horse.berlios.de.
 
-;
-; Projects Internal Servers (192.168.4.x)
-moby.i			IN	A	192.168.4.11
-backup.proj.i		IN	A	192.168.4.12
-cvs1.i			IN	A	192.168.4.46
-shell1.i		IN	A	192.168.4.52
-police.proj.i		IN	A	192.168.4.254
+bat			IN	A	195.37.77.135
+mail            	IN	A	195.37.77.135
+			IN	MX	10 mail.berlios.de.
+users			IN	A	195.37.77.135
+			IN	MX	10 users.berlios.de.
+lists			IN	A	195.37.77.135
+			IN	MX	10 lists.berlios.de.
+
+;linuxtag		IN	A	195.37.77.136
+
+sheep			IN	A	195.37.77.137
+cvs			IN	A	195.37.77.137
+
+unicorn			IN	A	195.37.77.138
+www			IN	CNAME	unicorn.berlios.de.
+news			IN	CNAME	unicorn.berlios.de.
+news2                   IN      CNAME   unicorn.berlios.de.
+;user			IN	CNAME	unicorn.berlios.de.
+developer		IN	CNAME	unicorn.berlios.de.
+developer20             IN      CNAME   unicorn.berlios.de.
+developer25             IN      CNAME   unicorn.berlios.de.
+developer30             IN      CNAME   unicorn.berlios.de.
+;comm			IN	CNAME	unicorn.berlios.de.
+forum			IN	CNAME	unicorn.berlios.de.
+wiki			IN      CNAME   unicorn.berlios.de.
+
+seal			IN	A	195.37.77.139
+db                      IN      CNAME   seal.berlios.de.
+nis                     IN      CNAME   seal.berlios.de.
+
+hornet			IN	A	195.37.77.140
+shell			IN	CNAME	hornet.berlios.de.
+
+snake			IN	A	195.37.77.141
+ftp			IN	CNAME	snake.berlios.de.
+download		IN	CNAME	snake.berlios.de.
+
+mouse			IN	A	195.37.77.142
+backup			IN	CNAME	mouse.berlios.de.
+monitor                 IN      CNAME   mouse.berlios.de.
+
+www2			IN	A	195.37.77.155
+
+teflon			IN	A	195.37.77.156
+
+fos2			IN	A	195.37.77.157
+fos			IN	A	195.37.77.158
 
 ;
 ; *** From here out is auto-generated ***

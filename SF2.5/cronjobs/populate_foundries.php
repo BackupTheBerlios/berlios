@@ -1,11 +1,10 @@
-#!/usr/local/bin/php
 <?php
 //
 // SourceForge: Breaking Down the Barriers to Open Source Development
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: populate_foundries.php,v 1.1 2003/11/12 16:09:04 helix Exp $
+// $Id: populate_foundries.php,v 1.2 2003/11/13 10:47:33 helix Exp $
 
 /*
 
@@ -80,5 +79,5 @@ for ($i=0; $i<$count; $i++) {
 }
 
 db_commit();
-echo "Done: ".db_error();
+echo "<p>Done: ".db_error();
 ?>

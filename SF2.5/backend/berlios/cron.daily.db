@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every day on
+# Database server: db.berlios.de
+#
+
+echo "BerliOS tasks to be executed every day on Database server"
+
+#
+# Make complete hot copy of BerliOS database files
+#
+#./db_mysqlhotcopy.sh
+
+#
+# Make complete SQL dump of BerliOS databases
+#
+#./db_mysqldump.sh
+
+echo ""
+echo "Done."

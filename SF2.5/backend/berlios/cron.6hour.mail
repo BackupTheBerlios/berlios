@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# BerliOS tasks to be executed every 6 hours a day on
+# Mail server: mail.berlios.de
+#
+
+echo "BerliOS tasks to be executed every 6 hours a day on Mail server: "
+
+# Prerequisite to be done on NIS Server:
+# Dumps user information, group information, SSH authorized_keys data,
+# mailing list information, Apache configuration, project mail aliases,
+# user mail aliases and DNS information out of SF database (sfberlios).
+#
+#su -c "cd /usr/local/httpd/SF2.5/backend; ./DatabaseDump.pl" - dummy
+
+#
+# Tasks for new mail users:
+#   Set sendmail mail aliases for BerliOS users
+#
+echo ""
+echo "Set sendmail mail aliases for BerliOS users"
+cp /home/dummy/dumps25/user.aliases /etc
+echo "Done"
+
+#   Rebuild sendmail aliases database
+echo ""
+echo "Rebuild sendmail aliases database"
+/usr/bin/newaliases
+echo "Done"
+
+echo ""
+echo "Done."

@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
 
 require ('squal_pre.php');
@@ -42,6 +41,6 @@ $sql = "DELETE FROM activity_log_old WHERE day='$today_formatted'";
 $rel = db_query($sql);
 
 db_commit();
-echo "Done: ".db_error();
+echo "<p>Done: ".db_error();
 
 ?>
