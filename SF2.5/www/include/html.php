@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: html.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: html.php,v 1.3 2003/11/28 10:08:22 helix Exp $
 
 // require("exit.php");
 
@@ -112,7 +112,7 @@ function html_build_list_table_top ($title_arr,$links_arr=false) {
 	GLOBAL $HTML;
 
 	$return = '
-	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="2">
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="3">
 		<TR BGCOLOR="'. $HTML->COLOR_HTMLBOX_TITLE .'">';
 
 	$count=count($title_arr);
