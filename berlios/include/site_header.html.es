@@ -23,10 +23,15 @@
   <tr>
     <td>
       <span class="maintitlebar">&nbsp; 
-      <b><a href="<?php echo $top_level; ?>/index.php.es" class="maintitlebar">Inicio</a></b> |
-      <b><a href="<?php echo $top_level; ?>/about/index.php.es" class="maintitlebar">Sobre BerilOS</a></b> |
-     <b><a href="<?php echo $top_level; ?>/partners/index.php.es" class="maintitlebar">Colaboradores</a></b> |
-     <b><a href="<?php echo $top_level; ?>/contact/index.php.es" class="maintitlebar">Contacto</a></b></span>
+      <b><a href="<?php echo $top_level; ?>index.php.es" class="maintitlebar">Inicio</a></b> |
+      <b><a href="<?php echo $top_level; ?>about/index.php.es" class="maintitlebar">Sobre BerilOS</a></b> |
+     <b><a href="<?php echo $top_level; ?>partners/index.php.es" class="maintitlebar">Colaboradores</a></b> |
+     <b><a href="<?php echo $top_level; ?>contact/index.php.es" class="maintitlebar">Contacto</a></b></span>
+    </td>
+    <td width="55%" align="right">
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.en">English</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.de">Deutsch</a></b></font> | 
+      <font color="#FFCC33"><b><a href="<?php echo $top_level; ?>index.php.es">Español</a></b></font>
     </td>
   </tr>
 </table>
