@@ -40,13 +40,13 @@ $res = db_query("SELECT groups.group_name AS group_name,"
 
 // ## one time output
 print " <channel>\n";
-print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
-print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
+print "  <title>$GLOBALS[sys_default_name] New Releases</title>\n";
 print "  <description>$GLOBALS[sys_default_name] New Releases</description>\n";
 print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
-print "  <title>$GLOBALS[sys_default_name] New Releases</title>\n";
-print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 print "  <language>en-us</language>\n";
+print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
+print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
+print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 // ## item outputs
 $outputtotal = 0;
 while ($row = db_fetch_array($res)) {

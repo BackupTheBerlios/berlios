@@ -24,13 +24,13 @@ $res = db_query($query,$limit);
 
 // ## one time output
 print " <channel>\n";
-print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
-print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
+print "  <title>$GLOBALS[sys_default_name] Project News</title>\n";
 print "  <description>$GLOBALS[sys_default_name] Project News Highlights</description>\n";
 print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
-print "  <title>$GLOBALS[sys_default_name] Project News</title>\n";
-print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 print "  <language>en-us</language>\n";
+print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
+print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
+print "  <webMaster>admin@$GLOBALS[sys_default_domain]</webMaster>\n";
 // ## item outputs
 while ($row = db_fetch_array($res)) {
 	print "  <item>\n";
