@@ -2,7 +2,14 @@
 require("include/site_header.html.de");
 ?>
 
-<!--  <center><h2>Das BerliOS-Projekt</h2></center> -->
+<b>Das BerliOS-Projekt</b>
+
+<p>BerliOS hat sich zum Ziel gesetzt die unterschiedlichen Interessengruppen
+im Umfeld der Open-Source-Software (OSS) zu unterst&uuml;tzen und dabei
+eine neutrale Vermittlerfunktion anzubieten. Die Zielgruppen von BerliOS
+sind einerseits die Entwickler und Anwender von Open-Source-Software und
+andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
+Anwendungen sowie Support-Firmen.
 
 <map name="BerliOSPie">
 <!-- central circle -->
@@ -47,13 +54,6 @@ require("include/site_header.html.de");
 <img src="images/berlios_small_pie.jpg" width="400" height="400" 
      alt="BerliOS Pie" usemap="#BerliOSPie" border="0">
 </center>
-
-<p>BerliOS hat sich zum Ziel gesetzt die unterschiedlichen Interessengruppen
-im Umfeld der Open-Source-Software (OSS) zu unterst&uuml;tzen und dabei
-eine neutrale Vermittlerfunktion anzubieten. Die Zielgruppen von BerliOS
-sind einerseits die Entwickler und Anwender von Open-Source-Software und
-andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
-Anwendungen sowie Support-Firmen.
 
 <p><b>Anwender</b>
 
