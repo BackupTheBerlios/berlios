@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.8 2004/06/15 10:51:05 helix Exp $
+// $Id: forum_utils.php,v 1.9 2005/02/24 17:51:19 helix Exp $
 
 /*
 
@@ -53,7 +53,7 @@ function forum_header($params) {
 			}
 
 
-			echo '<TABLE><TR><TD VALIGN="TOP">';
+			echo '<TABLE WIDTH="100%"><TR><TD VALIGN="TOP">';
 			if (!$result || db_numrows($result) < 1) {
 				echo '
 					<h3>Error - this news item was not found</h3>';
@@ -67,7 +67,7 @@ function forum_header($params) {
 
 				echo '<P>';
 			}
-			echo '</TD><TD VALIGN="TOP" WIDTH="35%">';
+			echo '</TD><TD VALIGN="top" WIDTH="35%">';
 			echo $HTML->box1_top('Latest News',0,$GLOBALS['COLOR_LTBACK2']);
 			echo news_show_latest($sys_news_group,5,false);
 			echo $HTML->box1_bottom();
