@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ssh_create.pl,v 1.4 2004/05/03 14:32:56 helix Exp $
+# $Id: ssh_create.pl,v 1.5 2004/05/06 11:39:48 helix Exp $
 #
 # ssh_create.pl - Dumps SSH authorized_keys into users homedirs on the cvs server.
 #
@@ -27,12 +27,11 @@ while ($ln = pop(@ssh_key_file)) {
 
 	if (-d $home_dir) {
 		if (! -d $ssh_dir) {
-			system("mkdir $ssh_dir, 0755");
-			print("mkdir $ssh_dir, 0755\n");
-		} else
-	       		system("chmod 0700 $ssh_dir");
-			print("chmod 0700 $ssh_dir\n");
+			system("mkdir $ssh_dir");
+			print("mkdir $ssh_dir\n");
 		}
+	       	system("chmod 0700 $ssh_dir");
+		print("chmod 0700 $ssh_dir\n");
 
 		print("Writing authorized_keys for $username:\n");
 
