@@ -4,7 +4,7 @@
 // Copyright 2000-2004 (c) The BerliOS Crew
 // http://www.berlios.de
 //
-// $Id: my_donors_admin.php,v 1.1 2004/04/02 11:20:48 helix Exp $
+// $Id: my_donors_admin.php,v 1.2 2004/04/02 12:36:17 helix Exp $
 
 require "pre.php";    
 require "donate.php";    
@@ -96,26 +96,26 @@ if (!$res || db_numrows($res) < 1) {
   if (!$res) {
 	print "<p><font bgcolor=\"\">Database Access Failed ".db_error()."</font>\n";
   }
-  print "<h1>No new donors found.</h1>";
+  print "<h1>No donors found.</h1>";
 } else {
   if ( db_numrows($res) > $donorsperpage ) {
 	$rows =  $donorsperpage;
   } else {
 	$rows = db_numrows($res);
   }
-  echo "<p>My Donors List";
+  echo "<h3>My Donors";
   if ($status == "") {
-	echo ":\n";
+	echo "</h3>\n";
   } else {
-	echo " in Status: <b>$status</b>\n";
+	echo " in Status: $status</h3>\n";
   }
 
   $title_arr = array();
   $title_arr[] = 'Login name';
-  $title_arr[] = 'Date';
-  $title_arr[] = 'Comment';
   $title_arr[] = 'Amount';
   $title_arr[] = 'Status';
+  $title_arr[] = 'Date';
+  $title_arr[] = 'Comment';
   $title_arr[] = 'Actions';
   
   echo html_build_list_table_top($title_arr);
@@ -125,10 +125,10 @@ if (!$res || db_numrows($res) < 1) {
   for ($i=0; $i<$rows; $i++) {
 	print '<tr bgcolor="'. html_get_alt_row_color($i).'">';
 	print '<td valign="top"><a href="/users/'. db_result($res,$i,'user_name') .'">'. db_result($res,$i,'user_name') .'</a>'.is_project_donor(db_result($res,$i,'user_id')).is_user_donor(db_result($res,$i,'user_id')).req_user_donate(db_result($res,$i,'user_id')).'</td>';
-	print '<td valign="top">'. date($sys_datefmt,db_result($res,$i,'add_date')) .'</td>';
-	print '<td valign="top">'. db_result($res,$i,'comment') .'</td>';
 	print '<td valign="top" align="right">&euro;'. db_result($res,$i,'amount') .',00</td>';
 	print '<td valign="top" align="middle">'. db_result($res,$i,'status') .'</td>';
+	print '<td valign="top">'. date($sys_datefmt,db_result($res,$i,'add_date')) .'</td>';
+	print '<td valign="top">'. db_result($res,$i,'comment') .'</td>';
 	print '<td valign="top">';
     print '<a href="?status='.$status.'&action=approve&user_id='.db_result($res,$i,'user_id').'&date='.db_result($res,$i,'add_date').'&offset='.$offset.'">[Approve]</a> ';
     print '<a href="?status='.$status.'&action=delete&user_id='.db_result($res,$i,'user_id').'&date='.db_result($res,$i,'add_date').'&offset='.$offset.'">[Delete]</a> ';
