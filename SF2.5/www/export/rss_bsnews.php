@@ -24,7 +24,7 @@ $res = db_query($query,$limit);
 
 // ## one time output
 print " <channel>\n";
-print "  <copyright>Copyright 1999-2000 VA Linux Systems, Inc.</copyright>\n";
+print "  <copyright>Copyright 2000-2004 Fraunhofer FOKUS</copyright>\n";
 print "  <pubDate>".gmdate('D, d M Y g:i:s',time())." GMT</pubDate>\n";
 print "  <description>$GLOBALS[sys_default_name] Project News Highlights</description>\n";
 print "  <link>http://$GLOBALS[sys_default_host]</link>\n";
