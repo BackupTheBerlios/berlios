@@ -29,7 +29,6 @@ function screenshots_header($params) {
 	}
 	echo '<P><B>';
 	echo '<A HREF="/project/admin/editimages.php?group_id='.$group_id.'">Admin</A></B>';
-	echo '<P>';
 }
 
 function screenshots_footer($params) {

@@ -7,7 +7,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: vhost.php,v 1.2 2004/01/08 10:41:37 helix Exp $
+  * @version   $Id: vhost.php,v 1.3 2004/01/13 13:15:25 helix Exp $
   *
   */
 
@@ -87,9 +87,9 @@ project_admin_header(array('title'=>'Editing Virtual Host Info','group'=>$group_
 
 ?>
 
-<p>
+<h2>Virtual Host Admin</h2>
 
-<b><u>Add New Virtual Host</u></b>
+<h3>Add New Virtual Host</h3>
 <p>
 To add a new virtual host - simply point a <b>CNAME</b> for <i>yourhost.org</i> at
 <b>www.<?php echo $GLOBALS['sys_default_domain']; ?></b>. <?php echo $GLOBALS['sys_default_name']; ?> does not currently host mail (i.e. cannot be an MX)
@@ -110,6 +110,8 @@ material at <i><?php echo $group->getUnixName(); ?>.berlios.de</i>.
 </tr>
 </table>
 </form>
+
+<h3>Defined Virtual Hosts</h3>
 
 <?php
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -128,7 +128,7 @@ $res_memb = db_query("SELECT users.realname,users.user_id,users.user_name,user_g
 
 if ($is_admin)
 echo '
-	<HR NoShade SIZE="1">
+	<HR NOSHADE>
 	<FORM ACTION="'. $PHP_SELF .'" METHOD="POST">
 	<INPUT TYPE="hidden" NAME="func" VALUE="adduser">
 	<INPUT TYPE="HIDDEN" NAME="group_id" VALUE="'. $group_id .'">
@@ -137,7 +137,7 @@ echo '
 	<TR><TD COLSPAN="2" ALIGN="CENTER"><INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Add User"></TD></TR></FORM>
 	</TABLE>
 
-	<HR NoShade SIZE="1">
+	<HR NOSHADE>
 	<div align="center">
 	<A href="/project/admin/userperms.php?group_id='. $group_id.'">[Edit Member Permissions]</A>
 	</div>
@@ -190,7 +190,7 @@ $HTML->box1_top("File Releases"); ?>
 	<A href="editpackages.php?group_id=<?php print $group_id; ?>"><B>[Edit/Add File Releases]</B></A>
 	</CENTER>
 
-	<HR>
+	<HR NOSHADE>
 	<B>Packages:</B> <A href="/docman/display_doc.php?docid=780&group_id=1">Documentation</A> (Very Important!)
 
 	<P><?php

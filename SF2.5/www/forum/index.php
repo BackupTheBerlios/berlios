@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 require('pre.php');
 require('../forum/forum_utils.php');
@@ -36,7 +36,7 @@ if ($group_id) {
 		exit;
 	}
 
-	echo '<H3>Discussion Forums</H3>
+	echo '<H2>Discussion Forums</H2>
 		<P>Choose a forum and you can browse, search, and post messages.<P>';
 
 	/*

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: news_utils.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: news_utils.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 /*
 	News System
@@ -30,7 +30,6 @@ function news_header($params) {
 	}
 	echo '<P><B>';
 	echo '<A HREF="/news/submit.php?group_id='.$group_id.'">Submit</A> | <A HREF="/news/admin/?group_id='.$group_id.'">Admin</A></B>';
-	echo '<P>';
 }
 
 function news_footer($params) {

@@ -129,9 +129,9 @@ function docman_header($title,$pagehead,$style='xyz') {
 		print "<b>  | <a href=\"/docman/admin/index.php?mode=editdocs&group_id=".$group_id."\">Edit Documents</a> | ".
 		"<a href=\"/docman/admin/index.php?mode=editgroups&group_id=".$group_id." \">Edit Document Groups</a></b>";
 
-	} 
+	}
 	print "<p>";
-	print "<h3>$pagehead</h3>\n<P>\n";
+	print "<h2>$pagehead</h2>\n<P>\n";
 
 }
 

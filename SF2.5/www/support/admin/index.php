@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require('pre.php');
 require('../support_utils.php');
@@ -76,7 +76,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		*/
 		support_header(array ('title'=>'Add/Change Categories'));
 
-		echo "<H1>Add Support Request Categories</H1>";
+		echo "<H2>Add Support Request Categories</H2>";
 
 		/*
 			List of possible categories for this group
@@ -115,7 +115,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		*/
 		support_header(array ('title'=>'Add/Change Canned Responses'));
 
-		echo "<H1>Add Canned Responses</H1>";
+		echo "<H2>Add Canned Responses</H2>";
 
 		/*
 			List of possible categories for this group
@@ -128,7 +128,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		if ($result && $rows > 0) {
 			//code to show existing responses and link to update page
 			echo '
-			<H2>Existing Responses:</H2>
+			<H3>Existing Responses:</H3>
 			<P>';
 			$title_arr=array();
 			$title_arr[]='ID';
@@ -175,7 +175,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		*/
 		support_header(array ('title'=>'Update Canned Responses'));
 
-		echo "<H1>Update Canned Responses</H1>";
+		echo "<H2>Update Canned Responses</H2>";
 
 		/*
 			List of possible categories for this group
@@ -220,7 +220,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		support_header(array('title'=>'Change a Support Manager Category'));
 
 		echo '
-			<H1>Modify a Support Category</H1>';
+			<H2>Modify a Support Category</H2>';
 
 		$sql="SELECT support_category_id,category_name FROM support_category WHERE support_category_id='$support_cat_id' AND group_id='$group_id'";
 		$result=db_query($sql);
@@ -261,7 +261,7 @@ if ($group_id && user_ismember($group_id,'S2')) {
 		support_header(array ('title'=>'Support Manager Administration'));
 
 		echo '
-			<H1>Support Manager Administration</H1>';
+			<H2>Support Manager Administration</H2>';
 
 		echo '<P>
 			<A HREF="'.$PHP_SELF.'?group_id='.$group_id.'&support_cat=1">Add Support Request Categories</A><BR>';

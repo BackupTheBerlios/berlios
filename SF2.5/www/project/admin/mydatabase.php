@@ -11,7 +11,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: mydatabase.php,v 1.1 2003/11/13 11:29:26 helix Exp $
+  * @version   $Id: mydatabase.php,v 1.2 2004/01/13 13:15:25 helix Exp $
   *
   */
 
@@ -156,6 +156,8 @@ if ($deletedb == 1) {
 
 }
 
+print "<H2>Database Admin</H2>\n";
+
 $res_db = db_query("
 	SELECT * 
 	FROM prdb_types 
@@ -171,10 +173,7 @@ $res_db = db_query("
 if (db_numrows($res_db) > 0) {
 
 	print '
-
-		<p>
-
-		<b><u>Add New Database</u></b>
+		<h3>Add New Database</h3>
 		<p>
 		<i>Clicking on "create" will schedule the creation of the database, and email the
 		details to the project administrators.</i>
@@ -280,7 +279,7 @@ if (db_numrows($res_db) > 0) {
 
 } else {
 
-	print '<b><u>Current Databases</u></b><p>There are no databases currently allocated to this group.';
+	print '<h3>Current Databases</h3><p>There are no databases currently allocated to this group.';
 
 }
 

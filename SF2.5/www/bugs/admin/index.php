@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:22 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 require('pre.php');
 require('../bug_utils.php');
@@ -100,7 +100,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Add/Change Categories'));
 
-		echo "<H1>Add Bug Categories</H1>";
+		echo "<H2>Add Bug Categories</H2>";
 
 		/*
 			List of possible categories for this group
@@ -138,7 +138,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Add/Change Groups'));
 
-		echo '<H1>Add Bug Groups</H1>';
+		echo '<H2>Add Bug Groups</H2>';
 
 		/*
 			List of possible bug_groups for this group
@@ -176,7 +176,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Modify A Bug Category'));
 
-		echo '<H1>Modify A Bug Category</H1>';
+		echo '<H2>Modify A Bug Category</H2>';
 
 		$sql="SELECT bug_category_id, category_name FROM bug_category WHERE bug_category_id='$bug_cat_id' AND group_id='$group_id'";
 		$result=db_query($sql);
@@ -216,7 +216,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Add/Change Groups'));
 
-		echo '<H1>Modify A Bug Group</H1>';
+		echo '<H2>Modify A Bug Group</H2>';
 
 		$sql="SELECT bug_group_id,group_name FROM bug_group WHERE bug_group_id='$bug_group_id' AND group_id='$group_id'";
 		$result=db_query($sql);
@@ -256,7 +256,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Create/Modify Canned Responses'));
 
-		echo "<H1>Create/Modify Canned Responses</H1>";
+		echo "<H2>Create/Modify Canned Responses</H2>";
 
 		$sql="SELECT bug_canned_id,title FROM bug_canned_responses WHERE group_id='$group_id'";
 		$result=db_query($sql);
@@ -268,7 +268,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 				Links to update pages
 			*/
 			echo '
-			<H2>Existing Responses:</H2>
+			<H3>Existing Responses:</H3>
 			<P>';
 
 			$title_arr=array();
@@ -318,7 +318,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		*/
 		bug_header(array ('title'=>'Modify Canned Response'));
 
-		echo "<H1>Modify Canned Response</H1>";
+		echo "<H2>Modify Canned Response</H2>";
 
 		$sql="SELECT bug_canned_id,title,body FROM bug_canned_responses WHERE ".
 		"group_id='$group_id' AND bug_canned_id='$bug_canned_id'";
@@ -362,7 +362,7 @@ if ($group_id && (user_ismember($group_id,'B2') || user_ismember($group_id,'A'))
 		bug_header(array ('title'=>'Bug Administration'));
 
 		echo '
-			<H1>Bug Administration</H1>';
+			<H2>Bug Administration</H2>';
 
 		echo '<P>
 			<A HREF="'.$PHP_SELF.'?group_id='.$group_id.'&bug_cat=1">Add Bug Categories</A><BR>';

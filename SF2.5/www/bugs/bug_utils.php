@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: bug_utils.php,v 1.4 2004/01/09 15:46:06 helix Exp $
+// $Id: bug_utils.php,v 1.5 2004/01/13 13:15:24 helix Exp $
 
 /*
 
@@ -35,7 +35,7 @@ function bug_header($params) {
 	}
 	echo site_project_header($params);
 
-	echo '<BR><B><A HREF="/bugs/?func=addbug&group_id='.$group_id.'">Submit A Bug</A>
+	echo '<P><B><A HREF="/bugs/?func=addbug&group_id='.$group_id.'">Submit A Bug</A>
 	 | <A HREF="/bugs/?func=browse&group_id='.$group_id.'&set=open">Open Bugs</A>';
 	if (user_isloggedin()) {
 		echo ' | <A HREF="/bugs/?func=browse&group_id='.$group_id.'&set=my">My Bugs</A>';
@@ -43,7 +43,6 @@ function bug_header($params) {
 		echo ' | <A HREF="/bugs/reporting/?group_id='.$group_id.'">Reporting</A>';
 	}
 	echo ' | <A HREF="/bugs/admin/?group_id='.$group_id.'">Admin</A></B>';
-	echo ' <hr width="300" size="1" align="left" noshade>';
 }
 
 function bug_footer($params) {

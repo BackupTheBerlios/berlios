@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: submit.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: submit.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 require('pre.php');
 require('../forum/forum_utils.php');
@@ -55,7 +55,7 @@ if (user_isloggedin()) {
 	news_header(array('title'=>'News'));
 
 	echo '
-		<H3>Submit News For '.group_getname($group_id).'</H3>
+		<H2>Submit News For '.group_getname($group_id).'</H2>
 		<P>
 		You can post news about your project if you are an admin on your project. 
 		You may also post "help wanted" notes if your project needs help.

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2003/11/24 10:44:13 helix Exp $
+// $Id: index.php,v 1.4 2004/01/13 13:15:24 helix Exp $
 
 require('pre.php');
 require('../mail/mail_utils.php');
@@ -17,6 +17,9 @@ if ($group_id) {
 	} else {
 		$public_flag='1';
 	}
+
+	echo '
+		<H2>Mailing Lists for '.group_getname($group_id).'</H2>';
 
 	$sql="SELECT * FROM mail_group_list WHERE group_id='$group_id' AND is_public IN ($public_flag)";
 

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.6 2003/11/24 11:08:47 helix Exp $
+// $Id: forum_utils.php,v 1.7 2004/01/13 13:15:24 helix Exp $
 
 /*
 
@@ -82,7 +82,7 @@ function forum_header($params) {
 		Show horizontal forum links
 	*/
 	if ($forum_id && $forum_name) {
-		echo '<P><H3>Discussion Forums: <A HREF="/forum/forum.php?forum_id='.$forum_id.'">'.$forum_name.'</A></H3>';
+		echo '<P><H2>Discussion Forums: <A HREF="/forum/forum.php?forum_id='.$forum_id.'">'.$forum_name.'</A></H2>';
 	}
 	echo '<P><B>';
 

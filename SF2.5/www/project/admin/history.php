@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: history.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: history.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require "pre.php";    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -14,9 +14,9 @@ session_require(array('group'=>$group_id,'admin_flags'=>'A'));
 project_admin_header(array('title'=>'Project History','group'=>$group_id));
 ?>
 
-<H3>Project Change Log</H3>
+<H2>Project History</H2>
 <P>
-This log will show who made significant changes to your project and when.
+This history will show who made significant changes to your project and when.
 <P>
 <?php
 echo show_grouphistory($group_id);

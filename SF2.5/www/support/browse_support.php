@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_support.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: browse_support.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -15,7 +15,7 @@ if (!$offset || $offset < 0) {
 // Automatically discard invalid field names.
 //
 if ($order) {
-	if ($order=='support_id' || $order=='summary' || $order=='date' || $order=='assigned_to_user' || $order=='submitted_by' || $order=='priority') {
+	if ($order=='support_id' || $order=='summary' || $order=='support_category_id' || $order=='support_status_id' || $order=='date' || $order=='assigned_to_user' || $order=='submitted_by' || $order=='priority') {
 		if(user_isloggedin()) {
 			user_set_preference('support_browse_order', $order);
 		}
@@ -29,8 +29,14 @@ if ($order) {
 }
 
 if ($order) {
+        if ($order != 'date' && $order != 'assigned_to_user' && $order != 'submitted_by' && $order != 'priority') {
+                $order_by_field = 'support.';
+        } else {
+                $order_by_field = '';
+        }
+
 	//if ordering by priority OR closed date, sort DESC
-	$order_by = " ORDER BY $order ".((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
+	$order_by = " ORDER BY ".$order_by_field.$order." ".((($set=='closed' && $order=='date') || ($order=='priority')) ? ' DESC ':'');
 } else {
 	$order_by = " ORDER BY support.group_id,support.support_id ";
 }
@@ -126,12 +132,15 @@ support_header(array('title'=>'Browse Support Requests'.
 
 //now build the query using the criteria built above
 $sql="SELECT support.priority,support.group_id,support.support_id,support.summary,".
+	"support_category.category_name,support_status.status_name,".
 	"support.open_date AS date,users.user_name AS submitted_by,user2.user_name AS assigned_to_user ".
-	"FROM support,users,users user2 ".
+	"FROM support,support_category,support_status,users,users user2 ".
 	"WHERE users.user_id=support.submitted_by ".
 	" $status_str $assigned_str $category_str ".
 	"AND user2.user_id=support.assigned_to ".
-	"AND group_id='$group_id'".
+	"AND support_category.support_category_id=support.support_category_id ".
+	"AND support_status.support_status_id=support.support_status_id ".
+	"AND support.group_id='$group_id'".
 	$order_by;
 
 /*
@@ -153,13 +162,16 @@ $tech_box=html_build_select_box_from_arrays ($tech_id_arr,$tech_name_arr,'_assig
 /*
 	Show the new pop-up boxes to select assigned to and/or status
 */
-echo '<TABLE WIDTH="10%" BORDER="0"><FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
+echo '<H2>Browse Support Requests by</H2>
+	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="6"><FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
 	<INPUT TYPE="HIDDEN" NAME="group_id" VALUE="'.$group_id.'">
 	<INPUT TYPE="HIDDEN" NAME="set" VALUE="custom">
-	<TR><TD COLSPAN="3" nowrap><b>Browse Requests by User/Status/Category:</b></TD></TR>
+	<TR><TD><b>Assigned User:</b></TD><TD><b>Status:</b></TD><TD><b>Category:</b></TD></TR>
 	<TR><TD><FONT SIZE="-1">'. $tech_box .'</TD><TD><FONT SIZE="-1">'. support_status_box('_status',$_status,'Any') .'</TD>'.
 	'<TD><FONT SIZE="-1">'. support_category_box ($group_id,$name='_category',$_category,'Any') .'</TD>'.
 '<TD><FONT SIZE="-1"><INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Browse"></TD></TR></FORM></TABLE>';
+
+//echo "<p>$sql\n";
 
 $result=db_query($sql,51,$offset);
 
@@ -169,7 +181,6 @@ if ($result && db_numrows($result) > 0) {
 		<P>
 		<h3>'.$statement.'</H3>
 		<P>
-		<HR NoShade SIZE="1">
 		<B>You can use the Support Manager to coordinate tech support</B>
 		<P>';
 
@@ -192,7 +203,6 @@ if ($result && db_numrows($result) > 0) {
 		<P>
 		<H3>'.$statement.'</H3>
 		<P>
-		<HR NoShade SIZE="1">
 		<B>You can use the Support Manager to coordinate tech support</B>
 		<P>';
 	echo '

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require('pre.php');
 require('../pm_utils.php');
@@ -64,7 +64,7 @@ if ($group_id && user_ismember($group_id,'P2')) {
 
 		pm_header(array ('title'=>'Add Projects'));
 
-		echo '<H1>Add Subprojects to the Project/Task Manager</H1>';
+		echo '<H2>Add Subprojects to the Project/Task Manager</H2>';
 
 		/*
 			List of possible categories for this group
@@ -179,7 +179,7 @@ if ($group_id && user_ismember($group_id,'P2')) {
 			<P>
 			<A HREF="'.$PHP_SELF.'?group_id='.$group_id.'&projects=1">Add A Subproject</A><BR>
 			Add a project, which can contain a set of tasks. This is different than creating a new task.
-			<BR>
+			<P>
 			<A HREF="'.$PHP_SELF.'?group_id='.$group_id.'&change_status=1">Update Information</A><BR>
 			Determine whether non-project-members can view Subprojects in the Project/Task Manager, update name and description';
 

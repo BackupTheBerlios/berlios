@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userperms.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: userperms.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require "pre.php";    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -80,7 +80,7 @@ $res_dev = db_query("SELECT users.user_name AS user_name,"
 project_admin_header(array('title'=>'Project Developer Permissions','group'=>$group_id));
 ?>
 
-<P><B>Developer Permissions for Project: <?php html_a_group($group_id); ?></B>
+<H2>Developer Permissions for Project: <?php html_a_group($group_id); ?></H2>
 <P>
 <B>NOTE:</B>
 

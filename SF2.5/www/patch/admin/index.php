@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require('pre.php');
 require('../patch_utils.php');
@@ -51,7 +51,7 @@ if ($group_id && user_ismember($group_id,'C2')) {
 		*/
 		patch_header(array ('title'=>'Add/Change Categories'));
 
-		echo "<H1>Add Patch Categories</H1>";
+		echo "<H2>Add Patch Categories</H2>";
 
 		/*
 			List of possible categories for this group
@@ -92,7 +92,7 @@ if ($group_id && user_ismember($group_id,'C2')) {
 		patch_header(array ('title'=>'Modify a Patch Category'));
 
 		echo '
-			<H1>Patch Category Modification</H1>';
+			<H2>Patch Category Modification</H2>';
 
 		$sql="SELECT patch_category_id,category_name from patch_category WHERE patch_category_id='$patch_cat_id' AND group_id='$group_id'";
 		$result=db_query($sql);
@@ -130,7 +130,7 @@ if ($group_id && user_ismember($group_id,'C2')) {
 		patch_header(array ('title'=>'Patch Administration'));
 
 		echo '
-			<H1>Patch Administration</H1>';
+			<H2>Patch Administration</H2>';
 
 		echo '<P>
 			<A HREF="'.$PHP_SELF.'?group_id='.$group_id.'&patch_cat=1">Add Patch Categories</A><BR>';

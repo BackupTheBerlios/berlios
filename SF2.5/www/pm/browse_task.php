@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_task.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: browse_task.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -151,10 +151,11 @@ $tech_box=html_build_select_box_from_arrays ($tech_id_arr,$tech_name_arr,'_assig
 /*
 	Show the new pop-up boxes to select assigned to and/or status
 */
-echo '<TABLE WIDTH="10%" BORDER="0"><FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
+echo '<H2>Browse Tasks by</H2>
+	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="6"><FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
 	<INPUT TYPE="HIDDEN" NAME="group_id" VALUE="'.$group_id.'">
 	<INPUT TYPE="HIDDEN" NAME="set" VALUE="custom">
-	<TR><TD COLSPAN="4" nowrap><b>Browse Tasks by User and/or Status:</b></TD></TR>
+	<TR><TD><b>Subproject:</b></TD><TD><b>Assigned User:</b></TD><TD><b>Status:</b></TD></TR>
 	<TR><TD>'. pm_show_subprojects_box('group_project_id',$group_id,$group_project_id) .'</TD>'.
 		'<TD><FONT SIZE="-1">'. $tech_box .'</TD><TD><FONT SIZE="-1">'. pm_status_box('_status',$_status,'Any') .'</TD>'.
 		'<TD><FONT SIZE="-1"><INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Browse"></TD></TR></FORM></TABLE>';

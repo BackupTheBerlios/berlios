@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editgroupinfo.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: editgroupinfo.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require ('pre.php');
 require ('vars.php');
@@ -153,7 +153,7 @@ $row_grp = db_fetch_array($res_grp);
 
 project_admin_header(array('title'=>'Editing Group Info','group'=>$group_id));
 
-print '<P>Editing group info for: <B>'.$row_grp['group_name'].'</B>';
+print '<H2>Editing Group Info for: '.$row_grp['group_name'].'</H2>';
 
 print '
 <P>

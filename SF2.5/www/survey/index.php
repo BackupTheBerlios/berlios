@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.5 2003/11/28 10:06:34 helix Exp $
+// $Id: index.php,v 1.6 2004/01/13 13:15:26 helix Exp $
 
 require('pre.php');
 require('vote_function.php');

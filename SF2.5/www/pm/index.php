@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.3 2003/11/24 10:39:25 helix Exp $
+// $Id: index.php,v 1.4 2004/01/13 13:15:25 helix Exp $
 
 require('pre.php');
 require('../pm/pm_utils.php');
@@ -33,7 +33,7 @@ if ($group_id) {
 	}
 
 	echo '
-		<H3>Subprojects and Tasks</H3>
+		<H2>Subprojects and Tasks</H2>
 		<P>
 		Choose a Subproject and you can browse/edit/add tasks to it.
 		<P>';

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: mail_utils.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: mail_utils.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 function mail_header($params) {
 	global $group_id;
@@ -22,7 +22,7 @@ function mail_header($params) {
 
 	site_project_header($params);
 	echo '
-		<P><B><A HREF="/mail/admin/?group_id='.$group_id.'">Admin</A></B><P>';
+		<P><B><A HREF="/mail/admin/?group_id='.$group_id.'">Admin</A></B>';
 }
 
 function mail_footer($params) {

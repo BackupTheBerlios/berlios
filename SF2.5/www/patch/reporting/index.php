@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:25 helix Exp $
+// $Id: index.php,v 1.3 2004/01/13 13:15:25 helix Exp $
 
 require('pre.php');
 require('../patch_utils.php');
@@ -27,7 +27,7 @@ function patch_quick_report($group_id,$title,$subtitle1,$sql1,$subtitle2,$sql2) 
 
        	patch_header(array ("title"=>$title));
        	patch_reporting_header($group_id);
-       	echo "\n<H1>$title</H1>";
+       	echo "\n<H2>$title</H2>";
 
         reports_quick_graph($subtitle1,$sql1,$sql2,$bar_colors);
 
@@ -50,7 +50,7 @@ if ($group_id && user_ismember($group_id/*,"C2"*/)) {
 
 			patch_header(array ("title"=>"Aging Report"));
 			patch_reporting_header($group_id);
-			echo "\n<H1>Aging Report</H1>";
+			echo "\n<H2>Aging Report</H2>";
 
 			$time_now=time();
 //			echo $time_now."<P>";
@@ -185,7 +185,7 @@ if ($group_id && user_ismember($group_id/*,"C2"*/)) {
 		*/
 		patch_header(array ("title"=>$page_title));
 
-		echo "\n<H1>$page_title</H1>";
+		echo "\n<H2>$page_title</H2>";
 		patch_reporting_header($group_id);
 
 		patch_footer(array());

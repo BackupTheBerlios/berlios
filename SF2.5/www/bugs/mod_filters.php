@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: mod_filters.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: mod_filters.php,v 1.3 2004/01/13 13:15:24 helix Exp $
 
 function show_filters ($group_id) {
 	/*
@@ -121,7 +121,7 @@ if (user_isloggedin()) {
 } else {
 
 	echo '
-		<H1>You must be logged in before you can create personal filters for any given group</H2>';
+		<H2>You must be logged in before you can create personal filters for any given group</H2>';
 
 }
 

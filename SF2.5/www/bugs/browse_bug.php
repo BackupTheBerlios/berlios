@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: browse_bug.php,v 1.3 2004/01/09 15:46:06 helix Exp $
+// $Id: browse_bug.php,v 1.4 2004/01/13 13:15:24 helix Exp $
 
 if (!$offset || $offset < 0) {
 	$offset=0;
@@ -161,8 +161,9 @@ $tech_box=html_build_select_box_from_arrays ($tech_id_arr,$tech_name_arr,'_assig
 echo '<FORM ACTION="'. $PHP_SELF .'" METHOD="GET">
 	<INPUT TYPE="HIDDEN" NAME="group_id" VALUE="'.$group_id.'">
 	<INPUT TYPE="HIDDEN" NAME="set" VALUE="custom">
-	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
-	<TR><TD COLSPAN="5" nowrap><b>Browse Requests by User and/or Status/Category/Group:</b><br><br></TD></TR>
+	<H2>Browse Bug Requests by</H2>
+	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="6">
+	<TR><TD><b>Assigned User:</b></TD><TD><b>Status:</b></TD><TD><b>Category:</b></TD><TD><b>Group:</b></TD></TR>
 	<TR><TD><FONT SIZE="-1">'. $tech_box . '</TD>'.
 	'<TD><FONT SIZE="-1">'. bug_status_box('_status',$_status,'Any') .'</TD>'.
 	'<TD><FONT SIZE="-1">'. bug_category_box ('_category',$group_id,$_category,'Any') .'</TD>'.
@@ -181,22 +182,24 @@ if ($set=='open') {
 		$result=false;
 	}
 	if ($result && db_numrows($result) > 0) {
-		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
-                        "user2.user_name AS assigned_to_user, ".
-			"bug_category.category_name, ".
-                        "bug_group.group_name, ".
+		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
+                        "user2.user_name AS assigned_to_user,".
+			"bug.category_id,".
+			"bug.bug_group_id,".
+                        "bug_category.category_name,".
+                        "bug_group.group_name,".
                         "bug_status.status_name ".
 			"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 			"WHERE (". stripslashes( db_result($result,0,'sql_clause') ) .") ".
 			"AND users.user_id=bug.submitted_by ".
                         "AND user2.user_id=bug.assigned_to ".
                         "AND bug_category.bug_category_id=bug.category_id ".
-                        "AND bug_category.group_id='$group_id' ".
                         "AND bug_group.bug_group_id=bug.bug_group_id ".
-                        "AND bug_group.group_id='$group_id' ".
                         "AND bug_status.status_id=bug.status_id ".
 			"AND bug_id!='100'".
 			$order_by ; 
+
+//        	echo "<p>Default Query: $sql\n";
 
 		$statement="Using Your Filter";
 
@@ -204,57 +207,56 @@ if ($set=='open') {
 		/*
 			Just browse the bugs in this group
 		*/
-		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
-                        "user2.user_name AS assigned_to_user, ".
-                        "bug_category.category_name, ".
-                        "bug_group.group_name, ".
+		$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
+                        "user2.user_name AS assigned_to_user,".
+                        "bug.category_id,".
+                        "bug.bug_group_id,".
+                	"bug_category.category_name,".
+                	"bug_group.group_name,".
                         "bug_status.status_name ".
 			"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 			"WHERE users.user_id=bug.submitted_by ".
 			"AND bug.status_id <> '3' ".
                         "AND user2.user_id=bug.assigned_to ".
-                        "AND bug_category.bug_category_id=bug.category_id ".
-                        "AND bug_category.group_id='$group_id' ".
-                        "AND bug_group.bug_group_id=bug.bug_group_id ".
-                        "AND bug_group.group_id='$group_id' ".
-			"AND bug.group_id='$group_id' ".
+                	"AND bug_category.bug_category_id=bug.category_id ".
+                	"AND bug_group.bug_group_id=bug.bug_group_id ".
                         "AND bug_status.status_id=bug.status_id ".
+                        "AND bug.group_id='$group_id' ".
 			"AND bug_id!='100'".
 			$order_by ;
 
+//       		echo "<p>Group Query: $sql\n";
 	}
 
 } else {
 	/*
 		Use the query from the form post
 	*/
-	$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.category_id,bug.date,users.user_name AS submitted_by,".
-                "user2.user_name AS assigned_to_user, ".
-                "bug_category.category_name, ".
-                "bug_group.group_name, ".
+	$sql="SELECT bug.group_id,bug.priority,bug.bug_id,bug.summary,bug.date,users.user_name AS submitted_by,".
+                "user2.user_name AS assigned_to_user,".
+                "bug.category_id,".
+                "bug.bug_group_id,".
+		"bug_category.category_name,".
+		"bug_group.group_name,".
                 "bug_status.status_name ".
 		"FROM bug,bug_category,bug_group,bug_status,users,users user2 ".
 		"WHERE users.user_id=bug.submitted_by ".
 		" $status_str $assigned_str $bug_group_str $category_str ".
                 "AND user2.user_id=bug.assigned_to ".
-                "AND bug_category.bug_category_id=bug.category_id ".
-                "AND bug_category.group_id='$group_id' ".
-                "AND bug_group.bug_group_id=bug.bug_group_id ".
-                "AND bug_group.group_id='$group_id' ".
+		"AND bug_category.bug_category_id=bug.category_id ".
+		"AND bug_group.bug_group_id=bug.bug_group_id ".
                 "AND bug_status.status_id=bug.status_id ".
 		"AND bug.group_id='$group_id' ".
-		"AND bug_id!='100'".
+                "AND bug_id!='100'".
 		$order_by ;
 
+//	echo "<p>Form Query: $sql\n";
 }
-// echo "<p>$sql\n";
 
 $result=db_query($sql,51,$offset);
 
 if ($result && db_numrows($result) > 0) {
 
-	echo '<hr size="1" noshade>
-';
 	echo "<h3>$statement</H3>";
 
 	//create a new $set string to be used for next/prev button
@@ -271,8 +273,6 @@ if ($result && db_numrows($result) > 0) {
 
 } else {
 
-	echo '<hr width="300" size="1" noshade>
-';
 	echo "<H3>$statement</H3>
 
 		<H2>No Matching Bugs Found for ".group_getname($group_id)." or filters too restrictive</H2>";
