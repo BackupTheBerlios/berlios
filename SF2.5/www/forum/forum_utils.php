@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.7 2004/01/13 13:15:24 helix Exp $
+// $Id: forum_utils.php,v 1.8 2004/06/15 10:51:05 helix Exp $
 
 /*
 
