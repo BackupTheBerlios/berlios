@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: html.php,v 1.4 2004/04/02 10:55:08 helix Exp $
+// $Id: html.php,v 1.5 2004/06/14 08:01:42 helix Exp $
 
 // require("exit.php");
 
@@ -42,7 +42,7 @@ function html_dbimage($id) {
 	if (!$result || $rows < 1) {
 		return db_error();
 	} else {
-		return html_image('/dbimage.php?id='.$id,db_result($result,0,'width'),db_result($result,0,'height'),array());
+		return html_image('dbimage.php?id='.$id,db_result($result,0,'width'),db_result($result,0,'height'),array());
 	}
 }
 
