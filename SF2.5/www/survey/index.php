@@ -4,17 +4,14 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:27 helix Exp $
+// $Id: index.php,v 1.3 2003/11/24 10:34:01 helix Exp $
 
 require('pre.php');
 require('vote_function.php');
 require('../survey/survey_utils.php');
 
+if ($group_id) {
 survey_header(array('title'=>'Survey'));
-
-if (!$group_id) {
-	echo "<H1>For some reason, the Group ID or Survey ID did not make it to this page</H1>";
-}
 
 Function  ShowResultsGroupSurveys($result) {
 	global $group_id;
@@ -56,5 +53,9 @@ if (!$result || db_numrows($result) < 1) {
 }
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>

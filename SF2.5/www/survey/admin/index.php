@@ -4,12 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:28 helix Exp $
+// $Id: index.php,v 1.3 2003/11/24 10:31:16 helix Exp $
 
 require('pre.php');
 require($DOCUMENT_ROOT.'/survey/survey_utils.php');
 $is_admin_page='y';
 
+if ($group_id) {
 survey_header(array('title'=>'Survey Administration'));
 
 if (!user_isloggedin() || !user_ismember($group_id,'A')) {
@@ -42,5 +43,9 @@ You can now activate/deactivate surveys on the
 <?php
 
 survey_footer(array());
+
+} else {
+	exit_no_group();
+}
 
 ?>
