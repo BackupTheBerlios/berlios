@@ -34,19 +34,19 @@ while ($ln = shift(@group_dump)) {
     $chown = "chown -R ".$groupname.":".$groupname." ".$dir;
     print("$chown\n");
     system($chown);
-    $chmod = "chmod g+s ".$dir;
+    $chmod = "chmod 2775 ".$dir;
     print("$chmod\n");
     system($chmod);
-    $chmod = "chmod g+s ".$dir."/CVSROOT";
+    $chmod = "chmod 2775 ".$dir."/CVSROOT";
     print("$chmod\n");
     system($chmod);
-    $chmod = "chmod a+w ".$dir."/CVSROOT/history";
+    $chmod = "chmod 666 ".$dir."/CVSROOT/history";
     print("$chmod\n");
     system($chmod);
-    $chmod = "chmod a+w ".$dir."/CVSROOT/val-tags";
+    $chmod = "chmod 666 ".$dir."/CVSROOT/val-tags";
     print("$chmod\n");
     system($chmod);
-    $chmod = "chmod a+w ".$dir."/CVSROOT/commitlog";
+    $chmod = "chmod 666 ".$dir."/CVSROOT/commitlog";
     print("$chmod\n");
     system($chmod);
   }
