@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editsshkeys.php,v 1.3 2004/06/29 11:30:12 helix Exp $
+// $Id: editsshkeys.php,v 1.4 2004/08/12 13:18:26 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -36,14 +36,18 @@ if (register_valid()) {
 
 ?>
 	<p>
-	<b>CVS/SSH Shared Keys</b>
+	<b>CVS/SVN/SSH Shared Keys</b>
 	<P>
-	To avoid having to type your password every time for your CVS/SSH
+	To avoid having to type your password every time for your CVS/SVN/SSH
 	developer account, you may upload your public key(s) here and they
-	will be placed on the CVS server in your ~/.ssh/authorized_keys2 file.
-	<P>To generate a public key, run the program 'ssh-keygen -t rsa'.
-	The public key will be placed at '~/.ssh/id_rsa.pub'. Read the ssh
-	documentation for further information on sharing keys.
+	will be placed on the CVS/SVN/Shell server in your ~/.ssh/authorized_keys file.
+	<P>To generate a public key, run the program
+	<p><tt>$ ssh-keygen -t rsa</tt>
+	<p>The public key will be placed at '~/.ssh/id_rsa.pub'. To install your
+	public key immediately in the remote CVS/SVN/Shell servers
+        authorized_keys file invoke following command:
+	<p><tt>$ ssh-copy-id -i ~/.ssh/id_rsa.pub username@shell.berlios.de</tt>
+	<p>Read the ssh documentation for further information on sharing keys.
 	<P>Updates will be reflected in the next 6 hour cron job.
 	<?php if ($register_error) print "<p>$register_error"; ?>
 	<form action="editsshkeys.php" method="post">
