@@ -19,7 +19,7 @@
 <body bgcolor="#FFFFFF">
 
 <!-- top strip -->
-<table border="0" cellspacing="0" cellpadding="2" width="100%" bgcolor="#000000" >
+<table border="0" cellspacing="0" cellpadding="2" width="100%" bgcolor="#7B7B7B" >
   <tr>
     <td>
       <span class="maintitlebar">&nbsp; 
@@ -56,7 +56,7 @@
 <!-- end logo at right -->
 
   <tr>
-    <td colspan="4" bgcolor="#000000">
+    <td colspan="4" bgcolor="#7B7B7B">
       <img src="<?php echo $top_level; ?>/images/blank.gif" height="2" width="2" alt="">
     </td>
   </tr>

@@ -1,4 +1,4 @@
-<!-- $Id: site_menubar.html.es,v 1.6 2002/05/14 10:30:44 grex Exp $ -->
+<!-- $Id: site_menubar.html.es,v 1.7 2002/05/14 11:18:50 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -9,8 +9,8 @@
     <td bgcolor="#FFCC33">
 
       <!-- BerliOS menu -->
-      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-        <tr bgcolor="#000000">
+      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
+        <tr bgcolor="#7B7B7B">
           <td align="center"><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
             <span class="titlebar"><font color="#FFFFFF">Público</font></span>
           </td>
@@ -26,8 +26,8 @@
       </table>
       <p>
       
-      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-        <tr bgcolor="#000000">
+      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
+        <tr bgcolor="#7B7B7B">
           <td align=CENTER><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt=""><br>
             <span class="titlebar"><font color="#FFFFFF">Plataforma</font></span>
           </td>
@@ -43,8 +43,8 @@
       </table>
       <p>
       
-      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000">
-        <tr bgcolor="#000000">
+      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B">
+        <tr bgcolor="#7B7B7B">
           <td align="center"><img SRC="<?php echo $top_level; ?>/images/blank.gif" height="1" width="135" border="0" alt="">
             <span class="titlebar"><font color="#FFFFFF">Mediador</font></span>
           </td>
@@ -62,8 +62,8 @@
       <p>
       
       <!-- BerliOS menu -->
-      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#000000" >
-        <tr bgcolor="#000000">
+      <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#7B7B7B" >
+        <tr bgcolor="#7B7B7B">
           <td align="center"><img SRC="<?php echo $top_level; ?>/images/blank.gif" 
            height="1" width="135" border="0" alt="">
             <span class="titlebar"><font color="#FFFFFF">Portales</font></span>
