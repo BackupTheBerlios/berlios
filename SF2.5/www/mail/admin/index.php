@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:24 helix Exp $
+// $Id: index.php,v 1.3 2004/05/26 09:31:16 helix Exp $
 
 require('pre.php');
 require('../mail_utils.php');
@@ -193,7 +193,7 @@ if ($group_id && user_ismember($group_id,'A')) {
 					<TD><A href="http://'. $GLOBALS['sys_lists_host'] .'/mailman/admin/'
 					.db_result($result,$i,'list_name').'">[Administrate this list in GNU Mailman]</A>
 				       </TD></TR>
-				       <TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD COLSPAN="3">
+				       <TR BGCOLOR="'. html_get_alt_row_color($i) .'"><TD COLSPAN="4">
 				       		<B>Description:</B><BR>
 						<INPUT TYPE="TEXT" NAME="description" VALUE="'.
 						db_result($result,$i,'description') .'" SIZE="40" MAXLENGTH="80"><BR>
