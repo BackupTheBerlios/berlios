@@ -35,6 +35,42 @@ sind einerseits die Entwickler und Anwender von Open-Source-Software und
 andererseits kommerzielle Hersteller von OSS-Betriebsystemen und
 Anwendungen sowie Support-Firmen.
 
+
+<map name="BerliOSPie">
+<!-- central circle -->
+<area shape="circle" coords="193,190,31" href="http://www.berlios.de/" 
+      alt="BerliOS">
+
+<!-- Informations platform Wedge -->
+<area shape="ploy" coords="162,190,88,190,103,137,147,99,177,163,166,174" 
+      href="http://sourcewell.berlios.de" alt="SourceWell">
+<!-- Vermittlung von Ideen Wedge -->
+<area shape="poly" coords="147,99,193,86,245,99,208,163,193,159,177,163" 
+      href="http://sourceagency.berlios.de" alt="SourceAgency">
+<!-- Entwicklungs plattform Wedge -->
+<area shape="poly" coords="245,99,282,136,297,190,224,190,219,175,208,163" 
+      href="http://developer.berlios.de" alt="Developer">
+<!-- Vermittlung von Known-how Wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!-- Presentation platform wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!-- Vermittlung von Know-how Dienstleistungen wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+
+<!-- Anwender outer wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!-- Entwickler outer wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!-- Dienstleister and hersteller outer wedge -->
+<!--  <area shape="poly" coords="" href="" alt=""> -->
+
+</map>
+
+<center>
+<img src="images/berlios_pie.png" width="387" height="377" alt="BerliOS Pie" usema="#BerliOSPie">
+</center>
+
+
 <p><b>Anwender</b>
 
 <p>Neben den privaten Anwendern von Open-Source-Software sind besonders kleine
