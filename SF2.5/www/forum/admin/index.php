@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: index.php,v 1.3 2004/06/08 09:59:01 helix Exp $
 
 require('pre.php');
 require('../forum_utils.php');
@@ -78,7 +78,7 @@ if ($group_id && (user_ismember($group_id, 'F2'))) {
 		echo '
 			<H2>Delete a message</H2>
 
-			<FONT COLOR="RED" SIZE="3">WARNING! You are about to permanently delete a 
+			<FONT COLOR="RED">WARNING! You are about to permanently delete a 
 			message and all of its followups!!</FONT>
 			<FORM METHOD="POST" ACTION="'.$PHP_SELF.'">
 			<INPUT TYPE="HIDDEN" NAME="post_changes" VALUE="y">
