@@ -93,18 +93,3 @@ HSPACE=10 BORDER=0 height=60 width=60 usemap="#BerliOSPie_Navigate" align=Right>
 </tr>
 </table>
 <!-- end top title -->
-
-<!-- content -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr valign="top">
-
-<?php
-require("include/site_menubar.html.de");
-?>
-
-    <!-- content -->
-    <td width="99%">
-      <p>&nbsp;
-      <table border="0" cellspacing="0" cellpadding="0" width="100%">
-        <tr valign="top">
-          <td width="65%">

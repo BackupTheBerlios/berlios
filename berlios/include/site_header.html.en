@@ -101,18 +101,3 @@ SRC="<?php echo $top_level; ?>/images/blank.gif" height=2 width=2></td>
 </tr>
 </table>
 <!-- end top title -->
-
-<!-- content -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr valign="top">
-
-<?php
-require("include/site_menubar.html.en");
-?>
-
-    <!-- content -->
-    <td width="99%">
-      <p>&nbsp;
-      <table border="0" cellspacing="0" cellpadding="0" width="100%">
-        <tr valign="top">
-          <td width="65%">
