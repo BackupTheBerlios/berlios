@@ -34,7 +34,7 @@ while ($ln = shift(@group_dump)) {
     $chown = "chown -R wwwrun:".$groupname." ".$dir;
     print("$chown\n");
     system($chown);
-    $chmod = "chmod -R u+rw,g+rw ".$dir;
+    $chmod = "chmod -R u+rw,g+rw,o-w ".$dir;
     print("$chmod\n");
     system($chmod);
     $chmod = "find $dir -type d | xargs chmod 2775";
