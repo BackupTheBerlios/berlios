@@ -42,7 +42,7 @@ Anwendungen sowie Support-Firmen.
       alt="BerliOS">
 
 <!-- Informations platform Wedge -->
-<area shape="ploy" coords="162,190,88,190,103,137,147,99,177,163,166,174" 
+<area shape="ploy" coords="88,190,103,137,147,99,177,163,166,174,162,190" 
       href="http://sourcewell.berlios.de" alt="SourceWell">
 <!-- Vermittlung von Ideen Wedge -->
 <area shape="poly" coords="147,99,193,86,245,99,208,163,193,159,177,163" 
@@ -50,24 +50,28 @@ Anwendungen sowie Support-Firmen.
 <!-- Entwicklungs plattform Wedge -->
 <area shape="poly" coords="245,99,282,136,297,190,224,190,219,175,208,163" 
       href="http://developer.berlios.de" alt="Developer">
-<!-- Vermittlung von Known-how Wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!-- Vermittlung von Known-how OS-Software Wedge -->
+<area shape="poly" coords="297,190,281,245,245,281,208,217,220,205,224,190" 
+      href="http://sourcelines.berlios.de" alt="SourceLines">
 <!-- Presentation platform wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<area shape="poly" coords="245,281,193,295,140,280,177,217,192,220,208,217" 
+      href="http://sourcebiz.berlios.de" alt="SourceBiz">
 <!-- Vermittlung von Know-how Dienstleistungen wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<area shape="poly" coords="140,280,100,238,88,190,162,190,166,203,177,217" 
+      href="http://news.berlios.de" alt="News">
 
 <!-- Anwender outer wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!--  area shape="poly" coords="" href="" alt="" -->
 <!-- Entwickler outer wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!--  area shape="poly" coords="" href="" alt="" -->
 <!-- Dienstleister and hersteller outer wedge -->
-<!--  <area shape="poly" coords="" href="" alt=""> -->
+<!--  area shape="poly" coords="" href="" alt="" -->
 
 </map>
 
 <center>
-<img src="images/berlios_pie.png" width="387" height="377" alt="BerliOS Pie" usema="#BerliOSPie">
+<img src="images/berlios_pie.png" width="387" height="377" alt="BerliOS Pie"
+     usemap="#BerliOSPie" border="0">
 </center>
 
 
