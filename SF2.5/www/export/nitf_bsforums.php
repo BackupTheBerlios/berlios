@@ -16,7 +16,30 @@ if (db_numrows($res_grp) < 1) {
 print '<?xml version="1.0"?>
 <!DOCTYPE bs_forum SYSTEM "http://'.$GLOBALS[sys_default_host].'/exports/bs_forum_0.1.dtd">
 ';
-print "<group name=\"$row_grp[group_name]\">";
+print "<group name=\"$row_grp[group_name]\">\n";
+
+$project=group_get_object($group_id);
+
+if (!user_isloggedin()) {
+  if (isset($login) && isset($passwd)) {
+	$success=session_login_valid(strtolower($login),$passwd);
+	if (!$success) {
+	  print("    <error>Invalid Login and/or Password</error>\n");
+	  print("</group>\n");
+	  exit;
+	}
+  } else {
+	print("    <error>Login and/or Password missing</error>\n");
+	print("</group>\n");
+	exit;
+  }
+}
+
+if( !$project->userIsAdmin() ) {
+  print("    <error>You are not an administrator for this project</error>\n");
+  print("</tasks>\n");
+  exit;
+}
 
 $res_forum = db_query('SELECT group_forum_id,forum_name FROM forum_group_list '
 	.'WHERE group_id='.$group_id);

@@ -12,6 +12,22 @@ if( !isset($group_id) ) {
 	print("    <error>Group ID Not Set</error>\n");
 } else {
 	$project=group_get_object($group_id);
+
+	if (!user_isloggedin()) {
+	  if (isset($login) && isset($passwd)) {
+		$success=session_login_valid(strtolower($login),$passwd);
+        if (!$success) {
+		  print("    <error>Invalid Login and/or Password</error>\n");
+		  print("</tasks>\n");
+		  exit;
+		}
+	  } else {
+		print("    <error>Login and/or Password missing</error>\n");
+		print("</tasks>\n");
+		exit;
+	  }
+	}
+
 	if( !$project->userIsAdmin() ) {
 		print("    <error>You are not an administrator for this project</error>\n");
 		print("</bugs>\n");
