@@ -15,7 +15,7 @@
 function bug_data_get_categories ($group_id=false) {
 	global $bug_data_categories;
 	if (!$bug_data_categories["$group_id"]) {
-		$sql="select bug_category_id,category_name from bug_category WHERE group_id='$group_id'";
+		$sql="select bug_category_id,category_name from bug_category WHERE group_id='$group_id' ORDER BY category_name";
 		$bug_data_categories["$group_id"]=db_query($sql);
 	}
 	return $bug_data_categories["$group_id"];
