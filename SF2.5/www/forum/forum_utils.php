@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: forum_utils.php,v 1.4 2003/11/20 10:32:42 helix Exp $
+// $Id: forum_utils.php,v 1.5 2003/11/21 11:46:38 helix Exp $
 
 /*
 
@@ -63,7 +63,7 @@ function forum_header($params) {
 				<B>Date:</B> '. date($sys_datefmt,db_result($result,0,'date')).'<BR>
 				<B>Summary:</B><A HREF="/forum/forum.php?forum_id='.db_result($result,0,'forum_id').'">'. db_result($result,0,'summary').'</A>
 				<P>
-				'. util_make_links( nl2br( db_result($result,0,'details')));
+				'. nl2br( util_make_links( db_result($result,0,'details')));
 
 				echo '<P>';
 			}
@@ -194,7 +194,7 @@ function forum_show_a_nested_message ($result) {
 			</TR>
 			<TR>
 				<TD>
-					'. util_make_links( nl2br ( $result['body'] ) ) .'
+					'. nl2br( util_make_links( $result['body'] ) ) .'
 				</TD>
 			</TR>
 		</TABLE>';
