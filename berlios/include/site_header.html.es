@@ -48,15 +48,9 @@
       <!-- logo at right -->
     </td>
     <td valign="middle">
-      <table border="0">
-        <tr>
-          <td>
-            <a href="http://www.fokus.gmd.de/" target="_blank"><img 
-             src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" 
-             hspace="10" border="0" height="60" width="60" align="right"></a>
-          </td>
-        </tr>
-      </table>
+      <a href="http://www.fokus.gmd.de/" target="_blank"><img 
+       src="<?php echo $top_level; ?>/images/logo_fokus.png" alt="FOKUS" 
+       hspace="10" border="0" height="60" width="60" align="right"></a>
     </td>
   </tr>
 <!-- end logo at right -->
