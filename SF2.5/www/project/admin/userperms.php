@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: userperms.php,v 1.3 2004/01/13 13:15:25 helix Exp $
+// $Id: userperms.php,v 1.4 2004/04/02 11:27:27 helix Exp $
 
 require "pre.php";    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -43,6 +43,7 @@ if ($submit) {
 		$project_flags="projects_user_$row_dev[user_id]";
 		$patch_flags="patch_user_$row_dev[user_id]";
 		$support_flags="support_user_$row_dev[user_id]";
+		$feature_flags="feature_user_$row_dev[user_id]";
 		$doc_flags="doc_user_$row_dev[user_id]";
 		$cvs_flags="cvs_user_$row_dev[user_id]";
 		$release_flags="release_user_$row_dev[user_id]";
@@ -50,7 +51,7 @@ if ($submit) {
 
 		//call to control function in the $Group object
 		if (!$group->updateUser($row_dev['user_id'],$$admin_flags,$$bug_flags,$$forum_flags,
-			$$project_flags,$$patch_flags,$$support_flags,
+			$$project_flags,$$patch_flags,$$support_flags,$$feature_flags,
 			$$doc_flags,$$cvs_flags,$$release_flags,
 			$$member_role)) {
 			$feedback .= $group->getErrorMessage();
@@ -70,6 +71,7 @@ $res_dev = db_query("SELECT users.user_name AS user_name,"
 	. "user_group.patch_flags, "
 	. "user_group.doc_flags, "
 	. "user_group.support_flags, "
+	. "user_group.feature_flags, "
 	. "user_group.cvs_flags, "
 	. "user_group.release_flags, "
 	. "user_group.member_role "
@@ -122,6 +124,7 @@ project_admin_header(array('title'=>'Project Developer Permissions','group'=>$gr
 <TD><font size="-1"><B>Task<br>Manager</B></font></TD>
 <TD><font size="-1"><B>Patch<br>Manager</B></font></TD>
 <TD><font size="-1"><B>Support<br>Manager</B></font></TD>
+<TD><font size="-1"><B>Feature<br>Manager</B></font></TD>
 <TD><font size="-1"><B>Forums</B></font></TD>
 <TD><font size="-1"><B>Doc.<br>Manager</B></font></TD>
 </TR>
@@ -137,7 +140,7 @@ if (!$res_dev || db_numrows($res_dev) < 1) {
 		$cur_color=html_get_alt_row_color($i);
 	print '
 	<TR valign="bottom" BGCOLOR="'. $cur_color .'">
-		<TD colspan="7"><b>'.$row_dev['user_name'].'</b></td>
+		<TD colspan="8"><b>'.$row_dev['user_name'].'</b></td>
 	</tr>
 
 	<tr bgcolor="'. $cur_color .'"><td>
@@ -188,12 +191,21 @@ if (!$res_dev || db_numrows($res_dev) < 1) {
 	print '</SELECT></FONT></TD>
 ';
 
-	// patch selects
+	// support selects
 	print '<TD><FONT size="-1"><SELECT name="support_user_'.$row_dev['user_id'].'">';
 	print '<OPTION value="0"'.(($row_dev['support_flags']==0)?" selected":"").'>-';
 	print '<OPTION value="1"'.(($row_dev['support_flags']==1)?" selected":"").'>T';
 	print '<OPTION value="2"'.(($row_dev['support_flags']==2)?" selected":"").'>A,T';
 	print '<OPTION value="3"'.(($row_dev['support_flags']==3)?" selected":"").'>A';
+	print '</SELECT></FONT></TD>
+';
+
+	// feature selects
+	print '<TD><FONT size="-1"><SELECT name="feature_user_'.$row_dev['user_id'].'">';
+	print '<OPTION value="0"'.(($row_dev['feature_flags']==0)?" selected":"").'>-';
+	print '<OPTION value="1"'.(($row_dev['feature_flags']==1)?" selected":"").'>T';
+	print '<OPTION value="2"'.(($row_dev['feature_flags']==2)?" selected":"").'>A,T';
+	print '<OPTION value="3"'.(($row_dev['feature_flags']==3)?" selected":"").'>A';
 	print '</SELECT></FONT></TD>
 ';
 
