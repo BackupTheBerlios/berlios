@@ -29,27 +29,6 @@ while ($ln = shift(@vhost_dump)) {
         }
         print("chown -h $gid:$gid $homdir\n");
         system("chown -h $gid:$gid $homdir");
-
-        if ( ! -d $docdir ) {
-            print("mkdir -m 0555 -p $docdir\n");
-            system("mkdir -m 0555 -p $docdir");
-        }
-        print("chown -h $gid:$gid $docdir\n");
-        system("chown -h $gid:$gid $docdir");
-
-        if ( ! -d $cgidir ) {
-            print("mkdir -m 0555 -p $cgidir\n");
-            system("mkdir -m 0555 -p $cgidir");
-        }
-        print("chown -h $gid:$gid $cgidir\n");
-        system("chown -h $gid:$gid $cgidir");
-
-        if ( ! -d $logdir ) {
-            print("mkdir -m 0555 -p $logdir\n");
-            system("mkdir -m 0555 -p $logdir");
-        }
-        print("chown -h $gid:$gid $logdir\n");
-        system("chown -h $gid:$gid $logdir");
     } elsif ( $state eq "2" ) {
 	if ( -d $homdir ) {
             print("rm -rf $homdir\n");
