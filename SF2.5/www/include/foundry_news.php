@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: foundry_news.php,v 1.2 2003/11/13 11:29:23 helix Exp $
+// $Id: foundry_news.php,v 1.3 2005/02/24 17:38:11 helix Exp $
 
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
 
@@ -54,7 +54,10 @@ if (user_ismember($group_id,'A')) {
 		}
 	}
 
-	project_admin_header (array('title'=>'NewsBytes','group'=>$group_id));
+	project_admin_header (array('title'=>group_getname($group_id).' - Foundry NewsBytes Admin','group'=>$group_id));
+
+	echo '<h2>Foundry: '.group_getname($group_id).' - NewsByte Admin<h2>
+';
 
 	if ($approve) {
 		/*

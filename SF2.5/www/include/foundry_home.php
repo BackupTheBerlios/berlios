@@ -6,26 +6,24 @@ require('cache.php');
 
 //we already know $foundry is set up from the master page
 
-$HTML->header(array('title'=>$foundry->getUnixName().' - Foundry','group'=>$group_id));
+$HTML->header(array('title'=>group_getname($group_id).' - Foundry','group'=>$group_id));
 
-echo'	<TABLE cellspacing="0" cellpadding="10" border="0" width="100%">
-	      <TR>
-		<TD align="left" valign="top" colspan="2">
+echo '<h2>Foundry: '.group_getname($group_id).'<h2>
+';
+
+echo'	<table cellspacing="0" cellpadding="5" border="0" width="100%">
+	      <tr>
+		<td align="left" valign="top">
 ';
 
 echo html_dbimage($foundry->getLogoImageID());
 
-echo '
-		</td>
-	      </tr>
-	<TR>
-	    <TD valign="top" align="left">
+echo '<p>
 ';
 
 echo $foundry->getFreeformHTML1();
 
-echo '
-	&nbsp;<BR>
+echo '<p>
 ';
 
 /*
@@ -65,7 +63,7 @@ $rows = db_numrows($result);
 
 if (!$result || $rows < 1) {
 
-	echo '<H1>No forums found for '. $foundry->getUnixName() .'</H1>';
+	echo '<h1>No forums found for '. $foundry->getUnixName() .'</h1>';
 
 } else {
 
@@ -75,28 +73,31 @@ if (!$result || $rows < 1) {
 
 	for ($j = 0; $j < $rows; $j++) {
 		echo '
-			<A HREF="/forum/forum.php?forum_id='. db_result($result, $j, 'group_forum_id') .'">'.
+			<a href="/forum/forum.php?forum_id='. db_result($result, $j, 'group_forum_id') .'">'.
 			html_image("images/ic/cfolder15.png","15","13",array("BORDER"=>"0")) . '&nbsp;'.
-			db_result($result, $j, 'forum_name').'</A> ';
+			db_result($result, $j, 'forum_name').'</a> ';
 		//message count
 		echo '('. db_result($result,$j,'total') .' msgs)';
-		echo "<BR>\n";
-		echo db_result($result,$j,'description').'<P>';
+		echo "<br>\n";
+		echo db_result($result,$j,'description').'<p>';
 	}
 
 }
 
 $HTML->box1_bottom();
 
+echo '<p>
+';
+
 echo $foundry->getFreeformHTML2();
 
-echo '</TD><TD VALIGN="TOP" WIDTH="30%">';
+echo '</td><td valign="top" width="30%">';
 
-echo $foundry->getSponsorHTML1();
+echo $foundry->getSponsorHTML1().'<p>';
 
 echo cache_display('foundry'.$group_id.'_features_boxes','foundry_features_boxes()',3600);
 
-echo '</TD></TR></TABLE>';
+echo '</td></tr></table>';
 
 $HTML->footer(array());
 

@@ -11,7 +11,7 @@ if ($update) {
 	echo db_error();
 }
 
-project_admin_header(array('title'=>"Project Admin: ".group_getname($group_id),'group'=>$group_id));
+project_admin_header(array('title'=>group_getname($group_id)." - Foundry Freeform HTML Admin",'group'=>$group_id));
 
 if (!$field) {
 
