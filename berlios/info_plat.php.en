@@ -1,4 +1,4 @@
-<!-- $Id: info_plat.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+<!-- $Id: info_plat.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -30,23 +30,38 @@ require("include/site_menubar.html.en");
 <td WIDTH="65%">
 
 <h2>Information Platform</h2>
-<?php
-/**
-  Portals:
-   --> docswell
-   --> news
-   --> wiki
-   --> forum
-**/
-?>
-BerliOS Portals:
-<ul>
-<li> <a href="http://docswell.berlios.de">http://docswell.berlios.de</a>
-<li> <a href="http://news.berlios.de">http://news.berlios.de</a>
-<li> <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
-<li> <a href="http://forum.berlios.de">http://forum.berlios.de</a>
-</ul>
 
+<p>Part of the BerliOS project is to provide documentation and general
+information about the Open Source community and its going ons. A very
+important of all Open Source projects is providing documentation allowing
+users to easily install, use and upgrade their Open Source Software.
+
+<p><a href="http://docswell.berlios.de">DocsWell</a> provides one central
+location for the announcement and retrieval of general documentation
+related to Open Source. Here you will find lists of HOWTOs, manuals, 
+guides, FAQs and books. Each entry may be downloaded directly from the site.
+Register users may add new entries and update existing ones.
+
+<p><a href="http://news.berlios.de">News</a> presents news about happenings
+within, about and around the Open Source community. News allows registered
+users to add and update news items. 
+
+<p><a href="http://wiki.berlios.de">Wiki</a> provides an open communication
+portal based on the <a href="http://www.c2.com/cgi/wiki?WikiWikiWeb">Wiki
+concept</a> and is intended as an alternative to the mailing lists, forum,
+and email forms of communication.
+
+<p><a href="http://forum.berlios.de">Forum</a> is a thread based messaging
+service where messages may be commented and replied to. Forum is intended to
+allow discussion related to Open Source.
+
+<p>BerliOS Portals:
+<ul>
+<li> DocsWell (<a href="http://docswell.berlios.de">http://docswell.berlios.de</a>)
+<li> News (<a href="http://news.berlios.de">http://news.berlios.de</a>)
+<li> Wiki (<a href="http://wiki.berlios.de">http://wiki.berlios.de</a>)
+<li> Forum (<a href="http://forum.berlios.de">http://forum.berlios.de</a>)
+</ul>
 
 </td>
 

@@ -26,7 +26,7 @@ require("include/site_menubar.html.en");
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
 <tr VALIGN=TOP>
 <td WIDTH="65%">
-<!--  <center><h2>The BerliOS Project</h2></center> -->
+<!--  <center><h2>The BerliOS Pie</h2></center> -->
 
 <map name="BerliOSPie">
 <!-- central circle -->

@@ -1,4 +1,4 @@
-<!-- $Id: pres_plat.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+<!-- $Id: pres_plat.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -31,23 +31,37 @@ require("include/site_menubar.html.en");
 
 <h2>Presentation Platform</h2>
 
-<?php
-/**
-  should talk about the 
-   --> sourcebiz 
-       service providers and manufacturers can present themselves here
-   --> devcounter 
-       developers can present themselves here
-   --> sourcewell
-       new releases of oss can be presented here
-  portals
-**/
-?>
-BerliOS Portals:
+<p>BerliOS provides an opportunity for developers and companies to present
+themselves to a wider audience in order to find potential projects. BerliOS
+also provides portals for the presentation of existing Open Source solutions
+and new releases of OS Software.
+
+<p><a href="http://sourcebiz.berlios.de">SourceBiz</a> is a chance for Open
+Source Companies and potential project sponsors to maintain a short
+description of their offerings. This allows other interested parties to locate
+companies that are OS "positive".
+
+<p>A similar service is provided for developers by the <a 
+href="http://devcounter.berlios.de">DevCounter</a> portal where each developer
+may describe their experiences and expertise. The intention is also that
+potential project sponsors are provided with a repository of available
+developers so that they may contact directly.
+
+<p>Developers can also present their and others newest releases on the
+<a href="http://sourcewell.berlios.de">SourceWell</a> portal. SourceWell is
+intended to be an up-to-date list of newest releases of Open Source Software.
+
+<p>The <a href="http://sourcelines.berlios.de">SourceLines</a> portal is
+an up-to-date repository of Open Source solutions and descriptions of how
+these were done.
+
+
+<p>BerliOS Portals:
 <ul>
-<li> <a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
-<li> <a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
-<li> <a href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+<li> SourceBiz <a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
+<li> DevCounter <a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
+<li> SourceWell <a href="http://sourcewell.berlios.de">http://sourcewell.berlios.de</a>
+<li> SourceLines <a href="http://sourcelines.berlios.de">http://sourcelines.berlios.de</a>
 </ul>
 
 

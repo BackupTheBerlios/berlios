@@ -1,4 +1,4 @@
-<!-- $Id: supp_deve.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+<!-- $Id: supp_deve.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -29,20 +29,30 @@ require("include/site_menubar.html.en");
 <tr VALIGN=TOP>
 <td WIDTH="65%">
 
-<h2>Supporting Open Source Development</h2>
+<h2>Aiding Open Source Development</h2>
 
-<?php
-/**
-  Portals:
-   --> Developer
-   --> Wiki
-**/
-?>
+<p>Part of the BerliOS platform is the assistance of Open Source development
+through online services such version controlling, mailing lists, bug tracking,
+among others. Allowing better sharing of code and easier distributed
+development.
 
-BerliOS Portals:
+<p>The main portal for this is <a href="http://developer.berlios.de"
+>Developer</a> site. Developer is a <a href="http://sourceforge.net"
+>SourceForge</a> clone and provides services such as versioning management,
+mailing list, bug tracking, document and patch management, forums, among
+others. The intention is to provide multiple methods of communication amongst
+developers, and more importantly, between users and developers.
+
+<p>A further aid to this communication is the <a 
+href="http://wiki.berlios.de">Wiki</a> portal which is intended as a place
+where a project can describe project wide rules which are fixed. Wiki
+encapsulates the spirit of the Open Source community, which makes it an ideal
+tool for OS development.
+
+<p>BerliOS Portals:
 <ul>
-<li> <a href="http://developer.berlios.de">http://developer.berlios.de</a>
-<li> <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
+<li> Developer <a href="http://developer.berlios.de">http://developer.berlios.de</a>
+<li> Wiki <a href="http://wiki.berlios.de">http://wiki.berlios.de</a>
 </ul>
 
 </td>

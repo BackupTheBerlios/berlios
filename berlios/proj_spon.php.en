@@ -1,4 +1,4 @@
-<!-- $Id: proj_spon.php.en,v 1.2 2001/12/06 15:51:16 riessen Exp $ -->
+<!-- $Id: proj_spon.php.en,v 1.3 2001/12/13 17:07:36 riessen Exp $ -->
 
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -31,21 +31,40 @@ require("include/site_menubar.html.en");
 
 <h2>Project Sponsorship</h2>
 
-<?php
-/**
-  Portals:
-    --> SourceAgency
-    --> SourceBiz (as background)
-    --> DevCounter (for the searching for developers for a project)
-    --> maybe developer
-**/
-?>
-BerliOS Portals:
+<p>BerliOS encourages the outsourcing of Open Source project by providing portals
+for the presentation of projects, the negotiation of goals and requirements of
+a project, and the distributed Open Source implementation of a project.
+
+<p><a href="http://sourceagency.berlios.de">SourceAgency</a> provides a place
+where potential sponsors may present their project needs and discuss these
+with other potential sponsors and developers. Developers can also present
+their projects and request financial sponsorship.
+
+<p>Once project negotiations are complete, developers may use the <a 
+href="http://developer.berlios.de">Developer</a> portal to implement the
+solution for the sponsor. <a href="http://developer.berlios.de">Developer</a>
+provides versioning repositories, bug tracking, mailing lists and other
+features to support Open Source development.
+
+<p>BerliOS also provides two other portals where potential developers and
+sponsors can present themselves. <a href="http://sourcebiz.berlios.de"
+>SourceBiz</a> allows Open Source companies to enter and have displayed a
+short description of themselves. <a href="http://devcounter.berlios.de"
+>DevCounter</a> provides the same service but for developers. DevCounter 
+allows developers to enter a short description of themselves, which in turn
+may be read by potential sponsors looking for developers to implement their
+project.
+
+<p>BerliOS Portals:
 <ul>
-<li> <a href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
-<li> <a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
-<li> <a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
-<li> <a href="http://developer.berlios.de">http://developer.berlios.de</a>
+<li> SourceAgency 
+<a href="http://sourceagency.berlios.de">http://sourceagency.berlios.de</a>
+<li> SourceBiz 
+<a href="http://sourcebiz.berlios.de">http://sourcebiz.berlios.de</a>
+<li> DevCounter 
+<a href="http://devcounter.berlios.de">http://devcounter.berlios.de</a>
+<li> Developer 
+<a href="http://developer.berlios.de">http://developer.berlios.de</a>
 </ul>
 
 </td>

@@ -29,19 +29,26 @@ require("include/site_menubar.html.en");
 
 <h2>Goals of BerliOS</h2>
 
+<p>The main goal of BerliOS is to provide support for different interest 
+groups 
+in the area of Open Source Software (OSS). Our aim is to fulfil a neutral 
+mediator function. Target groups of BerliOS are on one hand the 
+developers and users of Open Source Software and on the other hand commercial 
+manufacturers of OSS operating systems and applications as well as support 
+companies.
+
 <p>The goals of BerliOS are:
 <ul>
 <li><b>Open Source Mediator</b> providing an Open and Free service for
-bringing sponsors and developers together and expanding the overall product
+bringing sponsors and developers together and expanding the overall solution
 spectrum of Open Source Software.
 <li>Implementation of <b>Open Source solutions</b> for business areas 
 normally only covered by proprietary software.
 <li><b>Platform</b> for the development, announcement and distribution of 
 Open Source Software.
-<li><b>Offer consultancy services</b> about everything to do with Open
-Source. This includes the use of OSS, company strategy for becoming more
-Open Source active through sponsorship and support.
 </ul>
+
+<p>BerliOS consists of a number of portals, each providing a specific service.
 
 </td>
 
