@@ -4,7 +4,7 @@
 # Copyright 1999-2000 (c) The SourceForge Crew
 # http://sourceforge.net
 #
-# $Id: DatabaseDump.pl,v 1.5 2004/05/26 09:24:56 helix Exp $
+# $Id: DatabaseDump.pl,v 1.6 2004/06/15 10:25:28 helix Exp $
 #
 use DBI;
 use Sys::Hostname;
@@ -73,11 +73,11 @@ undef @tmp_array;
 ###################################
 print("Dumping Group Data: ");
 
-$query = "select group_id,unix_group_name,status from groups";
+$query = "select group_id,unix_group_name,status,use_cvs from groups";
 $c = $dbh->prepare($query);
 $c->execute();
 
-while(my ($group_id, $group_name, $status) = $c->fetchrow()) {
+while(my ($group_id, $group_name, $status, $use_cvs) = $c->fetchrow()) {
 	$new_query = "select users.user_name AS user_name FROM users,user_group WHERE users.user_id=user_group.user_id AND group_id=$group_id AND users.status='A'";
 	$d = $dbh->prepare($new_query);
 	$d->execute();
@@ -87,8 +87,9 @@ while(my ($group_id, $group_name, $status) = $c->fetchrow()) {
 		$user_list .= "$user_name,";
 	}
 
-	$group_list = "$group_name:$status:$group_id:$user_list\n";
+	$group_list = "$group_name:$status:$group_id:$user_list";
 	$group_list =~ s/,$//;	# regex out the last comma on the line
+	$group_list .= ":$use_cvs\n";
 
 	push @tmp_array, $group_list;
 }
