@@ -43,6 +43,12 @@ include("backend2newslist.php");
 newsbox($boxtitle, $boxstuff);
 $boxstuff = "";
 
+$boxtitle = "DocsWell";
+$back_url = "http://docswell.berlios.de/backend.php3";
+include("backend2newslist.php");
+newsbox($boxtitle, $boxstuff);
+$boxstuff = "";
+
 //$boxtitle = "Slashdot";
 //$cachefile = "/usr/local/httpd/htdocs.news/cache/Slashdot.cache";
 //include($cachefile);
