@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.3 2002/05/13 23:21:57 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.4 2002/05/13 23:28:13 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -79,7 +79,7 @@
      </map>
 
     <td valign="middle">
-      <table border=0>
+      <table border="0">
         <tr>
           <td>
             <a href="index.php.es">

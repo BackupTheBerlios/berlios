@@ -17,12 +17,25 @@ function FixQuotes ($what = "")
 
 function newsbox ($title, $content) {
     echo "
-    <table border=0 cellspacing=0 cellpadding=0 width=100% bgcolor=000000><tr><td>
-    <table width=100% border=0 cellspacing=1 cellpadding=3><tr><td colspan=1 bgcolor=CCCCCC>
-    <font size=2><b>$title</b>
-    </td></tr><tr><td bgcolor=FFFFFF><font size=2>
-    $content
-    </td></tr></table></td></tr></table><br>";
+    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" bgcolor=\"#000000\">
+      <tr>
+        <td>
+          <table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">
+            <tr>
+              <td colspan=\"1\" bgcolor=\"#CCCCCC\">
+                <font size=\"2\"><b>$title</b>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor=\"#FFFFFF\"><font size=\"2\">
+                 $content
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br>";
 }
 
 $boxtitle = "BerliOS News";
