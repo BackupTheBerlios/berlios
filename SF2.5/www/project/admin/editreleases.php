@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editreleases.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: editreleases.php,v 1.3 2004/02/26 10:41:35 helix Exp $
 
 /* Updated rewrite of the File Release System to clean up the UI 
  * a little and incorporate FRS.class.		-Darrell
@@ -262,7 +262,7 @@ When you are done uploading, just hit the refresh button to see the new files.
 	$dirhandle = opendir($FTPINCOMING_DIR);
 	
 	// Iterate through each file in the upload dir and display it with a checkbox
-	while ($file = readdir($dirhandle)) {
+	while (false !== ($file = readdir($dirhandle))) {
 		// Make sure its not a dot file (.file)
 		if (!ereg('^\.',$file[0])) {
 			$atleastone = 1;
@@ -282,6 +282,7 @@ When you are done uploading, just hit the refresh button to see the new files.
 	if($atleastone == 0) {
 		print("No Files Available\n");
 	}
+	closedir($$dirhandle);
 ?>
 </TD></tr>
 </table>

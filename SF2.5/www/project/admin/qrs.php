@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: qrs.php,v 1.2 2003/11/13 11:29:26 helix Exp $
+// $Id: qrs.php,v 1.3 2004/02/26 10:41:35 helix Exp $
 
 require ('pre.php');    
 require ($DOCUMENT_ROOT.'/project/admin/project_admin_utils.php');
@@ -197,12 +197,13 @@ if( $submit ) {
 	echo '<SELECT NAME="file_name">\n';
 	echo '	<OPTION VALUE="qrs_newfile">Select a file</OPTION>';
 	//iterate and show the files in the upload directory
-	while ($file = readdir($dirhandle)) {
+	while (false !== ($file = readdir($dirhandle))) {
 		if (!ereg('^\.',$file[0])) {
 			$atleastone = 1;
 			print '<OPTION value="'.$file.'">'.$file.'</OPTION>';
 		}
 	}
+	closedir($dirhandle);
 	echo '</SELECT> Or, upload a new file: <input type="file" name="userfile"  size="30">';
 	if (!$atleastone) {
 		print '<h3>No available files</H3>
