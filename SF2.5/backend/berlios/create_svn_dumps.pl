@@ -20,7 +20,7 @@ while ($ln = shift(@group_dump)) {
 	($groupname, $status, $groupid, $userlist) = split(":", $ln);
 	($username) = split(",", $userlist);
 	if ($status eq "A") {
-		$dumpcmd = "su -c \"umask 002;svnadmin dump ".$config{'svnroot'}."/repos/$groupname >/tmp/$groupname-repos\" - $username";
+		$dumpcmd = "svnadmin dump ".$config{'svnroot'}."/repos/$groupname >/tmp/$groupname-repos";
 		print("\n$dumpcmd\n");
 		system($dumpcmd);
 		$gzipcmd = "gzip -f /tmp/$groupname-repos";
@@ -29,12 +29,12 @@ while ($ln = shift(@group_dump)) {
                 $cpcmd = "su -c \"cp /tmp/$groupname-repos.gz ".$config{'svn_dumps'}."\" - dummy";
                 print("$cpcmd\n");
                 system($cpcmd);
-                $rmcmd = "su -c \"rm /tmp/$groupname-repos.gz\" - $username";
+                $rmcmd = "rm /tmp/$groupname-repos.gz";
                 print("$rmcmd\n");
                 system($rmcmd);
 
 	} elsif ($status eq "D") {
-		$filecmd = "su -c \"rm ".$config{'svn_dumps'}."/$groupname-repos.gz\" - dummy";
+		$filecmd = "rm ".$config{'svn_dumps'}."/$groupname-repos.gz";
 		print("\n$filecmd\n");
 		system("$filecmd");
 	}
