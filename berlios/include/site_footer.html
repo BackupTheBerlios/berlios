@@ -1,6 +1,7 @@
 <p>
 <?php
-require("include/site_validated.html");
+global $top_level;
+require($top_level."include/site_validated.html");
 ?>            
           </td>
           <td>
@@ -10,7 +11,7 @@ require("include/site_validated.html");
           <td width="35%">
             <!-- recent news -->
 <?php
-require("include/news.php");
+require($top_level."include/news.php");
 ?>
           </td>
         </tr>

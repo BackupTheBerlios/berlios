@@ -13,6 +13,7 @@
 <body bgcolor="#FFFFFF">
 
 <?php
+ global $top_level;
  if ( !isset( $top_level ) ) {
    $top_level = ".";
  }
@@ -68,3 +69,18 @@
   </tr>
 </table>
 <!-- end top title -->
+
+<!-- content -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr valign="top">
+
+<?php
+require($top_level."include/site_menubar.html.es");
+?>
+
+    <!-- content -->
+    <td width="99%">
+      <p>&nbsp;
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr valign="top">
+          <td width="65%">
