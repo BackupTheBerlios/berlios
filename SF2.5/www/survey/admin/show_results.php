@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_results.php,v 1.3 2003/11/27 15:05:42 helix Exp $
+// $Id: show_results.php,v 1.4 2003/11/28 10:01:50 helix Exp $
 
 require('pre.php');
 require('../survey_utils.php');
@@ -41,7 +41,7 @@ Function  ShowResultsSurvey($result) {
 		echo "<TD><A HREF=\"show_results_individual.php?group_id=$group_id&survey_id=".db_result($result,$j,"survey_id")."\">".sprintf("%06d",db_result($result,$j,"survey_id"))."</A></TD>\n";
 
 		for($i  =  1;  $i  <  $cols;  $i++)  {
-			printf("<TD>%s</TD>\n",db_result($result,$j,$i));
+			printf("<TD WIDTH=\"90%%\">%s</TD>\n",db_result($result,$j,$i));
 		}
 
 		echo "</tr>";
@@ -69,7 +69,7 @@ Function  ShowResultsAggregate($result) {
 		echo "<TD><A HREF=\"show_results_aggregate.php?group_id=$group_id&survey_id=".db_result($result,$j,"survey_id")."\">".sprintf("%06d",db_result($result,$j,"survey_id"))."</A></TD>\n";
 
 		for($i=1; $i<$cols; $i++) {
-			printf("<TD>%s</TD>\n",db_result($result,$j,$i));
+			printf("<TD WIDTH=\"90%%\">%s</TD>\n",db_result($result,$j,$i));
 		}
 
 		echo "</tr>";
@@ -98,7 +98,7 @@ Function  ShowResultsCustomer($result) {
 		echo "<TD><A HREF=\"show_results_individual.php?group_id=$group_id&survey_id=$survey_id&customer_id=".db_result($result,$j,"cust_id")."\">".sprintf("%06d",db_result($result,$j,"cust_id"))."</A></TD>\n";
 
 		for($i=1; $i<$cols; $i++)  {
-			printf("<TD>%s</TD>\n",db_result($result,$j,$i));
+			printf("<TD WIDTH=\"99%%\">%s</TD>\n",db_result($result,$j,$i));
 		}
 
 		echo "</tr>";

@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: show_questions.php,v 1.3 2003/11/27 15:05:42 helix Exp $
+// $Id: show_questions.php,v 1.4 2003/11/28 10:01:50 helix Exp $
 
 require('pre.php');
 require('../survey_utils.php');
@@ -25,7 +25,7 @@ survey_header(array('title'=>'Survey Questions'));
 <P>
 You may use any of these questions on your surveys.
 <P>
-<B><FONT COLOR="RED">NOTE: use these question_id's when you create a new survey.</FONT></B>
+<B><FONT COLOR="RED">NOTE: use these Question ID's when you create a new survey.</FONT></B>
 <P> 
 <?php
 
