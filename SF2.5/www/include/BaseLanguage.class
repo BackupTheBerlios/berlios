@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: BaseLanguage.class,v 1.6 2004/04/09 13:10:53 helix Exp $
+// $Id: BaseLanguage.class,v 1.7 2005/02/24 17:27:54 helix Exp $
 
 
 /*
@@ -59,6 +59,8 @@ class BaseLanguage {
 	var $PROJECT_SUMMARY='Project Summary';
 	var $PROJECT_ADMIN='Project Admin';
 	var $FOUNDRY_SUMMARY='Foundry Summary';
+	var $MAILING_LISTS='Mailing Lists';
+	var $NEWS='News';
 	var $FOUNDRY_ADMIN='Foundry Admin';
 	var $SOFTWARE_MAP='Software Map';
 	var $NEW_RELEASES='New Releases';
@@ -74,10 +76,10 @@ class BaseLanguage {
 	var $COMPILE_FARM='Compile Farm';
 	var $CONTACT_US='Contact BerliOS';
 
-        // 2000-11-24 begin helix
- 	var $ABOUT_SOURCEFORGE='About BerliOS';
- 	var $ABOUT_FOUNDRIES='About Foundries';
-        // 2000-11-24 end helix
+	// 2000-11-24 begin helix
+	var $ABOUT_SOURCEFORGE='About BerliOS';
+	var $ABOUT_FOUNDRIES='About Foundries';
+	// 2000-11-24 end helix
 
 	//tool short names as in HTML_TABS()
 	var $GROUP_SHORT_MAIN ='Main';
@@ -86,7 +88,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_FORUM='Forums';
 	var $GROUP_SHORT_BUGS='Bugs';
 	var $GROUP_SHORT_SUPPORT='Support';
-        var $GROUP_SHORT_FEATURE='Features';
+    var $GROUP_SHORT_FEATURE='Features';
 	var $GROUP_SHORT_PATCH='Patches';
 	var $GROUP_SHORT_MAIL='Lists';
 	var $GROUP_SHORT_PM='Tasks';
@@ -94,7 +96,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_SURVEY='Surveys';
 	var $GROUP_SHORT_NEWS='News';
 	var $GROUP_SHORT_CVS='CVS';
-        var $GROUP_SHORT_SVN='SVN';
+	var $GROUP_SHORT_SVN='SVN';
 	var $GROUP_SHORT_FILES='Files';
 	// 2003-02-21 helix
 	var $GROUP_SHORT_FTP='FTP';
@@ -104,7 +106,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_DONATION='Donation';
 	var $GROUP_SHORT_ADMIN='Admin';
 	// 2000-11-24
-	var $GROUP_SHORT_MEMBERLIST='Developers';
+	var $GROUP_SHORT_MEMBERLIST='Memberlist';
 
 	//tool long names for summary page
 	var $LATEST_FILE_RELEASES='Latest File Releases';
