@@ -11,7 +11,7 @@
   * Copyright 1999-2001 (c) VA Linux Systems
   * http://sourceforge.net
   *
-  * @version   $Id: mydatabase.php,v 1.2 2004/01/13 13:15:25 helix Exp $
+  * @version   $Id: mydatabase.php,v 1.3 2004/03/12 15:35:22 helix Exp $
   *
   */
 
@@ -152,7 +152,8 @@ project_admin_header(array('title'=>'Editing Database Info','group'=>$group_id,'
 
 if ($deletedb == 1) {
 
-	print "<hr><b><center>Click to confirm deletion [ <a href=\"".$PHP_SELF."?deletedbconfirm=1&group_id=".$group_id."&dbid=$dbid\">CONFIRM DELETE</a> ] </center></b> <hr>";
+print "<hr><b><center><font color=\"red\">Click to confirm deletion of DB $dbname</font> [ <a href=\"".$PHP_SELF."?deletedbconfirm=1&group_id=".$group_id."&dbid=$dbid\">CONFIRM DELETE</a> ] </center></b> <hr>";
+
 
 }
 
@@ -166,7 +167,7 @@ $res_db = db_query("
 		FROM prdb_dbs,prdb_types 
 		WHERE dbtypeid=dbtype 
 		AND group_id=$group_id
-		AND state IN (1,2,4)
+		AND state IN (1,2,3,4)
 	)
 ");
 
@@ -258,9 +259,18 @@ if (db_numrows($res_db) > 0) {
 				     <td><input type="text" name="pwconfirm" size="8" maxlength="16"> </td>
 				     <td>
 				       <input type="submit" name="submit" value="Update">
-				     </td>
-				  </form> 
+			       </form> 
 			';
+                        print '<form name="dbupdate" method="POST" action="'.$PHP_SELF.'?group_id='.$group_id.'">
+                                     <input type="hidden" name="dbid" value="'.$row_db['dbid'].'">
+                                     <input type="hidden" name="dbname" value="'.$row_db['dbname'].'">
+                                     <input type="hidden" name="dbtypeid" value="'.$row_db['dbtypeid'].'">
+                                     <input type="hidden" name="state" value="'.$row_db['state'].'">
+                                     <input type="hidden" name="deletedb" value="1">
+                                     <input type="submit" name="submit" value="Delete">
+			       </form>
+                        ';
+			print '</td>';
 
 		} else {
 			print '
