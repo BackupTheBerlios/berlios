@@ -1,4 +1,4 @@
-<!-- $Id: site_header.html.es,v 1.5 2002/05/13 23:34:48 grex Exp $ -->
+<!-- $Id: site_header.html.es,v 1.6 2002/05/13 23:42:37 grex Exp $ -->
 <!-- Translation into Spanish by Gregorio Robles, grex@scouts-es.org -->
 
 <?php
@@ -21,7 +21,7 @@
 <!-- end top strip -->
 
 <!-- top title -->
-<table border="0" cellspacing="0" cellpadding=0 width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="top" bgcolor="#FFCC33">
     <td>
       <a href="index.php.es"><img src="<?php echo $top_level; ?>/images/berliOS_logo.png" hspace="5" vspace="5" border="0" height="61" width="238" alt="BerliOS"></a>
