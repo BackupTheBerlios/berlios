@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #
 # BerliOS: The Open Source Mediator
-# Copyright 2000 (c) The BerliOS Crew
+# Copyright 2000-2004 (c) The BerliOS Crew
 # http://www.berlios.de/
 #
 # Create group/project ftp directory (/home/groups/ftp/pub/berlios/<projectname>)
@@ -19,8 +19,10 @@ while ($ln = shift(@group_dump)) {
   ($groupname, $status, $groupid, $userlist) = split(":", $ln);
   $ftpdir = $config{'project_ftp'}."/".$groupname;
   if ($status eq "A") {
-	print("mkdir -m 0775 $ftpdir\n");
-	system("mkdir -m 0775 $ftpdir");
+	if ( ! -d $ftpdir ) {
+		print("mkdir -m 0775 $ftpdir\n");
+		system("mkdir -m 0775 $ftpdir");
+	}
 	print("chmod g+s $ftpdir\n");
 	system("find $ftpdir -type d | xargs chmod g+s");
 	print("chown $groupname:$groupname $ftpdir\n");
@@ -32,8 +34,10 @@ while ($ln = shift(@group_dump)) {
 	print("chmod -R ug+w $ftpdir\n");
 	system("chmod -R ug+w $ftpdir");
   } elsif ($status eq "D") {
-	print("rm -r $ftpdir\n");
-	system("rm -r $ftpdir");
+	if ( -d $ftpdir ) {
+		print("rm -r $ftpdir\n");
+		system("rm -r $ftpdir");
+	}
   }
 }
 
