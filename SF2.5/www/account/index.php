@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.4 2004/06/09 12:23:07 helix Exp $
+// $Id: index.php,v 1.5 2004/08/12 13:20:54 helix Exp $
 
 require ('pre.php');    
 
@@ -109,7 +109,7 @@ if ($row_user['unix_status'] == 'A') {
 	$HTML->box1_top("Shell Account Information"); 
 	print '&nbsp;
 <BR>Shell box: <b>'.$row_user['unix_box'].'</b>
-<BR>CVS/SSH Shared Keys: <B>';
+<BR>CVS/SVN/SSH Shared Keys: <B>';
 	// get shared key count from db
 	$expl_keys = explode("###",$row_user['authorized_keys']);
 	if ($expl_keys[0]) {
