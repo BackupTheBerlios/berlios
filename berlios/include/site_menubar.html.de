@@ -13,12 +13,16 @@
 
 <tr ALIGN=RIGHT BGCOLOR="#FFCC33">
 <td><a href="<?php echo $top_level; ?>/index.php.de" class="menus">Home</a>
-<br><a href="http://news.berlios.de/" class="menus">News</a>
-<br><a href="http://forum.berlios.de/" class="menus">Diskussionsforum</a>
-<br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
-<br><a href="http://user.berlios.de/index.php.de" class="menus">Anwender</a>
+
+<p><a href="http://user.berlios.de/index.php.de" class="menus">Anwender</a>
 <br><a href="http://developer.berlios.de/index.php" class="menus">Entwickler</a>
 <br><a href="http://sourcebiz.berlios.de/?lang=German" class="menus">Hersteller &amp; Support</a>
+
+<p><a href="http://news.berlios.de/" class="menus">News</a>
+<br><a href="http://forum.berlios.de/" class="menus">Diskussionsforum</a>
+<br><a href="http://wiki.berlios.de/" class="menus">Wiki</a>
+<br><a href="http://developer.berlios.de/" class="menus">Developer</a>
+
 <p><a href="index.php.en"><img src="<?php echo $top_level; ?>/images/englishflag.png" border="0"></a></td>
 </tr>
 </table>
