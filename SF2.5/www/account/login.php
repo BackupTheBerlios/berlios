@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: login.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: login.php,v 1.3 2005/04/27 12:28:17 helix Exp $
 
 Header( "Expires: Wed, 11 Nov 1998 11:11:11 GMT"); 
 Header( "Cache-Control: no-cache"); 
@@ -113,15 +113,19 @@ Password:
 <p>
 <B><FONT COLOR="RED">You will be connected with an SSL server when you submit this form and your password will not be visible to other users.
 </FONT></B> 
+<!--
 <small style="font-size: x-small">
 (If you wonder why very this page is not loaded via SSL, please read
 next paragraph. Thank you.)
 </small>
+-->
 
+<!--
 <P>
 <B>Internet Explorer</B> users will have intermittent SSL problems, so they should leave SSL 
 after login. Netscape users should stay in SSL mode permanently for maximum security.
 Visit <A HREF="http://www.microsoft.com/">Microsoft</A> for more information about this known problem.
+-->
 <P>
 <input type="submit" name="login" value="Login With SSL">
 </form>
