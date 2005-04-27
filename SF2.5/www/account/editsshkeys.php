@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: editsshkeys.php,v 1.4 2004/08/12 13:18:26 helix Exp $
+// $Id: editsshkeys.php,v 1.5 2005/04/27 12:30:55 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -59,9 +59,8 @@ if (register_valid()) {
 	$res_keys = db_query("SELECT authorized_keys FROM users WHERE user_id=".user_getid());
 	$row_keys = db_fetch_array($res_keys);
 	$authorized_keys = ereg_replace("###","\n",$row_keys[authorized_keys]);
-	print $authorized_keys;
+	print $authorized_keys."</TEXTAREA>\n";
 ?>
-	</TEXTAREA>
 	<p><input type="submit" name="Update" value="Update">
 	</form>
 
