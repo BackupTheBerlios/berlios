@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //		  
-// $Id: Group.class,v 1.4 2004/03/16 15:02:40 helix Exp $
+// $Id: Group.class,v 1.5 2006/01/02 16:28:24 helix Exp $
 
 /**
  *
@@ -301,6 +301,15 @@ class Group extends Error {
 	}
 
 	/**
+	 *  usesScreenshots() - whether or not this group has opted to use screenshots
+	 *
+	 *  @returns true/false
+	 */
+	function usesScreenshots() {
+		return $this->data_array['use_screenshots'];
+	}
+
+	/**
 	 *  usesSurvey() - whether or not this group has opted to use surveys
 	 *
 	 *  @returns true/false
@@ -494,6 +503,14 @@ class Group extends Error {
 					//
 					//	User already had unix account
 					//
+					// Add begin: helix 2005-09-30
+					//	Change unix_status to 'A'ctive if set to 'N'o Unix Account
+					$user=&user_get_object($form_newuid,$res_newuser);
+					$unix_status = $user->getUnixStatus();
+					if ($unix_status == "N") {
+						$user->setUnixStatus("A");
+					}
+					// Add end: helix 2005-09-30
 					if (!sf_ldap_check_create_user($form_newuid)) {
 						$this->setError(sf_ldap_get_error_msg());
 						return false;
@@ -592,7 +609,7 @@ class Group extends Error {
 			return false;
 		} else {
 			//audit trail
-			$this->addHistory('removed user',$user_id);
+			$this->addHistory('Removed User',$user_id);
 			return true;
 		}
 	}
