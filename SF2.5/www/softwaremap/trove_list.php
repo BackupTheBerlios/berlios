@@ -4,18 +4,13 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: trove_list.php,v 1.3 2004/04/02 12:14:04 helix Exp $
+// $Id: trove_list.php,v 1.4 2006/01/02 16:15:00 helix Exp $
 
 require "pre.php";    
 require "vars.php";
 require "trove.php";
 require "donate.php";
 
-$HTML->header(array('title'=>'Software Map'));
-echo'
-	<h2><B>Software Map</B>
-	<HR NoShade>
-';
 // assign default. 1 is 'topic'
 if (!$form_cat) $form_cat = 1;
 $form_cat = intval($form_cat);
@@ -28,15 +23,21 @@ if (db_numrows($res_trove_cat) < 1) {
 }
 $row_trove_cat = db_fetch_array($res_trove_cat);
 
+$HTML->header(array('title'=>'Software Map'));
+echo'
+        <h2><B>Software Map</B>
+        <HR NoShade>
+';
+
 // #####################################
 // this section limits search and requeries if there are discrim elements
 
 unset ($discrim_url);
 unset ($discrim_desc);
+unset ($discrim_queryalias);
+unset ($discrim_queryand);
 
 if ($discrim) {
-	unset ($discrim_queryalias);
-	unset ($discrim_queryand);
 	unset ($discrim_url_b);
 
 	// commas are ANDs
