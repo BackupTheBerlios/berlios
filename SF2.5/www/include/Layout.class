@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	      
-// $Id: Layout.class,v 1.8 2005/02/24 17:29:00 helix Exp $
+// $Id: Layout.class,v 1.9 2006/01/02 16:31:52 helix Exp $
 
 
 /*
@@ -51,7 +51,7 @@ class Layout extends Error {
 		'Forums' => 'images/ic/notes.png',
 		'Bugs' => 'images/ic/bug.png',
 		'Support' => 'images/ic/support.png',
-        'Feature' => 'images/ic/support.png',
+		'Feature' => 'images/ic/support.png',
 		'Patches' => 'images/ic/patch.png',
 		'Lists' => 'images/ic/mail.png',
 		'Tasks' => 'images/ic/index.png',
@@ -381,7 +381,18 @@ echo html_blankimage(5,100);
 <!--
 	<a href="/"><?php echo html_image($this->imgroot . "berliOS_small_logo.png","124","32",array()); ?></A>
 -->
-	<a href="/"><IMG src="//developer.berlios.de/bslogo.php?group_id=1" width="124" height="32" border="0" alt="BerliOS Developer Logo"></a>
+	<?php
+	$group_id=$params['group'];
+	if ( $group_id == "") {
+		$group_id = 1;
+	} else {
+		$project=&project_get_object($group_id);
+		if ($project->isProject()) {
+			$group_id = 1;
+		}
+	}
+	?>
+	<a href="/"><IMG src="//developer.berlios.de/bslogo.php?group_id=<?php echo $group_id; ?>" width="124" height="32" border="0" alt="BerliOS Developer Logo"></a>
 	<br><a href="/"><b>Developer</b></a>
 	</CENTER>
 <!-- -->
@@ -464,7 +475,7 @@ echo html_blankimage(5,100);
 	}
 
 	/*!     @function tab_entry
-		@abstract Prints out the a themed tab, used by project_tabs
+		@abstract Prints out the a themed tab, used by Project_tabs
 		@param  $url is the URL to link to
 			$icon is the image to use (if the theme uses it)
 			$title is the title to use in the link tags
@@ -663,10 +674,22 @@ echo html_blankimage(5,100);
 		switch ($toptab) {
 			case 'home': print $Language->GROUP_SHORT_SUMMARY; break;
 			case 'forums': print $Language->GROUP_SHORT_FORUM; break;
+			case 'bugs': print $Language->GROUP_SHORT_BUGS; break;
+			case 'support': print $Language->GROUP_SHORT_SUPPORT; break;
+			case 'feature': print $Language->GROUP_SHORT_FEATURE; break;
 			case 'mail': print $Language->GROUP_SHORT_MAIL; break;
+			case 'pm': print $Language->GROUP_SHORT_PM; break;
+			case 'docman': print $Language->GROUP_SHORT_DOCMAN; break;
+			case 'surveys': print $Language->GROUP_SHORT_SURVEY; break;
+			case 'cvs': print $Language->GROUP_SHORT_CVS; break;
+			case 'svn': print $Language->GROUP_SHORT_SVN; break;
+			case 'wiki': print $Language->GROUP_SHORT_WIKI; break;
+			case 'donation': print $Language->GROUP_SHORT_DONATION; break;
 			case 'admin': print $Language->GROUP_SHORT_ADMIN; break;
+			case 'downloads': print $Language->GROUP_SHORT_FILES; break;
 			case 'news': print $Language->GROUP_SHORT_NEWS; break;
-			case 'screenshots': print $Language->GROUP_SHORT_SCREENSHOTS; break;
+			case 'patch': print $Language->GROUP_SHORT_PATCH; break;
+			case 'images': print $Language->GROUP_SHORT_IMAGES; break;
 			case 'memberlist': print $Language->GROUP_SHORT_MEMBERLIST; break;
 			default: print $Language->GROUP_SHORT_SUMMARY; break;
 		}
@@ -690,11 +713,27 @@ echo html_blankimage(5,100);
 				$Language->GROUP_SHORT_MAIL, $toptab == 'mail');
 		}
 
-		// Newsbytes
-		if ($project->usesNews()) {
-			$this->tab_entry('/news/?group_id='.$group, $this->icons['News'], 
-				$Language->GROUP_SHORT_NEWS, $toptab == 'news');
+		// Doc Manager
+		if ($project->usesDocman()) {
+			$this->tab_entry('/docman/?group_id='.$group, $this->icons['Docs'], 
+				$Language->GROUP_SHORT_DOCMAN, $toptab == 'docman');
 		}
+
+                // Surveys
+                if ($project->usesSurvey()) {
+                        $this->tab_entry('/survey/?group_id='.$group, $this->icons['Surveys'],
+                                $Language->GROUP_SHORT_SURVEY, $toptab == 'surveys');
+                }
+
+                // Newsbytes
+                if ($project->usesNews()) {
+                        $this->tab_entry('/news/?group_id='.$group, $this->icons['News'],
+                                $Language->GROUP_SHORT_NEWS, $toptab == 'news');
+                }
+
+		// Images
+		$this->tab_entry('/imgs/?group_id='.$group, $this->icons['Images'],
+			$Language->GROUP_SHORT_IMAGES, $toptab == 'images');
 
 		// Developers
 		$this->tab_entry('/project/memberlist.php?group_id='.$group, $this->icons['Memberlist'],
