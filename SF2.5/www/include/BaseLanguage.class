@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: BaseLanguage.class,v 1.7 2005/02/24 17:27:54 helix Exp $
+// $Id: BaseLanguage.class,v 1.8 2006/01/02 16:22:45 helix Exp $
 
 
 /*
@@ -88,7 +88,7 @@ class BaseLanguage {
 	var $GROUP_SHORT_FORUM='Forums';
 	var $GROUP_SHORT_BUGS='Bugs';
 	var $GROUP_SHORT_SUPPORT='Support';
-    var $GROUP_SHORT_FEATURE='Features';
+	var $GROUP_SHORT_FEATURE='Features';
 	var $GROUP_SHORT_PATCH='Patches';
 	var $GROUP_SHORT_MAIL='Lists';
 	var $GROUP_SHORT_PM='Tasks';
@@ -101,6 +101,7 @@ class BaseLanguage {
 	// 2003-02-21 helix
 	var $GROUP_SHORT_FTP='FTP';
 	var $GROUP_SHORT_SCREENSHOTS='Screenshots';
+	var $GROUP_SHORT_IMAGES='Images';
 	// 2003-01-31 helix
 	var $GROUP_SHORT_WIKI='Wiki';
 	var $GROUP_SHORT_DONATION='Donation';
@@ -138,6 +139,9 @@ class BaseLanguage {
 	var $GROUP_LONG_FTP='Anonymous FTP Space';
 	// 2003-02-21 helix
 	var $GROUP_LONG_SCREENSHOTS='Screenshots';
+	var $GROUP_LONG_IMAGES='Images';
+	var $GROUP_LONG_FOUNDRY_NEWS="Foundry News";
+	var $GROUP_LONG_DISCUSSION_FORUMS="Discussion Forums";
 	// 2003-01-31 helix
 	var $GROUP_LONG_WIKI='OpenFacts Wiki Pages';
 	var $GROUP_LONG_DONATION='Donations to Projects';
@@ -148,12 +152,15 @@ class BaseLanguage {
 	// New strings for home page added 10/1
 	//
 	var $BREAKING_DOWN_BARRIERS='Fostering Open Source Development';
-	var $SOURCEFORGE_STATISTICS='BerliOS Statistics';
+	var $SYSTEM_STATISTICS='BerliOS Statistics';
+	var $FOUNDRY_STATISTICS='Foundry Statistics';
 	var $TOP_PROJECT_DOWNLOADS='Top Project Downloads';
 	var $NEWEST_PROJECTS='Newest Projects';
 	var $HIGHEST_RANKED_USERS='Highest Ranked Users';
 	var $MOST_ACTIVE_THIS_WEEK='Most Active This Week';
+	var $FEATURED_PROJECTS="Featured Projects";
 	var $SFOS='SourceForge OnSite';
+        var $KODERS_SEARCH='Koders Search';
 
 
 //temporary hack until
