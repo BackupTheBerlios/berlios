@@ -4,12 +4,12 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: features_boxes.php,v 1.3 2005/02/24 17:31:01 helix Exp $
+// $Id: features_boxes.php,v 1.4 2006/01/02 16:37:12 helix Exp $
 
 
 function show_features_boxes() {
 	GLOBAL $HTML,$Language;
-	$return .= $HTML->box1_top($Language->SOURCEFORGE_STATISTICS,0);
+	$return .= $HTML->box1_top($Language->SYSTEM_STATISTICS,0);
 	$return .= show_sitestats();
 //	$return .= $HTML->box1_middle($Language->SFOS);
 //	$return .= show_sfos();
@@ -34,12 +34,28 @@ function foundry_features_boxes() {
 	$group_id=$GLOBALS['foundry']->getGroupID();
 	$return .= $HTML->box1_top($Language->MOST_ACTIVE_THIS_WEEK,0);
 	$return .= foundry_active_projects($group_id);
-//	$return .= $HTML->box1_middle('Top Downloads');
-        $return .= $HTML->box1_middle($Language->TOP_PROJECT_DOWNLOADS);
-	$return .= foundry_top_downloads($GLOBALS['foundry']->getGroupID());
-	$return .= $HTML->box1_middle('Featured Projects');
-	$return .= foundry_featured_projects($GLOBALS['foundry']->getGroupID());
+	$return .= $HTML->box1_middle($Language->TOP_PROJECT_DOWNLOADS);
+	$return .= foundry_top_downloads($group_id);
+	$return .= $HTML->box1_middle($Language->FEATURED_PROJECTS);
+	$return .= foundry_featured_projects($group_id);
+	$return .= $HTML->box1_middle($Language->FOUNDRY_STATISTICS);
+	$return .= foundry_info($group_id);
 	$return .= $HTML->box1_bottom(0);
+	return $return;
+}
+
+function foundry_info($foundry_id) {
+	GLOBAL $foundry,$sys_datefmt;
+	// Get the activity percentile
+	$actv = db_query("SELECT percentile FROM project_weekly_metric WHERE group_id='$foundry_id'");
+	$actv_res = db_result($actv,0,"percentile");
+	if (!$actv_res) $actv_res=0;
+
+	$return .= "Registered: " . date($sys_datefmt, $GLOBALS['foundry']->getStartDate());
+	$return .= '<br>Activity Percentile (last week): ' . $actv_res . '%';
+	$return .= '<br>View foundry activity <a href="/project/stats/?group_id='.$foundry_id.'">statistics</a>';
+	// $return .= '<br>View foundry web <a href="http://'.$GLOBALS['foundry']->getUnixName().'.berlios.de/usage">statistics</a>';
+	$return .= '<br>View list of <a href="/export/rss_project.php?group_id='.$foundry_id.'">RSS feeds</a>';
 	return $return;
 }
 
