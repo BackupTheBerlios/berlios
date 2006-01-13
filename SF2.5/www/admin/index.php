@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: index.php,v 1.5 2005/02/11 12:54:58 helix Exp $
+// $Id: index.php,v 1.6 2006/01/13 12:20:49 helix Exp $
 
 require "pre.php";
 require($DOCUMENT_ROOT.'/admin/admin_utils.php');
@@ -104,6 +104,7 @@ Search <i>(groupid,groupunixname,groupname)</i>:
 <UL>
 <LI><A href="massmail.php">Mail Engine for <?php print $GLOBALS['sys_default_name'] ?> Subscribers (MESS)</A>
 <LI><A HREF="add_language.php">Add Supported Language</A>
+<LI><A HREF="responses_admin.php">Add/Change Canned Responses</A>
 </UL>
 
 <h3>Site Stats</h3>
