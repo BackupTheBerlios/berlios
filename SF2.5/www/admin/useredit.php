@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: useredit.php,v 1.4 2005/02/11 12:54:58 helix Exp $
+// $Id: useredit.php,v 1.5 2006/01/13 12:41:43 helix Exp $
 
 /*
 
@@ -47,31 +47,31 @@ $row_user = db_fetch_array($res_user);
 <br>Registered: <?php print date($sys_datefmt, $row_user['add_date']) ?>
 
 <h3>Unix Account Info</h3>
-<FORM method="post" action="<?php echo $PHP_SELF; ?>">
-<INPUT type="hidden" name="action" value="update_user">
-<INPUT type="hidden" name="user_id" value="<?php print $user_id; ?>">
+<form method="post" action="<?php echo $PHP_SELF; ?>">
+<input type="hidden" name="action" value="update_user">
+<input type="hidden" name="user_id" value="<?php print $user_id; ?>">
 
 <p>
 Shell:
-<SELECT name="shell">
+<select name="shell">
 <?php account_shellselects($row_user[shell]); ?>
-</SELECT>
+</select>
 
 <p>
 Unix Account Status:
-<SELECT name="unix_status">
-<OPTION <?php echo ($row_user['unix_status'] == 'N') ? 'selected ' : ''; ?>value="N">No Unix Account
-<OPTION <?php echo ($row_user['unix_status'] == 'A') ? 'selected ' : ''; ?>value="A">Active
-<OPTION <?php echo ($row_user['unix_status'] == 'S') ? 'selected ' : ''; ?>value="S">Suspended
-<OPTION <?php echo ($row_user['unix_status'] == 'D') ? 'selected ' : ''; ?>value="D">Deleted
-</SELECT>
+<select name="unix_status">
+<option <?php echo ($row_user['unix_status'] == 'N') ? 'selected ' : ''; ?>value="N">No Unix Account
+<option <?php echo ($row_user['unix_status'] == 'A') ? 'selected ' : ''; ?>value="A">Active
+<option <?php echo ($row_user['unix_status'] == 'S') ? 'selected ' : ''; ?>value="S">Suspended
+<option <?php echo ($row_user['unix_status'] == 'D') ? 'selected ' : ''; ?>value="D">Deleted
+</select>
 
 <p>
 Email:
-<INPUT TYPE="TEXT" NAME="email" VALUE="<?php echo $row_user[email]; ?>" SIZE="25" MAXLENGTH="55">
+<input type="TEXT" name="email" VALUE="<?php echo $row_user[email]; ?>" size="25" maxlength="55">
 
-<p><A href="user_changepw.php?user_id=<?php print $user_id; ?>">[Change User Password]</A><br>
-<A href="/account/pending-resend.php?form_user=<?php print user_getname($user_id); ?>">[Resend Pending Mail]</a>
+<p><a href="user_changepw.php?user_id=<?php print $user_id; ?>">[Change User Password]</a><br>
+<a href="/account/pending-resend.php?form_user=<?php print user_getname($user_id); ?>">[Resend Pending Mail]</a>
 </p>
 
 <p>
@@ -82,7 +82,7 @@ group.
 </b>
 </p>
 <input type="submit" value="Update">
-</FORM>
+</form>
 
 <hr>
 
@@ -93,21 +93,24 @@ group.
 /*
 	Iterate and show groups this user is in
 */
-$res_cat = db_query("SELECT groups.unix_group_name, groups.group_name AS group_name, "
+$res_cat = db_query("SELECT groups.unix_group_name, "
+	. "groups.status AS status, "
+	. "groups.group_name AS group_name, "
 	. "groups.group_id AS group_id, "
 	. "user_group.admin_flags AS admin_flags FROM "
 	. "groups,user_group WHERE user_group.user_id=$user_id AND "
 	. "groups.group_id=user_group.group_id");
 
-	print "<table>";
+	print "<table>\n";
 	while ($row_cat = db_fetch_array($res_cat)) {
-		print ("<tr><td><b>$row_cat[group_name]</b> ("
+		print "<tr><td><b>$row_cat[group_name]</b> ("
 			."<a href=\"/projects/".$row_cat[unix_group_name]."\">"
 			.$row_cat[unix_group_name]."</a>)</td>"
-			. "<td><a href=\"/project/admin/?group_id=$row_cat[group_id]\">[Remove User from Group]</a></td>");
-		print '<td><A HREF="/project/admin/userperms.php?group_id='.$row_cat['group_id'].'">[Edit Permissions]</A></td></tr>';
+			."<td>(".$row_cat[status].")</td>"
+			."<td><a href=\"/project/admin/?group_id=$row_cat[group_id]\">[Remove User from Group]</a></td>"
+			."<td><a href=\"/project/admin/userperms.php?group_id=".$row_cat['group_id']."\">[Edit Permissions]</a></td></tr>\n";
 	}
-	print "</table>";
+	print "</table>\n";
 
 html_feedback_bottom($feedback);
 
