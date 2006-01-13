@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: user_changepw.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: user_changepw.php,v 1.3 2006/01/13 12:44:43 helix Exp $
 
 require "pre.php";    
 require "account.php";
@@ -36,7 +36,8 @@ function register_valid()	{
 	}
 	
 	// if we got this far, it must be good
-        $user=user_get_object(user_getid());
+        //$user=user_get_object(user_getid());
+	$user=user_get_object($form_user);
 	if (!$user->setPasswd($GLOBALS['form_pw'])) {
 		$GLOBALS['register_error'] = $user->getErrorMessage();
 		return 0;
@@ -64,7 +65,7 @@ if (register_valid()) {
 <br><input type="password" name="form_pw">
 <p>New Password (repeat):
 <br><input type="password" name="form_pw2">
-<INPUT type=hidden name="form_user" value="<?php print $form_user; ?>">
+<INPUT type=hidden name="form_user" value="<?php print $user_id; ?>">
 <p><input type="submit" name="Update" value="Update">
 </form>
 
