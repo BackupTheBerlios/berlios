@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: responses_admin.php,v 1.2 2003/11/13 11:29:21 helix Exp $
+// $Id: responses_admin.php,v 1.3 2006/01/13 12:39:47 helix Exp $
 
 require("pre.php");
 require("vars.php");
@@ -27,13 +27,14 @@ function check_select_value($value, $type)
 ?>
 
 <form method="post" action="<?php echo $PHP_SELF; ?>">
-Existing Responses: <?php echo get_canned_responses(); ?>
+<b>Existing Responses</b><br>
+<?php echo get_canned_responses(); ?><br>
 <input name="action" type="submit" value="Edit">
 <input name="action" type="submit" value="Delete">
 <input type="checkbox" name="sure" value="yes">Yes, I'm sure
 </form>
 
-<br><br>
+<br>
 
 <?php
 
@@ -50,13 +51,15 @@ if( $action == "Edit" ) {
 		$response_text=$row[2];
 ?>
 
-Edit Response:<br>
+<b>Edit Response</b><br>
 <form method="post" action="<?php echo $PHP_SELF; ?>">
-Response Title: <input type="text" name="response_title" size="30" maxlength="25" value="<?php echo $response_title; ?>"><br>
+Response Title:<br>
+<input type="text" name="response_title" size="30" maxlength="25" value="<?php echo $response_title; ?>"><br>
 Response Text:<br>
 <textarea name="response_text" cols="50" rows="10"><?php echo $response_text; ?></textarea>
 <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
 <input type="hidden" name="action2" value="go">
+<br>
 <input type="submit" name="action" value="Edit">
 </form>
 
@@ -79,9 +82,10 @@ Response Text:<br>
 } else {
 ?>
 
-Create New Response:<br>
+<b>Create New Response</b><br>
 <form method="post" action="<?php echo $PHP_SELF; ?>">
-Response Title: <input type="text" name="response_title" size="30" maxlength="25"><br>
+Response Title:<br>
+<input type="text" name="response_title" size="30" maxlength="25"><br>
 Response Text:<br>
 <textarea name="response_text" cols="50" rows="10"></textarea>
 <br>
