@@ -5,7 +5,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //	      
-// $Id: Layout.class,v 1.9 2006/01/02 16:31:52 helix Exp $
+// $Id: Layout.class,v 1.10 2007/06/20 13:41:12 helix Exp $
 
 
 /*
@@ -230,7 +230,8 @@ class Layout extends Error {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr><td bgcolor="#7B797B">
 <?php
-		echo '<P><center><br><B><A HREF="/source.php?page_url='.$PHP_SELF.'"><FONT COLOR="#cccccc">Show Source</FONT></A></B><P>';
+//		echo '<P><center><br><B><A HREF="/source.php?page_url='.$PHP_SELF.'"><FONT COLOR="#cccccc">Show Source</FONT></A></B><P>';
+		echo '<P><center>';
 
 		global $IS_DEBUG,$QUERY_COUNT;
 		if ($IS_DEBUG) {
@@ -241,7 +242,7 @@ class Layout extends Error {
 		?>
 <SPAN class="footer">
 <font color="#cccccc">
-SourceForge is a trademark of VA Linux Systems, Inc.
+SourceForge is a trademark or registered trademark of VA Software Corporation in the United States and/or other countries.
 Linux is a registered trademark of Linus Torvalds.  All other trademarks and
 copyrights on this page are property of their respective owners.
 For information about other site Content ownership and sitewide
