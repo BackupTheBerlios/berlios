@@ -4,7 +4,7 @@
 // Copyright 1999-2000 (c) The SourceForge Crew
 // http://sourceforge.net
 //
-// $Id: German.class,v 1.6 2005/02/24 17:49:22 helix Exp $
+// $Id: German.class,v 1.7 2007/06/20 13:38:02 helix Exp $
 
 /*
 
@@ -12,7 +12,7 @@
 	Matthias Bauer, Sept 25 - Oct 15, 2000 (German translation)
 
 
-	Dies ist die deutsche Klasse, die BaseLanguage überlagert
+	Dies ist die deutsche Klasse, die BaseLanguage ï¿½berlagert
 
 	Jede Sprache erweitert BaseLanguage
 
@@ -41,14 +41,14 @@ class German extends BaseLanguage {
 		$this->NEW_PROJECT='Neues Projekt';
 		$this->ACCOUNT_MAINTENANCE='Zugangsverwaltung';
 		$this->CHANGE_MY_THEME='Theme &auml;ndern';
-		$this->MY_PERSONAL_PAGE='Persönliche Seite';
+		$this->MY_PERSONAL_PAGE='Pers&ouml;nliche Seite';
 		$this->BOOKMARK_PAGE='Lesezeichen';
 		$this->PROJECT_SUMMARY='&Uuml;bersicht';
 		$this->PROJECT_ADMIN='Verwaltung';
 		$this->FOUNDRY_SUMMARY='&Uuml;bersicht';
+		$this->FOUNDRY_ADMIN='Verwaltung';
 		$this->MAILING_LISTS='Mailinglisten';
 		$this->NEWS='Neuigkeiten';
-		$this->FOUNDRY_ADMIN='Verwaltung';
 		$this->SOFTWARE_MAP='Softwarekarte';
 		$this->NEW_RELEASES='Neue Releases';
 		$this->OTHER_SITE_MIRRORS='Mirrors';
@@ -56,11 +56,11 @@ class German extends BaseLanguage {
 		$this->DOCUMENTATION='Dokumentation';
 		$this->DISCUSSION_FORUMS='Diskussionsforen';
 		$this->SUBMIT_BUGS = 'Fehler melden';
-		$this->REQUEST_SUPPORT = 'Unterstützung anfragen';
-        $this->REQUEST_FEATURE = 'Erweiterungen anfragen';
+		$this->REQUEST_SUPPORT = 'Unterst&uuml;tzung anfragen';
+		$this->REQUEST_FEATURE = 'Erweiterungen anfragen';
 		$this->PROJECT_HELP_WANTED='Projekthilfe gesucht';
 		$this->TOP_PROJECTS='Top-Projekte';
-		$this->COMPILE_FARM='Compile-Farm';
+		$this->COMPILE_FARM='Compile Farm';
 		$this->CONTACT_US='Kontakt '.$GLOBALS['sys_default_name'];
 		$this->ABOUT_SOURCEFORGE='&Uuml;ber '.$GLOBALS['sys_default_name'];
 		$this->ABOUT_FOUNDRIES='&Uuml;ber Foundries';
@@ -70,8 +70,8 @@ class German extends BaseLanguage {
 		$this->GROUP_SHORT_HOMEPAGE='Homepage';
 		$this->GROUP_SHORT_FORUM='Foren';
 		$this->GROUP_SHORT_BUGS='Fehler';
-		$this->GROUP_SHORT_SUPPORT='Unterstützung';
-        $this->GROUP_SHORT_FEATURE='Erweiterungen';
+		$this->GROUP_SHORT_SUPPORT='Unterst&uuml;tzung';
+		$this->GROUP_SHORT_FEATURE='Erweiterungen';
 		$this->GROUP_SHORT_PATCH='Patches';
 		$this->GROUP_SHORT_MAIL='Mailinglisten';
 		$this->GROUP_SHORT_PM='Aufgaben';
@@ -79,10 +79,11 @@ class German extends BaseLanguage {
 		$this->GROUP_SHORT_SURVEY='Umfragen';
 		$this->GROUP_SHORT_NEWS='Neuigkeiten';
 		$this->GROUP_SHORT_CVS='CVS';
-        $this->GROUP_SHORT_SVN='SVN';
+		$this->GROUP_SHORT_SVN='SVN';
 		$this->GROUP_SHORT_FILES='Dateien';
 		// 2003-04-05 helix
 		$this->GROUP_SHORT_SCREENSHOTS='Bildschirmphotos';
+		$this->GROUP_SHORT_IMAGES='Bilder';
 		$this->GROUP_SHORT_MEMBERLIST='Mitglieder';
 		$this->GROUP_SHORT_ADMIN='Verwaltung';
 
@@ -103,7 +104,7 @@ class German extends BaseLanguage {
 		$this->GROUP_LONG_HOMEPAGE='Projekthomepage';
 		$this->GROUP_LONG_FORUM='&Ouml;ffentliche Foren';
 		$this->GROUP_LONG_BUGS='Fehlerverfolgung';
-		$this->GROUP_LONG_SUPPORT='Unterstützungsverwaltung';
+		$this->GROUP_LONG_SUPPORT='Unterst&uuml;tzungsverwaltung';
 		$this->GROUP_LONG_PATCH='Patch-Verwaltung';
 		$this->GROUP_LONG_MAIL='Mailinglisten';
 		$this->GROUP_LONG_PM='Aufgabenverwaltung';
@@ -111,22 +112,26 @@ class German extends BaseLanguage {
 		$this->GROUP_LONG_SURVEY='Umfragen';
 		$this->GROUP_LONG_NEWS='Letzte Neuigkeiten';
 		$this->GROUP_LONG_CVS='CVS-Baum';
-        $this->GROUP_LONG_SVN='SVN-Baum';
+		$this->GROUP_LONG_SVN='SVN-Baum';
 		$this->GROUP_LONG_FTP='Anonymer FTP-Zugriff';
 		// 2003-04-05 helix
 		$this->GROUP_LONG_SCREENSHOTS='Bildschirmphotos';
+		$this->GROUP_LONG_FOUNDRY_NEWS="Foundry Neuigkeiten";
+		$this->GROUP_LONG_DISCUSSION_FORUMS="Diskussionsforen";
 		$this->GROUP_LONG_WIKI='OpenFacts-Wiki-Seiten';
 		$this->GROUP_LONG_ADMIN='Projektadministration';
 
-		// neue strings für die homepage, hinzugefügt 1. 10.
-		$this->BREAKING_DOWN_BARRIERS='Förderung von Open-Source-Entwicklung';
-		$this->SOURCEFORGE_STATISTICS=$GLOBALS['sys_default_name'].' Statistiken';
+		// neue strings fuer die homepage, hinzugefuegt 1. 10.
+		$this->BREAKING_DOWN_BARRIERS='F&ouml;rderung von Open-Source-Entwicklung';
+		$this->SYSTEM_STATISTICS=$GLOBALS['sys_default_name'].' Statistiken';
 		$this->TOP_PROJECT_DOWNLOADS='Popul&auml;rste Downloads (nach Projekten)';
 		$this->NEWEST_PROJECTS='Neueste Projekte';
 		$this->HIGHEST_RANKED_USERS='Am h&ouml;chsten eingestufte Benutzer';
-		$this->MOST_ACTIVE_THIS_WEEK='Aktivste Projekte in dieser Woche';
+		$this->MOST_ACTIVE_THIS_WEEK='Aktivste Projekte dieser Woche';
+		$this->FEATURED_PROJECTS="Assoziierte Projekte";
+		$this->KODERS_SEARCH="Koders Suche";
 		
-		// Homepage About BLURB, temporär, bis der Content-Manager fertig ist
+		// Homepage About BLURB, temporï¿½r, bis der Content-Manager fertig ist
 		$this->HOME_PAGE_ABOUT_BLURB='
 
 '.$GLOBALS['sys_default_name'].' ist ein <b>freier Dienst</b> f&uuml;r
